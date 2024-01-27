@@ -6,6 +6,8 @@ class Common extends Base_Controller {
 	function __construct() {
         parent::__construct();
         $this->load->model('User_model');
+        $this->load->library('session');
+
 
     }
 
@@ -58,17 +60,17 @@ class Common extends Base_Controller {
 //////////////////////////////////////////////////////////////////////private function
     private function isUserLogin() {
     	$user_id = $this->session->userdata('user_id');
-    	if(!empty($user_id)) {
+    	/* if(!empty($user_id)) {
     		//ok
         } else {
     		redirect('home');
-        }
+        } */
     }
 
     public function questionPaper()
     {
         // echo "hello";
-        $user_id = $this->session->userdata('user_id');
+        $user_id = 7;//$this->session->userdata('user_id');
 
         $quizid = $this->input->post('quiz', true);
 
@@ -165,16 +167,15 @@ class Common extends Base_Controller {
 
     public function startQuiz()
     {
-        $this->isUserLogin();
+        /* $this->isUserLogin();
         $user_id = $this->session->userdata('user_id');
-        $data = array();
+        $data = array(); */
+
+        $user_id = 7;
 
         $query = "SELECT quiz_name, quiz_id
                   FROM quiz_details
-
-                  ORDER BY quiz_id DESC";
-
-                  /* WHERE CURRENT_DATE() BETWEEN start_date AND end_date
+                  WHERE CURRENT_DATE() BETWEEN start_date AND end_date
                   AND is_active = 1
                   AND show_it = 1
                   AND counter > 0
@@ -183,7 +184,11 @@ class Common extends Base_Controller {
                       FROM quiz_answer
                       WHERE user_id = $user_id
                       GROUP BY quiz_id
-                  )  */
+                  )
+
+                  ORDER BY quiz_id DESC";
+
+
 
         $data['quiz_name'] = $this->User_model->selectRecord($query);
 
