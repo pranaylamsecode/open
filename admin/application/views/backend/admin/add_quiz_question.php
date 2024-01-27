@@ -3,7 +3,7 @@
         <div class="panel panel-info">
             <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Quiz Question'); ?>
             </div>
-  
+
             <?php echo form_open(base_url() . 'quiz/quizQuestion/create', array('class' => 'form-horizontal form-goups-bordered validate'));?>            <div class="panel-body table-responsive">
                 <div class="row">
                     <div class="col-md-6">
@@ -11,7 +11,7 @@
                             <label for="example-text"><?php echo get_phrase('Select Quiz Name');?></label>
                             <select name="quiz_id" class="form-control select2" style="width:100%" required>
                                 <option value=""><?php echo get_phrase('Quiz Name');?></option>
-                                <?php 
+                                <?php
                                 $quiz = $this->db->get('quiz_details')->result_array();
                                 foreach($quiz as $quiz_details):
                                     ?>

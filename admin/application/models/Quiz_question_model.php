@@ -1,13 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-class Quiz_question_model extends CI_Model { 
-	
+class Quiz_question_model extends CI_Model {
+
 	function __construct()
     {
         parent::__construct();
     }
-	
+
     function createQuestion(){
         $page_data = array(
             'quiz_id' => $this->input->post('quiz_id'),
@@ -16,7 +16,12 @@ class Quiz_question_model extends CI_Model {
             'option2' => $this->input->post('option2'),
             'option3' => $this->input->post('option3'),
             'option4' => $this->input->post('option4'),
-            'answer' => $this->input->post('answer'),
+
+            'file' => $this->input->post('file'),
+            'file_a' => $this->input->post('file_a'),
+            'file_b' => $this->input->post('file_b'),
+            'file_c' => $this->input->post('file_c'),
+            'file_d' => $this->input->post('file_d'),
             'is_active' => '1',
         );
 
@@ -33,7 +38,7 @@ class Quiz_question_model extends CI_Model {
 
    // The function below inserts into academic syllabus table //
     function updateQuestion($param2){
- 
+
         $page_data = array(
             // 'quiz_id' => $this->input->post('quiz_id'),
             'question' => $this->input->post('question'),
@@ -54,11 +59,11 @@ class Quiz_question_model extends CI_Model {
         // Get the quiz_id of the question being deleted
         $question = $this->db->get_where('quiz_questions', array('id' => $param2))->row();
         $quiz_id = $question->quiz_id;
-    
+
         // Delete the question from quiz_questions table
         $this->db->where('id', $param2);
         $this->db->delete('quiz_questions');
-    
+
         // Update the counter field in quiz_details table
         $this->db->where('quiz_id', $quiz_id);
         $this->db->set('counter', 'counter-1', FALSE);
