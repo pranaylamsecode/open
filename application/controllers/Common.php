@@ -117,7 +117,7 @@ class Common extends Base_Controller {
         $this->isUserLogin();
 
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
-            $user_id = $this->session->userdata('user_id');
+            $user_id = 7;//$this->session->userdata('user_id');
             $quiz_id = $this->input->post('quizid');
 
             $select_query = "SELECT * FROM quiz_questions WHERE quiz_id = $quiz_id";
