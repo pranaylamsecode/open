@@ -17,10 +17,11 @@
                     <div class="mt-5">
                         <form id="msform" name="question-form" method="POST"
                             action="<?php echo base_url(); ?>save-answer">
-
+							<input type="button" name="preview" id="defaultbtnprv" class="next action-button"
+                                    value="Preview" />
 
                             <?php
-         
+
                             if(count($question) > 0)
                             {
                                 $counter = 1;
@@ -34,10 +35,28 @@
                                 <hr />
                                 <div class="text-left">
                                     <h4 class="quiz-heading"><?php echo $quest->question; ?></h4>
+
+									<?php if(isset($quest->file))
+												{
+													?>
+
+									<img src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file; ?>" alt="bansal-pathshala">
+
+									<?php } ?>
+
+
                                     <div class="quiz-row">
 
                                         <div class="q-tab">
                                             <label class="radio">
+												<?php if(isset($quest->file_a))
+												{
+													?>
+													<img src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
+
+													<?php
+												}?>
+
                                                 <input type="radio" value="option_1"
                                                     name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                 <span class="outer"><span class="inner"></span></span>
@@ -47,6 +66,13 @@
 
                                         <div class="q-tab">
                                             <label class="radio">
+											<?php if(isset($quest->file_b))
+												{
+													?>
+													<img src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
+
+													<?php
+												}?>
                                                 <input type="radio" value="option_2"
                                                     name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                 <span class="outer"><span class="inner"></span></span>
@@ -56,6 +82,13 @@
 
                                         <div class="q-tab">
                                             <label class="radio">
+											<?php if(isset($quest->file_c))
+												{
+													?>
+													<img src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
+
+													<?php
+												}?>
                                                 <input type="radio" value="option_3"
                                                     name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                 <span class="outer"><span class="inner"></span></span>
@@ -65,6 +98,13 @@
 
                                         <div class="q-tab">
                                             <label class="radio">
+											<?php if(isset($quest->file_d))
+												{
+													?>
+													<img src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
+
+													<?php
+												}?>
                                                 <input value="option_4" type="radio"
                                                     name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                 <span class="outer"><span class="inner"></span></span>
@@ -75,26 +115,36 @@
                                     </div>
                                 </div>
                                 <hr>
+
+
                                 <?php
                                 if($counter != 1)
                                 {
                                 ?>
 
-                                <?php } 
-         
+                                <?php }
+
+
+
                             if($counter == count($question))
                             { ?>
 
                                 <input type="submit" name="submit" id="sbmtbtn" onclick="return submitAnswer();"
                                     class="action-button" value="Submit" />
                                 <?php } else {  ?>
+
+
+								</br>
                                 <input type="button" name="next" id="defaultbtnnxt" class="next action-button"
                                     value="Next" />
+
+
 
                                     <!-- <input type="button" name="next" id="defaultbtnnxt" class="action-button"
                                     value="Next" /> -->
 
                                 <?php } ?>
+
                             </fieldset>
                             <?php  $counter++;
                                 }
@@ -131,9 +181,9 @@ function submitAnswer() {
 
 </html>
 
-<?php 
+<?php
 $count_down = !empty($time) && isset($time[0]->quiz_duration) ? $time[0]->quiz_duration : '0 min';
-$duration = trim($count_down, 'min'); 
+$duration = trim($count_down, 'min');
 ?>
 <script>
 
