@@ -17,3 +17,5 @@ ALTER TABLE `quiz_questions` ADD `file` TEXT NULL DEFAULT NULL AFTER `option4`, 
 ALTER TABLE `quiz_questions` ADD `tipe_file` TEXT NULL DEFAULT NULL AFTER `file_d`;
 
 //
+
+ALTER TABLE `quiz_questions` CHANGE `quiz_id` `quiz_id` INT NULL DEFAULT NULL;

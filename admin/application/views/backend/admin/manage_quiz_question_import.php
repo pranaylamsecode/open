@@ -15,7 +15,7 @@
             <li>For ExamId data, it can only be filled using Exam ID. <a data-toggle="modal" href="#kelasId" style="text-decoration:none" class="btn btn-xs btn-primary">View ID</a>.</li>
         </ul>
         <div class="text-center">
-            <a href="<?= base_url('uploads/import/format/mahasiswa.xlsx') ?>" class="btn-default btn">Download Format</a>
+            <a href="<?= base_url('uploads/import/format/question_import.xlsx') ?>" class="btn-default btn">Download Format</a>
         </div>
         <br>
         <div class="row">

@@ -9,6 +9,7 @@ class Mahasiswa extends CI_Controller
 		parent::__construct();
 		$this->load->database();                                //Load Databse Class
                 $this->load->library('session');
+				$this->load->model('user_model');
 
 		//$this->load->library('form_validation'); // Load Library Ignited-Datatables
 
@@ -48,6 +49,7 @@ class Mahasiswa extends CI_Controller
 		$config['encrypt_name']		= true;
 
 		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
 
 		if (!$this->upload->do_upload('upload_file')) {
 			$error = $this->upload->display_errors();
@@ -77,11 +79,12 @@ class Mahasiswa extends CI_Controller
 			$data = [];
 			for ($i = 1; $i < count($sheetData); $i++) {
 				$data[] = [
-					'nim' => $sheetData[$i][0],
-					'nama' => $sheetData[$i][1],
-					'email' => $sheetData[$i][2],
-					'jenis_kelamin' => $sheetData[$i][3],
-					'kelas_id' => $sheetData[$i][4]
+					'question' => $sheetData[$i][0],
+					'option1' => $sheetData[$i][1],
+					'option2' => $sheetData[$i][2],
+					'option3' => $sheetData[$i][3],
+					'option4' => $sheetData[$i][4],
+					'option5' => $sheetData[$i][5],
 				];
 			}
 
@@ -97,14 +100,16 @@ class Mahasiswa extends CI_Controller
 		$data = [];
 		foreach ($input as $d) {
 			$data[] = [
-				'nim' => $d->nim,
-				'nama' => $d->nama,
-				'email' => $d->email,
-				'jenis_kelamin' => $d->jenis_kelamin,
-				'kelas_id' => $d->kelas_id
+				'question' => $d->question,
+				'option1' => $d->option1,
+				'option2' => $d->option2,
+				'option3' => $d->option3,
+				'option4' => $d->option4,
+				'option5' => $d->option5,
 			];
 		}
-
+		$this->db->insert('quiz_questions' , $data);
+		//$this->User_model->insertRecord('quiz_questions', $data);
 		//$save = $this->master->create('mahasiswa', $data, true);
 		/* if ($save) {
 			redirect('mahasiswa');
