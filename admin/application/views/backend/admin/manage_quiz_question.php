@@ -5,7 +5,7 @@
                 <a href="<?php echo base_url(); ?>quiz/quizQuestion" class="btn btn-warning btn-xs pull-right p-2">
                     <i class="fa fa-plus"></i><?php echo get_phrase('add_quiz_question'); ?>
                 </a>
-				<a href="<?php echo base_url(); ?>Add_Quiz/show_quiz_import" class="btn btn-warning btn-xs pull-right p-2 m-2">
+				<a href="<?php echo base_url(); ?>Mahasiswa/import" class="btn btn-warning btn-xs pull-right p-2 m-2">
                     <i class="fa fa-plus"></i>Import Question
                 </a>
             </div>

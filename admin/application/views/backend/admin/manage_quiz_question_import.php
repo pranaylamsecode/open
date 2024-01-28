@@ -38,11 +38,12 @@
                         <thead>
                             <tr>
                                 <td>No</td>
-                                <td>NIM</td>
-                                <td>Name</td>
-                                <td>Email</td>
-                                <td>Gender</td>
-                                <td>Class ID</td>
+                                <td>Question</td>
+                                <td>Option_A</td>
+                                <td>Option_B</td>
+                                <td>Option_C</td>
+                                <td>Option_D</td>
+								<td>Answer</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,24 +57,24 @@
                                         ?>
                                     <tr>
                                         <td><?= $no++; ?></td>
-                                        <td class="<?= $data['nim'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['nim'] == null ? 'NOT FILLED' : $data['nim']; ?>
+                                        <td class="<?= $data['question'] == null ? 'bg-danger' : ''; ?>">
+                                            <?= $data['question'] == null ? 'NOT FILLED' : $data['question']; ?>
                                         </td>
-                                        <td class="<?= $data['nama'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['nama'] == null ? 'NOT FILLED' : $data['nama'];; ?>
+                                        <td class="<?= $data['option1'] == null ? 'bg-danger' : ''; ?>">
+                                            <?= $data['option1'] == null ? 'NOT FILLED' : $data['option1'];; ?>
                                         </td>
-                                        <td class="<?= $data['email'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['email'] == null ? 'NOT FILLED' : $data['email'];; ?>
+                                        <td class="<?= $data['option2'] == null ? 'bg-danger' : ''; ?>">
+                                            <?= $data['option2'] == null ? 'NOT FILLED' : $data['option2'];; ?>
                                         </td>
-                                        <td class="<?= $data['jenis_kelamin'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['jenis_kelamin'] == null ? 'NOT FILLED' : $data['jenis_kelamin'];; ?>
+                                        <td class="<?= $data['option3'] == null ? 'bg-danger' : ''; ?>">
+                                            <?= $data['option3'] == null ? 'NOT FILLED' : $data['option3'];; ?>
                                         </td>
-                                        <td class="<?= $data['kelas_id'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['kelas_id'] == null ? 'NOT FILLED' : $data['kelas_id'];; ?>
+                                        <td class="<?= $data['option4'] == null ? 'bg-danger' : ''; ?>">
+                                            <?= $data['option4'] == null ? 'NOT FILLED' : $data['option4'];; ?>
                                         </td>
                                     </tr>
                             <?php
-                                        if ($data['nim'] == null || $data['nama'] == null || $data['email'] == null || $data['jenis_kelamin'] == null || $data['kelas_id'] == null) {
+                                        if ($data['question'] == null || $data['option1'] == null || $data['option2'] == null || $data['option3'] == null || $data['option4'] == null) {
                                             $status = false;
                                         }
                                     endforeach;
