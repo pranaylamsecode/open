@@ -206,7 +206,8 @@ img.hover-shadow {
 
 .next {
 	cursor: pointer;
-	position: absolute;
+	margin-right: 0px;
+	/* 	position: absolute;
 	top: 50%;
 	width: auto;
 	padding: 16px;
@@ -217,7 +218,7 @@ img.hover-shadow {
 	transition: 0.6s ease;
 	border-radius: 0 3px 3px 0;
 	user-select: none;
-	-webkit-user-select: none;
+	-webkit-user-select: none; */
 }
 
 .next {

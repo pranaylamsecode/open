@@ -256,9 +256,10 @@
                                     class="action-button" value="Submit" />
                                 <?php } else {  ?>
 
+									
 									<input type="button" name="preview" id="defaultbtnprv" class="previous action-button" value="Preview" />
 
-								</br>
+
                                 <input type="button" name="next" id="defaultbtnnxt" class="next action-button"
                                     value="Next" />
 

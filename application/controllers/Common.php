@@ -94,6 +94,10 @@ class Common extends Base_Controller {
         if ($row == 1) {
             redirect('save-answer');
         } else {
+			if(empty($quizid))
+			{
+				redirect('quiz');
+			}
             $query = "SELECT * FROM quiz_questions WHERE is_active = 1 AND quiz_id = $quizid";
             $data['question'] = $this->User_model->selectRecord($query);
 
