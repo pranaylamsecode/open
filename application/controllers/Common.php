@@ -105,9 +105,9 @@ class Common extends Base_Controller {
             // print_r($data['question']);
             // exit;
 
-            $this->load->view('header_view');
+           // $this->load->view('header_view');
             $this->load->view('scholarship/question-paper', $data);
-            $this->load->view('footer_view');
+           // $this->load->view('footer_view');
         }
     }
 
