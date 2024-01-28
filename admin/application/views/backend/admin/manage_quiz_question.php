@@ -5,6 +5,9 @@
                 <a href="<?php echo base_url(); ?>quiz/quizQuestion" class="btn btn-warning btn-xs pull-right p-2">
                     <i class="fa fa-plus"></i><?php echo get_phrase('add_quiz_question'); ?>
                 </a>
+				<a href="<?php echo base_url(); ?>Add_Quiz/show_quiz_import" class="btn btn-warning btn-xs pull-right p-2 m-2">
+                    <i class="fa fa-plus"></i>Import Question
+                </a>
             </div>
             <div class="panel-body table-responsive">
 
@@ -32,7 +35,7 @@
                         foreach ($details as $quiz_obj):
                         //  print_r($quiz_details);
                         //  exit;
-                           
+
                         ?>
                         <tr>
                             <td><?php echo ucfirst($quiz_obj['quiz_name']); ?></td>
@@ -42,7 +45,7 @@
                             <td><?php echo $quiz_obj['option3']; ?></td>
                             <td><?php echo $quiz_obj['option4']; ?></td>
                             <td><?php echo $quiz_obj['answer']; ?></td>
-                           
+
                             <td> <a href="<?php echo base_url(); ?>quiz/edit_quiz_question/<?php echo $quiz_obj['id']; ?>"
                                     class="btn btn-info btn-circle btn-xs" style="color:white">
                                     <i class="fa fa-edit"></i>

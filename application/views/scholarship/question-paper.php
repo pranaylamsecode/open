@@ -256,7 +256,7 @@
                                     class="action-button" value="Submit" />
                                 <?php } else {  ?>
 
-									
+
 									<input type="button" name="preview" id="defaultbtnprv" class="previous action-button" value="Preview" />
 
 
@@ -359,6 +359,7 @@ function openForm() {
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
+
 </script>
 <!--==================================================-->
 <!-- End sticky form Area -->
