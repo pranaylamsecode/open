@@ -14,20 +14,20 @@ class Login extends CI_Controller {
     public function index() {
 
         if ($this->session->userdata('admin_login')== 1) redirect (base_url(). 'admin/dashboard');
-        if ($this->session->userdata('hrm_login')== 1) redirect (base_url(). 'hrm/dashboard'); 
+        if ($this->session->userdata('hrm_login')== 1) redirect (base_url(). 'hrm/dashboard');
         if ($this->session->userdata('hostel_login')== 1) redirect (base_url(). 'hostel/dashboard');
         if ($this->session->userdata('accountant_login')== 1) redirect (base_url(). 'accountant/dashboard');
-        if ($this->session->userdata('librarian_login')== 1) redirect (base_url(). 'librarian/dashboard'); 
-        if ($this->session->userdata('teacher_login')== 1) redirect (base_url(). 'teacher/dashboard');   
-        if ($this->session->userdata('parent_login')== 1) redirect (base_url(). 'parent/dashboard'); 
-        if ($this->session->userdata('student_login')== 1) redirect (base_url(). 'student/dashboard'); 
+        if ($this->session->userdata('librarian_login')== 1) redirect (base_url(). 'librarian/dashboard');
+        if ($this->session->userdata('teacher_login')== 1) redirect (base_url(). 'teacher/dashboard');
+        if ($this->session->userdata('parent_login')== 1) redirect (base_url(). 'parent/dashboard');
+        if ($this->session->userdata('student_login')== 1) redirect (base_url(). 'student/dashboard');
         $this->load->view('backend/login');
     }
   //***************** / The function below redirects to logged in user area
 
-  //********************************** the function below validating user login request 
+  //********************************** the function below validating user login request
     function validate_login() {
-      
+
         $login_check_model = $this->login_model->loginFunctionForAllUsers();
         $login_user = $this->session->userdata('login_type');
         // print_r($login_check_model);
@@ -107,5 +107,6 @@ class Login extends CI_Controller {
      }
 
 
-    
+
 }
+

@@ -4,7 +4,7 @@
             <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Quiz Question'); ?>
             </div>
 
-            <?php echo form_open(base_url() . 'quiz/quizQuestion/create', array('class' => 'form-horizontal form-goups-bordered validate'));?>            <div class="panel-body table-responsive">
+            <?php echo form_open(base_url() . 'quiz/quizQuestion/create', array('class' => 'form-horizontal form-goups-bordered validate','enctype' => 'multipart/form-data'));?>            <div class="panel-body table-responsive">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -27,6 +27,7 @@
                     <div class="col-md-6"></div>
                     <div class="col-md-12">
                         <div class="form-group">
+						<input type="file" class="form-control" name="question_image" onchange="readURL(this);" required="">
                             <label for="example-text"><?php echo get_phrase('Question');?></label>
                             <input name="question" type="text" class="form-control" required>
                         </div>
@@ -34,6 +35,7 @@
                     <!-- <div class="col-md-6"></div> -->
                     <div class="col-md-6">
                         <div class="form-group">
+						<input type="file" class="form-control" name="option_a" onchange="readURL(this);" required="">
                             <label for="example-text"><?php echo get_phrase('Option 1');?></label>
                             <input name="option1" type="text" class="form-control" required>
                         </div>
@@ -41,6 +43,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
+						<input type="file" class="form-control" name="option_b" onchange="readURL(this);" required="">
                             <label for="example-text"><?php echo get_phrase('Option 2');?></label>
                             <input name="option2" type="text" class="form-control" required>
                         </div>
@@ -48,6 +51,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
+						<input type="file" class="form-control" name="option_c" onchange="readURL(this);" required="">
                             <label for="example-text"><?php echo get_phrase('Option 3');?></label>
                             <input name="option3" type="text" class="form-control" required>
                         </div>
@@ -55,6 +59,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
+						<input type="file" class="form-control" name="option_d" onchange="readURL(this);" required="">
                             <label for="example-text"><?php echo get_phrase('Option 4');?></label>
                             <input name="option4" type="text" class="form-control" required>
                         </div>

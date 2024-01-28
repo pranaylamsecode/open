@@ -17,11 +17,11 @@ class Quiz_question_model extends CI_Model {
             'option3' => $this->input->post('option3'),
             'option4' => $this->input->post('option4'),
 
-            'file' => $this->input->post('file'),
-            'file_a' => $this->input->post('file_a'),
-            'file_b' => $this->input->post('file_b'),
-            'file_c' => $this->input->post('file_c'),
-            'file_d' => $this->input->post('file_d'),
+            'file' => $_FILES['question_image']['name'],
+            'file_a' => $_FILES['option_a']['name'],
+            'file_b' => $_FILES['option_b']['name'],
+            'file_c' => $_FILES['option_c']['name'],
+            'file_d' => $_FILES['option_d']['name'],
             'is_active' => '1',
         );
 
