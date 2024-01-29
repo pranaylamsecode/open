@@ -48,7 +48,7 @@ class Common extends Base_Controller {
             }
         }
         //loading view
-    	$this->load->view('index', $data);
+    	$this->load->view('login_student', $data);
     }
 
     public function logout() {
@@ -69,6 +69,7 @@ class Common extends Base_Controller {
 
     public function questionPaper()
     {
+        print_r($this->session->userdata('login_user_id'));die;
         // echo "hello";
         $user_id = 7;//$this->session->userdata('user_id');
 

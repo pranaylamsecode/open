@@ -71,6 +71,7 @@ $route['question'] = 'common/question';
 $route['save-answer'] = 'common/saveAnswer';
 $route['quiz'] = 'common/startQuiz';
 $route['quiz-complete'] = 'common/quizComplete';
+$route['login'] = 'common';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
