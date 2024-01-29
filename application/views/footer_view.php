@@ -35,6 +35,7 @@
                             <li><a href="#"> Case stories</a></li>
                             <li><a href="#"> Latest news</a></li>
                             <li><a href="#"> Contact</a></li>
+                            <li><a href="<?php echo base_url() ?>quiz"> Quiz</a></li>
                         </ul>
                     </div>
                 </div>
@@ -179,7 +180,7 @@
             </label>
             <textarea placeholder="Enter message..." name="text" id="text"></textarea>
         </div>
-        
+
         <button type="submit" class="btn main-btn-rect">Send</button>
         <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
     </form>
