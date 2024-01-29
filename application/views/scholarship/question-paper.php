@@ -175,7 +175,7 @@
 												<?php if(isset($quest->file_a))
 												{
 													?>
-													<img src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
+													<img  src="<?=base_url()?>admin/uploads/question_image/<?php echo urlencode($quest->file_a); ?>" alt="bansal-pathshala">
 
 													<?php
 												}?>
@@ -192,7 +192,7 @@
 											<?php if(isset($quest->file_b))
 												{
 													?>
-													<img src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
+													<img src="<?=base_url()?>admin/uploads/question_image/<?php echo urlencode($quest->file_b); ?>" alt="bansal-pathshala">
 
 													<?php
 												}?>
@@ -208,7 +208,7 @@
 											<?php if(isset($quest->file_c))
 												{
 													?>
-													<img src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
+													<img src="<?=base_url()?>admin/uploads/question_image/<?php echo urlencode($quest->file_c); ?>" alt="bansal-pathshala">
 
 													<?php
 												}?>
@@ -224,7 +224,7 @@
 											<?php if(isset($quest->file_d))
 												{
 													?>
-													<img src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
+													<img src="<?=base_url()?>admin/uploads/question_image/<?php echo urlencode($quest->file_d); ?>" alt="bansal-pathshala">
 
 													<?php
 												}?>

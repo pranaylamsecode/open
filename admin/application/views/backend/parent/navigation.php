@@ -135,12 +135,12 @@
                         </li> -->
 
 
-                        <li class="<?php if ($page_name == 'quizreport') echo 'active'; ?> ">
-                            <a href="<?php echo base_url(); ?>report/classAttendanceReport">
+                       <!--  <li class="<?php if ($page_name == 'examMarkReport2') echo 'active'; ?> ">
+                            <a href="<?php echo base_url(); ?>report/examMarkReport2">
                                 <i class="fa fa-angle-double-right p-r-10"></i>
                                 <span class="hide-menu"><?php echo get_phrase('Quiz Report'); ?></span>
                             </a>
-                        </li>
+                        </li> -->
 
                         <li class="<?php if ($page_name == 'examMarkReport') echo 'active'; ?> ">
                             <a href="<?php echo base_url(); ?>report/examMarkReport">
