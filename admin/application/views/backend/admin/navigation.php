@@ -563,6 +563,13 @@
                             </a>
                         </li>
 
+                        <li class="<?php if ($page_name == 'student_marksheet_subject_import') echo 'active'; ?> ">
+                            <a href="<?php echo base_url(); ?>Mahasiswa/import2">
+                                <i class="fa fa-angle-double-right p-r-10"></i>
+                                <span class="hide-menu"><?php echo get_phrase('subject_teacher_import'); ?></span>
+                            </a>
+                        </li>
+
 
 
                     </ul>
