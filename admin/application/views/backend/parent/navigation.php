@@ -99,6 +99,7 @@
          </ul>
     </li>
 
+
             <li class="<?php if ($page_name == 'invoice') echo 'active'; ?> ">
                 <a href="<?php echo base_url(); ?>parents/invoice">
                     <i class="fa fa-paypal p-r-10"></i>
@@ -119,6 +120,38 @@
                         <span class="hide-menu"><?php echo get_phrase('manage_profile'); ?></span>
                 </a>
             </li>
+
+            <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-bar-chart-o p-r-10"></i>
+                        <span class="hide-menu"><?php echo get_phrase('generate_reports');?><span
+                                class="fa arrow"></span></span></a>
+
+                    <ul class=" nav nav-second-level">
+
+                        <!-- <li class="<?php if ($page_name == 'studentPaymentReport') echo 'active'; ?>">
+                            <a href="<?php echo base_url(); ?>report/studentPaymentReport">
+                                <i class="fa fa-angle-double-right p-r-10"></i>
+                                <span class="hide-menu"><?php echo get_phrase('Student Payments'); ?></span>
+                            </a>
+                        </li> -->
+
+
+                        <li class="<?php if ($page_name == 'quizreport') echo 'active'; ?> ">
+                            <a href="<?php echo base_url(); ?>report/classAttendanceReport">
+                                <i class="fa fa-angle-double-right p-r-10"></i>
+                                <span class="hide-menu"><?php echo get_phrase('Quiz Report'); ?></span>
+                            </a>
+                        </li>
+
+                        <li class="<?php if ($page_name == 'examMarkReport') echo 'active'; ?> ">
+                            <a href="<?php echo base_url(); ?>report/examMarkReport">
+                                <i class="fa fa-angle-double-right p-r-10"></i>
+                                <span class="hide-menu"><?php echo get_phrase('Exam Mark Report'); ?></span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </li>
 
             <li class="">
                 <a href="<?php echo base_url(); ?>login/logout">
