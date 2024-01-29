@@ -1,6 +1,12 @@
 <!--==================================================-->
 <!-- Start custom carousal -->
 <!--==================================================-->
+<style>
+    .column .content img {
+    height: 250px;
+    object-fit: contain;
+}
+</style>
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <?php foreach($slider as $row):  ?>
@@ -142,7 +148,12 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
 
 
 ?>
-            <div class="column nature">
+            <div class="column col-md-4 <?php if($row->section == 'JEE'){ echo "nature"; }  ?>
+            <?php if($row->section == 'NEET'){ echo "cars"; }  ?>
+            <?php if($row->section == 'Foundation'){ echo "people"; }  ?>
+
+            ">
+
                 <div class="content">
                     <img src="<?php echo base_url('admin/uploads/courses/').$row->course_img; ?>" alt="Mountains" style="width:100%">
                     <h5><?php echo $row->title; ?></h5>
