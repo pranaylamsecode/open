@@ -58,7 +58,7 @@
             </div>
         </div>
         <!-- <div class="btn-container">
-            
+
         </div> -->
     </div>
 </div>
@@ -131,109 +131,23 @@
             <button class="btn btn-portfolio" onclick="filterSelection('cars')"> NEET</button>
             <button class="btn btn-portfolio" onclick="filterSelection('people')"> Foundation</button>
         </div>
-       
+
         <div class="row">
-            <div class="column nature">
+       <!--  <div class="courses_crausel owl-carousel "> -->
+        <?php foreach($courses as $row):  ?>
+            <div class="column people">
                 <div class="content">
-                    <img src="<?=base_url('public/')?>assets/images/portfolio/1.jpg" alt="Mountains" style="width:100%">
-                    <h5>JEE Early Nurture Batch</h5>
+                    <img src="<?php echo base_url('admin/uploads/courses/').$row->course_img; ?>" alt="Car" style="width:100%">
+                    <h5><?php $row->title; ?></h5>
                     <ul>
-                        <li>Class 11th Students</li>
-                        <li>Batch Ongoing - 1 Dec 2023</li>
-                        <li>Target Year - 2026</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="column nature">
-                <div class="content">
-                    <img src="<?=base_url('public/')?>assets\images\portfolio\2.jpg" alt="Lights" style="width:100%">
-                    <h5>JEE Enthuse Batch</h5>
-                    <ul>
-                        <li>Class 12th Students</li>
-                        <li>Batch Date - 3 Jan 2024</li>
-                        <li>Target Year - 2025</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="column nature">
-                <div class="content">
-                    <img src="<?=base_url('public/')?>assets\images\portfolio\3.jpg" alt="Nature" style="width:100%">
-                    <h5>JEE Early Dropper Batch</h5>
-                    <ul>
-                        <li>Class 12th Pass Out</li>
-                        <li>Batch Ongoing - 1 Dec 2023</li>
-                        <li>Target Year - 2025</li>
-                    </ul>
-                </div>
-            </div>
 
-            <div class="column cars">
-                <div class="content">
-                    <img src="<?=base_url('public/')?>assets\images\portfolio\4.jpg" alt="Car" style="width:100%">
-                    <h5>JEE Early Dropper Batch</h5>
-                    <ul>
-                        <li>Class 12th Pass Out</li>
-                        <li>Batch Ongoing - 1 Dec 2023</li>
-                        <li>Target Year - 2025</li>
+                        <li>Batch Ongoing - <?php echo $row->batch ?></php></li>
+                        <li>Target Year - <?php echo $row->target_year; ?></li>
                     </ul>
                 </div>
             </div>
-            <div class="column cars">
-                <div class="content">
-                    <img src="<?=base_url('public/')?>assets\images\portfolio\5.jpg" alt="Car" style="width:100%">
-                    <h5>JEE Early Dropper Batch</h5>
-                    <ul>
-                        <li>Class 12th Pass Out</li>
-                        <li>Batch Ongoing - 1 Dec 2023</li>
-                        <li>Target Year - 2025</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="column cars">
-                <div class="content">
-                    <img src="<?=base_url('public/')?>assets\images\portfolio\6.jpg" alt="Car" style="width:100%">
-                    <h5>JEE Early Dropper Batch</h5>
-                    <ul>
-                        <li>Class 12th Pass Out</li>
-                        <li>Batch Ongoing - 1 Dec 2023</li>
-                        <li>Target Year - 2025</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="column people">
-                <div class="content">
-                    <img src="<?=base_url('public/')?>assets\images\portfolio\1.jpg" alt="Car" style="width:100%">
-                    <h5>JEE Early Dropper Batch</h5>
-                    <ul>
-                        <li>Class 12th Pass Out</li>
-                        <li>Batch Ongoing - 1 Dec 2023</li>
-                        <li>Target Year - 2025</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="column people">
-                <div class="content">
-                    <img src="<?=base_url('public/')?>assets\images\portfolio\2.jpg" alt="Car" style="width:100%">
-                    <h5>JEE Early Dropper Batch</h5>
-                    <ul>
-                        <li>Class 12th Pass Out</li>
-                        <li>Batch Ongoing - 1 Dec 2023</li>
-                        <li>Target Year - 2025</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="column people">
-                <div class="content">
-                    <img src="<?=base_url('public/')?>assets\images\portfolio\3.jpg" alt="Car" style="width:100%">
-                    <h5>JEE Early Dropper Batch</h5>
-                    <ul>
-                        <li>Class 12th Pass Out</li>
-                        <li>Batch Ongoing - 1 Dec 2023</li>
-                        <li>Target Year - 2025</li>
-                    </ul>
-                </div>
-            </div>
+            <?php endforeach ;?>
+        <!-- </div> -->
             <!-- END GRID -->
         </div>
     </div>
@@ -268,9 +182,9 @@
                             </figure>
                             <div class="worldwide_flex">
                                 <div class="Worldwide_text perfor_booster_text">
-                                    
+
                                     <h5 class="vendor_h"><?= $row->title?></h5>
-                                    
+
                                 </div>
                                 <!-- <div class="arrow-left">
                                     <a href="#0" target="_blank" tabindex="0">
@@ -626,7 +540,7 @@
         </div>
         <div class="row">
             <div class="col-lg-4 col-md-6">
-               
+
                 <div class="blog-single-box">
                     <div class="blog-content">
                         <div class="blog-title">
@@ -635,7 +549,7 @@
                         </div>
                         <div class="blog-meta">
                             <span><i class="bi bi-calendar4-week"></i> 15 Nov, 2023</span>
-                           
+
                         </div>
                         <div class="blog-discription">
                             <p>Dolor sed maecenas quis faucibus justo nibh ultricies praesent justo dolorIf you are
@@ -647,13 +561,13 @@
                         <div class="blog-bottom-title">
                             <h4>Admin</h4>
                         </div>
-                        
+
                     </div>
                 </div>
-                
+
             </div>
             <div class="col-lg-4 col-md-6">
-                
+
                 <div class="blog-single-box">
                     <div class="blog-content">
                         <div class="blog-title">
@@ -661,7 +575,7 @@
                         </div>
                         <div class="blog-meta">
                             <span><i class="bi bi-calendar4-week"></i> 15 Nov, 2023</span>
-                            
+
                         </div>
                         <div class="blog-discription">
                             <p>Dolor sed maecenas quis faucibus justo nibh ultricies praesent justo dolorIf you are
@@ -673,13 +587,13 @@
                         <div class="blog-bottom-title">
                             <h4>Admin</h4>
                         </div>
-                        
+
                     </div>
                 </div>
-                
+
             </div>
             <div class="col-lg-4 col-md-6">
-                
+
                 <div class="blog-single-box">
                     <div class="blog-content">
                         <div class="blog-title">
@@ -688,7 +602,7 @@
                         </div>
                         <div class="blog-meta">
                             <span><i class="bi bi-calendar4-week"></i> 15 Nov, 2023</span>
-                            
+
                         </div>
                         <div class="blog-discription">
                             <p>Dolor sed maecenas quis faucibus justo nibh ultricies praesent justo dolorIf you are
@@ -700,13 +614,13 @@
                         <div class="blog-bottom-title">
                             <h4>Admin</h4>
                         </div>
-                       
+
                     </div>
                 </div>
-                
+
             </div>
         </div>
-        
+
     </div>
 </div>
 <!--==================================================-->

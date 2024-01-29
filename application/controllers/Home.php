@@ -17,6 +17,7 @@ class Home extends CI_Controller {
 		$data['slider'] = $this->home_model->list('home_slider');
 		$data['winner'] = $this->home_model->list('winners');
 		$data['announce'] = $this->home_model->list('announcement');
+		$data['courses'] = $this->home_model->list('courses');
 		$data['testimonial'] = $this->home_model->list('testimonial');
 		// print_r($data);
 		// exit;
