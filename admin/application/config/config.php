@@ -206,6 +206,9 @@ $config['directory_trigger'] = 'd';
 |	3 = Informational Messages
 |	4 = All Messages
 |
+
+
+
 | You can also pass an array with threshold levels to show individual error types
 |
 | 	array(2) = Debug Messages, without Error Messages
