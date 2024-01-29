@@ -10,7 +10,7 @@ class Home extends CI_Controller {
         $this->load->library('form_validation');
     }
 
-	
+
 	public function index()
 	{
 		$data = array();
@@ -21,9 +21,10 @@ class Home extends CI_Controller {
 		// print_r($data);
 		// exit;
 
+
 		$this->load->view('header_view');
 		$this->load->view('home/home_view',$data);
 		$this->load->view('footer_view');
 	}
-	
+
 }

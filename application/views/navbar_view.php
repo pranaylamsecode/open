@@ -15,13 +15,35 @@
 
                 </div>
                 <div class="col-lg-4">
-                    <button type="button" class="btn btn-danger ">Live Class</button>
-                    <span ml-3>For Entering The Digital Classroom</span>
+                <?php $counter = 1; $link =  $this->db->get('meeting_link')->result_array();
+                                foreach($link as $key => $link):
+
+                                ?>
+
+
+
+            <a href="<?php echo $link['link'];?>">
+                                <button type="button" class="btn btn-danger ">Live Class</button></a>
+                                <span ml-3>For Entering The Digital Classroom</span>
+
+                                <?php break;?>
+
+<?php endforeach;?>
+
+
                 </div>
                 <div class="col-lg-3">
-                    <a href="<?php echo base_url().'digital_class';?>"> <button type="button"
+                <?php $counter = 1; $link =  $this->db->get('recorded_lecture')->result_array();
+                                foreach($link as $key => $link):
+
+                                ?>
+                    <a href="<?php echo $link['youtube_link'];?>"> <button type="button"
                             class="btn btn-primary ">Records</button></a>
                     <span ml-3>RECORDED Leactures</span>
+
+                    <?php break;?>
+
+            <?php endforeach;?>
                 </div>
                 <div class="col-lg-2">
 
