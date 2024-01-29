@@ -134,15 +134,22 @@
 
         <div class="row">
        <!--  <div class="courses_crausel owl-carousel "> -->
-        <?php foreach($courses as $row):  ?>
-            <div class="column people">
+        <?php foreach($courses as $row):
+
+
+$date = new DateTime($row->batch);
+$formattedDate = $date->format('j M Y'); // Change the format as needed
+
+
+?>
+            <div class="column nature">
                 <div class="content">
-                    <img src="<?php echo base_url('admin/uploads/courses/').$row->course_img; ?>" alt="Car" style="width:100%">
-                    <h5><?php $row->title; ?></h5>
+                    <img src="<?=base_url('public/')?>assets/images/portfolio/1.jpg" alt="Mountains" style="width:100%">
+                    <h5><?php echo $row->title; ?></h5>
                     <ul>
 
-                        <li>Batch Ongoing - <?php echo $row->batch ?></php></li>
-                        <li>Target Year - <?php echo $row->target_year; ?></li>
+                        <li>Batch Ongoing - <?php echo $formattedDate ;?></li>
+                        <li>Target Year - <?php echo $row->target_year;?></li>
                     </ul>
                 </div>
             </div>
