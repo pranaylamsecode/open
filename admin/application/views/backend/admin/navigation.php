@@ -22,14 +22,14 @@
                             // $key = $this->session->userdata('login_type') . '_id';
                             // $face_file = 'uploads/' . $this->session->userdata('login_type') . '_image/' . $this->session->userdata($key) . '.jpg';
                             // if (!file_exists($face_file)) {
-                            //     $face_file = 'uploads/default.jpg';                                 
+                            //     $face_file = 'uploads/default.jpg';
                             // }
                     ?>
 
                     <a href="#" class="waves-effect"><img src="<?php echo base_url('uploads/admin_image/') . $image;?>" alt="user-img"
                             class="img-circle"> <span class="hide-menu">
 
-                            <?php 
+                            <?php
                                 $account_type   =   $this->session->userdata('login_type');
                                 $account_id     =   $account_type.'_id';
                                 $name           =   $this->crud_model->get_type_name_by_id($account_type , $this->session->userdata($account_id), 'name');
@@ -71,7 +71,7 @@
                                 class="fa arrow"></span></span></a>
 
                     <ul class="nav nav-second-level<?php
-                        if ($page_name == 'manage_slider' || $page_name == 'courses' ||  $page_name == 'announcement' || 
+                        if ($page_name == 'manage_slider' || $page_name == 'courses' ||  $page_name == 'announcement' ||
                             $page_name == 'results' || $page_name == 'meet_our_winners') echo 'opened active';
                         ?>">
 
@@ -171,7 +171,7 @@
                     <ul class=" nav nav-second-level<?php
                         if ($page_name == 'add_quiz'||
                         $page_name == 'manage_quiz'||
-                        $page_name == 'add_quiz_question'|| 
+                        $page_name == 'add_quiz_question'||
                         $page_name == 'manage_quiz_question') echo 'opened active';
                     ?> ">
 
@@ -333,26 +333,26 @@
                             </a>
                         </li>
 
-                        <li class="<?php if ($page_name == 'studentHouse') echo 'active'; ?> ">
+                       <!--  <li class="<?php if ($page_name == 'studentHouse') echo 'active'; ?> ">
                             <a href="<?php echo base_url(); ?>studenthouse/studentHouse">
                                 <i class="fa fa-angle-double-right p-r-10"></i>
                                 <span class="hide-menu"><?php echo get_phrase('Student House'); ?></span>
                             </a>
-                        </li>
+                        </li> -->
 
-                        <li class="<?php if ($page_name == 'clubActivity') echo 'active'; ?> ">
+                        <!-- <li class="<?php if ($page_name == 'clubActivity') echo 'active'; ?> ">
                             <a href="<?php echo base_url(); ?>activity/clubActivity">
                                 <i class="fa fa-angle-double-right p-r-10"></i>
                                 <span class="hide-menu"><?php echo get_phrase('Student Activity'); ?></span>
                             </a>
-                        </li>
+                        </li> -->
 
-                        <li class="<?php if ($page_name == 'socialCategory') echo 'active'; ?> ">
+                       <!--  <li class="<?php if ($page_name == 'socialCategory') echo 'active'; ?> ">
                             <a href="<?php echo base_url(); ?>socialcategory/socialCategory">
                                 <i class="fa fa-angle-double-right p-r-10"></i>
                                 <span class="hide-menu"><?php echo get_phrase('Social Category'); ?></span>
                             </a>
-                        </li>
+                        </li> -->
 
 
                     </ul>
@@ -373,12 +373,12 @@
                         if ($page_name == 'manage_attendance' || $page_name == 'attendance_report') echo 'opened active'; ?>">
 
 
-                        <li class="<?php if ($page_name == 'manage_attendance') echo 'active'; ?> ">
+                      <!--   <li class="<?php if ($page_name == 'manage_attendance') echo 'active'; ?> ">
                             <a href="<?php echo base_url(); ?>admin/manage_attendance/<?php echo date("d/m/Y"); ?>">
                                 <i class="fa fa-angle-double-right p-r-10"></i>
                                 <span class="hide-menu"><?php echo get_phrase('mark_attendance'); ?></span>
                             </a>
-                        </li>
+                        </li> -->
 
 
                         <li class="<?php if ($page_name == 'attendance_report') echo 'active'; ?> ">
@@ -402,7 +402,7 @@
                 <?php $check_admin_permission = $this->db->get_where('admin_role', array('admin_id' => $this->session->userdata('login_user_id')))->row()->download_page;?>
                 <?php if($check_admin_permission == '1'):?>
 
-                <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-download p-r-10"></i> <span
+               <!--  <li> <a href="#" class="waves-effect"><i data-icon="&#xe006;" class="fa fa-download p-r-10"></i> <span
                             class="hide-menu"><?php echo get_phrase('download_page');?><span
                                 class="fa arrow"></span></span></a>
 
@@ -431,7 +431,7 @@
 
 
                     </ul>
-                </li>
+                </li> -->
 
                 <?php endif;?>
                 <!---  Permission for Admin Download Page  ends here ------>
@@ -507,7 +507,7 @@
                                 class="fa arrow"></span></span></a>
 
                     <ul class=" nav nav-second-level<?php
-                        if ($page_name == 'submit_exam' || $page_name == 'grade' ||  $page_name == 'createExamination' || 
+                        if ($page_name == 'submit_exam' || $page_name == 'grade' ||  $page_name == 'createExamination' ||
                             $page_name == 'examQuestion') echo 'opened active';
                         ?>">
 
@@ -569,7 +569,7 @@
                 </li>
 
 
-                <li class="collect_fee"> <a href="#" class="waves-effect"><i data-icon="&#xe006;"
+                <!-- <li class="collect_fee"> <a href="#" class="waves-effect"><i data-icon="&#xe006;"
                             class="fa fa-paypal p-r-10"></i> <span
                             class="hide-menu"><?php echo get_phrase('fee_collection');?><span
                                 class="fa arrow"></span></span></a>
@@ -600,7 +600,7 @@
                         </li>
 
                     </ul>
-                </li>
+                </li> -->
 
 
 
