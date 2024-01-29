@@ -69,10 +69,15 @@ class Common extends Base_Controller {
 
     public function questionPaper()
     {
-        print_r($this->session->userdata('login_user_id'));die;
-        // echo "hello";
-        $user_id = 7;//$this->session->userdata('user_id');
 
+        // echo "hello";
+        $user_id  = $this->session->userdata('student_id');//$this->session->userdata('user_id');
+        if(empty($user_id))
+        {
+
+				redirect('login');
+
+        }
         $quizid = $this->input->post('quiz', true);
 
         $this->isUserLogin();

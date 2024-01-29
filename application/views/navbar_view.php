@@ -109,13 +109,37 @@
 
                 </div>
                 <div class="col-lg-2">
+
+                <?php
+                    $user_id  = $this->session->userdata('student_id');
+                    if(isset($user_id))
+                    {
+                        ?>
+                         <div class="thrown-search-button style-three">
+                        <div class="thrown-btn  style-three ">
+                            <i class='far fa-user-circle header-icon'></i>
+                            <a class="header-button" href="<?php echo base_url() ?>admin
+                            ">Dashboard </a>
+                        </div>
+                    </div>
+
+                        <?php
+                    }else{
+
+                        ?>
+
                     <div class="thrown-search-button style-three">
                         <div class="thrown-btn  style-three ">
                             <i class='far fa-user-circle header-icon'></i>
-                            <a class="header-button" href="digital-class.php
+                            <a class="header-button" href="<?php echo base_url() ?>admin
                             ">Login </a>
                         </div>
                     </div>
+
+                        <?php
+                    }
+                ?>
+
                 </div>
             </div>
         </div>
@@ -175,13 +199,37 @@
 
                 </div>
                 <div class="col-lg-2">
-                    <div class="thrown-search-button style-three">
+
+                <?php
+                    $user_id  = $this->session->userdata('student_id');
+                    if(isset($user_id))
+                    {
+                        ?>
+                         <div class="thrown-search-button style-three">
                         <div class="sticky-thrown-btn style-three ">
                             <i class='far fa-user-circle sticky-header-icon'></i>
-                            <a class="header-button" href="digital-class.php
+                            <a class="header-button" href="<?php echo base_url() ?>admin
+                            ">Dashboard </a>
+                        </div>
+                    </div>
+
+                        <?php
+                    }else{
+
+                        ?>
+
+                <div class="thrown-search-button style-three">
+                        <div class="sticky-thrown-btn style-three ">
+                            <i class='far fa-user-circle sticky-header-icon'></i>
+                            <a class="header-button" href="<?php echo base_url() ?>admin
                             ">Login </a>
                         </div>
                     </div>
+
+                        <?php
+                    }
+                ?>
+
                 </div>
             </div>
         </div>
