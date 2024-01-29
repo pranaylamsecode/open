@@ -10,6 +10,7 @@ class Mahasiswa extends CI_Controller
 		$this->load->database();                                //Load Databse Class
                 $this->load->library('session');
 				$this->load->model('user_model');
+				$this->load->model('Master_model', 'master');
 
 		//$this->load->library('form_validation'); // Load Library Ignited-Datatables
 
@@ -80,11 +81,12 @@ class Mahasiswa extends CI_Controller
 			for ($i = 1; $i < count($sheetData); $i++) {
 				$data[] = [
 					'question' => $sheetData[$i][0],
-					'option1' => $sheetData[$i][1],
-					'option2' => $sheetData[$i][2],
-					'option3' => $sheetData[$i][3],
-					'option4' => $sheetData[$i][4],
-					'option5' => $sheetData[$i][5],
+					'quiz_id' => $sheetData[$i][1],
+					'option1' => $sheetData[$i][2],
+					'option2' => $sheetData[$i][3],
+					'option3' => $sheetData[$i][4],
+					'option4' => $sheetData[$i][5],
+					'answer' => $sheetData[$i][6],
 				];
 			}
 
@@ -101,20 +103,22 @@ class Mahasiswa extends CI_Controller
 		foreach ($input as $d) {
 			$data[] = [
 				'question' => $d->question,
+				'quiz_id' => $d->quiz_id,
 				'option1' => $d->option1,
 				'option2' => $d->option2,
 				'option3' => $d->option3,
 				'option4' => $d->option4,
-				'option5' => $d->option5,
+				'answer' => $d->answer,
 			];
 		}
-		$this->db->insert('quiz_questions' , $data);
+		//$this->db->insert('quiz_questions' , $data);
 		//$this->User_model->insertRecord('quiz_questions', $data);
-		//$save = $this->master->create('mahasiswa', $data, true);
+		$save = $this->master->create('quiz_questions', $data, true);
+		redirect('mahasiswa/import');
 		/* if ($save) {
 			redirect('mahasiswa');
 		} else {
-			redirect('mahasiswa/import');
+
 		} */
 	}
 }

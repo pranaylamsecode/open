@@ -39,6 +39,7 @@
                             <tr>
                                 <td>No</td>
                                 <td>Question</td>
+                                <td>Quiz Id</td>
                                 <td>Option_A</td>
                                 <td>Option_B</td>
                                 <td>Option_C</td>
@@ -60,6 +61,9 @@
                                         <td class="<?= $data['question'] == null ? 'bg-danger' : ''; ?>">
                                             <?= $data['question'] == null ? 'NOT FILLED' : $data['question']; ?>
                                         </td>
+                                        <td class="<?= $data['quiz_id'] == null ? 'bg-danger' : ''; ?>">
+                                            <?= $data['quiz_id'] == null ? 'NOT FILLED' : $data['quiz_id']; ?>
+                                        </td>
                                         <td class="<?= $data['option1'] == null ? 'bg-danger' : ''; ?>">
                                             <?= $data['option1'] == null ? 'NOT FILLED' : $data['option1'];; ?>
                                         </td>
@@ -72,9 +76,12 @@
                                         <td class="<?= $data['option4'] == null ? 'bg-danger' : ''; ?>">
                                             <?= $data['option4'] == null ? 'NOT FILLED' : $data['option4'];; ?>
                                         </td>
+                                        <td class="<?= $data['answer'] == null ? 'bg-danger' : ''; ?>">
+                                            <?= $data['answer'] == null ? 'NOT FILLED' : $data['answer'];; ?>
+                                        </td>
                                     </tr>
                             <?php
-                                        if ($data['question'] == null || $data['option1'] == null || $data['option2'] == null || $data['option3'] == null || $data['option4'] == null) {
+                                        if ($data['question'] == null || $data['quiz_id'] == null || $data['option1'] == null || $data['option2'] == null || $data['option3'] == null || $data['option4'] == null || $data['answer'] == null ) {
                                             $status = false;
                                         }
                                     endforeach;
