@@ -144,7 +144,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
 ?>
             <div class="column nature">
                 <div class="content">
-                    <img src="<?=base_url('public/')?>assets/images/portfolio/1.jpg" alt="Mountains" style="width:100%">
+                    <img src="<?php echo base_url('admin/uploads/courses/').$row->course_img; ?>" alt="Mountains" style="width:100%">
                     <h5><?php echo $row->title; ?></h5>
                     <ul>
 
