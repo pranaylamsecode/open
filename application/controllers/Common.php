@@ -113,11 +113,50 @@ class Common extends Base_Controller {
 
             if($level_type ==  'hard')
             {
+
+                $this->db->select('*');
+                $this->db->from('quiz_questions');
+                $this->db->where('is_active', 1);
+                $this->db->where('quiz_id', $quizid);
+
+                $this->db->where('exam_type', '1');
+
+
+                $test_data = $this->db->get()->result();
+                if(empty($test_data))
+                {
+                    redirect('quiz');
+                }
+
+
                 $get_level_type = '1';
-            }else{
+
+
+            }
+
+
+
+            if($level_type ==  'easy'){
+
+                $this->db->select('*');
+                $this->db->from('quiz_questions');
+                $this->db->where('is_active', 1);
+                $this->db->where('quiz_id', $quizid);
+
+                $this->db->where('exam_type', '0');
+
+
+                $test_data = $this->db->get()->result();
+                if(empty($test_data))
+                {
+                    redirect('quiz');
+                }
                 $get_level_type  = '0';
             }
 
+            if(empty($get_level_type)){
+                redire
+            }
             $this->db->select('*');
             $this->db->from('quiz_questions');
             $this->db->where('is_active', 1);

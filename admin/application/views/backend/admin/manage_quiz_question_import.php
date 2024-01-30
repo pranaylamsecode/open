@@ -12,6 +12,7 @@
         <ul class="alert alert-info" style="padding-left: 40px">
             <li>Please import data from excel, using the provided format</li>
             <li>Data must not be empty, all must be filled in.</li>
+            <li>fill type of for easy -> 0 and hard -> 1.</li>
             <li>For ExamId data, it can only be filled using Exam ID. <a data-toggle="modal" href="#kelasId" style="text-decoration:none" class="btn btn-xs btn-primary">View ID</a>.</li>
         </ul>
         <div class="text-center">
@@ -45,6 +46,7 @@
                                 <td>Option_C</td>
                                 <td>Option_D</td>
 								<td>Answer</td>
+                                <td>Exam Type</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -79,9 +81,12 @@
                                         <td class="<?= $data['answer'] == null ? 'bg-danger' : ''; ?>">
                                             <?= $data['answer'] == null ? 'NOT FILLED' : $data['answer'];; ?>
                                         </td>
+                                        <td class="<?= $data['exam_type'] == null ? 'bg-danger' : ''; ?>">
+                                            <?= $data['exam_type'] == null ? 'NOT FILLED' : $data['exam_type'];; ?>
+                                        </td>
                                     </tr>
                             <?php
-                                        if ($data['question'] == null || $data['quiz_id'] == null || $data['option1'] == null || $data['option2'] == null || $data['option3'] == null || $data['option4'] == null || $data['answer'] == null ) {
+                                        if ($data['question'] == null || $data['quiz_id'] == null || $data['option1'] == null || $data['option2'] == null || $data['option3'] == null || $data['option4'] == null || $data['answer'] == null ||  $data['exam_type'] == null ) {
                                             $status = false;
                                         }
                                     endforeach;

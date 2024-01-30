@@ -174,7 +174,8 @@ class Mahasiswa extends CI_Controller
 				'option3' => $d->option3,
 				'option4' => $d->option4,
 				'answer' => $d->answer,
-				'exam_type' => $d->type,
+				'exam_type' => $d->exam_type,
+				'is_active' => '1'
 			];
 		}
 		//$this->db->insert('quiz_questions' , $data);
