@@ -60,7 +60,7 @@ class Common extends Base_Controller {
 
 //////////////////////////////////////////////////////////////////////private function
     private function isUserLogin() {
-    	$user_id = $this->session->userdata('user_id');
+    	$user_id = $this->session->userdata('student_id');
     	/* if(!empty($user_id)) {
     		//ok
         } else {
