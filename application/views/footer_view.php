@@ -358,6 +358,26 @@ $(document).ready(function(){
     e.stopPropagation();
     e.preventDefault();
   });
+
+
+//   jQuery(".courses_crausel .owl-item").each(function(){
+//     jQuery(this).find(".show").parent().addClass("show_item");
+// });
+jQuery(".jee").click(function(){
+    jQuery(".courses_crausel.jee").show();
+    jQuery(".courses_crausel.neet, courses_crausel.foundation").hide();
+});
+
+jQuery(".neet").click(function(){
+    jQuery(".courses_crausel.neet").show();
+    jQuery(".courses_crausel.jee, .courses_crausel.foundation").hide();
+});
+
+jQuery(".foundation").click(function(){
+    jQuery(".courses_crausel.foundation").show();
+    jQuery(".courses_crausel.neet, .courses_crausel.jee").hide();
+});
+
 });
 </script>
 

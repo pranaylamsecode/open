@@ -1300,9 +1300,9 @@ a.header-button:hover {
 
 /* Create four equal columns that sits next to each other */
 .column {
-	-ms-flex: 25%;
+	/* -ms-flex: 25%;
 	flex: 25%;
-	max-width: 32%;
+	max-width: 32%; */
 	padding: 0 16px;
 }
 
@@ -7973,8 +7973,8 @@ span.flaticon-multiply i {
 /* Create three equal columns that floats next to each other */
 .column {
 	float: left;
-	width: 33.33%;
-	display: none;
+	/* width: 33.33%;
+	display: none; */
 	/* Hide all elements by default */
 }
 
