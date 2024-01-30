@@ -94,7 +94,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-1">
                     <div class="header-logo style-three">
-                        <a href="index.php"><img src="<?=base_url('public/')?>assets/images/bp_logo.png"
+                        <a href="index.php"><img width="250px ; height:250px;" src="<?=base_url('public/')?>assets/images/bp_logo.png"
                                 class="main_logo" alt=""></a>
                     </div>
                 </div>
@@ -159,26 +159,48 @@
                                 <div class="text-left">
                                     <h4 class="quiz-heading"><?php echo $quest->question; ?></h4>
 
-									<?php if(isset($quest->file))
-												{
-													?>
+									<?php
 
-									<img src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file; ?>" alt="bansal-pathshala">
+                                    if($quest->add_by_import == '1')
+                                    {
+                                        ?>
 
-									<?php } ?>
+                                     <img width="250px ; height:250px;" src="<?php echo $quest->file; ?>" alt="bansal-pathshala">
+
+                                    <?php   } else if(isset($quest->file)){ ?>
+
+
+
+
+									<img width="250px ; height:250px;" src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file; ?>" alt="bansal-pathshala">
+
+									<?php }else{ ?>
+
+                                        <?php } ?>
 
 
                                     <div class="quiz-row">
 
                                         <div class="q-tab">
                                             <label class="radio">
-												<?php if(isset($quest->file_a))
-												{
-													?>
-													<img  src="<?=base_url()?>admin/uploads/question_image/<?php echo urlencode($quest->file_a); ?>" alt="bansal-pathshala">
+                                            <?php
 
-													<?php
-												}?>
+                                        if($quest->add_by_import == '1')
+                                        {
+                                            ?>
+
+                                        <img width="250px ; height:250px;" src="<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
+
+                                        <?php   } else if(isset($quest->file_a)){ ?>
+
+
+
+
+                                        <img width="250px ; height:250px;" src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
+
+                                        <?php }else{ ?>
+
+                                            <?php } ?>
 
                                                 <input type="radio" value="option_1"
                                                     name="question_<?php echo $quest->id; ?>" class="ans-opt">
@@ -189,13 +211,24 @@
 
                                         <div class="q-tab">
                                             <label class="radio">
-											<?php if(isset($quest->file_b))
-												{
-													?>
-													<img src="<?=base_url()?>admin/uploads/question_image/<?php echo urlencode($quest->file_b); ?>" alt="bansal-pathshala">
+											<?php
 
-													<?php
-												}?>
+                                        if($quest->add_by_import == '1')
+                                        {
+                                            ?>
+
+                                        <img width="250px ; height:250px;" src="<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
+
+                                        <?php   } else if(isset($quest->file_b)){ ?>
+
+
+
+
+                                        <img width="250px ; height:250px;" src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
+
+                                        <?php }else{ ?>
+
+                                            <?php } ?>
                                                 <input type="radio" value="option_2"
                                                     name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                 <span class="outer"><span class="inner"></span></span>
@@ -205,13 +238,24 @@
 
                                         <div class="q-tab">
                                             <label class="radio">
-											<?php if(isset($quest->file_c))
-												{
-													?>
-													<img src="<?=base_url()?>admin/uploads/question_image/<?php echo urlencode($quest->file_c); ?>" alt="bansal-pathshala">
+											<?php
 
-													<?php
-												}?>
+                                        if($quest->add_by_import == '1')
+                                        {
+                                            ?>
+
+                                        <img width="250px ; height:250px;" src="<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
+
+                                        <?php   } else if(isset($quest->file_c)){ ?>
+
+
+
+
+                                        <img width="250px ; height:250px;" src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
+
+                                        <?php }else{ ?>
+
+                                            <?php } ?>
                                                 <input type="radio" value="option_3"
                                                     name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                 <span class="outer"><span class="inner"></span></span>
@@ -221,13 +265,24 @@
 
                                         <div class="q-tab">
                                             <label class="radio">
-											<?php if(isset($quest->file_d))
-												{
-													?>
-													<img src="<?=base_url()?>admin/uploads/question_image/<?php echo urlencode($quest->file_d); ?>" alt="bansal-pathshala">
+											<?php
 
-													<?php
-												}?>
+                                        if($quest->add_by_import == '1')
+                                        {
+                                            ?>
+
+                                        <img width="250px ; height:250px;" src="<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
+
+                                        <?php   } else if(isset($quest->file_d)){ ?>
+
+
+
+
+                                        <img width="250px ; height:250px;" src="<?=base_url()?>admin/uploads/question_image/<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
+
+                                        <?php }else{ ?>
+
+                                            <?php } ?>
                                                 <input value="option_4" type="radio"
                                                     name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                 <span class="outer"><span class="inner"></span></span>
