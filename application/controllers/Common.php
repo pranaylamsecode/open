@@ -102,70 +102,25 @@ class Common extends Base_Controller {
         if ($row == 1) {
             redirect('save-answer');
         } else {
-			if(empty($quizid))
+			if(empty($quizid) && empty($level_type))
 			{
 				redirect('quiz');
 			}
             /* $query = "SELECT * FROM `quiz_questions` WHERE `is_active` = 1 AND `quiz_id` = '$quizid' AND `exam_type` = '$level_type'";
             $data['question'] = $this->User_model->selectRecord($query); */
 
-
-
-            if($level_type ==  'hard')
-            {
-
-                $this->db->select('*');
-                $this->db->from('quiz_questions');
-                $this->db->where('is_active', 1);
-                $this->db->where('quiz_id', $quizid);
-
-                $this->db->where('exam_type', '1');
-
-
-                $test_data = $this->db->get()->result();
-                if(empty($test_data))
-                {
-                    redirect('quiz');
-                }
-
-
-                $get_level_type = '1';
-
-
-            }else{
-                $get_level_type = '1';
-            }
-
-
-
-            if($level_type ==  'easy'){
-
-                $this->db->select('*');
-                $this->db->from('quiz_questions');
-                $this->db->where('is_active', 1);
-                $this->db->where('quiz_id', $quizid);
-
-                $this->db->where('exam_type', '0');
-
-
-                $test_data = $this->db->get()->result();
-                if(empty($test_data))
-                {
-                    redirect('quiz');
-                }
-                $get_level_type  = '0';
-            }
-
-
             $this->db->select('*');
             $this->db->from('quiz_questions');
             $this->db->where('is_active', 1);
             $this->db->where('quiz_id', $quizid);
-            $this->db->where('exam_type', $get_level_type);
+            $this->db->where('exam_type', $level_type);
 
             $data['question'] = $this->db->get()->result();
 
             if(empty($data['question'])){
+
+                $this->session->set_flashdata('flash_message', get_phrase('No question is present !'));
+
                 redirect('quiz');
             }
 
@@ -243,7 +198,13 @@ class Common extends Base_Controller {
         $user_id = $this->session->userdata('user_id');
         $data = array(); */
 
-        $user_id = 7;
+        $user_id  = $this->session->userdata('student_id');//$this->session->userdata('user_id');
+        if(empty($user_id))
+        {
+
+				redirect('login');
+
+        }
 
         $query = "SELECT quiz_name, quiz_id
                   FROM quiz_details

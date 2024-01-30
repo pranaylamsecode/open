@@ -48,8 +48,8 @@
                                 <label for="level_type">Select Level<span style="color: red;">*</span> :</label>
                                 <select name="level_type" id="level_type" class="form-control " required>
 
-                                    <option value="easy">Easy</option>
-                                    <option value="hard">Hard</option>
+                                    <option value="0">Easy</option>
+                                    <option value="1">Hard</option>
 
 
                                 </select>
