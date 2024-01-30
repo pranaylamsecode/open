@@ -154,15 +154,16 @@ class Common extends Base_Controller {
                 $get_level_type  = '0';
             }
 
-            if(empty($get_level_type)){
-                redire
-            }
+
             $this->db->select('*');
             $this->db->from('quiz_questions');
             $this->db->where('is_active', 1);
             $this->db->where('quiz_id', $quizid);
+            if(!empty($get_level_type))
+            {
+                $this->db->or_where('exam_type', $get_level_type);
+            }
 
-            $this->db->or_where('exam_type', $get_level_type);
 
 
             $data['question'] = $this->db->get()->result();
