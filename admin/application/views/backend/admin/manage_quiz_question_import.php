@@ -13,14 +13,51 @@
             <li>Please import data from excel, using the provided format</li>
             <li>Data must not be empty, all must be filled in.</li>
             <li>fill type of for easy -> 0 and hard -> 1.</li>
-            <li>For ExamId data, it can only be filled using Exam ID. <a data-toggle="modal" href="#kelasId" style="text-decoration:none" class="btn btn-xs btn-primary">View ID</a>.</li>
+            <li>For ExamID data, it can only be filled using ExamID. <a data-toggle="modal" href="#kelasId" style="text-decoration:none" class="btn btn-xs btn-primary">View ID</a>.</li>
         </ul>
         <div class="text-center">
             <a href="<?= base_url('uploads/import/format/question_import.xlsx') ?>" class="btn-default btn">Download Format</a>
         </div>
         <br>
+
+
         <div class="row">
             <?= form_open_multipart('mahasiswa/preview'); ?>
+            <?php
+
+        $quiz_details  = $this->db->get('quiz_details')->result();
+
+
+            ?>
+
+            <div class="col">
+                        <div class="form-group">
+                            <label for="example-text"><?php echo get_phrase('Quiz Name');?></label>
+                            <select class="form-control" name="quiz_id" required>
+                            <?php foreach($quiz_details as $quiz_details
+                            ) { ?>
+
+            <option value="<?php echo $quiz_details->quiz_id; ?>"><?php echo $quiz_details->quiz_name; ?></option>
+                            <?php }?>
+
+
+
+                            </select>
+                        </div>
+            </div>
+
+            <div class="col">
+                        <div class="form-group">
+                            <label for="example-text"><?php echo get_phrase('Exam Type');?></label>
+                            <select class="form-control" name="exam_type" required>
+
+                            <option  value="0">Easy</option>
+                            <option value="1">Hard</option>
+
+                            </select>
+                        </div>
+            </div>
+
             <label for="file" class="col-sm-offset-1 col-sm-3 text-right">Choose File</label>
             <div class="col-sm-4">
                 <div class="form-group">
@@ -40,13 +77,13 @@
                             <tr>
                                 <td>No</td>
                                 <td>Question</td>
-                                <td>Quiz Id</td>
+
                                 <td>Option_A</td>
                                 <td>Option_B</td>
                                 <td>Option_C</td>
                                 <td>Option_D</td>
 								<td>Answer</td>
-                                <td>Exam Type</td>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -63,9 +100,7 @@
                                         <td class="<?= $data['question'] == null ? 'bg-danger' : ''; ?>">
                                             <?= $data['question'] == null ? 'NOT FILLED' : $data['question']; ?>
                                         </td>
-                                        <td class="<?= $data['quiz_id'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['quiz_id'] == null ? 'NOT FILLED' : $data['quiz_id']; ?>
-                                        </td>
+
                                         <td class="<?= $data['option1'] == null ? 'bg-danger' : ''; ?>">
                                             <?= $data['option1'] == null ? 'NOT FILLED' : $data['option1']; ?>
                                         </td>
@@ -81,12 +116,10 @@
                                         <td class="<?= $data['answer'] == null ? 'bg-danger' : ''; ?>">
                                             <?= $data['answer'] == null ? 'NOT FILLED' : $data['answer'];?>
                                         </td>
-                                        <td class="<?= $data['exam_type'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['exam_type'] == null ? 'NOT FILLED' : $data['exam_type'];; ?>
-                                        </td>
+
                                     </tr>
                             <?php
-                                        if ($data['question'] == null || $data['quiz_id'] == null || $data['option1'] == null || $data['option2'] == null || $data['option3'] == null || $data['option4'] == null || $data['answer'] == null ||  $data['exam_type'] == null ) {
+                                        if ($data['question'] == null || $data['option1'] == null || $data['option2'] == null || $data['option3'] == null || $data['option4'] == null || $data['answer'] == null ) {
                                             $status = false;
                                         }
                                     endforeach;

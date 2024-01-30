@@ -52,6 +52,10 @@ class Mahasiswa extends CI_Controller
 	}
 	public function preview()
 	{
+
+		 $quiz_id = $this->input->post('quiz_id', true);
+
+		 $exam_type = $this->input->post('exam_type', true);
 		$config['upload_path']		= './uploads/import/';
 		$config['allowed_types']	= 'xls|xlsx|csv';
 		$config['max_size']			= 2048;
@@ -89,13 +93,19 @@ class Mahasiswa extends CI_Controller
 			for ($i = 1; $i < count($sheetData); $i++) {
 				$data[] = [
 					'question' => $sheetData[$i][0],
-					'quiz_id' => $sheetData[$i][1],
-					'option1' => $sheetData[$i][2],
-					'option2' => $sheetData[$i][3],
-					'option3' => $sheetData[$i][4],
-					'option4' => $sheetData[$i][5],
-					'answer' => $sheetData[$i][6],
-					'exam_type' => $sheetData[$i][7],
+					'quiz_id' => $quiz_id,
+					'option1' => $sheetData[$i][1],
+					'option2' => $sheetData[$i][2],
+					'option3' => $sheetData[$i][3],
+					'option4' => $sheetData[$i][4],
+					'answer' => $sheetData[$i][5],
+					'file' => $sheetData[$i][6],
+					'file_a' => $sheetData[$i][7],
+					'file_b' => $sheetData[$i][8],
+					'file_c' => $sheetData[$i][9],
+					'file_d' => $sheetData[$i][10],
+
+					'exam_type' => $exam_type,
 				];
 			}
 
@@ -175,7 +185,13 @@ class Mahasiswa extends CI_Controller
 				'option4' => $d->option4,
 				'answer' => $d->answer,
 				'exam_type' => $d->exam_type,
-				'is_active' => '1'
+				'is_active' => '1',
+				'file' => $d->file,
+				'file_a' => $d->file_a,
+				'file_b' => $d->file_b,
+				'file_c' => $d->file_c,
+				'file_d' => $d->file_d,
+				'add_by_import' => '1'
 			];
 		}
 		//$this->db->insert('quiz_questions' , $data);
