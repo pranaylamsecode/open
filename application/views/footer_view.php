@@ -365,7 +365,8 @@ $(document).ready(function(){
 // });
 jQuery(".jee").click(function(){
     jQuery(".courses_crausel.jee").show();
-    jQuery(".courses_crausel.neet, courses_crausel.foundation").hide();
+    jQuery(".courses_crausel.neet, .courses_crausel.foundation").hide();
+
 });
 
 jQuery(".neet").click(function(){
@@ -376,6 +377,7 @@ jQuery(".neet").click(function(){
 jQuery(".foundation").click(function(){
     jQuery(".courses_crausel.foundation").show();
     jQuery(".courses_crausel.neet, .courses_crausel.jee").hide();
+
 });
 
 });

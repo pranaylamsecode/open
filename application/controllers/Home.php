@@ -35,6 +35,8 @@ class Home extends CI_Controller {
 		$this->db->where('section', 'Foundation');
 
 		$data['courses3'] = $this->db->get()->result();
+
+
 		$data['testimonial'] = $this->home_model->list('testimonial');
 		// print_r($data);
 		// exit;
