@@ -8,6 +8,7 @@ class Home extends CI_Controller {
 		$this->load->model('home_model');
         $this->load->helper('form');
         $this->load->library('form_validation');
+		$this->load->database();
     }
 
 
@@ -17,7 +18,23 @@ class Home extends CI_Controller {
 		$data['slider'] = $this->home_model->list('home_slider');
 		$data['winner'] = $this->home_model->list('winners');
 		$data['announce'] = $this->home_model->list('announcement');
-		$data['courses'] = $this->home_model->list('courses');
+		$this->db->select('*');
+		$this->db->from('courses');
+		$this->db->where('section', 'JEE');
+
+		$data['courses'] = $this->db->get()->result();
+
+		$this->db->select('*');
+		$this->db->from('courses');
+		$this->db->where('section', 'NEET');
+
+		$data['courses2'] = $this->db->get()->result();
+
+		$this->db->select('*');
+		$this->db->from('courses');
+		$this->db->where('section', 'Foundation');
+
+		$data['courses3'] = $this->db->get()->result();
 		$data['testimonial'] = $this->home_model->list('testimonial');
 		// print_r($data);
 		// exit;

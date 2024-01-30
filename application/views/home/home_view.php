@@ -167,7 +167,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
 
     </div>
     <div class="courses_crausel owl-carousel neet" style="display:none;">
-        <?php foreach($courses as $row):
+        <?php foreach($courses2 as $row):
 
 
 $date = new DateTime($row->batch);
@@ -194,7 +194,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
 
     </div>
     <div class="courses_crausel owl-carousel foundation" style="display:none;">
-        <?php foreach($courses as $row):
+        <?php foreach($courses2 as $row):
 
 
 $date = new DateTime($row->batch);
