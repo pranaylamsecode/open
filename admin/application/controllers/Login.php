@@ -66,7 +66,7 @@ class Login extends CI_Controller {
         }
         if($login_user == 'student') {
           $this->session->set_flashdata('flash_message', get_phrase('Successfully Login'));
-          redirect(base_url() . 'student/dashboard', 'refresh');
+          redirect(base_url(), 'refresh');
         }
         if($login_user == 'teacher') {
           $this->session->set_flashdata('flash_message', get_phrase('Successfully Login'));
@@ -109,4 +109,3 @@ class Login extends CI_Controller {
 
 
 }
-

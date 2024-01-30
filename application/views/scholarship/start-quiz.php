@@ -34,7 +34,7 @@
                                     <option value="<?php echo $quiz->quiz_id; ?>"><?php echo $quiz->quiz_name; ?>
                                     </option>
 
-                                    <?php } 
+                                    <?php }
                                 } else
                                 { ?>
                                     <option class="col">Quiz not available</style>
@@ -42,6 +42,18 @@
                                     <?php }
 	                            ?>
                                 </select>
+                            </div>
+
+                            <div class="mt-5">
+                                <label for="level_type">Select Level<span style="color: red;">*</span> :</label>
+                                <select name="level_type" id="level_type" class="form-control " required>
+
+                                    <option value="easy">Easy</option>
+                                    <option value="hard">Hard</option>
+
+
+                                </select>
+
                             </div>
                             <div class="mt-4"><?php if(!empty($quiz_name)){ ?><input type="submit"
                                     class="btn btn-primary" value="Start Quiz"><?php } ?> </div>

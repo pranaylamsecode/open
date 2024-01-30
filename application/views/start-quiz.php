@@ -12,7 +12,7 @@
         <div class="modal-content quiz">
             <!-- dialog body -->
             <div class="modal-body">
-          
+
                 <center><h3>OnLine Quiz</h3></center>
                 <br>
                 <p>Welcome <?php echo ucfirst($title);?>  <?php echo  ucfirst($name); ?> in online quiz, select your quiz and then click on start quiz link.</p>
@@ -20,8 +20,8 @@
         <div class="col">
 	    <label for="quiz">Select Quiz<span style="color: red;">*</span> :</label>
 	    <select name="quiz" id="quiz" class="form-control " required>
-	       
-	       
+
+
 	       <?php
 	       if(count($quiz_name) > 0)
 	      { ?>
@@ -29,41 +29,41 @@
 	           <?php
 	          foreach($quiz_name as $quiz)
 	      {
-	         
-	             
+
+
 	       ?>
 	        <option value="<?php echo $quiz->quiz_id; ?>"><?php echo ucfirst($quiz->quiz_name); ?></option>
-	      
-	        <?php } 
-	           
-	     
+
+	        <?php }
+
+
 	      } else
 	      { ?>
 	           <option class="col">Quiz not available</style></option>
 	     <?php }
 	       ?>
 	    </select>
-	    
+
 	  </div>
-	 
+
 	  </div>
             </div>
             <!-- dialog buttons -->
             <div class="modal-footer"><?php if(!empty($quiz_name)){ ?><input type="submit"  class="btn btn-primary" value="Start Quiz"><?php } ?> </div>
-            
+
         </div>
     </div>
 </div>
 </form>
 </body>
-        
+
 
 
 <script>
-    $("#myModal").modal({                    
+    $("#myModal").modal({
         "backdrop"  : "static",
         "keyboard"  : true,
-        "show"      : true          
+        "show"      : true
     });
-    
+
 </script>

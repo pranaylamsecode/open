@@ -7,6 +7,7 @@ class Common extends Base_Controller {
         parent::__construct();
         $this->load->model('User_model');
         $this->load->library('session');
+        $this->load->database();
 
 
     }
@@ -79,6 +80,7 @@ class Common extends Base_Controller {
 
         }
         $quizid = $this->input->post('quiz', true);
+        $level_type = $this->input->post('level_type', true);
 
         $this->isUserLogin();
         $data = array();
@@ -104,8 +106,31 @@ class Common extends Base_Controller {
 			{
 				redirect('quiz');
 			}
-            $query = "SELECT * FROM quiz_questions WHERE is_active = 1 AND quiz_id = $quizid";
-            $data['question'] = $this->User_model->selectRecord($query);
+            /* $query = "SELECT * FROM `quiz_questions` WHERE `is_active` = 1 AND `quiz_id` = '$quizid' AND `exam_type` = '$level_type'";
+            $data['question'] = $this->User_model->selectRecord($query); */
+
+
+
+            if($level_type ==  'hard')
+            {
+                $get_level_type = '1';
+            }else{
+                $get_level_type  = '0';
+            }
+
+            $this->db->select('*');
+            $this->db->from('quiz_questions');
+            $this->db->where('is_active', 1);
+            $this->db->where('quiz_id', $quizid);
+
+            $this->db->or_where('exam_type', $get_level_type);
+
+
+            $data['question'] = $this->db->get()->result();
+
+            if(empty($data['question'])){
+                redirect('quiz');
+            }
 
             $time = "SELECT quiz_duration FROM quiz_details WHERE quiz_id = $quizid";
             $data['time'] = $this->User_model->selectRecord($time);

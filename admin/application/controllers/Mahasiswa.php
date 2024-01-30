@@ -43,14 +43,13 @@ class Mahasiswa extends CI_Controller
 		$this->load->view('backend/index', $page_data);
 		}
 
-		public function import2($import_data = null)
-		{
+	public function import2($import_data = null){
 
 			if ($import_data != null) $page_data['import'] = $import_data;
 			$page_data['page_name']     = 'manage_quiz_question_import2';
 
 			$this->load->view('backend/index', $page_data);
-			}
+	}
 	public function preview()
 	{
 		$config['upload_path']		= './uploads/import/';
@@ -96,6 +95,7 @@ class Mahasiswa extends CI_Controller
 					'option3' => $sheetData[$i][4],
 					'option4' => $sheetData[$i][5],
 					'answer' => $sheetData[$i][6],
+					'exam_type' => $sheetData[$i][7],
 				];
 			}
 
@@ -174,6 +174,7 @@ class Mahasiswa extends CI_Controller
 				'option3' => $d->option3,
 				'option4' => $d->option4,
 				'answer' => $d->answer,
+				'exam_type' => $d->type,
 			];
 		}
 		//$this->db->insert('quiz_questions' , $data);
