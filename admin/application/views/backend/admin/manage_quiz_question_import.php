@@ -13,7 +13,10 @@
             <li>Please import data from excel, using the provided format</li>
             <li>Data must not be empty, all must be filled in.</li>
             <li>fill type of for easy -> 0 and hard -> 1.</li>
-            <li>For ExamID data, it can only be filled using ExamID. <a data-toggle="modal" href="#kelasId" style="text-decoration:none" class="btn btn-xs btn-primary">View ID</a>.</li>
+            <li>For ExamID data, it can only be filled using ExamID. .</li>
+            <!--  -->
+            <!--  -->
+            <!--  -->
         </ul>
         <div class="text-center">
             <a href="<?= base_url('uploads/import/format/question_import.xlsx') ?>" class="btn-default btn">Download Format</a>

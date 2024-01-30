@@ -117,6 +117,16 @@ class Mahasiswa extends CI_Controller
 
 	public function preview2()
 	{
+
+		$student_id = $this->input->post('student_id', true);
+		$subject_id = $this->input->post('subject_id', true);
+		$exam_id = $this->input->post('exam_id', true);
+		$class_id = $this->input->post('class_id', true);
+
+
+
+
+
 		$config['upload_path']		= './uploads/import/';
 		$config['allowed_types']	= 'xls|xlsx|csv';
 		$config['max_size']			= 2048;
@@ -153,15 +163,15 @@ class Mahasiswa extends CI_Controller
 			$data = [];
 			for ($i = 1; $i < count($sheetData); $i++) {
 				$data[] = [
-					'student_id' => $sheetData[$i][0],
-					'subject_id' => $sheetData[$i][1],
-					'exam_id' => $sheetData[$i][2],
-					'class_id' => $sheetData[$i][3],
-					'class_score1' => $sheetData[$i][4],
-					'class_score2' => $sheetData[$i][5],
-					'class_score3' => $sheetData[$i][6],
-					'exam_score' => $sheetData[$i][7],
-					'comment' => $sheetData[$i][8],
+					'student_id' => $student_id,
+					'subject_id' => $subject_id,
+					'exam_id' => $exam_id,
+					'class_id' => $class_id,
+					'class_score1' => $sheetData[$i][0],
+					'class_score2' => $sheetData[$i][1],
+					'class_score3' => $sheetData[$i][2],
+					'exam_score' => $sheetData[$i][3],
+					'comment' => $sheetData[$i][4],
 				];
 			}
 

@@ -12,7 +12,8 @@
         <ul class="alert alert-info" style="padding-left: 40px">
             <li>Please import data from excel, using the provided format</li>
             <li>Data must not be empty, all must be filled in.</li>
-            <li>For StudentId ,SubjectId, ClassId, ExamId data, it can only be filled using StudentId ,SubjectId, ClassId, ExamId . <a data-toggle="modal" href="#kelasId" style="text-decoration:none" class="btn btn-xs btn-primary">View ID</a>.</li>
+            <li>For StudentId ,SubjectId, ClassId, ExamId data, it can only be filled using StudentId ,SubjectId, ClassId, ExamId . .</li>
+         <!-- <a data-toggle="modal" href="#kelasId" style="text-decoration:none" class="btn btn-xs btn-primary">View ID</a> -->
         </ul>
         <div class="text-center">
             <a href="<?= base_url('uploads/import/format/mark_question_import.xlsx') ?>" class="btn-default btn">Download Format</a>
@@ -20,6 +21,82 @@
         <br>
         <div class="row">
             <?= form_open_multipart('mahasiswa/preview2'); ?>
+
+            <?php
+
+$students  = $this->db->get('student')->result();
+$quiz_details  = $this->db->get('quiz_details')->result();
+$subjects  = $this->db->get('subject')->result();
+$classs  = $this->db->get('class')->result();
+
+
+    ?>
+
+    <div class="col">
+                <div class="form-group">
+                    <label for="example-text"><?php echo get_phrase('Student');?></label>
+                    <select class="form-control" name="student_id" required>
+                    <?php foreach($students as $students
+                    ) { ?>
+
+    <option value="<?php echo $students->student_id; ?>"><?php echo $students->name; ?></option>
+                    <?php }?>
+
+
+
+                    </select>
+                </div>
+    </div>
+
+    <div class="col">
+                <div class="form-group">
+                    <label for="example-text"><?php echo get_phrase('Exam Id');?></label>
+                    <select class="form-control" name="exam_id" required>
+                    <?php foreach($quiz_details as $quiz_details
+                    ) { ?>
+
+    <option value="<?php echo $quiz_details->quiz_id; ?>"><?php echo $quiz_details->quiz_name; ?></option>
+                    <?php }?>
+
+
+
+                    </select>
+                </div>
+    </div>
+
+    <div class="col">
+                <div class="form-group">
+                    <label for="example-text"><?php echo get_phrase('subjects');?></label>
+                    <select class="form-control" name="subject_id" required>
+                    <?php foreach($subjects as $subjects
+                    ) { ?>
+
+    <option value="<?php echo $subjects->subject_id; ?>"><?php echo $subjects->name; ?></option>
+                    <?php }?>
+
+
+
+                    </select>
+                </div>
+    </div>
+
+    <div class="col">
+                <div class="form-group">
+                    <label for="example-text"><?php echo get_phrase('Class');?></label>
+                    <select class="form-control" name="class_id" required>
+                    <?php foreach($classs as $classs
+                    ) { ?>
+
+    <option value="<?php echo $classs->class_id; ?>"><?php echo $classs->name; ?></option>
+                    <?php }?>
+
+
+
+                    </select>
+                </div>
+    </div>
+
+
             <label for="file" class="col-sm-offset-1 col-sm-3 text-right">Choose File</label>
             <div class="col-sm-4">
                 <div class="form-group">
@@ -38,9 +115,7 @@
                         <thead>
                             <tr>
                                 <td>No</td>
-                                <td>StudentId</td>
-                                <td>SubjectId</td>
-                                <td>ExamId</td>
+
                                 <td>Score 1</td>
                                 <td>Score 2</td>
                                 <td>Score 3</td>
@@ -59,18 +134,7 @@
                                         ?>
                                     <tr>
                                         <td><?= $no++; ?></td>
-                                        <td class="<?= $data['question'] == null ? 'student_id-danger' : ''; ?>">
-                                            <?= $data['student_id'] == null ? 'NOT FILLED' : $data['student_id']; ?>
-                                        </td>
-                                        <td class="<?= $data['subject_id'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['subject_id'] == null ? 'NOT FILLED' : $data['subject_id']; ?>
-                                        </td>
-                                        <td class="<?= $data['exam_id'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['exam_id'] == null ? 'NOT FILLED' : $data['exam_id']; ?>
-                                        </td>
-                                        <td class="<?= $data['class_id'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['class_id'] == null ? 'NOT FILLED' : $data['class_id']; ?>
-                                        </td>
+
                                         <td class="<?= $data['class_score1'] == null ? 'bg-danger' : ''; ?>">
                                             <?= $data['class_score1'] == null ? 'NOT FILLED' : $data['class_score1']; ?>
                                         </td>
@@ -89,11 +153,7 @@
 
                                     </tr>
                             <?php
-                                     if ($data['student_id'] == null ||
-                                        $data['subject_id'] == null ||
-
-                                        $data['exam_id'] == null ||
-                                        $data['class_id'] == null ||
+                                     if (
                                         $data['class_score1'] == null ||
                                         $data['class_score2'] == null ||
                                         $data['class_score3'] == null ||
