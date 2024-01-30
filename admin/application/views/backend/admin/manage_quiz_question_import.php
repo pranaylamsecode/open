@@ -67,19 +67,19 @@
                                             <?= $data['quiz_id'] == null ? 'NOT FILLED' : $data['quiz_id']; ?>
                                         </td>
                                         <td class="<?= $data['option1'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['option1'] == null ? 'NOT FILLED' : $data['option1'];; ?>
+                                            <?= $data['option1'] == null ? 'NOT FILLED' : $data['option1']; ?>
                                         </td>
                                         <td class="<?= $data['option2'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['option2'] == null ? 'NOT FILLED' : $data['option2'];; ?>
+                                            <?= $data['option2'] == null ? 'NOT FILLED' : $data['option2']; ?>
                                         </td>
                                         <td class="<?= $data['option3'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['option3'] == null ? 'NOT FILLED' : $data['option3'];; ?>
+                                            <?= $data['option3'] == null ? 'NOT FILLED' : $data['option3']; ?>
                                         </td>
                                         <td class="<?= $data['option4'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['option4'] == null ? 'NOT FILLED' : $data['option4'];; ?>
+                                            <?= $data['option4'] == null ? 'NOT FILLED' : $data['option4']; ?>
                                         </td>
                                         <td class="<?= $data['answer'] == null ? 'bg-danger' : ''; ?>">
-                                            <?= $data['answer'] == null ? 'NOT FILLED' : $data['answer'];; ?>
+                                            <?= $data['answer'] == null ? 'NOT FILLED' : $data['answer'];?>
                                         </td>
                                         <td class="<?= $data['exam_type'] == null ? 'bg-danger' : ''; ?>">
                                             <?= $data['exam_type'] == null ? 'NOT FILLED' : $data['exam_type'];; ?>
