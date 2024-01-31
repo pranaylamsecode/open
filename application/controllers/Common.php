@@ -168,7 +168,7 @@ class Common extends Base_Controller {
 
             $questionQuery = "SELECT quiz_questions.question, quiz_answer.answer FROM quiz_questions
                 INNER JOIN quiz_answer ON quiz_answer.question_id = quiz_questions.id
-                WHERE quiz_answer.user_id = $user_id";
+                WHERE quiz_answer.user_id = $user_id AND quiz_answer.quiz_id = $quiz_id";
             $data['result'] = $this->User_model->selectRecord($questionQuery);
 
             $correctQuery = "SELECT * FROM quiz_answer WHERE quiz_id = $quiz_id AND user_id = $user_id AND is_correct = 1";
