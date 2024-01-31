@@ -91,7 +91,7 @@
 <form id="msform" name="question-form" method="POST"
                             action="<?php echo base_url();?>question-paper">
 
-
+                            <input type="hidden" value="2" name="step_instruction">
 
                             <input type="hidden" value="<?php echo $quizid; ?>" name="quiz">
                             <input type="hidden" value="<?php echo $level_type; ?>" name="level_type">
