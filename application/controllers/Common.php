@@ -73,6 +73,8 @@ class Common extends Base_Controller {
 
         // echo "hello";
         $user_id  = $this->session->userdata('student_id');
+
+
         if(empty($user_id))
         {
 
@@ -81,6 +83,9 @@ class Common extends Base_Controller {
         }
         $quizid = $this->input->post('quiz', true);
         $level_type = $this->input->post('level_type', true);
+
+        $step_instruction = $this->input->post('step_instruction', true);
+
 
         $this->isUserLogin();
         $data = array();
@@ -102,6 +107,9 @@ class Common extends Base_Controller {
         if ($row == 1) {
             redirect('save-answer');
         } else {
+
+            $quizid = $this->input->post('quiz', true);
+             $level_type = $this->input->post('level_type', true);
 			if(empty($quizid) && empty($level_type))
 			{
 				redirect('quiz');
@@ -133,7 +141,29 @@ class Common extends Base_Controller {
             // exit;
 
            // $this->load->view('header_view');
+
+           $step_instruction = $this->input->post('step_instruction', true);
+           if($step_instruction == 0)
+           {
+            $data['quizid'] = $quizid;
+            $data['level_type'] = $level_type;
+
+            $this->load->view('scholarship/question-paper-instruction-0', $data);
+           }elseif($step_instruction == 1)
+           {
+            $data['quizid'] = $quizid;
+            $data['level_type'] = $level_type;
+            $this->load->view('scholarship/question-paper-instruction-1', $data);
+           }elseif($step_instruction == 2){
+
             $this->load->view('scholarship/question-paper', $data);
+           }else{
+            $this->load->view('scholarship/question-paper', $data);
+           }
+
+
+
+
            // $this->load->view('footer_view');
         }
     }

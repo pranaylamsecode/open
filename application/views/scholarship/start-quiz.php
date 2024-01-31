@@ -18,8 +18,10 @@
                     <div class="mt-5">
                         <form name="quiz"  method="post" action="<?php echo base_url();?>question-paper">
                             <div class="form-group">
+                            <input type="hidden" value="0" name="step_instruction">
                                 <label for="quiz">Select Quiz<span style="color: red;">*</span> :</label>
                                 <select name="quiz" id="quiz" class="form-control " required>
+
 
 
                                     <?php
