@@ -161,7 +161,7 @@
 
 									<?php
 
-                                    if($quest->add_by_import == '1' )
+                                    if($quest->add_by_import == '1' && !empty($quest->file))
                                     {
                                         ?>
 
@@ -169,7 +169,7 @@
 
                                      <img width="250px ; height:250px;" src="<?php echo $quest->file; ?>" alt="bansal-pathshala">
 
-                                    <?php   } else if(isset($quest->file) ){ ?>
+                                    <?php   } else if(isset($quest->file) && !empty($quest->file)){ ?>
 
 
 
@@ -187,13 +187,13 @@
                                             <label class="radio">
                                             <?php
 
-                                        if($quest->add_by_import == '1'  )
+                                        if($quest->add_by_import == '1'  && !empty($quest->file_a))
                                         {
                                             ?>
 
                                         <img width="250px ; height:250px;" src="<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
 
-                                        <?php   } else if(isset($quest->file_a)   ){ ?>
+                                        <?php   } else if(isset($quest->file_a)  && !empty($quest->file_a) ){ ?>
 
 
 
@@ -215,13 +215,13 @@
                                             <label class="radio">
 											<?php
 
-                                        if($quest->add_by_import == '1'  )
+                                        if($quest->add_by_import == '1'  && !empty($quest->file_b))
                                         {
                                             ?>
 
                                         <img width="250px ; height:250px;" src="<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
 
-                                        <?php   } else if(isset($quest->file_b)  ){ ?>
+                                        <?php   } else if(isset($quest->file_b)  && !empty($quest->file_b)){ ?>
 
 
 
@@ -242,13 +242,13 @@
                                             <label class="radio">
 											<?php
 
-                                        if($quest->add_by_import == '1'  )
+                                        if($quest->add_by_import == '1'  && !empty($quest->file_c))
                                         {
                                             ?>
 
                                         <img width="250px ; height:250px;" src="<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
 
-                                        <?php   } else if(isset($quest->file_c)   ){ ?>
+                                        <?php   } else if(isset($quest->file_c)  && !empty($quest->file_c)){ ?>
 
 
 
@@ -269,13 +269,13 @@
                                             <label class="radio">
 											<?php
 
-                                        if($quest->add_by_import == '1'  )
+                                        if($quest->add_by_import == '1'  && !empty($quest->file_d))
                                         {
                                             ?>
 
                                         <img width="250px ; height:250px;" src="<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
 
-                                        <?php   } else if(isset($quest->file_d)  ){ ?>
+                                        <?php   } else if(isset($quest->file_d)){ ?>
 
 
 
