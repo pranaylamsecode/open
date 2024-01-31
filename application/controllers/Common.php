@@ -208,7 +208,7 @@ class Common extends Base_Controller {
 
         $query = "SELECT quiz_name, quiz_id
                   FROM quiz_details
-                  WHERE CURRENT_DATE() BETWEEN start_date AND end_date
+                  WHERE DATE_SUB(CURRENT_DATE(), INTERVAL 1 DAY) BETWEEN start_date AND end_date
                   AND is_active = 1
                   AND show_it = 1
                   AND counter > 0

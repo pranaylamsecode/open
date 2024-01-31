@@ -24,17 +24,20 @@ class Home extends CI_Controller {
 
 		$data['courses'] = $this->db->get()->result();
 
+
 		$this->db->select('*');
 		$this->db->from('courses');
 		$this->db->where('section', 'NEET');
 
 		$data['courses2'] = $this->db->get()->result();
 
+
 		$this->db->select('*');
 		$this->db->from('courses');
 		$this->db->where('section', 'Foundation');
 
 		$data['courses3'] = $this->db->get()->result();
+
 
 
 		$data['testimonial'] = $this->home_model->list('testimonial');
