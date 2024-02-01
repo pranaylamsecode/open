@@ -1352,21 +1352,49 @@
                                                                                     if ($quest->add_by_import == '1'  && !empty($quest->file_a)) {
                                                                                     ?>
 
+<<<<<<< Updated upstream
                                                                                         <img width="250px ; height:250px;" src="<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
+=======
+
+                                                                                    <img width="250px ; height:250px;" src="<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
+                                                                                    <?php if(!empty($quest->option1)){ ?>
+                                                                                        <p><?php $quest->option1; ?></p>
+                                                                                    <?php } ?>
+
+>>>>>>> Stashed changes
 
                                                                                     <?php   } else if (isset($quest->file_a)  && !empty($quest->file_a)) { ?>
 
 
 
 
+<<<<<<< Updated upstream
                                                                                         <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
+=======
+                                                                                    <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
+                                                                                    <?php if(!empty($quest->option1)){ ?>
+                                                                                        <p><?php $quest->option1; ?></p>
+                                                                                    <?php } ?>
+
+>>>>>>> Stashed changes
 
                                                                                     <?php } else { ?>
 
+<<<<<<< Updated upstream
                                                                                     <?php } ?>
                                                                                 </div>
                                                                                 <input type="radio" value="option_1" name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                                                 <span class="outer"></span>
+=======
+                                                                                    <?php if(!empty($quest->option1)){ ?>
+                                                                                        <p><?php $quest->option1; ?></p>
+                                                                                    <?php } ?>
+
+                                                                                <?php } ?>
+                                                                            </div>
+                                                                            <input type="radio" value="option_1" name="question_<?php echo $quest->id; ?>" class="ans-opt">
+                                                                            <span class="outer"></span>
+>>>>>>> Stashed changes
 
                                                                             </label>
                                                                         </div>
@@ -1387,14 +1415,34 @@
 
                                                                                         <img width="250px ; height:250px;" src="<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
 
+<<<<<<< Updated upstream
                                                                                     <?php   } else if (isset($quest->file_b)  && !empty($quest->file_b)) { ?>
+=======
+                                                                                    <?php if(!empty($quest->option2)){ ?>
+                                                                                        <p><?php $quest->option2; ?></p>
+                                                                                    <?php } ?>
+
+                                                                                <?php   } else if (isset($quest->file_b)  && !empty($quest->file_b)) { ?>
+>>>>>>> Stashed changes
 
 
 
 
+<<<<<<< Updated upstream
                                                                                         <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
 
                                                                                     <?php } else { ?>
+=======
+                                                                                    <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
+                                                                                    <?php if(!empty($quest->option2)){ ?>
+                                                                                        <p><?php $quest->option2; ?></p>
+                                                                                    <?php } ?>
+
+                                                                                <?php } else { ?>
+                                                                                    <?php if(!empty($quest->option2)){ ?>
+                                                                                        <p><?php $quest->option2; ?></p>
+                                                                                    <?php } ?>
+>>>>>>> Stashed changes
 
                                                                                     <?php } ?>
                                                                                 </div>
@@ -1419,21 +1467,46 @@
                                                                                     if ($quest->add_by_import == '1'  && !empty($quest->file_c)) {
                                                                                     ?>
 
+<<<<<<< Updated upstream
                                                                                         <img width="250px ; height:250px;" src="<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
+=======
+                                                                                    <img width="250px ; height:250px;" src="<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
+                                                                                    <?php if(!empty($quest->option3)){ ?>
+                                                                                        <p><?php $quest->option3; ?></p>
+                                                                                    <?php } ?>
+>>>>>>> Stashed changes
 
                                                                                     <?php   } else if (isset($quest->file_c)  && !empty($quest->file_c)) { ?>
 
 
 
 
+<<<<<<< Updated upstream
                                                                                         <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
+=======
+                                                                                    <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
+                                                                                    <?php if(!empty($quest->option3)){ ?>
+                                                                                        <p><?php $quest->option3; ?></p>
+                                                                                    <?php } ?>
+>>>>>>> Stashed changes
 
                                                                                     <?php } else { ?>
 
+<<<<<<< Updated upstream
                                                                                     <?php } ?>
                                                                                 </div>
                                                                                 <input type="radio" value="option_3" name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                                                 <span class="outer"></span>
+=======
+                                                                                    <?php if(!empty($quest->option3)){ ?>
+                                                                                        <p><?php $quest->option3; ?></p>
+                                                                                    <?php } ?>
+
+                                                                                <?php } ?>
+                                                                            </div>
+                                                                            <input type="radio" value="option_3" name="question_<?php echo $quest->id; ?>" class="ans-opt">
+                                                                            <span class="outer"></span>
+>>>>>>> Stashed changes
 
                                                                             </label>
                                                                         </div>
@@ -1452,13 +1525,21 @@
                                                                                     if ($quest->add_by_import == '1'  && !empty($quest->file_d)) {
                                                                                     ?>
 
+<<<<<<< Updated upstream
                                                                                         <img width="250px ; height:250px;" src="<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
+=======
+                                                                                    <img width="250px ; height:250px;" src="<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
+                                                                                    <?php if(!empty($quest->option4)){ ?>
+                                                                                        <p><?php $quest->option4; ?></p>
+                                                                                    <?php } ?>
+>>>>>>> Stashed changes
 
                                                                                     <?php   } else if (isset($quest->file_d)) { ?>
 
 
 
 
+<<<<<<< Updated upstream
                                                                                         <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
 
                                                                                     <?php } else { ?>
@@ -1467,6 +1548,21 @@
                                                                                 </div>
                                                                                 <input value="option_4" type="radio" name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                                                 <span class="outer"></span>
+=======
+                                                                                    <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
+                                                                                    <?php if(!empty($quest->option4)){ ?>
+                                                                                        <p><?php $quest->option4; ?></p>
+                                                                                    <?php } ?>
+
+                                                                                <?php } else { ?>
+                                                                                    <?php if(!empty($quest->option4)){ ?>
+                                                                                        <p><?php $quest->option4; ?></p>
+                                                                                    <?php } ?>
+                                                                                <?php } ?>
+                                                                            </div>
+                                                                            <input value="option_4" type="radio" name="question_<?php echo $quest->id; ?>" class="ans-opt">
+                                                                            <span class="outer"></span>
+>>>>>>> Stashed changes
 
                                                                             </label>
                                                                         </div>

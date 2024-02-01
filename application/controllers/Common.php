@@ -145,14 +145,39 @@ class Common extends Base_Controller {
            $step_instruction = $this->input->post('step_instruction', true);
            if($step_instruction == 0)
            {
+
             $data['quizid'] = $quizid;
             $data['level_type'] = $level_type;
+
+            $this->db->select('*');
+            $this->db->from('quiz_details');
+            $this->db->where('quiz_id', $quizid);
+            $data['quiz_name'] =   $this->db->get()->result();
+
+
 
             $this->load->view('scholarship/question-paper-instruction-0', $data);
            }elseif($step_instruction == 1)
            {
             $data['quizid'] = $quizid;
             $data['level_type'] = $level_type;
+
+            $this->db->select('*');
+            $this->db->from('quiz_details');
+            $this->db->where('quiz_id', $quizid);
+            $data['quiz_name'] =   $this->db->get()->result();
+
+            $this->db->select('*');
+            $this->db->from('quiz_details');
+            $this->db->where('quiz_id', $quizid);
+            $get_duration =   $this->db->get()->result();
+            foreach($get_duration as $get_duration)
+            {
+                    $quiz_duration = $get_duration->quiz_duration;
+            }
+
+             $data['quiz_duration'] =  $quiz_duration;
+
             $this->load->view('scholarship/question-paper-instruction-1', $data);
            }elseif($step_instruction == 2){
 

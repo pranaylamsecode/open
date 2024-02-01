@@ -143,12 +143,21 @@
             foreach ($courses as $row) :
 
 
+<<<<<<< Updated upstream
                 $date = new DateTime($row->batch);
                 $formattedDate = $date->format('j M Y'); // Change the format as needed
 
 
             ?>
                 <div class="column">
+=======
+            $date = new DateTime($row->batch);
+            $formattedDate = $date->format('j M Y'); // Change the format as needed
+
+
+            ?>
+            <div class="column">
+>>>>>>> Stashed changes
 
                     <div class="content">
                         <img src="<?php echo base_url('admin/uploads/courses/') . $row->course_img; ?>" alt="Mountains" style="width:100%">
@@ -171,8 +180,13 @@
         <?php foreach ($courses2 as $row) :
 
 
+<<<<<<< Updated upstream
             $date = new DateTime($row->batch);
             $formattedDate = $date->format('j M Y'); // Change the format as needed
+=======
+        $date = new DateTime($row->batch);
+        $formattedDate = $date->format('j M Y'); // Change the format as needed
+>>>>>>> Stashed changes
 
 
         ?>

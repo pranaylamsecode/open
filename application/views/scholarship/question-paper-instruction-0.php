@@ -243,7 +243,11 @@
     </style>
     <div class="sc-ifmBRf gCLgIR">
         <div class="sc-bMthRQ eXkpVw">
-            <div class="sc-fBwhgt aoSdM">Parajumbles Test - 1</div>
+
+
+            <div class="sc-fBwhgt aoSdM"><?php foreach($quiz_name as $quiz_name) { ?>
+                <?php echo $quiz_name->quiz_name; ?>
+                <?php } ?></div>
             <div class="sc-hJYyEF grrFQX"><span>Instructions</span></div>
             <div class="sc-fMpdUm jmnrIQ">
                 <div style="flex: 1 1 0%;"></div>
