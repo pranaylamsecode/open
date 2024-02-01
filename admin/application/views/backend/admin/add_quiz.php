@@ -18,11 +18,11 @@
                         <label for="example-text"><?php echo get_phrase('Quiz Duration');?></label>
                         <select class="form-control" name="duration" required>
                             <option value="">Quiz Duration Time</option>
-                            <option value="30 min">30 Minutes</option> 
-                            <option value="1 hours">1 Hours</option> 
-                            <option value="2 hours">2 Hours</option> 
-                            <option value="3 hours">3 Hours</option>                            
-                        </select> 
+                            <option value="30 min">30 Minutes</option>
+                            <option value="1 hours">1 Hours</option>
+                            <option value="2 hours">2 Hours</option>
+                            <option value="3 hours">3 Hours</option>
+                        </select>
                     </div>
                 </div>
 
@@ -39,6 +39,25 @@
                         <input name="q_e_d" type="date" class="form-control" required>
                     </div>
                 </div>
+
+                <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="example-text"><?php echo get_phrase('More Instruction Details');?></label>
+                                    <input name="other_imp_instruction" type="text" value="" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="example-text"><?php echo get_phrase('mark_for_correct_answer');?></label>
+                                    <input name="mark_for_correct_answer" type="number" value="" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="example-text"><?php echo get_phrase('negative_mark');?></label>
+                                    <input name="negative_mark" type="number" value="" class="form-control" required>
+                                </div>
+                            </div>
 
                 <div class="col-md-6">
                     <div class="form-group">

@@ -1,13 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-class Quiz_model extends CI_Model { 
-	
+class Quiz_model extends CI_Model {
+
 	function __construct()
     {
         parent::__construct();
     }
-	
+
    // The function below inserts into academic syllabus table //
     function createQuiz(){
         $page_data = array(
@@ -16,6 +16,9 @@ class Quiz_model extends CI_Model {
             'start_date' => date('Y-m-d', strtotime($this->input->post('q_s_d'))),
             'end_date' => date('Y-m-d', strtotime($this->input->post('q_e_d'))),
             'is_active' => '1',
+            'other_imp_instruction' => $this->input->post('other_imp_instruction'),
+            'negative_mark' => $this->input->post('negative_mark'),
+            'mark_for_correct_answer' => $this->input->post('mark_for_correct_answer'),
             'show_it' => intval($this->input->post('show_quiz')),
             'created_date' => date('Y-m-d H:i:s')
         );
@@ -29,12 +32,15 @@ class Quiz_model extends CI_Model {
 
  // The function below inserts into academic syllabus table //
  function updateQuiz($param2){
- 
+
     $page_data = array(
         'quiz_name' => $this->input->post('quiz'),
         'quiz_duration' => $this->input->post('duration'),
         'start_date' => date('Y-m-d', strtotime($this->input->post('q_s_d'))),
         'end_date' => date('Y-m-d', strtotime($this->input->post('q_e_d'))),
+        'other_imp_instruction' => $this->input->post('other_imp_instruction'),
+        'negative_mark' => $this->input->post('negative_mark'),
+        'mark_for_correct_answer' => $this->input->post('mark_for_correct_answer'),
         // 'is_active' => DEFAULT_ACTIVE_MODE,
         'show_it' => intval($this->input->post('show_quiz')),
     );
@@ -56,12 +62,12 @@ function deleteQuiz($param2){
     $this->db->where('quiz_id', $param2);
     $this->db->delete('quiz_details');
 }
-	
+
 function deleteQuizQuestion($param2){
     $this->db->where('id', $param2);
     $this->db->delete('quiz_questions');
 }
-	
+
 
 function createQuizQuestion(){
     $page_data = array(
@@ -92,4 +98,3 @@ function createQuizQuestion(){
 
 
 }
-

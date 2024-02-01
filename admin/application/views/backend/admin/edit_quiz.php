@@ -63,6 +63,25 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="example-text"><?php echo get_phrase('More Instruction Details');?></label>
+                                    <input name="other_imp_instruction" type="text" value="<?php echo $quiz_details['other_imp_instruction'];?>" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="example-text"><?php echo get_phrase('mark_for_correct_answer');?></label>
+                                    <input name="mark_for_correct_answer" type="number" value="<?php echo $quiz_details['mark_for_correct_answer'];?>" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="example-text"><?php echo get_phrase('negative_mark');?></label>
+                                    <input name="negative_mark" type="number" value="<?php echo $quiz_details['negative_mark'];?>" class="form-control" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
                                     <input id="checkbox" class="filled-in chk-col-teal" name="show_quiz" value="1" <?php if($quiz_details['show_it'] == '1') echo 'checked';?>
                                         type="checkbox">
                                     <label for="checkbox">Active</label> <br />
