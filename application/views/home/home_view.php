@@ -151,13 +151,6 @@
                 <div class="column">
 
 
-          <?php       $date = new DateTime($row->batch);
-            $formattedDate = $date->format('j M Y'); // Change the format as needed
-
-
-            ?>
-
-
                     <div class="content">
                         <img src="<?php echo base_url('admin/uploads/courses/') . $row->course_img; ?>" alt="Mountains" style="width:100%">
                         <h5><?php echo $row->title; ?></h5>
