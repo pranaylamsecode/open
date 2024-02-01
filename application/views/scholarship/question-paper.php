@@ -123,6 +123,11 @@
             height: 100vh;
         }
 
+        .disable {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
         @media screen and (max-width:768px) {
             .eds-tooltip__trigger__container {
                 width: 100%;
@@ -1314,6 +1319,7 @@
                                             foreach ($question as $quest) {
 
                                         ?>
+
                                                 <div class="question_row current_que" id="question_<?php echo $counter; ?>">
                                                     <div class="sc-wAnfg sc-cyAvAE ftAWZS fSbkhO">
                                                         <div class="sc-bOJcbE fBjwEB"><span>Question <?php echo $counter; ?></div>
@@ -1525,6 +1531,7 @@
                                         <?php $counter++;
                                             }
                                         } ?>
+                                        <input type="hidden" name="quizid" value="<?php echo $question[0]->quiz_id; ?>">
                                     </form>
                                 </div>
                                 <div id="bottom"></div>
@@ -1849,9 +1856,9 @@ $duration = trim($count_down, 'min');
                 console.log(id);
                 jQuery("#" + id + ".question_row").show().addClass("current_que").siblings().hide();
                 jQuery(this).find(".sc-hCDzWh").addClass("ehuHuo");
-                jQuery(this).prev().find(".sc-hCDzWh").addClass("ehuHuo");
+                jQuery(this).prevAll().find(".sc-hCDzWh").addClass("ehuHuo");
                 jQuery(this).find(".sc-hCDzWh").removeClass("kNGLmz");
-                jQuery(this).prev().find(".sc-hCDzWh").removeClass("kNGLmz");
+                jQuery(this).prevAll().find(".sc-hCDzWh").removeClass("kNGLmz");
 
 
             });
@@ -1859,15 +1866,43 @@ $duration = trim($count_down, 'min');
         jQuery("#defaultbtnnxt").click(function() {
             jQuery(".question_row").hide();
             jQuery(".current_que").removeClass("current_que").nextAll(".question_row").first().addClass("current_que").show();
-
+            if (jQuery(".question_row:last-child").hasClass("current_que")) {
+                jQuery(this).addClass("disable");
+            } else {
+                jQuery(this).removeClass("disable");
+            }
         });
         jQuery("#defaultbtnprv").click(function() {
             jQuery(".question_row").hide();
             jQuery(".current_que").removeClass("current_que").prevAll(".question_row").first().addClass("current_que").show();
+            if (jQuery("#question_1").hasClass("current_que")) {
+                jQuery(this).addClass("disable");
+            } else {
+                jQuery(this).removeClass("disable");
+            }
         });
-    });
-</script>
 
+
+    });
+
+
+
+
+</script>
+<script>
+
+    var button = document.getElementById('sbmtbtn');
+    var form = document.getElementById('msform');
+
+
+    // Add an event listener to the button
+    button.addEventListener('click', function() {
+      // Check if the checkbox is checked before submitting the form
+
+        form.submit();
+
+    });
+  </script>
 <!-- dropdown menu -->
 
 </body>
