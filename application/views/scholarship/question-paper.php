@@ -1353,11 +1353,11 @@
                                                                                     ?>
 
 
-                                                                                    <img width="250px ; height:250px;" src="<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
+                                                                                        <img width="250px ; height:250px;" src="<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
 
-                                                                                    <?php if(!empty($quest->option1)){ ?>
-                                                                                        <p><?php $quest->option1; ?></p>
-                                                                                    <?php } ?>
+                                                                                        <?php if (!empty($quest->option1)) { ?>
+                                                                                            <p style="color:#000;"><?php echo $quest->option1; ?></p>
+                                                                                        <?php } ?>
 
 
                                                                                     <?php   } else if (isset($quest->file_a)  && !empty($quest->file_a)) { ?>
@@ -1365,22 +1365,22 @@
 
 
 
-                                                                                    <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
-                                                                                    <?php if(!empty($quest->option1)){ ?>
-                                                                                        <p><?php $quest->option1; ?></p>
-                                                                                    <?php } ?>
+                                                                                        <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
+                                                                                        <?php if (!empty($quest->option1)) { ?>
+                                                                                            <p style="color:#000;"><?php echo $quest->option1; ?></p>
+                                                                                        <?php } ?>
 
 
                                                                                     <?php } else { ?>
 
-                                                                                    <?php if(!empty($quest->option1)){ ?>
-                                                                                        <p><?php $quest->option1; ?></p>
-                                                                                    <?php } ?>
+                                                                                        <?php if (!empty($quest->option1)) { ?>
+                                                                                            <p style="color:#000;"><?php echo $quest->option1; ?></p>
+                                                                                        <?php } ?>
 
-                                                                                <?php } ?>
-                                                                            </div>
-                                                                            <input type="radio" value="option_1" name="question_<?php echo $quest->id; ?>" class="ans-opt">
-                                                                            <span class="outer"></span>
+                                                                                    <?php } ?>
+                                                                                </div>
+                                                                                <input type="radio" value="option_1" name="question_<?php echo $quest->id; ?>" class="ans-opt">
+                                                                                <span class="outer"></span>
 
                                                                             </label>
                                                                         </div>
@@ -1401,26 +1401,26 @@
 
                                                                                         <img width="250px ; height:250px;" src="<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
 
-                                                                                    <?php if(!empty($quest->option2)){ ?>
-                                                                                        <p><?php $quest->option2; ?></p>
-                                                                                    <?php } ?>
+                                                                                        <?php if (!empty($quest->option2)) { ?>
+                                                                                            <p style="color:#000;"><?php echo $quest->option2; ?></p>
+                                                                                        <?php } ?>
 
-                                                                                <?php   } else if (isset($quest->file_b)  && !empty($quest->file_b)) { ?>
+                                                                                    <?php   } else if (isset($quest->file_b)  && !empty($quest->file_b)) { ?>
 
 
 
 
                                                                                         <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
-                                                                                        <?php if(!empty($quest->option2)){ ?>
-                                                                                        <p><?php $quest->option2; ?></p>
-                                                                                    <?php } ?>
+                                                                                        <?php if (!empty($quest->option2)) { ?>
+                                                                                            <p style="color:#000;"><?php echo $quest->option2; ?></p>
+                                                                                        <?php } ?>
 
                                                                                     <?php } else { ?>
-                                                                                        <?php if(!empty($quest->option2)){ ?>
-                                                                                        <p><?php $quest->option2; ?></p>
-                                                                                    <?php } ?>
+                                                                                        <?php if (!empty($quest->option2)) { ?>
+                                                                                            <p><?php echo $quest->option2; ?></p>
+                                                                                        <?php } ?>
 
-                                                                                    <?php } ?>
+
                                                                                 </div>
                                                                                 <input type="radio" value="option_2" name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                                                 <span class="outer"></span>
@@ -1440,31 +1440,33 @@
 
                                                                                     <?php
 
-                                                                                    if ($quest->add_by_import == '1'  && !empty($quest->file_c)) {
+                                                                                        if ($quest->add_by_import == '1'  && !empty($quest->file_c)) {
                                                                                     ?>
 
-                                                                                    <img width="250px ; height:250px;" src="<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
-                                                                                    <?php if(!empty($quest->option3)){ ?>
-                                                                                        <p><?php $quest->option3; ?></p>
-                                                                                    <?php } ?>
+                                                                                        <img width="250px ; height:250px;" src="<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
 
-                                                                                    <?php   } else if (isset($quest->file_c)  && !empty($quest->file_c)) { ?>
+                                                                                        <?php if (!empty($quest->option3)) { ?>
+                                                                                            <p style="color:#000;"><?php echo $quest->option3; ?></p>
+                                                                                        <?php } ?>
 
 
+                                                                                    <?php   } elseif (isset($quest->file_c)  && !empty($quest->file_c)) { ?>
 
 
                                                                                         <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
-                                                                                        <?php if(!empty($quest->option3)){ ?>
-                                                                                        <p><?php $quest->option3; ?></p>
-                                                                                    <?php } ?>
+                                                                                        <?php if (!empty($quest->option3)) { ?>
+                                                                                            <p style="color:#000;"><?php  echo $quest->option3; ?></p>
+                                                                                        <?php } ?>
 
                                                                                     <?php } else { ?>
 
-                                                                                        <?php if(!empty($quest->option3)){ ?>
-                                                                                        <p><?php $quest->option3; ?></p>
-                                                                                    <?php } ?>
+                                                                                        <?php if (!empty($quest->option3)) { ?>
+                                                                                            <p><?php echo $quest->option3; ?></p>
+                                                                                        <?php } ?>
 
                                                                                     <?php } ?>
+
+
                                                                                 </div>
                                                                                 <input type="radio" value="option_3" name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                                                 <span class="outer"></span>
@@ -1483,27 +1485,30 @@
 
                                                                                     <?php
 
-                                                                                    if ($quest->add_by_import == '1'  && !empty($quest->file_d)) {
+                                                                                        if ($quest->add_by_import == '1'  && !empty($quest->file_d)) {
                                                                                     ?>
 
                                                                                         <img width="250px ; height:250px;" src="<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
-                                                                                        <?php if(!empty($quest->option3)){ ?>
-                                                                                        <p><?php $quest->option3; ?></p>
-                                                                                    <?php } ?>
+                                                                                        <?php if (!empty($quest->option4)) { ?>
+                                                                                            <p><?php echo $quest->option4; ?></p>
+                                                                                        <?php } ?>
 
-                                                                                    <?php   } else if (isset($quest->file_d)) { ?>
-
-
-
+                                                                                    <?php   } elseif (isset($quest->file_d)) { ?>
 
                                                                                         <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
-                                                                                        <?php if(!empty($quest->option3)){ ?>
-                                                                                        <p><?php $quest->option3; ?></p>
-                                                                                    <?php } ?>
+                                                                                        <?php if (!empty($quest->option4)) { ?>
+                                                                                            <p><?php echo $quest->option4; ?></p>
+                                                                                        <?php } ?>
 
                                                                                     <?php } else { ?>
 
+                                                                                        <?php if (!empty($quest->option4)) { ?>
+                                                                                            <p><?php  echo $quest->option4; ?></p>
+                                                                                        <?php } ?>
+
                                                                                     <?php } ?>
+                                                                                    <?php } ?>
+
                                                                                 </div>
                                                                                 <input value="option_4" type="radio" name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                                                 <span class="outer"></span>
