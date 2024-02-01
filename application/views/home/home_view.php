@@ -138,36 +138,9 @@
 
 
         <div class="courses_crausel owl-carousel jee">
-            <div>
-                <?php foreach ($courses as $row) :
+            <?php
 
-
-                    $date = new DateTime($row->batch);
-                    $formattedDate = $date->format('j M Y'); // Change the format as needed
-
-
-                ?>
-                    <div class="column">
-
-                        <div class="content">
-                            <img src="<?php echo base_url('admin/uploads/courses/') . $row->course_img; ?>" alt="Mountains" style="width:100%">
-                            <h5><?php echo $row->title; ?></h5>
-                            <ul>
-
-                                <li>Batch Ongoing - <?php echo $formattedDate; ?></li>
-                                <li>Target Year - <?php echo $row->target_year; ?></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                <?php endforeach; ?>
-            </div>
-            <!-- </div> -->
-            <!-- END GRID -->
-
-        </div>
-        <div class="courses_crausel owl-carousel neet" style="display:none;">
-            <?php foreach ($courses2 as $row) :
+            foreach ($courses as $row) :
 
 
                 $date = new DateTime($row->batch);
@@ -189,38 +162,66 @@
                 </div>
 
             <?php endforeach; ?>
-            <!-- </div> -->
-            <!-- END GRID -->
-
         </div>
-        <div class="courses_crausel owl-carousel foundation" style="display:none;">
-            <?php foreach ($courses3 as $row) :
+        <!-- </div> -->
+        <!-- END GRID -->
 
-
-                $date = new DateTime($row->batch);
-                $formattedDate = $date->format('j M Y'); // Change the format as needed
-
-
-            ?>
-                <div class="column">
-
-                    <div class="content">
-                        <img src="<?php echo base_url('admin/uploads/courses/') . $row->course_img; ?>" alt="Mountains" style="width:100%">
-                        <h5><?php echo $row->title; ?></h5>
-                        <ul>
-
-                            <li>Batch Ongoing - <?php echo $formattedDate; ?></li>
-                            <li>Target Year - <?php echo $row->target_year; ?></li>
-                        </ul>
-                    </div>
-                </div>
-
-            <?php endforeach; ?>
-            <!-- </div> -->
-            <!-- END GRID -->
-
-        </div>
     </div>
+    <div class="courses_crausel owl-carousel neet" style="display:none;">
+        <?php foreach ($courses2 as $row) :
+
+
+            $date = new DateTime($row->batch);
+            $formattedDate = $date->format('j M Y'); // Change the format as needed
+
+
+        ?>
+            <div class="column">
+
+                <div class="content">
+                    <img src="<?php echo base_url('admin/uploads/courses/') . $row->course_img; ?>" alt="Mountains" style="width:100%">
+                    <h5><?php echo $row->title; ?></h5>
+                    <ul>
+
+                        <li>Batch Ongoing - <?php echo $formattedDate; ?></li>
+                        <li>Target Year - <?php echo $row->target_year; ?></li>
+                    </ul>
+                </div>
+            </div>
+
+        <?php endforeach; ?>
+        <!-- </div> -->
+        <!-- END GRID -->
+
+    </div>
+    <div class="courses_crausel owl-carousel foundation" style="display:none;">
+        <?php foreach ($courses3 as $row) :
+
+
+            $date = new DateTime($row->batch);
+            $formattedDate = $date->format('j M Y'); // Change the format as needed
+
+
+        ?>
+            <div class="column">
+
+                <div class="content">
+                    <img src="<?php echo base_url('admin/uploads/courses/') . $row->course_img; ?>" alt="Mountains" style="width:100%">
+                    <h5><?php echo $row->title; ?></h5>
+                    <ul>
+
+                        <li>Batch Ongoing - <?php echo $formattedDate; ?></li>
+                        <li>Target Year - <?php echo $row->target_year; ?></li>
+                    </ul>
+                </div>
+            </div>
+
+        <?php endforeach; ?>
+        <!-- </div> -->
+        <!-- END GRID -->
+
+    </div>
+</div>
 </div>
 <div class="testimonial-area style-three">
     <div class="container">
