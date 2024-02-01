@@ -1,3 +1,9 @@
+
+<style>
+    button.btn.btn-block.btn-flat.bg-purple {
+    color: #fff !important;
+}
+</style>
 <div class="row">
     <div class="col-sm-12">
 		<div class="box">

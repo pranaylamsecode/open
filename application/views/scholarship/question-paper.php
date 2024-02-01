@@ -941,6 +941,8 @@
             color: rgb(9, 2, 54);
         }
 
+
+
         .dePesc {
             height: 3rem;
             min-width: 64px;
@@ -1289,7 +1291,9 @@
 
     <div class="sc-cBsrDa emYctj">
         <div class="sc-eoXOpV sc-jIsiFf coCxDd cyvreJ">
-            <div class="sc-fbHdRr sc-ksjCef gwqiqN bjabxQ">Online Quiz</div>
+            <div class="sc-fbHdRr sc-ksjCef gwqiqN bjabxQ"><?php foreach($quiz_name as $quiz_name) { ?>
+                <?php echo $quiz_name->quiz_name; ?>
+                <?php } ?></div>
             <div class="sc-foDcoF kQJNzr">
                 <div class="sc-hrZiYQ fIURSk">
                     <span>Time Left</span> : &nbsp;&nbsp;</small><img src="https://assets.embibe.com/production/web-assets/assets/images/Test/timer.svg" class="sc-gSpBRe efzudn"><span class="sc-gFGZVQ jmAxQb sc-ldZUWu csiwNg">01 : 54 : 34</span>
@@ -1860,6 +1864,20 @@ $duration = trim($count_down, 'min');
                 jQuery(this).find(".sc-hCDzWh").removeClass("kNGLmz");
                 jQuery(this).prevAll().find(".sc-hCDzWh").removeClass("kNGLmz");
 
+                jQuery(".question_row").removeClass("current_que");
+
+                jQuery("#" + id + ".question_row").addClass("current_que");
+
+                if (jQuery("#question_1").hasClass("current_que")) {
+                    jQuery("#defaultbtnprv").addClass("disable");
+                } else {
+                    jQuery("#defaultbtnprv").removeClass("disable");
+                }
+                if (jQuery(".question_row:last-child").hasClass("current_que")) {
+                    jQuery("#defaultbtnnxt").addClass("disable");
+                } else {
+                    jQuery("#defaultbtnnxt").removeClass("disable");
+                }
 
             });
         });
