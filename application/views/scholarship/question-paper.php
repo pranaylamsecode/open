@@ -1296,8 +1296,10 @@
                 <?php } ?></div>
             <div class="sc-foDcoF kQJNzr">
                 <div class="sc-hrZiYQ fIURSk">
-                    <span>Time Left</span> : &nbsp;&nbsp;</small><img src="https://assets.embibe.com/production/web-assets/assets/images/Test/timer.svg" class="sc-gSpBRe efzudn"><span class="sc-gFGZVQ jmAxQb sc-ldZUWu csiwNg">01 : 54 : 34</span>
+                    <span>Time Left</span> : &nbsp;&nbsp;</small><img src="https://assets.embibe.com/production/web-assets/assets/images/Test/timer.svg" class="sc-gSpBRe efzudn"><span class="sc-gFGZVQ jmAxQb sc-ldZUWu csiwNg"><span id="timer"></span></span>
                 </div>
+
+                <!-- <p style="color: red;">Time left : </span></p> -->
             </div>
         </div>
         <div class="sc-hQXzsD jAtXkS">
