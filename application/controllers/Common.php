@@ -194,6 +194,8 @@ class Common extends Base_Controller {
             $this->db->where('quiz_id', $quizid);
             $data['quiz_name'] =   $this->db->get()->result();
 
+            
+
 
             $this->load->view('scholarship/question-paper', $data);
            }
