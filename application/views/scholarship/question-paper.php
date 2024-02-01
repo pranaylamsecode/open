@@ -1533,11 +1533,13 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <input type="hidden" name="quizid" value="<?php echo $question[0]->quiz_id; ?>">
                                                 </div>
+
                                         <?php $counter++;
                                             }
                                         } ?>
-                                        <input type="hidden" name="quizid" value="<?php echo $question[0]->quiz_id; ?>">
+
                                     </form>
                                 </div>
                                 <div id="bottom"></div>
