@@ -89,7 +89,7 @@
                         </li>
 
 
-                       <!--  <li class="<?php if ($page_name == 'assignment') echo 'active'; ?> ">
+                        <li class="<?php if ($page_name == 'assignment') echo 'active'; ?> ">
                             <a href="<?php echo base_url(); ?>assignment/assignment">
                                 <i class="fa fa-angle-double-right p-r-10"></i>
                                 <span class="hide-menu"><?php echo get_phrase('Assignment'); ?></span>
@@ -101,7 +101,7 @@
                                 <i class="fa fa-angle-double-right p-r-10"></i>
                                 <span class="hide-menu"><?php echo get_phrase('Study Material'); ?></span>
                             </a>
-                        </li> -->
+                        </li>
 
 
 
