@@ -189,13 +189,7 @@ class Common extends Base_Controller {
             $this->load->view('scholarship/question-paper', $data);
            }else{
 
-            $this->db->select('*');
-            $this->db->from('quiz_details');
-            $this->db->where('quiz_id', $quizid);
-            $data['quiz_name'] =   $this->db->get()->result();
 
-
-            $this->load->view('scholarship/question-paper', $data);
            }
 
 
