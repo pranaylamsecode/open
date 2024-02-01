@@ -88,6 +88,14 @@
 <body>
 
     <style>
+        .question_row:first-child {
+            display: block;
+        }
+
+        .question_row {
+            display: none;
+        }
+
         div,
         p,
         h1,
@@ -233,7 +241,7 @@
 
         .cvPnBG {
             width: 100%;
-            padding-left: 10px;
+            padding-left: 0px;
         }
 
         @media (max-width: 576px) {
@@ -507,7 +515,7 @@
             justify-content: center;
             height: auto;
             padding: 0.1rem 1.1rem;
-            background-color: rgb(74, 52, 209);
+            background-color: #268ecd;
             color: rgb(255, 255, 255);
             border: none;
             min-width: auto !important;
@@ -563,7 +571,7 @@
 
         .fBjwEB {
             opacity: 0.85;
-            padding: 0.2rem 0px 0.6rem 10px;
+            padding: 0.2rem 0px 0.6rem 0px;
             font-size: 1.2rem;
             font-weight: 600;
             letter-spacing: 0.2px;
@@ -718,7 +726,7 @@
         }
 
         .jvBxqW {
-            background-color: rgb(74, 52, 209);
+            background-color: #268ecd;
             padding: 1rem;
             margin-top: 0.5rem;
             margin-bottom: 0.5rem;
@@ -1302,168 +1310,170 @@
                                             foreach ($question as $quest) {
 
                                         ?>
-                                                <div class="sc-wAnfg sc-cyAvAE ftAWZS fSbkhO">
-                                                    <div class="sc-bOJcbE fBjwEB"><span>Question <?php echo $counter; ?></div>
-                                                </div>
-                                                <div class="sc-hLaujc kycXCz">
-                                                    <p><?php echo $quest->question; ?></p>
-                                                    <?php
+                                                <div class="question_row" id="<?php echo $counter; ?>">
+                                                    <div class="sc-wAnfg sc-cyAvAE ftAWZS fSbkhO">
+                                                        <div class="sc-bOJcbE fBjwEB"><span>Question <?php echo $counter; ?></div>
+                                                    </div>
+                                                    <div class="sc-hLaujc kycXCz">
+                                                        <p><?php echo $quest->question; ?></p>
+                                                        <?php
 
-                                                    if ($quest->add_by_import == '1' && !empty($quest->file)) {
-                                                    ?>
-
-
-
-                                                        <img width="250px ; height:250px;" src="<?php echo $quest->file; ?>" alt="bansal-pathshala">
-
-                                                    <?php   } else if (isset($quest->file) && !empty($quest->file)) { ?>
+                                                        if ($quest->add_by_import == '1' && !empty($quest->file)) {
+                                                        ?>
 
 
 
+                                                            <img width="250px ; height:250px;" src="<?php echo $quest->file; ?>" alt="bansal-pathshala">
 
-                                                        <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file; ?>" alt="bansal-pathshala">
-
-                                                    <?php } else { ?>
-
-                                                    <?php } ?>
-                                                </div>
-                                                <div style="flex: 1 1 0%; height: 100%;">
-                                                    <div class="sc-gFCZzz cvPnBG">
-                                                        <div class="sc-hbjaKc kcLrFq">
-                                                            <div style="margin-bottom: 2%; width: 100%;">
-                                                                <div class="sc-cQwIYT sc-gFeNAA jKnVcE dmKkMX">
-
-                                                                    <div class="sc-kTGBUR sc-kSmoGW bMLPsr esjFgQ">
-                                                                        <label class="radio">
-                                                                            <div class="sc-knuRna sc-dvogsP fsqhgA hwQySw">
-                                                                                <p class="circle">A</p>
-
-                                                                                <?php
-
-                                                                                if ($quest->add_by_import == '1'  && !empty($quest->file_a)) {
-                                                                                ?>
-
-                                                                                    <img width="250px ; height:250px;" src="<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
-
-                                                                                <?php   } else if (isset($quest->file_a)  && !empty($quest->file_a)) { ?>
+                                                        <?php   } else if (isset($quest->file) && !empty($quest->file)) { ?>
 
 
 
 
-                                                                                    <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
+                                                            <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file; ?>" alt="bansal-pathshala">
 
-                                                                                <?php } else { ?>
+                                                        <?php } else { ?>
 
-                                                                                <?php } ?>
-                                                                            </div>
-                                                                            <input type="radio" value="option_1" name="question_<?php echo $quest->id; ?>" class="ans-opt">
-                                                                            <span class="outer"></span>
+                                                        <?php } ?>
+                                                    </div>
+                                                    <div style="flex: 1 1 0%; height: 100%;">
+                                                        <div class="sc-gFCZzz cvPnBG">
+                                                            <div class="sc-hbjaKc kcLrFq">
+                                                                <div style="margin-bottom: 2%; width: 100%;">
+                                                                    <div class="sc-cQwIYT sc-gFeNAA jKnVcE dmKkMX">
 
-                                                                        </label>
+                                                                        <div class="sc-kTGBUR sc-kSmoGW bMLPsr esjFgQ">
+                                                                            <label class="radio">
+                                                                                <div class="sc-knuRna sc-dvogsP fsqhgA hwQySw">
+                                                                                    <p class="circle">A</p>
+
+                                                                                    <?php
+
+                                                                                    if ($quest->add_by_import == '1'  && !empty($quest->file_a)) {
+                                                                                    ?>
+
+                                                                                        <img width="250px ; height:250px;" src="<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
+
+                                                                                    <?php   } else if (isset($quest->file_a)  && !empty($quest->file_a)) { ?>
+
+
+
+
+                                                                                        <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
+
+                                                                                    <?php } else { ?>
+
+                                                                                    <?php } ?>
+                                                                                </div>
+                                                                                <input type="radio" value="option_1" name="question_<?php echo $quest->id; ?>" class="ans-opt">
+                                                                                <span class="outer"></span>
+
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div style="margin-bottom: 2%; width: 100%;">
-                                                                <div class="sc-cQwIYT sc-gFeNAA jKnVcE dmKkMX">
+                                                                <div style="margin-bottom: 2%; width: 100%;">
+                                                                    <div class="sc-cQwIYT sc-gFeNAA jKnVcE dmKkMX">
 
-                                                                    <div class="sc-kTGBUR sc-kSmoGW bMLPsr esjFgQ">
-                                                                        <label class="radio">
-                                                                            <div class="sc-knuRna sc-dvogsP fsqhgA hwQySw">
-                                                                                <p class="circle">B</p>
+                                                                        <div class="sc-kTGBUR sc-kSmoGW bMLPsr esjFgQ">
+                                                                            <label class="radio">
+                                                                                <div class="sc-knuRna sc-dvogsP fsqhgA hwQySw">
+                                                                                    <p class="circle">B</p>
 
-                                                                                <?php
+                                                                                    <?php
 
-                                                                                if ($quest->add_by_import == '1'  && !empty($quest->file_b)) {
-                                                                                ?>
+                                                                                    if ($quest->add_by_import == '1'  && !empty($quest->file_b)) {
+                                                                                    ?>
 
-                                                                                    <img width="250px ; height:250px;" src="<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
+                                                                                        <img width="250px ; height:250px;" src="<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
 
-                                                                                <?php   } else if (isset($quest->file_b)  && !empty($quest->file_b)) { ?>
-
+                                                                                    <?php   } else if (isset($quest->file_b)  && !empty($quest->file_b)) { ?>
 
 
 
-                                                                                    <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
 
-                                                                                <?php } else { ?>
+                                                                                        <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
 
-                                                                                <?php } ?>
-                                                                            </div>
-                                                                            <input type="radio" value="option_2" name="question_<?php echo $quest->id; ?>" class="ans-opt">
-                                                                            <span class="outer"></span>
+                                                                                    <?php } else { ?>
 
-                                                                        </label>
+                                                                                    <?php } ?>
+                                                                                </div>
+                                                                                <input type="radio" value="option_2" name="question_<?php echo $quest->id; ?>" class="ans-opt">
+                                                                                <span class="outer"></span>
+
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div style="margin-bottom: 2%; width: 100%;">
-                                                                <div class="sc-cQwIYT sc-gFeNAA jKnVcE dmKkMX">
+                                                                <div style="margin-bottom: 2%; width: 100%;">
+                                                                    <div class="sc-cQwIYT sc-gFeNAA jKnVcE dmKkMX">
 
-                                                                    <div class="sc-kTGBUR sc-kSmoGW bMLPsr esjFgQ">
+                                                                        <div class="sc-kTGBUR sc-kSmoGW bMLPsr esjFgQ">
 
-                                                                        <label class="radio">
-                                                                            <div class="sc-knuRna sc-dvogsP fsqhgA hwQySw">
-                                                                                <p class="circle">C</p>
+                                                                            <label class="radio">
+                                                                                <div class="sc-knuRna sc-dvogsP fsqhgA hwQySw">
+                                                                                    <p class="circle">C</p>
 
-                                                                                <?php
+                                                                                    <?php
 
-                                                                                if ($quest->add_by_import == '1'  && !empty($quest->file_c)) {
-                                                                                ?>
+                                                                                    if ($quest->add_by_import == '1'  && !empty($quest->file_c)) {
+                                                                                    ?>
 
-                                                                                    <img width="250px ; height:250px;" src="<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
+                                                                                        <img width="250px ; height:250px;" src="<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
 
-                                                                                <?php   } else if (isset($quest->file_c)  && !empty($quest->file_c)) { ?>
-
+                                                                                    <?php   } else if (isset($quest->file_c)  && !empty($quest->file_c)) { ?>
 
 
 
-                                                                                    <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
 
-                                                                                <?php } else { ?>
+                                                                                        <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
 
-                                                                                <?php } ?>
-                                                                            </div>
-                                                                            <input type="radio" value="option_3" name="question_<?php echo $quest->id; ?>" class="ans-opt">
-                                                                            <span class="outer"></span>
+                                                                                    <?php } else { ?>
 
-                                                                        </label>
+                                                                                    <?php } ?>
+                                                                                </div>
+                                                                                <input type="radio" value="option_3" name="question_<?php echo $quest->id; ?>" class="ans-opt">
+                                                                                <span class="outer"></span>
+
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div style="margin-bottom: 2%; width: 100%;">
-                                                                <div class="sc-cQwIYT sc-gFeNAA jKnVcE dmKkMX">
+                                                                <div style="margin-bottom: 2%; width: 100%;">
+                                                                    <div class="sc-cQwIYT sc-gFeNAA jKnVcE dmKkMX">
 
-                                                                    <div class="sc-kTGBUR sc-kSmoGW bMLPsr esjFgQ">
-                                                                        <label class="radio">
-                                                                            <div class="sc-knuRna sc-dvogsP fsqhgA hwQySw">
-                                                                                <p class="circle">D</p>
+                                                                        <div class="sc-kTGBUR sc-kSmoGW bMLPsr esjFgQ">
+                                                                            <label class="radio">
+                                                                                <div class="sc-knuRna sc-dvogsP fsqhgA hwQySw">
+                                                                                    <p class="circle">D</p>
 
-                                                                                <?php
+                                                                                    <?php
 
-                                                                                if ($quest->add_by_import == '1'  && !empty($quest->file_d)) {
-                                                                                ?>
+                                                                                    if ($quest->add_by_import == '1'  && !empty($quest->file_d)) {
+                                                                                    ?>
 
-                                                                                    <img width="250px ; height:250px;" src="<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
+                                                                                        <img width="250px ; height:250px;" src="<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
 
-                                                                                <?php   } else if (isset($quest->file_d)) { ?>
-
+                                                                                    <?php   } else if (isset($quest->file_d)) { ?>
 
 
 
-                                                                                    <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
 
-                                                                                <?php } else { ?>
+                                                                                        <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
 
-                                                                                <?php } ?>
-                                                                            </div>
-                                                                            <input value="option_4" type="radio" name="question_<?php echo $quest->id; ?>" class="ans-opt">
-                                                                            <span class="outer"></span>
+                                                                                    <?php } else { ?>
 
-                                                                        </label>
+                                                                                    <?php } ?>
+                                                                                </div>
+                                                                                <input value="option_4" type="radio" name="question_<?php echo $quest->id; ?>" class="ans-opt">
+                                                                                <span class="outer"></span>
+
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
 
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1516,132 +1526,30 @@
                     <div class="sc-dVMcbP jvBxqW">English</div>
                     <p style="text-align: left; margin: 0px; padding: 1rem;"><span>Choose a Question</span></p>
                     <div class="sc-cNQtGM ishIwY display-scroll-bar" style="max-height: 40vh; padding-left: 0.83rem; padding-right: 1.66rem;">
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#ffff" class="sc-hCDzWh ehuHuo">
-                                <div class="sc-lbhYTY eOngxn">1</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">2</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">3</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">4</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">5</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">6</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">7</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">8</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">9</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">10</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">11</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">12</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">13</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">14</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">15</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">16</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">17</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">18</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">19</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">20</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">21</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">22</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">23</div>
-                            </div>
-                        </div>
-                        <div class="sc-iLvKtB gUGIBK" style="width: 20%; padding: 0.4rem 0px;">
-                            <div color="#110658" class="sc-hCDzWh kNGLmz">
-                                <div class="sc-lbhYTY JocCd">24</div>
-                            </div>
-                        </div>
+                        <?php
+
+                        if (count($question) > 0) {
+                            $counter = 1;
+
+                            foreach ($question as $quest) {
+
+                        ?>
+                                <div class="sc-iLvKtB gUGIBK" id="<?php echo $counter; ?>" style="width: 20%; padding: 0.4rem 0px;">
+                                    <div color="#ffff" class="sc-hCDzWh kNGLmz">
+                                        <div class="sc-lbhYTY eOngxn"><?php echo $counter; ?></div>
+                                    </div>
+                                </div>
+
+                        <?php $counter++;
+                            }
+                        } ?>
+
                     </div>
                 </div>
             </aside>
         </div>
         <div class="sc-jnCuNW eFeRNr">
-            <input type="button" name="preview" id="defaultbtnprv" class="previous action-button" value="Preview" />
+            <input type="button" name="preview" id="defaultbtnprv" class="previous action-button" value="Previous" />
             <input type="button" name="next" id="defaultbtnnxt" class="save_btn next action-button" value="Next" />
             <input type="submit" name="submit" id="sbmtbtn" onclick="return submitAnswer();" class="action-button" value="Submit" />
 

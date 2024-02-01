@@ -284,6 +284,16 @@
         .sc-kuYQrC.gIBbPJ #msform .action-button.next.start_quiz_btn:hover {
             background: linear-gradient(rgb(229 211 6), rgb(223 172 6), rgb(227 133 4)) 0% 0% no-repeat padding-box padding-box transparent;
         }
+
+        #msform .action-button.next.start_quiz_btn {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        #msform .action-button.next.start_quiz_btn.checked {
+            pointer-events: unset;
+            opacity: 1;
+        }
     </style>
     <div class="sc-ifmBRf gCLgIR">
         <div class="sc-bMthRQ eXkpVw">
@@ -330,6 +340,14 @@
                 <div style="flex: 1 1 0%;"></div>
             </div>
         </div>
+
+        <script>
+            jQuery(document).ready(function() {
+                jQuery(".gbcLQJ input").click(function() {
+                    jQuery("#msform .action-button.next.start_quiz_btn").toggleClass("checked");
+                });
+            });
+        </script>
 
 </body>
 

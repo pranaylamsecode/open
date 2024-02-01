@@ -3,29 +3,27 @@
 <!--==================================================-->
 <style>
     .column .content img {
-    height: 250px;
-    object-fit: contain;
-}
+        height: 250px;
+        object-fit: contain;
+    }
 </style>
 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-        <?php foreach($slider as $row):  ?>
+        <?php foreach ($slider as $row) :  ?>
             <div class="carousel-item active">
-                <img src="<?php echo base_url('admin/uploads/slider/').$row->banner; ?>" class="d-block w-100" alt="...">
+                <img src="<?php echo base_url('admin/uploads/slider/') . $row->banner; ?>" class="d-block w-100" alt="...">
             </div>
         <?php endforeach ?>
         <!-- <div class="carousel-item">
-            <img src="<?=base_url('public/')?>assets\images\slider\bansal_slider_image.webp
+            <img src="<?= base_url('public/') ?>assets\images\slider\bansal_slider_image.webp
             " class="d-block w-100" alt="...">
         </div> -->
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-        data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-        data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
@@ -49,16 +47,16 @@
             </div>
             <div class="col-12">
                 <div data-aos="fade-up">
-                    <img src="<?=base_url('public/')?>assets\images\result_banner_r.png" alt="">
+                    <img src="<?= base_url('public/') ?>assets\images\result_banner_r.png" alt="">
                 </div>
             </div>
             <div class="row mt-5">
-                 <div class="col-4"></div>
+                <div class="col-4"></div>
                 <div class="col-4">
                     <!-- <div class="text-center">
                         <button class="scl-btn w-100">Practice Quiz</button>
                     </div> -->
-                    <a href="<?php echo base_url().'scholarship_registration';?>"><button type="button" class="btn scl-btn">Practice Quiz</button></a>
+                    <a href="<?php echo base_url() . 'scholarship_registration'; ?>"><button type="button" class="btn scl-btn">Practice Quiz</button></a>
                 </div>
                 <div class="col-4"></div>
             </div>
@@ -71,7 +69,7 @@
 
 <div class="scholarship_banner">
     <a href="#" target="_blank">
-        <figure class=""><img src="<?=base_url('public/')?>assets\images\banner\banner3.png" alt=""></figure>
+        <figure class=""><img src="<?= base_url('public/') ?>assets\images\banner\banner3.png" alt=""></figure>
     </a>
 </div>
 
@@ -92,23 +90,23 @@
         </div>
         <div class="row">
             <div class="courses_crausel owl-carousel ">
-            <?php foreach($winner as $row):  ?>
-                <div class="col-sm-12">
-                    <div class="winner-crausel">
-                        <div class="vendor">
-                            <figure class="group_1599">
-                                <a href="#" tabindex="0">
-                                    <img src="<?php echo base_url('admin/uploads/winners/').$row->winners_img; ?>" alt="">
-                                </a>
-                            </figure>
-                            <div class="worldwide_flex">
-                                <div class="Worldwide_text perfor_booster_text">
-                                    <h5 class="vendor_h"><?= $row->title?></h5>
+                <?php foreach ($winner as $row) :  ?>
+                    <div class="col-sm-12">
+                        <div class="winner-crausel">
+                            <div class="vendor">
+                                <figure class="group_1599">
+                                    <a href="#" tabindex="0">
+                                        <img src="<?php echo base_url('admin/uploads/winners/') . $row->winners_img; ?>" alt="">
+                                    </a>
+                                </figure>
+                                <div class="worldwide_flex">
+                                    <div class="Worldwide_text perfor_booster_text">
+                                        <h5 class="vendor_h"><?= $row->title ?></h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 <?php endforeach ?>
             </div>
         </div>
@@ -133,94 +131,96 @@
     </div>
     <div class="main">
         <div id="myBtnContainer">
-            <button class="btn btn-portfolio jee active-btn" > JEE</button>
-            <button class="btn btn-portfolio neet" > NEET</button>
+            <button class="btn btn-portfolio jee active-btn"> JEE</button>
+            <button class="btn btn-portfolio neet"> NEET</button>
             <button class="btn btn-portfolio foundation"> Foundation</button>
         </div>
 
 
-     <div class="courses_crausel owl-carousel jee">
-        <?php foreach($courses as $row):
+        <div class="courses_crausel owl-carousel jee">
+            <div>
+                <?php foreach ($courses as $row) :
 
 
-$date = new DateTime($row->batch);
-$formattedDate = $date->format('j M Y'); // Change the format as needed
+                    $date = new DateTime($row->batch);
+                    $formattedDate = $date->format('j M Y'); // Change the format as needed
 
 
-?>
-            <div class="column">
+                ?>
+                    <div class="column">
 
-                <div class="content">
-                    <img src="<?php echo base_url('admin/uploads/courses/').$row->course_img; ?>" alt="Mountains" style="width:100%">
-                    <h5><?php echo $row->title; ?></h5>
-                    <ul>
+                        <div class="content">
+                            <img src="<?php echo base_url('admin/uploads/courses/') . $row->course_img; ?>" alt="Mountains" style="width:100%">
+                            <h5><?php echo $row->title; ?></h5>
+                            <ul>
 
-                        <li>Batch Ongoing - <?php echo $formattedDate ;?></li>
-                        <li>Target Year - <?php echo $row->target_year;?></li>
-                    </ul>
-                </div>
+                                <li>Batch Ongoing - <?php echo $formattedDate; ?></li>
+                                <li>Target Year - <?php echo $row->target_year; ?></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                <?php endforeach; ?>
             </div>
-
-            <?php endforeach ;?>
-        <!-- </div> -->
+            <!-- </div> -->
             <!-- END GRID -->
 
-    </div>
-    <div class="courses_crausel owl-carousel neet" style="display:none;">
-        <?php foreach($courses2 as $row):
+        </div>
+        <div class="courses_crausel owl-carousel neet" style="display:none;">
+            <?php foreach ($courses2 as $row) :
 
 
-$date = new DateTime($row->batch);
-$formattedDate = $date->format('j M Y'); // Change the format as needed
+                $date = new DateTime($row->batch);
+                $formattedDate = $date->format('j M Y'); // Change the format as needed
 
 
-?>
-            <div class="column">
+            ?>
+                <div class="column">
 
-                <div class="content">
-                    <img src="<?php echo base_url('admin/uploads/courses/').$row->course_img; ?>" alt="Mountains" style="width:100%">
-                    <h5><?php echo $row->title; ?></h5>
-                    <ul>
+                    <div class="content">
+                        <img src="<?php echo base_url('admin/uploads/courses/') . $row->course_img; ?>" alt="Mountains" style="width:100%">
+                        <h5><?php echo $row->title; ?></h5>
+                        <ul>
 
-                        <li>Batch Ongoing - <?php echo $formattedDate ;?></li>
-                        <li>Target Year - <?php echo $row->target_year;?></li>
-                    </ul>
+                            <li>Batch Ongoing - <?php echo $formattedDate; ?></li>
+                            <li>Target Year - <?php echo $row->target_year; ?></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <?php endforeach ;?>
-        <!-- </div> -->
+            <?php endforeach; ?>
+            <!-- </div> -->
             <!-- END GRID -->
 
-    </div>
-    <div class="courses_crausel owl-carousel foundation" style="display:none;">
-        <?php foreach($courses3 as $row):
+        </div>
+        <div class="courses_crausel owl-carousel foundation" style="display:none;">
+            <?php foreach ($courses3 as $row) :
 
 
-$date = new DateTime($row->batch);
-$formattedDate = $date->format('j M Y'); // Change the format as needed
+                $date = new DateTime($row->batch);
+                $formattedDate = $date->format('j M Y'); // Change the format as needed
 
 
-?>
-           <div class="column">
+            ?>
+                <div class="column">
 
-                <div class="content">
-                    <img src="<?php echo base_url('admin/uploads/courses/').$row->course_img; ?>" alt="Mountains" style="width:100%">
-                    <h5><?php echo $row->title; ?></h5>
-                    <ul>
+                    <div class="content">
+                        <img src="<?php echo base_url('admin/uploads/courses/') . $row->course_img; ?>" alt="Mountains" style="width:100%">
+                        <h5><?php echo $row->title; ?></h5>
+                        <ul>
 
-                        <li>Batch Ongoing - <?php echo $formattedDate ;?></li>
-                        <li>Target Year - <?php echo $row->target_year;?></li>
-                    </ul>
+                            <li>Batch Ongoing - <?php echo $formattedDate; ?></li>
+                            <li>Target Year - <?php echo $row->target_year; ?></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <?php endforeach ;?>
-        <!-- </div> -->
+            <?php endforeach; ?>
+            <!-- </div> -->
             <!-- END GRID -->
 
+        </div>
     </div>
-</div>
 </div>
 <div class="testimonial-area style-three">
     <div class="container">
@@ -239,33 +239,32 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
         </div>
         <div class="row">
             <div class="courses_crausel owl-carousel ">
-            <?php foreach($announce as $row):  ?>
-                <div class="col-sm-12">
-                    <div class="main-img">
-                        <div class="vendor">
-                            <figure class="group_1599">
-                                <a href="#0" tabindex="0">
-                                    <img src="<?php echo base_url('admin/uploads/announcement/').$row->announcement_img; ?>"
-                                        alt="">
-                                </a>
-                            </figure>
-                            <div class="worldwide_flex">
-                                <div class="Worldwide_text perfor_booster_text">
+                <?php foreach ($announce as $row) :  ?>
+                    <div class="col-sm-12">
+                        <div class="main-img">
+                            <div class="vendor">
+                                <figure class="group_1599">
+                                    <a href="#0" tabindex="0">
+                                        <img src="<?php echo base_url('admin/uploads/announcement/') . $row->announcement_img; ?>" alt="">
+                                    </a>
+                                </figure>
+                                <div class="worldwide_flex">
+                                    <div class="Worldwide_text perfor_booster_text">
 
-                                    <h5 class="vendor_h"><?= $row->title?></h5>
+                                        <h5 class="vendor_h"><?= $row->title ?></h5>
 
-                                </div>
-                                <!-- <div class="arrow-left">
+                                    </div>
+                                    <!-- <div class="arrow-left">
                                     <a href="#0" target="_blank" tabindex="0">
                                         <span class="right_arrow">
                                             <i class="fas fa-arrow-right"></i>
                                         </span>
                                     </a>
                                 </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 <?php endforeach ?>
             </div>
         </div>
@@ -274,7 +273,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
 
 <div class="scholarship_banner mb-5 mt-5">
     <a href="#" target="_blank">
-        <figure class=""><img src="<?=base_url('public/')?>assets\images\banner\banner3.png" alt=""></figure>
+        <figure class=""><img src="<?= base_url('public/') ?>assets\images\banner\banner3.png" alt=""></figure>
     </a>
     <!-- Apply Now</a> -->
 </div>
@@ -301,7 +300,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
                         <div class="col-lg-12">
                             <div class="testi-items-three">
                                 <div class="testi-three-thumb">
-                                    <img src="<?=base_url('public/')?>assets/images/team/team-4.jpg" alt="">
+                                    <img src="<?= base_url('public/') ?>assets/images/team/team-4.jpg" alt="">
                                 </div>
                                 <div class="testi-three-title">
                                     <h4>Nathan Joe</h4>
@@ -328,7 +327,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
                         <div class="col-lg-12">
                             <div class="testi-items-three">
                                 <div class="testi-three-thumb">
-                                    <img src="<?=base_url('public/')?>assets/images/team/team-3.jpg" alt="">
+                                    <img src="<?= base_url('public/') ?>assets/images/team/team-3.jpg" alt="">
                                 </div>
                                 <div class="testi-three-title">
                                     <h4>Afiya Ashrafi</h4>
@@ -355,7 +354,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
                         <div class="col-lg-12">
                             <div class="testi-items-three">
                                 <div class="testi-three-thumb">
-                                    <img src="<?=base_url('public/')?>assets/images/team/team-2.jpg" alt="">
+                                    <img src="<?= base_url('public/') ?>assets/images/team/team-2.jpg" alt="">
                                 </div>
                                 <div class="testi-three-title">
                                     <h4>Nathan Joe</h4>
@@ -382,7 +381,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
                         <div class="col-lg-12">
                             <div class="testi-items-three">
                                 <div class="testi-three-thumb">
-                                    <img src="<?=base_url('public/')?>assets/images/team/team-1.jpg" alt="">
+                                    <img src="<?= base_url('public/') ?>assets/images/team/team-1.jpg" alt="">
                                 </div>
                                 <div class="testi-three-title">
                                     <h4>Afiya Ashrafi</h4>
@@ -409,7 +408,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
                         <div class="col-lg-12">
                             <div class="testi-items-three">
                                 <div class="testi-three-thumb">
-                                    <img src="<?=base_url('public/')?>assets/images/team/team-4.jpg" alt="">
+                                    <img src="<?= base_url('public/') ?>assets/images/team/team-4.jpg" alt="">
                                 </div>
                                 <div class="testi-three-title">
                                     <h4>Nathan Joe</h4>
@@ -436,7 +435,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
                         <div class="col-lg-12">
                             <div class="testi-items-three">
                                 <div class="testi-three-thumb">
-                                    <img src="<?=base_url('public/')?>assets/images/team/team-3.jpg" alt="">
+                                    <img src="<?= base_url('public/') ?>assets/images/team/team-3.jpg" alt="">
                                 </div>
                                 <div class="testi-three-title">
                                     <h4>Afiya Ashrafi</h4>
@@ -463,7 +462,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
                         <div class="col-lg-12">
                             <div class="testi-items-three">
                                 <div class="testi-three-thumb">
-                                    <img src="<?=base_url('public/')?>assets/images/team/team-2.jpg" alt="">
+                                    <img src="<?= base_url('public/') ?>assets/images/team/team-2.jpg" alt="">
                                 </div>
                                 <div class="testi-three-title">
                                     <h4>Nathan Joe</h4>
@@ -490,7 +489,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
                         <div class="col-lg-12">
                             <div class="testi-items-three">
                                 <div class="testi-three-thumb">
-                                    <img src="<?=base_url('public/')?>assets/images/team/team-1.jpg" alt="">
+                                    <img src="<?= base_url('public/') ?>assets/images/team/team-1.jpg" alt="">
                                 </div>
                                 <div class="testi-three-title">
                                     <h4>Afiya Ashrafi</h4>
@@ -521,10 +520,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
     </div>
     <div class="col-lg-4 ">
         <div class="al_video">
-            <iframe width="440" height="290" src="https://www.youtube.com/embed/-8pyI7v7RtE?si=1J5bfGndwPqa_2-Y"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
+            <iframe width="440" height="290" src="https://www.youtube.com/embed/-8pyI7v7RtE?si=1J5bfGndwPqa_2-Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
             </iframe>
         </div>
     </div>
@@ -553,24 +549,24 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
         </div>
         <div class="row">
             <div class="testi_list owl-carousel">
-            <?php foreach($testimonial as $row):  ?>
-                <div class="col-lg-12">
-                    <div class="testi-items-three">
-                        <div class="testi-three-thumb">
-                            <img src="<?php echo base_url('admin/uploads/testimonial/').$row->scholarship_image; ?>" alt="" />
-                        </div>
-                        <div class="testi-three-title">
-                            <h4><?= $row->name?></h4>
-                            <!-- <span>CEO, Datasoft</span> -->
-                        </div>
-                        <div class="testi-three-content">
-                            <!-- <h4>
+                <?php foreach ($testimonial as $row) :  ?>
+                    <div class="col-lg-12">
+                        <div class="testi-items-three">
+                            <div class="testi-three-thumb">
+                                <img src="<?php echo base_url('admin/uploads/testimonial/') . $row->scholarship_image; ?>" alt="" />
+                            </div>
+                            <div class="testi-three-title">
+                                <h4><?= $row->name ?></h4>
+                                <!-- <span>CEO, Datasoft</span> -->
+                            </div>
+                            <div class="testi-three-content">
+                                <!-- <h4>
                                 “Thrown specialize in custom-tailored software solutions &
                                 computer technology.”
                             </h4> -->
-                            <p>“<?= $row->description?>” </p>
-                        </div>
-                        <!-- <div class="testi-three-rating">
+                                <p>“<?= $row->description ?>” </p>
+                            </div>
+                            <!-- <div class="testi-three-rating">
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
@@ -578,9 +574,9 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
                             <i class="bi bi-star-fill"></i>
                         </div> -->
 
+                        </div>
                     </div>
-                </div>
-            <?php endforeach ?>
+                <?php endforeach ?>
             </div>
         </div>
     </div>
@@ -625,7 +621,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
                                 going to use </p>
                         </div>
                         <div class="blog-bottom-shape">
-                            <img src="<?=base_url('public/')?>assets\images\blog\blog-icon.png" alt="">
+                            <img src="<?= base_url('public/') ?>assets\images\blog\blog-icon.png" alt="">
                         </div>
                         <div class="blog-bottom-title">
                             <h4>Admin</h4>
@@ -651,7 +647,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
                                 going to use </p>
                         </div>
                         <div class="blog-bottom-shape">
-                            <img src="<?=base_url('public/')?>assets\images\blog\blog-icon.png" alt="">
+                            <img src="<?= base_url('public/') ?>assets\images\blog\blog-icon.png" alt="">
                         </div>
                         <div class="blog-bottom-title">
                             <h4>Admin</h4>
@@ -678,7 +674,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
                                 going to use </p>
                         </div>
                         <div class="blog-bottom-shape">
-                            <img src="<?=base_url('public/')?>assets\images\blog\blog-icon.png" alt="">
+                            <img src="<?= base_url('public/') ?>assets\images\blog\blog-icon.png" alt="">
                         </div>
                         <div class="blog-bottom-title">
                             <h4>Admin</h4>
@@ -711,7 +707,7 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
                 <div class="sidebar-info-contents">
                     <div class="content-inner">
                         <div class="sidebar-logo">
-                            <a href="index.html"><img src="<?=base_url('public/')?>assets/images/logo.png" alt="logo"></a>
+                            <a href="index.html"><img src="<?= base_url('public/') ?>assets/images/logo.png" alt="logo"></a>
                         </div>
                         <div class="sidebar-widget-menu">
                             <ul>
@@ -719,23 +715,20 @@ $formattedDate = $date->format('j M Y'); // Change the format as needed
 
                                 </li>
                                 <li class="dropdown"><a href="about.html" data-toggle="dropdown">About</a></li>
-                                <li class="dropdown"><a href="#" data-toggle="dropdown">Classroom<i
-                                            class="icon-arrow"></i></a>
+                                <li class="dropdown"><a href="#" data-toggle="dropdown">Classroom<i class="icon-arrow"></i></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="service-details.html">IITJEE</a></li>
                                         <li><a href="service-details.html">NEET</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#" data-toggle="dropdown">Courses<i
-                                            class="icon-arrow"></i></a>
+                                <li class="dropdown"><a href="#" data-toggle="dropdown">Courses<i class="icon-arrow"></i></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="team.html">IITJEE</a></li>
                                         <li><a href="team-details.html">NEET</a></li>
 
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a href="#" data-toggle="dropdown">Result <i
-                                            class="icon-arrow"></i></a>
+                                <li class="dropdown"><a href="#" data-toggle="dropdown">Result <i class="icon-arrow"></i></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="blog.html">IITJEE</a></li>
                                         <li><a href="blog-two-grid.html">NEET</a></li>
