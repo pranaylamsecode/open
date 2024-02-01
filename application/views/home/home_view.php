@@ -179,13 +179,8 @@
         <?php foreach ($courses2 as $row) :
 
 
-<<<<<<< Updated upstream
-            $date = new DateTime($row->batch);
-            $formattedDate = $date->format('j M Y'); // Change the format as needed
-=======
         $date = new DateTime($row->batch);
         $formattedDate = $date->format('j M Y'); // Change the format as needed
->>>>>>> Stashed changes
 
 
         ?>
