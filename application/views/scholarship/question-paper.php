@@ -426,7 +426,7 @@
             position: static;
             top: unset;
             left: unset;
-            background-image: linear-gradient(90deg, rgb(17, 6, 88) 0%, rgba(17, 6, 88, 0.6) 41.36%, rgba(17, 6, 88, 0) 100%);
+            background-image: linear-gradient(90deg, rgb(38 142 205) 0%, rgb(19 147 225) 41.36%, rgba(17, 6, 88, 0) 100%);
             height: 50px;
             line-height: 1.8rem;
             font-size: 1.2rem;
@@ -951,6 +951,10 @@
             cursor: default;
         }
 
+        .sc-jnCuNW.eFeRNr {
+            display: flex !IMPORTANT;
+        }
+
         .RrsUN {
             height: 3rem;
             min-width: 64px;
@@ -1310,7 +1314,7 @@
                                             foreach ($question as $quest) {
 
                                         ?>
-                                                <div class="question_row" id="<?php echo $counter; ?>">
+                                                <div class="question_row current_que" id="question_<?php echo $counter; ?>">
                                                     <div class="sc-wAnfg sc-cyAvAE ftAWZS fSbkhO">
                                                         <div class="sc-bOJcbE fBjwEB"><span>Question <?php echo $counter; ?></div>
                                                     </div>
@@ -1354,9 +1358,8 @@
 
 
                                                                                         <img width="250px ; height:250px;" src="<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
-
                                                                                         <?php if (!empty($quest->option1)) { ?>
-                                                                                            <p style="color:#000;"><?php echo $quest->option1; ?></p>
+                                                                                            <p style="color:#000"><?php echo $quest->option1; ?></p>
                                                                                         <?php } ?>
 
 
@@ -1367,14 +1370,14 @@
 
                                                                                         <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
                                                                                         <?php if (!empty($quest->option1)) { ?>
-                                                                                            <p style="color:#000;"><?php echo $quest->option1; ?></p>
+                                                                                            <p style="color:#000"><?php echo $quest->option1; ?></p>
                                                                                         <?php } ?>
 
 
                                                                                     <?php } else { ?>
 
                                                                                         <?php if (!empty($quest->option1)) { ?>
-                                                                                            <p style="color:#000;"><?php echo $quest->option1; ?></p>
+                                                                                            <p style="color:#000"><?php echo $quest->option1; ?></p>
                                                                                         <?php } ?>
 
                                                                                     <?php } ?>
@@ -1402,7 +1405,7 @@
                                                                                         <img width="250px ; height:250px;" src="<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
 
                                                                                         <?php if (!empty($quest->option2)) { ?>
-                                                                                            <p style="color:#000;"><?php echo $quest->option2; ?></p>
+                                                                                            <p style="color:#000"><?php echo $quest->option2; ?></p>
                                                                                         <?php } ?>
 
                                                                                     <?php   } else if (isset($quest->file_b)  && !empty($quest->file_b)) { ?>
@@ -1412,15 +1415,15 @@
 
                                                                                         <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
                                                                                         <?php if (!empty($quest->option2)) { ?>
-                                                                                            <p style="color:#000;"><?php echo $quest->option2; ?></p>
+                                                                                            <p style="color:#000"><?php echo $quest->option2; ?></p>
                                                                                         <?php } ?>
 
                                                                                     <?php } else { ?>
                                                                                         <?php if (!empty($quest->option2)) { ?>
-                                                                                            <p><?php echo $quest->option2; ?></p>
+                                                                                            <p style="color:#000"><?php  echo $quest->option2; ?></p>
                                                                                         <?php } ?>
 
-
+                                                                                    <?php } ?>
                                                                                 </div>
                                                                                 <input type="radio" value="option_2" name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                                                 <span class="outer"></span>
@@ -1440,33 +1443,31 @@
 
                                                                                     <?php
 
-                                                                                        if ($quest->add_by_import == '1'  && !empty($quest->file_c)) {
+                                                                                    if ($quest->add_by_import == '1'  && !empty($quest->file_c)) {
                                                                                     ?>
 
                                                                                         <img width="250px ; height:250px;" src="<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
-
                                                                                         <?php if (!empty($quest->option3)) { ?>
-                                                                                            <p style="color:#000;"><?php echo $quest->option3; ?></p>
+                                                                                            <p style="color:#000"><?php echo $quest->option3; ?></p>
                                                                                         <?php } ?>
 
+                                                                                    <?php   } else if (isset($quest->file_c)  && !empty($quest->file_c)) { ?>
 
-                                                                                    <?php   } elseif (isset($quest->file_c)  && !empty($quest->file_c)) { ?>
+
 
 
                                                                                         <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
                                                                                         <?php if (!empty($quest->option3)) { ?>
-                                                                                            <p style="color:#000;"><?php  echo $quest->option3; ?></p>
+                                                                                            <p style="color:#000"><?php echo $quest->option3; ?></p>
                                                                                         <?php } ?>
 
                                                                                     <?php } else { ?>
 
                                                                                         <?php if (!empty($quest->option3)) { ?>
-                                                                                            <p><?php echo $quest->option3; ?></p>
+                                                                                            <p style="color:#000"><?php echo $quest->option3; ?></p>
                                                                                         <?php } ?>
 
                                                                                     <?php } ?>
-
-
                                                                                 </div>
                                                                                 <input type="radio" value="option_3" name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                                                 <span class="outer"></span>
@@ -1485,30 +1486,29 @@
 
                                                                                     <?php
 
-                                                                                        if ($quest->add_by_import == '1'  && !empty($quest->file_d)) {
+                                                                                    if ($quest->add_by_import == '1'  && !empty($quest->file_d)) {
                                                                                     ?>
 
                                                                                         <img width="250px ; height:250px;" src="<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
                                                                                         <?php if (!empty($quest->option4)) { ?>
-                                                                                            <p><?php echo $quest->option4; ?></p>
+                                                                                            <p style="color:#000"><?php echo $quest->option4; ?></p>
                                                                                         <?php } ?>
 
-                                                                                    <?php   } elseif (isset($quest->file_d)) { ?>
+                                                                                    <?php   } else if (isset($quest->file_d)) { ?>
+
+
+
 
                                                                                         <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
                                                                                         <?php if (!empty($quest->option4)) { ?>
-                                                                                            <p><?php echo $quest->option4; ?></p>
+                                                                                            <p style="color:#000"><?php echo $quest->option4; ?></p>
                                                                                         <?php } ?>
 
                                                                                     <?php } else { ?>
-
                                                                                         <?php if (!empty($quest->option4)) { ?>
-                                                                                            <p><?php  echo $quest->option4; ?></p>
+                                                                                            <p style="color:#000"><?php echo  $quest->option4; ?></p>
                                                                                         <?php } ?>
-
                                                                                     <?php } ?>
-                                                                                    <?php } ?>
-
                                                                                 </div>
                                                                                 <input value="option_4" type="radio" name="question_<?php echo $quest->id; ?>" class="ans-opt">
                                                                                 <span class="outer"></span>
@@ -1579,7 +1579,7 @@
                             foreach ($question as $quest) {
 
                         ?>
-                                <div class="sc-iLvKtB gUGIBK" id="<?php echo $counter; ?>" style="width: 20%; padding: 0.4rem 0px;">
+                                <div class="sc-iLvKtB gUGIBK" id="question_<?php echo $counter; ?>" style="width: 20%; padding: 0.4rem 0px;">
                                     <div color="#ffff" class="sc-hCDzWh kNGLmz">
                                         <div class="sc-lbhYTY eOngxn"><?php echo $counter; ?></div>
                                     </div>
@@ -1842,6 +1842,28 @@ $duration = trim($count_down, 'min');
 
         jQuery(".hVWBOg").click(function() {
             jQuery("body").toggleClass("hide_sidebar");
+        });
+        jQuery(".gUGIBK").each(function() {
+            jQuery(this).click(function() {
+                var id = jQuery(this).attr("id");
+                console.log(id);
+                jQuery("#" + id + ".question_row").show().addClass("current_que").siblings().hide();
+                jQuery(this).find(".sc-hCDzWh").addClass("ehuHuo");
+                jQuery(this).prev().find(".sc-hCDzWh").addClass("ehuHuo");
+                jQuery(this).find(".sc-hCDzWh").removeClass("kNGLmz");
+                jQuery(this).prev().find(".sc-hCDzWh").removeClass("kNGLmz");
+
+
+            });
+        });
+        jQuery("#defaultbtnnxt").click(function() {
+            jQuery(".question_row").hide();
+            jQuery(".current_que").removeClass("current_que").nextAll(".question_row").first().addClass("current_que").show();
+
+        });
+        jQuery("#defaultbtnprv").click(function() {
+            jQuery(".question_row").hide();
+            jQuery(".current_que").removeClass("current_que").prevAll(".question_row").first().addClass("current_que").show();
         });
     });
 </script>
