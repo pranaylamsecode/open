@@ -140,7 +140,9 @@
 
 
      <div class="courses_crausel owl-carousel jee">
-        <?php foreach($courses as $row):
+        <?php
+
+        foreach($courses as $row):
 
 
 $date = new DateTime($row->batch);
