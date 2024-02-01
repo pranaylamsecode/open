@@ -50,7 +50,7 @@
                             <div class="r-icon-stats">
                                 <i class="ti-money bg-megna"></i>
                                 <div class="bodystate">
-                                <?php 
+                                <?php
                                 $this->db->select_sum('amount');
                                 $this->db->from('payment');
                                 $this->db->where('payment_type', 'expense');
@@ -63,13 +63,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
+                   <!--  <div class="col-md-3 col-sm-6">
                         <div class="white-box">
                             <div class="r-icon-stats">
                                 <i class="ti-money bg-info"></i>
                                 <div class="bodystate">
 
-                                <?php 
+                                <?php
                                 $this->db->select_sum('amount');
                                 $this->db->from('payment');
                                 $this->db->where('payment_type', 'income');
@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-md-3 col-sm-6">
                         <div class="white-box">
                             <div class="r-icon-stats">
@@ -100,14 +100,14 @@
                                 <i class="ti-wallet bg-inverse"></i>
                                 <div class="bodystate">
                                     <h4>
-                                    <?php 
+                                    <?php
 
                                     $check_daily_attendance = array('date' => date('Y-m-d'), 'status' => '1');
                                     $get_attendance_information = $this->db->get_where('attendance', $check_daily_attendance);
                                     $display_attendance_here = $get_attendance_information->num_rows();
                                     echo $display_attendance_here;
                                     ?>
-                                    
+
                                     </h4>
                                     <span class="text-muted"><?php echo get_phrase('Attendance');?></span>
                                 </div>
@@ -133,7 +133,7 @@
 
                                 .amcharts-chart-div a{
                                     display:none !important;
-                                }	
+                                }
 
                                 </style>
 
@@ -150,16 +150,16 @@
 
                                 // Add data
                                 chart.data = [
-                    
+
                     <?php $select_expense = $this->db->get_where('payment', array('payment_type' => 'expense', 'year' => $running_year))->result_array(); //$this->crud_model->get_invoice_info();
                             foreach ($select_expense as $key => $expense_selected):?>
 
                                 {
                                 "country": "<?php echo $expense_selected['title'];?>",
                                 "litres": <?php echo $expense_selected['amount'];?>
-                                }, 
+                                },
                     <?php endforeach;?>
-                                
+
                                 ];
 
                                 // Add and configure Series
@@ -186,14 +186,14 @@
                                 <!-- HTML -->
                                 <div id="chartdiv1"></div>
 
-                               
+
                             </div>
                         </div>
                     </div>
                     <div class="col-md-7 col-sm-12 col-xs-12">
                         <div class="white-box">
                             <div class="stats-row">
-                                
+
 
                         <style>
                         #chartdiv {
@@ -203,11 +203,11 @@
 
                         .amcharts-chart-div a{
                             display:none !important;
-                        }	
+                        }
 
                         </style>
 
-              
+
 
                         <!-- Chart code -->
                         <script>
@@ -227,17 +227,17 @@
                         chart.paddingBottom = 30;
 
                         chart.data = [
-                
+
                         <?php $select_student = $this->db->get_where('invoice', array('year' => $running_year))->result_array(); //$this->crud_model->get_invoice_info();
                             foreach ($select_student as $key => $student_selected):?>
-                            
+
                             {
                             "name": "<?php echo $this->crud_model->get_type_name_by_id('student', $student_selected['student_id']);?>",
                             "steps": <?php echo $student_selected['amount_paid'];?>,
                             "href": "<?php echo base_url();?>uploads/student_image/<?php echo $student_selected['student_id']. '.jpg';?>"
-                            }, 
+                            },
                         <?php endforeach;?>
-                        
+
                         ];
 
                         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
@@ -338,10 +338,10 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
                 <!-- /.row -->
-               
+
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="white-box">
@@ -358,7 +358,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+
                                     <tr>
                             <?php $get_teacher_from_model = $this->crud_model->list_all_teacher_and_order_with_teacher_id();
                                     foreach ($get_teacher_from_model as $key => $teacher):?>
@@ -368,7 +368,7 @@
                                             <td><?php echo $teacher['phone'];?></td>
                                         </tr>
                                     <?php endforeach;?>
-                               
+
                                     </tbody>
                                 </table>
                             </div>
@@ -397,7 +397,7 @@
                                             <td><?php echo $student['phone'];?></td>
                                         </tr>
                                     <?php endforeach;?>
-                                       
+
                                     </tbody>
                                 </table>
                             </div>
