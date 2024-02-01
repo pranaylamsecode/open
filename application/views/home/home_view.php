@@ -167,7 +167,6 @@
         <!-- </div> -->
         <!-- END GRID -->
 
-    </div>
     <div class="courses_crausel owl-carousel neet" style="display:none;">
         <?php foreach ($courses2 as $row) :
 
@@ -193,6 +192,7 @@
         <?php endforeach; ?>
         <!-- </div> -->
         <!-- END GRID -->
+
 
     </div>
     <div class="courses_crausel owl-carousel foundation" style="display:none;">
