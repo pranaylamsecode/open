@@ -116,6 +116,13 @@
                     </a>
                 </li>
 
+                <li class="<?php if ($page_name == 'quiz_exams') echo 'active'; ?> ">
+                    <a href="<?php echo base_url(); ?>student/quizlist">
+                        <i class="fa fa-check-square p-r-10"></i>
+                        <span class="hide-menu"><?php echo get_phrase('Quiz List'); ?></span>
+                    </a>
+                </li>
+
                 <li class="<?php if ($page_name == 'payment_history') echo 'active'; ?> ">
                     <a href="<?php echo base_url(); ?>student/payment_history">
                         <i class="fa fa-credit-card p-r-10"></i>

@@ -52,3 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['result'] = 'result';
+
+$route['question-paper'] = 'common/questionPaper';
+$route['question'] = 'common/question';
+$route['save-answer'] = 'common/saveAnswer';
+$route['quiz'] = 'common/startQuiz';
+$route['quiz-complete'] = 'common/quizComplete';
