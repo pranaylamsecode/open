@@ -1129,6 +1129,10 @@
             border: 1px solid #efefef;
         }
 
+
+
+
+
         .fsqhgA .circle {
             padding-left: 0.1rem;
             margin: 0px;
