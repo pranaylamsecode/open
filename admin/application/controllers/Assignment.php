@@ -1,8 +1,8 @@
 
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+ini_set('display_errors', 1);
 
-
-class Assignment extends CI_Controller { 
+class Assignment extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -15,12 +15,12 @@ class Assignment extends CI_Controller {
     function assignment($param1 = null, $param2 = null, $param3 = null){
 
         if ($param1 == 'insert'){
-        
+
         $this->assignment_model->inserAssignment();
         $this->session->set_flashdata('flash_message', get_phrase('Data successfully saved'));
         redirect(base_url(). 'assignment/assignment', 'refresh');
         }
-        
+
     if($param1 == 'update'){
 
         $this->assignment_model->updateAssignment($param2);
