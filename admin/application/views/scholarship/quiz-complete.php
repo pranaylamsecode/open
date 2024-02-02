@@ -109,6 +109,18 @@
                                     <td><?php echo count($correct); ?></td>
                                 </tr>
 
+                                <tr>
+                                    <td>Score </td>
+
+                                    <?php 
+                                    $number_of_minus_from_total_mark = count($result) - count($correct);
+                                    $total_minus_mark = $number_of_minus_from_total_mark * $negative_mark;
+                                $total_correct_mark = count($correct) * $mark_correct_answer;
+                                $final_marks = $total_correct_mark - $total_minus_mark;
+?>
+                                    <td><?php echo $final_marks; ?></td>
+                                </tr>
+
                             </tbody>
                       </table>
                     </div>

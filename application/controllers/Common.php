@@ -192,10 +192,23 @@ class Common extends Base_Controller {
             $this->load->view('scholarship/question-paper-instruction-1', $data);
            }elseif($step_instruction == 2){
 
+            
+
             $this->db->select('*');
             $this->db->from('quiz_details');
             $this->db->where('quiz_id', $quizid);
             $data['quiz_name'] =   $this->db->get()->result();
+
+            foreach($data['quiz_name'] as $quiz_name)
+            {
+                    $mark_correct_answer = $quiz_name->mark_for_correct_answer;
+                    $negative_mark = $quiz_name->negative_mark;
+                    $more_desc = $quiz_name->other_imp_instruction;
+            }
+
+             $data['mark_for_correct_answer'] =  $mark_correct_answer;
+             $data['negative_mark'] =  $negative_mark;
+             $data['more_desc'] =  $more_desc;
 
             $this->load->view('scholarship/question-paper', $data);
            }else{
@@ -206,7 +219,16 @@ class Common extends Base_Controller {
             $data['quiz_name'] =   $this->db->get()->result();
 
             
+            foreach($data['quiz_name'] as $quiz_name)
+            {
+                    $mark_correct_answer = $quiz_name->mark_for_correct_answer;
+                    $negative_mark = $quiz_name->negative_mark;
+                    $more_desc = $quiz_name->other_imp_instruction;
+            }
 
+             $data['mark_for_correct_answer'] =  $mark_correct_answer;
+             $data['negative_mark'] =  $negative_mark;
+             $data['more_desc'] =  $more_desc;
 
             $this->load->view('scholarship/question-paper', $data);
            }
@@ -253,6 +275,21 @@ class Common extends Base_Controller {
 
             $correctQuery = "SELECT * FROM quiz_answer WHERE quiz_id = $quiz_id AND user_id = $user_id AND is_correct = 1";
             $data['correct'] = $this->User_model->selectRecord($correctQuery);
+
+            $this->db->select('*');
+            $this->db->from('quiz_details');
+            $this->db->where('quiz_id', $quiz_id);
+            $data['quiz_name'] =   $this->db->get()->result();
+
+            foreach($data['quiz_name'] as $quiz_name)
+            {
+                    $mark_correct_answer = $quiz_name->mark_for_correct_answer;
+                    $negative_mark = $quiz_name->negative_mark;
+                    
+            }
+
+             $data['mark_for_correct_answer'] =  $mark_correct_answer;
+             $data['negative_mark'] =  $negative_mark;
 
             // $this->load->view('quiz-complete', $data);
             $this->load->view('header_view');

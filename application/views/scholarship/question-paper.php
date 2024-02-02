@@ -1304,15 +1304,11 @@
         </div>
         <div class="sc-hQXzsD jAtXkS">
             <div class="sc-hCgVqe cZghyu">
-                <!-- <div class="sc-cKajLJ zupOx">
-                    <div><span>Marks for correct answer</span> : <span class="sc-hhFzXm cXlCxe green"><?php foreach($quiz_name as $quiz_name) { ?>
-                <?php echo $quiz_name->mark_for_correct_answer; ?>
-                <?php } ?></span></div>
+            <div class="sc-cKajLJ zupOx">
+                    <div><span>Marks for correct answer</span> : <span class="sc-hhFzXm cXlCxe green"><?php echo $mark_for_correct_answer; ?></span></div>
                     <div class="sc-eZMymg jrplPe"></div>
-                    <div><span>Negative marks</span> : <span class="sc-hhFzXm cXlCxe red"><?php foreach($quiz_name as $quiz_name) { ?>
-                <?php echo $quiz_name->negative_mark; ?>
-                <?php } ?></span></div>
-                </div> -->
+                    <div><span>Negative marks</span> : <span class="sc-hhFzXm cXlCxe red"> <?php echo $negative_mark; ?></span></div>
+                </div>
 
                 <div class="sc-iJRSss sc-kMizLa hsjTRm woFxs">
                     <div class="sc-eTgnfb sc-dpkrwT eYrqql cBuRxZ">
