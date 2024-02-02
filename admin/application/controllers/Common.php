@@ -110,9 +110,11 @@ class Common extends Base_Controller {
 
             $quizid = $this->input->post('quiz', true);
              $level_type = $this->input->post('level_type', true);
+
+             
 			if(empty($quizid) && empty($level_type))
 			{
-				redirect('quiz');
+				redirect('student/quizlist');
 			}
             /* $query = "SELECT * FROM `quiz_questions` WHERE `is_active` = 1 AND `quiz_id` = '$quizid' AND `exam_type` = '$level_type'";
             $data['question'] = $this->User_model->selectRecord($query); */
@@ -129,7 +131,7 @@ class Common extends Base_Controller {
 
                 $this->session->set_flashdata('flash_message', get_phrase('No question is present !'));
 
-                redirect('quiz');
+                redirect('student/quizlist');
             }
 
             $time = "SELECT quiz_duration FROM quiz_details WHERE quiz_id = $quizid";
@@ -154,7 +156,7 @@ class Common extends Base_Controller {
             $this->db->where('quiz_id', $quizid);
             $data['quiz_name'] =   $this->db->get()->result();
 
-
+            
 
             $this->load->view('scholarship/question-paper-instruction-0', $data);
            }elseif($step_instruction == 1)
@@ -177,6 +179,20 @@ class Common extends Base_Controller {
             }
 
              $data['quiz_duration'] =  $quiz_duration;
+
+             foreach($data['quiz_name'] as $quiz_name)
+             {
+                     $mark_correct_answer = $quiz_name->mark_for_correct_answer;
+                     $negative_mark = $quiz_name->negative_mark;
+                     $more_desc = $quiz_name->other_imp_instruction;
+             }
+ 
+              $data['mark_for_correct_answer'] =  $mark_correct_answer;
+              $data['negative_mark'] =  $negative_mark;
+              $data['more_desc'] =  $more_desc;
+
+             
+             
 
             $this->load->view('scholarship/question-paper-instruction-1', $data);
            }elseif($step_instruction == 2){

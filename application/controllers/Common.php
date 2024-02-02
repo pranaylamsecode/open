@@ -178,6 +178,17 @@ class Common extends Base_Controller {
 
              $data['quiz_duration'] =  $quiz_duration;
 
+             foreach($data['quiz_name'] as $quiz_name)
+            {
+                    $mark_correct_answer = $quiz_name->mark_for_correct_answer;
+                    $negative_mark = $quiz_name->negative_mark;
+                    $more_desc = $quiz_name->other_imp_instruction;
+            }
+
+             $data['mark_for_correct_answer'] =  $mark_correct_answer;
+             $data['negative_mark'] =  $negative_mark;
+             $data['more_desc'] =  $more_desc;
+
             $this->load->view('scholarship/question-paper-instruction-1', $data);
            }elseif($step_instruction == 2){
 

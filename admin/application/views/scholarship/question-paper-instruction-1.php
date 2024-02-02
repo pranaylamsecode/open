@@ -302,9 +302,15 @@
                 <?php } ?></div>
             <div class="sc-hJYyEF grrFQX"><span><span>Other important instructions</span></span></div>
             <div class="sc-uyLif jAgrGA display-scroll-bar">
-                <span>1. This test consists of <strong><?php echo count($question); ?></strong>&nbsp;questions.<br>
+                <span>
+                    1. This test consists of <strong><?php echo count($question); ?></strong>&nbsp;questions.<br>
                     2. The&nbsp;duration of this test is <strong><?php echo $quiz_duration; ?></strong> minutes.<br>
-                    3. There is a <strong>1</strong> negative marking for the wrong answer and <strong>3</strong>&nbsp;mark for the right answer. No marks will be deducted for unattempted questions.&nbsp;</span>
+                    3. There is a <strong><?php echo $negative_mark; ?></strong> negative marking for the wrong answer and <strong><?php echo $mark_for_correct_answer; ?></strong>&nbsp;mark for the right answer. No marks will be deducted for unattempted questions.&nbsp;</span><br>
+                    <?php if(!empty($more_desc)){ ?> 
+                        4. <strong><?php echo $more_desc; ?></strong> .<br>
+                    
+                    <?php } ?> 
+                    
             </div>
         </div>
         <div class="sc-kJPuub gbcLQJ">
