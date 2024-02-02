@@ -1903,17 +1903,22 @@ $duration = trim($count_down, 'min');
             var not_answered = jQuery('.gUGIBK .RrsUN').length;
             jQuery(".fIURSk.not_answered").find(".JocCd").text(not_answered);
 
-            setTimeout(function() {
-                jQuery(".question_row").hide();
-                jQuery(".current_que").removeClass("current_que").nextAll(".question_row").first().addClass("current_que").show();
-                if (jQuery(".question_row:last-child").hasClass("current_que")) {
-                    jQuery(this).addClass("disable");
-                } else {
-                    jQuery(this).removeClass("disable");
-                }
-                var id2 = jQuery(".current_que").attr("id");
-                jQuery("#" + id2 + ".gUGIBK").find(".sc-hCDzWh").addClass("ehuHuo").addClass("RrsUN");
-            }, 200);
+
+            jQuery(".question_row").hide();
+            jQuery(".current_que").removeClass("current_que").nextAll(".question_row").first().addClass("current_que").show();
+            if (jQuery(".question_row:last-child").hasClass("current_que")) {
+                jQuery(this).addClass("disable");
+            } else {
+                jQuery(this).removeClass("disable");
+            }
+            if (jQuery("#question_1").hasClass("current_que")) {
+                jQuery("#defaultbtnprv").addClass("disable");
+            } else {
+                jQuery("#defaultbtnprv").removeClass("disable");
+            }
+            var id2 = jQuery(".current_que").attr("id");
+            jQuery("#" + id2 + ".gUGIBK").find(".sc-hCDzWh").addClass("ehuHuo").addClass("RrsUN");
+
 
         });
         jQuery("#defaultbtnprv").click(function() {

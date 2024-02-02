@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-sm-12">
 		<div class="panel panel-info">
-            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Enter Student Score');?></div>
+            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Quiz Score');?></div>
                 <div class="panel-body table-responsive">
 
                     <!----CREATION FORM STARTS---->
@@ -24,13 +24,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <select name="" id="student_id_0" style="display:<?php if(isset($student_id) && $student_id > 0) echo 'none'; else echo 'block';?>"  class="form-control">
-                                        <option value=""><?php echo get_phrase('Select Class First');?></option>
-                                    </select>
-                                </div>
-                            </div>
+
 
                             <input class="" type="hidden" value="selection" name="operation">
                         <div class="form-group">

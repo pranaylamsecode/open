@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-sm-12">
 		<div class="panel panel-info">
-            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Enter Student Score');?></div>
+            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Quiz Score');?></div>
                 <div class="panel-body table-responsive">
 
                     <!----CREATION FORM STARTS---->
@@ -24,13 +24,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <select name="" id="student_id_0" style="display:<?php if(isset($student_id) && $student_id > 0) echo 'none'; else echo 'block';?>"  class="form-control">
-                                        <option value=""><?php echo get_phrase('Select Class First');?></option>
-                                    </select>
-                                </div>
-                            </div>
+
 
                             <input class="" type="hidden" value="selection" name="operation">
                         <div class="form-group">
@@ -42,8 +36,66 @@
 		</div>
 	</div>
 </div>
+<canvas id="myLineChart" width="800" height="400"></canvas>
+
+<script>
+// Sample data with dates and scores
+const data = [
+    { date: '2024-01-01', score: 85 },
+    { date: '2024-01-02', score: 92 },
+    { date: '2024-01-03', score: 78 },
+    { date: '2024-01-04', score: 88 }
+    // Add more data as needed
+];
+
+// Convert date strings to JavaScript Date objects
+const dateObjects = data.map(entry => new Date(entry.date));
+
+// Get the canvas element
+const ctx = document.getElementById('myLineChart').getContext('2d');
+
+// Create the line chart
+const myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: dateObjects,
+        datasets: [
+            {
+                label: 'Score Trend',
+                data: data.map(entry => entry.score),
+                fill: false,
+                borderColor: 'rgba(75, 192, 192, 1)', // You can customize the color
+                borderWidth: 2,
+                pointRadius: 5,
+                pointBackgroundColor: 'rgba(75, 192, 192, 1)'
+            }
+        ]
+    },
+    options: {
+        scales: {
+            x: {
+                type: 'time',
+                time: {
+                    unit: 'day' // Adjust this based on your data
+                },
+                title: {
+                    display: true,
+                    text: 'Date'
+                }
+            },
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Score'
+                }
+            }
+        }
+    }
+});
 
 
+</script>
 <?php if(/* $student_id > 0 && $exam_id > 0 */false):?>
 
 

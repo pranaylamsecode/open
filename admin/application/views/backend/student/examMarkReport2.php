@@ -2,22 +2,22 @@
 <div class="row">
     <div class="col-sm-12">
 		<div class="panel panel-info">
-            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Enter Student Score');?></div>
+            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Quiz Score');?></div>
                 <div class="panel-body table-responsive">
 
                     <!----CREATION FORM STARTS---->
 
-                	<?php echo form_open(base_url() . 'report/examMarkReport' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top', 'enctype' => 'multipart/form-data'));?>
+                	<?php echo form_open(base_url() . 'report/examMarkReport3' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top', 'enctype' => 'multipart/form-data'));?>
 
                             <div class="form-group">
-                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Exam');?></label>
+                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Quiz');?></label>
                                 <div class="col-sm-12">
                                     <select name="exam_id" class="form-control select2">
                                         <option value=""><?php echo get_phrase('select_class');?></option>
 
-                                        <?php $exams =  $this->db->get('exam')->result_array();
+                                        <?php $exams =  $this->db->get('quiz_details')->result_array();
                                         foreach($exams as $key => $exam):?>
-                                        <option value="<?php echo $exam['exam_id'];?>"<?php if($exam_id == $exam['exam_id']) echo 'selected="selected"' ;?>><?php echo $exam['name'];?></option>
+                                        <option value="<?php echo $exam['quiz_id'];?>"<?php if($exam_id == $exam['quiz_id']) echo 'selected="selected"' ;?>><?php echo $exam['quiz_name'];?></option>
                                         <?php endforeach;?>
                                 </select>
 
@@ -25,48 +25,6 @@
                             </div>
 
 
-                            <div class="form-group">
-                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('class');?></label>
-                                <div class="col-sm-12">
-                                    <select name="class_id"  class="form-control select2" onchange="show_students(this.value)">
-                                        <option value=""><?php echo get_phrase('select_class');?></option>
-
-                                        <?php $classes =  $this->db->get('class')->result_array();
-                                        foreach($classes as $key => $class):?>
-                                        <option value="<?php echo $class['class_id'];?>"<?php if($class_id == $class['class_id']) echo 'selected="selected"' ;?>>Class: <?php echo $class['name'];?></option>
-                                        <?php endforeach;?>
-                                </select>
-
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Student');?></label>
-                                <div class="col-sm-12">
-
-                                <?php $classes = $this->crud_model->get_classes();
-                                        foreach ($classes as $key => $row): ?>
-
-                                    <select name="<?php if($class_id == $row['class_id']) echo 'student_id'; else echo 'temp';?>" id="student_id_<?php echo $row['class_id'];?>" style="display:<?php if($class_id == $row['class_id']) echo 'block'; else echo 'none';?>"  class="form-control">
-                                        <option value="">Student of: <?php echo $row['name'] ;?></option>
-
-                                        <?php $students = $this->crud_model->get_students($row['class_id']);
-                                        foreach ($students as $key => $student): ?>
-                                        <option value="<?php echo $student['student_id'];?>"<?php if(isset($student_id) && $student_id == $student['student_id']) echo 'selected="selected"';?>><?php echo $student['name'];?></option>
-                                        <?php endforeach;?>
-                                    </select>
-                                <?php endforeach;?>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <select name="" id="student_id_0" style="display:<?php if(isset($student_id) && $student_id > 0) echo 'none'; else echo 'block';?>"  class="form-control">
-                                        <option value=""><?php echo get_phrase('Select Class First');?></option>
-                                    </select>
-                                </div>
-                            </div>
 
                             <input class="" type="hidden" value="selection" name="operation">
                         <div class="form-group">
@@ -80,17 +38,9 @@
 </div>
 
 
-<?php if($class_id > 0 && $student_id > 0 && $exam_id > 0):?>
+<?php if(/* $student_id > 0 && $exam_id > 0 */false):?>
 
-    <?php $select_sunject_with_class_id  =   $this->crud_model->get_subjects_by_class($class_id);
-            foreach ($select_sunject_with_class_id as $key => $class_subject_exam_student):
 
-                $verify_data = array('exam_id' => $exam_id, 'class_id' => $class_id, 'student_id' => $student_id, 'subject_id' => $class_subject_exam_student['subject_id']);
-                $query = $this->db->get_where('mark', $verify_data);
-
-                if($query->num_rows() < 1)
-                    $this->db->insert('mark', $verify_data);
-            endforeach;?>
 
 
 
@@ -103,24 +53,22 @@
     					<table cellpadding="0" cellspacing="0" border="0" class="table">
 								<thead>
 									<tr>
-										<td><?php echo get_phrase('subject');?></td>
-										<td><?php echo get_phrase('1st score');?></td>
-										<td><?php echo get_phrase('2nd score');?></td>
-										<td><?php echo get_phrase('3rd score');?></td>
-										<td><?php echo get_phrase('exam score');?></td>
-										<td><?php echo get_phrase('comment');?></td>
+										<td><?php echo get_phrase('Quiz Name');?></td>
+										<td><?php echo get_phrase('attempt');?></td>
+										<td><?php echo get_phrase('correct');?></td>
+										<td><?php echo get_phrase('score');?></td>
+
 									</tr>
 								</thead>
                     				<tbody>
 
-        <?php $select_sunject_with_class_id  =   $this->crud_model->get_subjects_by_class($class_id);
-            foreach ($select_sunject_with_class_id as $key => $class_subject_exam_student):
+        <?php
 
-                $verify_data = array('exam_id' => $exam_id, 'class_id' => $class_id, 'student_id' => $student_id, 'subject_id' => $class_subject_exam_student['subject_id']);
-                $query = $this->db->get_where('mark', $verify_data);
+                $verify_data = array('quiz_id' => $exam_id,'user_id' => $student_id,);
+                $query = $this->db->get_where('quiz_answer', $verify_data);
                 $update_subject_marks = $query->result_array();
 
-                foreach ($update_subject_marks as $key => $general_select):
+
 
 
            ?>
@@ -136,21 +84,6 @@
 							<td>
 								<?php echo $general_select['class_score2'];?>
 							</td>
-							<td>
-								<?php echo $general_select['class_score3'];?>
-							</td>
-							<td>
-								<?php echo $general_select['exam_score'];?>
-							</td>
-
-							<td>
-								<?php echo $general_select['comment'];?>
-							</td>
-        <?php
-            endforeach;
-                endforeach;
-        ?>
-
 
 
                     </tbody>
@@ -203,27 +136,14 @@
             "startDuration": 2,
             "dataProvider": [
 
-        <?php $select_sunject_with_class_id  =   $this->crud_model->get_subjects_by_class($class_id);
-            foreach ($select_sunject_with_class_id as $key => $class_subject_exam_student):
-
-                $verify_data = array('exam_id' => $exam_id, 'class_id' => $class_id, 'student_id' => $student_id, 'subject_id' => $class_subject_exam_student['subject_id']);
-                $query = $this->db->get_where('mark', $verify_data);
-                $update_subject_marks = $query->result_array();
-
-                foreach ($update_subject_marks as $key => $general_select):
-
-                    $sum_Class_score_and_exam_score = $general_select['class_score1'] + $general_select['class_score2'] + $general_select['class_score3'] + $general_select['exam_score'];
-
-           ?>
 
 
-                    {
-                        "country": "<?php echo $class_subject_exam_student['name'];?>",
-                        "visits": "<?php echo $sum_Class_score_and_exam_score;?>",
+                  /*   {
+                        "country": "<?php // echo // $class_subject_exam_student['name'];?>",
+                        "visits": "<?php //  echo  //$sum_Class_score_and_exam_score;?>",
                         "color": "#99BDF9"
-                    },
-                <?php endforeach;
-                endforeach;?>
+                    }, */
+
 
             ],
             "valueAxes": [{

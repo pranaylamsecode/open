@@ -172,3 +172,5 @@
             <!-- /.navbar-top-links -->
             <!-- /.navbar-static-side -->
         </nav>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
