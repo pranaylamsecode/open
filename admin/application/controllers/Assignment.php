@@ -8,7 +8,7 @@ class Assignment extends CI_Controller {
         parent::__construct();
         		$this->load->database();
                 $this->load->library('session');
-                $this->load->model('assignment_model');
+                $this->load->model('Assignment_model', 'assignment_model');
     }
 
     // The function below manage assignment //

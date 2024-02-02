@@ -10,7 +10,7 @@
                         </li>
                     </ul>
             <ul class="nav navbar-top-links navbar-right pull-right">
-                <!--<li class="dropdown"> 
+                <!--<li class="dropdown">
                     <a class="dropdown-toggle " data-toggle="dropdown" href="#"><i class="icon-envelope"></i>
                         <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
                     </a>
@@ -45,12 +45,12 @@
                                 <li>
                                 <a class="text-center" href="javascript:void(0);"> <strong>See all notifications</strong> <i class="fa fa-angle-right"></i> </a>
                             </li>
-                        </ul> 
-            
+                        </ul>
+
                 </li>/.dropdown-messages -->
                     <!-- /.dropdown -->
 
-            <!-- <li class="dropdown"> 
+            <!-- <li class="dropdown">
                 <a class="dropdown-toggle " data-toggle="dropdown" href="#"><i class="icon-note"></i>
                     <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
                 </a>
@@ -103,11 +103,11 @@
                                 <a class="text-center" href="#"> <strong>See All Tasks</strong> <i class="fa fa-angle-right"></i> </a>
                             </li>
                         </ul>
-                        
+
                     </li> /.dropdown-tasks -->
 
 
-                    
+
                     <!-- /.dropdown -->
                     <li class="dropdown">
 
@@ -116,24 +116,31 @@
                             // $key = $this->session->userdata('login_type') . '_id';
                             // $face_file = 'uploads/' . $this->session->userdata('login_type') . '_image/' . $this->session->userdata($key) . '.jpg';
                             // if (!file_exists($face_file)) {
-                            //     $face_file = 'uploads/default.jpg';                                 
+                            //     $face_file = 'uploads/default.jpg';
                             // }
 
                             $image_type   =   $this->session->userdata('login_type');
+
+
                             $image_id     =   $image_type.'_id';
                             // $face_file = 'uploads/' . $this->crud_model->get_type_image_by_id($image_type ,  $this->session->userdata($image_id) . 'userfile');
                             // if (!file_exists($face_file)) {
-                            //     $face_file = 'uploads/default.jpg';                                 
+                            //     $face_file = 'uploads/default.jpg';
                             // }
+                                if(!empty($image_id))
+                                {
+                                    $image           =   $this->crud_model->get_type_image_by_id($image_type , $this->session->userdata($image_id), 'userfile');
+                                }else{
+                                    $image = '';
+                                }
 
-                            $image           =   $this->crud_model->get_type_image_by_id($image_type , $this->session->userdata($image_id), 'userfile');
                             // echo $image;
                             ?>
 
                         <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="<?php echo base_url('uploads/admin_image/') . $image;?>" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">
 
 
-                                <?php 
+                                <?php
                                 $account_type   =   $this->session->userdata('login_type');
                                 $account_id     =   $account_type.'_id';
                                 $name           =   $this->crud_model->get_type_name_by_id($account_type , $this->session->userdata($account_id), 'name');

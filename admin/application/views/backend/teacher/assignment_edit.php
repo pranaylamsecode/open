@@ -6,13 +6,13 @@
                             <div class="panel-heading">EDIT ASSIGNMENT</div>
                                 <div class="panel-body">
                 <?php echo form_open(base_url().'assignment/assignment/update/'. $param2 , array('class' => 'form-horizontal form-groups-bordered validate', 'enctype' => 'multipart/form-data'));?>
-	
+
 
 
                 <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('name');?></label>
                     <div class="col-sm-12">
-                                    <input type="text" class="form-control" value="<?php echo $assignment['name'];?>" name="name" / required>
+                                    <input type="text" class="form-control" value="<?php echo $assignment['name'];?>" name="name" required>
                         </div>
                     </div>
 
@@ -32,7 +32,7 @@
                   </div>
                  </div>
 
-								
+
 					<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('subject');?></label>
                     <div class="col-sm-12">
@@ -48,73 +48,73 @@
                     <div class="col-sm-12">
 
                  	<input type="date" name="timestamp" value="<?php echo $assignment['timestamp'];?>" class="form-control datepicker" id="example-date-input" required>
-				   
+
                     </div>
                 </div>
 
                <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('select_teacher');?></label>
                     <div class="col-sm-12">
-                       
+
 					   <select name="teacher_id" class="form-control select2" style="width:100%;" required>
 										<option value=""><?php echo get_phrase('select');?></option>
 
                            <?php $teacher =  $this->db->get('teacher')->result_array();
-                                    foreach($teacher as $key => $teacher):?>         	
+                                    foreach($teacher as $key => $teacher):?>
                                     		<option value="<?php echo $teacher['teacher_id'];?>"<?php if($assignment['teacher_id']== $teacher['teacher_id']) echo 'selected';?>><?php echo $teacher['name'];?></option>
                             <?php endforeach;?>
-                                     
-                                    </select>              
-					    
-						
-                    </div> 
+
+                                    </select>
+
+
+                    </div>
                 </div>
 
 
                 <div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('file_type');?></label>
                     <div class="col-sm-12">
-                       
+
 					   <select name="file_type" class="form-control select2" style="width:100%;" required>
 										<option value=""><?php echo get_phrase('file_type');?></option>
 
-                           
+
                                     		<option value="pdf"<?php if($assignment['file_type'] == 'pdf') echo 'selected';?>>PDF</option>
                                             <option value="xlsx"<?php if($assignment['file_type'] == 'xlsx') echo 'selected';?>>Excel</option>
                                             <option value="docx"<?php if($assignment['file_type'] == 'docx') echo 'selected';?>>Word Document</option>
                                             <option value="img"<?php if($assignment['file_type'] == 'img') echo 'selected';?>>Image</option>
                                             <option value="txt"<?php if($assignment['file_type'] == 'txt') echo 'selected';?>>Text File</option>
-                          
-                                     
-                                    </select>              
-					    
-						
-                    </div> 
+
+
+                                    </select>
+
+
+                    </div>
                 </div>
 
 
-				
-				
+
+
 				<div class="form-group">
                  	<label class="col-md-12" for="example-text"><?php echo get_phrase('description');?></label>
                     <div class="col-sm-12">
                                 <textarea  name="description" class="form-control"><?php echo $assignment['description'];?></textarea>
                             </div>
                         </div>
-			
 
-                    
+
+
                     <div class="form-group">
 							<button type="submit" class="btn btn-info btn-block btn-sm btn-rounded"> <i class="fa fa-edit"></i>&nbsp;<?php echo get_phrase('edit_assignment');?></button>
 					</div>
-					
-                <?php echo form_close();?>	
-									
-									
+
+                <?php echo form_close();?>
+
+
                             </div>
                         </div>
                     </div>
-				</div>  
+				</div>
 <?php endforeach;?>
 
 
