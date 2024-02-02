@@ -944,25 +944,27 @@
 
 
         .dePesc {
-            height: 3rem;
-            min-width: 64px;
-            position: relative;
-            display: flex;
-            flex-shrink: 0;
-            -webkit-box-align: center;
-            align-items: center;
-            -webkit-box-pack: center;
-            justify-content: center;
-            color: rgb(255, 255, 255);
-            background: url("data:image/png;base64,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") center center no-repeat;
-            cursor: default;
+            height: 3rem !important;
+            min-width: 64px !important;
+            position: relative !important;
+            display: flex !important;
+            flex-shrink: 0 !important;
+            -webkit-box-align: center !important;
+            align-items: center !important;
+            -webkit-box-pack: center !important;
+            justify-content: center !important;
+            color: rgb(255, 255, 255) !important;
+            background: url("data:image/png;base64,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") center center no-repeat !important;
+            ;
+            cursor: default !important;
+            ;
         }
 
         .sc-jnCuNW.eFeRNr {
             display: flex !IMPORTANT;
         }
 
-        .RrsUN {
+        .sc-hCDzWh.RrsUN {
             height: 3rem;
             min-width: 64px;
             position: relative;
@@ -1291,8 +1293,8 @@
 
     <div class="sc-cBsrDa emYctj">
         <div class="sc-eoXOpV sc-jIsiFf coCxDd cyvreJ">
-            <div class="sc-fbHdRr sc-ksjCef gwqiqN bjabxQ"><?php foreach($quiz_name as $quiz_name) { ?>
-                <?php echo $quiz_name->quiz_name; ?>
+            <div class="sc-fbHdRr sc-ksjCef gwqiqN bjabxQ"><?php foreach ($quiz_name as $quiz_name) { ?>
+                    <?php echo $quiz_name->quiz_name; ?>
                 <?php } ?></div>
             <div class="sc-foDcoF kQJNzr">
                 <div class="sc-hrZiYQ fIURSk">
@@ -1304,7 +1306,7 @@
         </div>
         <div class="sc-hQXzsD jAtXkS">
             <div class="sc-hCgVqe cZghyu">
-            <div class="sc-cKajLJ zupOx">
+                <div class="sc-cKajLJ zupOx">
                     <div><span>Marks for correct answer</span> : <span class="sc-hhFzXm cXlCxe green"><?php echo $mark_for_correct_answer; ?></span></div>
                     <div class="sc-eZMymg jrplPe"></div>
                     <div><span>Negative marks</span> : <span class="sc-hhFzXm cXlCxe red"> <?php echo $negative_mark; ?></span></div>
@@ -1432,7 +1434,7 @@
 
                                                                                     <?php } else { ?>
                                                                                         <?php if (!empty($quest->option2)) { ?>
-                                                                                            <p style="color:#000"><?php  echo $quest->option2; ?></p>
+                                                                                            <p style="color:#000"><?php echo $quest->option2; ?></p>
                                                                                         <?php } ?>
 
                                                                                     <?php } ?>
@@ -1552,35 +1554,23 @@
                 <div class="sc-bPPhlf hVWBOg"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAATCAYAAACtHkzTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABxSURBVHgBzY5RDYAwDESbYGA4qAQcgYRJwMFwABZQgoRJQAJck5I0pOWTrMn7upfeERGxEl4F55e0gQscIHlC0i8ilejLoDUijZGUVWhlz2z2uPfUrF5YNKzkDJ00FPgdshmX6b9e+9rt7UAPdrB4wg0NkSscoXI9LQAAAABJRU5ErkJggg==" alt="sidebar-close"></div>
                 <div class="sc-epVeNg gfUPrd">
                     <div class="sc-cBQgDv dqylZT">
-                        <div class="sc-hrZiYQ fIURSk child">
+                        <div class="sc-hrZiYQ fIURSk child answered">
                             <div color="#ffff" class="sc-hCDzWh dePesc">
-                                <div class="sc-lbhYTY JocCd">0</div>
+                                <div class="sc-lbhYTY JocCd"></div>
                             </div>
                             <label><span>Answered</span></label>
                         </div>
-                        <div class="sc-hrZiYQ fIURSk child">
+                        <div class="sc-hrZiYQ fIURSk child not_answered">
                             <div color="#ffff" class="sc-hCDzWh RrsUN">
-                                <div class="sc-lbhYTY JocCd">1</div>
+                                <div class="sc-lbhYTY JocCd"></div>
                             </div>
                             <label><span>Not Answered</span></label>
                         </div>
-                        <div class="sc-hrZiYQ fIURSk child">
+                        <div class="sc-hrZiYQ fIURSk child not_visited">
                             <div color="#110658" class="sc-hCDzWh dmWkcb">
-                                <div class="sc-lbhYTY JocCd">23</div>
+                                <div class="sc-lbhYTY JocCd"></div>
                             </div>
                             <label><span>Not Visited</span></label>
-                        </div>
-                        <div class="sc-hrZiYQ fIURSk child">
-                            <div color="#ffff" class="sc-hCDzWh jFrKFH">
-                                <div class="sc-lbhYTY JocCd">0</div>
-                            </div>
-                            <label><span>Marked for Review</span></label>
-                        </div>
-                        <div class="sc-hrZiYQ fIURSk child">
-                            <div color="#ffff" class="sc-hCDzWh kEjOVh">
-                                <div class="sc-lbhYTY JocCd">0</div>
-                            </div>
-                            <label><span>Answered and Marked for Review</span></label>
                         </div>
                     </div>
                     <div class="sc-dVMcbP jvBxqW">English</div>
@@ -1610,7 +1600,7 @@
         </div>
         <div class="sc-jnCuNW eFeRNr">
             <input type="button" name="preview" id="defaultbtnprv" class="previous action-button" value="Previous" />
-            <input type="button" name="next" id="defaultbtnnxt" class="save_btn next action-button" value="Next" />
+            <input type="button" name="next" id="defaultbtnnxt" class="save_btn next action-button" value="Save & Next" />
             <input type="submit" name="submit" id="sbmtbtn" onclick="return submitAnswer();" class="action-button" value="Submit" />
 
         </div>
@@ -1849,6 +1839,14 @@ $duration = trim($count_down, 'min');
 
 <script>
     $(document).ready(function() {
+        var not_visited = jQuery('.gUGIBK .kNGLmz').length;
+        jQuery(".fIURSk.not_visited").find(".JocCd").text(not_visited);
+
+        var answered = jQuery('.gUGIBK .dePesc').length;
+        jQuery(".fIURSk.answered").find(".JocCd").text(answered);
+
+        var not_answered = jQuery('.gUGIBK .RrsUN').length;
+        jQuery(".fIURSk.not_answered").find(".JocCd").text(not_answered);
         $('.dropdown-submenu a.test').on("mouseover", function(e) {
             $(this).next('ul').toggle();
             e.stopPropagation();
@@ -1861,13 +1859,10 @@ $duration = trim($count_down, 'min');
         jQuery(".gUGIBK").each(function() {
             jQuery(this).click(function() {
                 var id = jQuery(this).attr("id");
-                console.log(id);
                 jQuery("#" + id + ".question_row").show().addClass("current_que").siblings().hide();
-                jQuery(this).find(".sc-hCDzWh").addClass("ehuHuo");
-                jQuery(this).prevAll().find(".sc-hCDzWh").addClass("ehuHuo");
+                jQuery(this).find(".sc-hCDzWh").addClass("ehuHuo").addClass("RrsUN");
                 jQuery(this).find(".sc-hCDzWh").removeClass("kNGLmz");
-                jQuery(this).prevAll().find(".sc-hCDzWh").removeClass("kNGLmz");
-
+                jQuery(this).siblings().find(".sc-hCDzWh").removeClass("ehuHuo");
                 jQuery(".question_row").removeClass("current_que");
 
                 jQuery("#" + id + ".question_row").addClass("current_que");
@@ -1882,19 +1877,47 @@ $duration = trim($count_down, 'min');
                 } else {
                     jQuery("#defaultbtnnxt").removeClass("disable");
                 }
+                var not_visited = jQuery('.gUGIBK .kNGLmz').length;
+                jQuery(".fIURSk.not_visited").find(".JocCd").text(not_visited);
+
+                var answered = jQuery('.gUGIBK .dePesc').length;
+                jQuery(".fIURSk.answered").find(".JocCd").text(answered);
+
+                var not_answered = jQuery('.gUGIBK .RrsUN').length;
+                jQuery(".fIURSk.not_answered").find(".JocCd").text(not_answered);
 
             });
         });
         jQuery("#defaultbtnnxt").click(function() {
-            jQuery(".question_row").hide();
-            jQuery(".current_que").removeClass("current_que").nextAll(".question_row").first().addClass("current_que").show();
-            if (jQuery(".question_row:last-child").hasClass("current_que")) {
-                jQuery(this).addClass("disable");
-            } else {
-                jQuery(this).removeClass("disable");
+            if (jQuery('.current_que input:checked').length > 0) {
+                jQuery(".current_que").addClass("answered_que");
+                var id1 = jQuery(".current_que.answered_que").attr("id");
+                jQuery("#" + id1 + ".gUGIBK").find(".sc-hCDzWh").addClass("dePesc").removeClass("kNGLmz").removeClass("ehuHuo").removeClass("RrsUN");
             }
+            var not_visited = jQuery('.gUGIBK .kNGLmz').length;
+            jQuery(".fIURSk.not_visited").find(".JocCd").text(not_visited);
+
+            var answered = jQuery('.gUGIBK .dePesc').length;
+            jQuery(".fIURSk.answered").find(".JocCd").text(answered);
+
+            var not_answered = jQuery('.gUGIBK .RrsUN').length;
+            jQuery(".fIURSk.not_answered").find(".JocCd").text(not_answered);
+
+            setTimeout(function() {
+                jQuery(".question_row").hide();
+                jQuery(".current_que").removeClass("current_que").nextAll(".question_row").first().addClass("current_que").show();
+                if (jQuery(".question_row:last-child").hasClass("current_que")) {
+                    jQuery(this).addClass("disable");
+                } else {
+                    jQuery(this).removeClass("disable");
+                }
+                var id2 = jQuery(".current_que").attr("id");
+                jQuery("#" + id2 + ".gUGIBK").find(".sc-hCDzWh").addClass("ehuHuo").addClass("RrsUN");
+            }, 200);
+
         });
         jQuery("#defaultbtnprv").click(function() {
+
             jQuery(".question_row").hide();
             jQuery(".current_que").removeClass("current_que").prevAll(".question_row").first().addClass("current_que").show();
             if (jQuery("#question_1").hasClass("current_que")) {
@@ -1902,29 +1925,32 @@ $duration = trim($count_down, 'min');
             } else {
                 jQuery(this).removeClass("disable");
             }
+            var not_visited = jQuery('.gUGIBK .kNGLmz').length;
+            jQuery(".fIURSk.not_visited").find(".JocCd").text(not_visited);
+
+            var answered = jQuery('.gUGIBK .dePesc').length;
+            jQuery(".fIURSk.answered").find(".JocCd").text(answered);
+
+            var not_answered = jQuery('.gUGIBK .RrsUN').length;
+            jQuery(".fIURSk.not_answered").find(".JocCd").text(not_answered);
         });
 
 
     });
-
-
-
-
 </script>
 <script>
-
     var button = document.getElementById('sbmtbtn');
     var form = document.getElementById('msform');
 
 
     // Add an event listener to the button
     button.addEventListener('click', function() {
-      // Check if the checkbox is checked before submitting the form
+        // Check if the checkbox is checked before submitting the form
 
         form.submit();
 
     });
-  </script>
+</script>
 <!-- dropdown menu -->
 
 </body>
