@@ -112,11 +112,12 @@
                                 <tr>
                                     <td>Score </td>
 
-                                    <?php 
-                                    $number_of_minus_from_total_mark = count($result) - count($correct);
-                                    $total_minus_mark = $number_of_minus_from_total_mark * $negative_mark;
-                                $total_correct_mark = count($correct) * $mark_correct_answer;
-                                $final_marks = $total_correct_mark - $total_minus_mark;
+                                    <?php
+                                    $correct = count($correct);
+                                    $number_of_minus_from_total_mark = (int)count($result) - (int)$correct;
+                                    $total_minus_mark = $number_of_minus_from_total_mark * (int)$negative_mark;
+                                    $total_correct_mark = (int)$correct * (int)$mark_for_correct_answer;
+                                    $final_marks = (int)$total_correct_mark - (int)$total_minus_mark;
 ?>
                                     <td><?php echo $final_marks; ?></td>
                                 </tr>
