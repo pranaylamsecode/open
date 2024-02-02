@@ -829,4 +829,2174 @@ CREATE TABLE `exam` (
 --
 
 INSERT INTO `exam` (`exam_id`, `name`, `comment`, `timestamp`) VALUES
-(1, 'First Term Examination', 'First Ter
+(1, 'First Term Examination', 'First Term', '2019-10-30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exam_question`
+--
+
+CREATE TABLE `exam_question` (
+  `exam_question_id` int(11) NOT NULL,
+  `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `teacher_id` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `subject_id` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `class_id` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `file_name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `file_type` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `timestamp` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `status` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `exam_question`
+--
+
+INSERT INTO `exam_question` (`exam_question_id`, `name`, `teacher_id`, `subject_id`, `description`, `class_id`, `file_name`, `file_type`, `timestamp`, `status`) VALUES
+(4, 'asdf', '2', '5', 'zasfdgfg', '2', 'MscracticalCertificate.pdf', 'pdf', '2024-01-04', '1'),
+(5, 'RAHUL M', '2', '4', 'sadasd', '2', 'question_import.xlsx', 'xlsx', '2024-02-01', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `expense_category`
+--
+
+CREATE TABLE `expense_category` (
+  `expense_category_id` int(11) NOT NULL,
+  `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `expense_category`
+--
+
+INSERT INTO `expense_category` (`expense_category_id`, `name`) VALUES
+(5, 'Reading Books.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gallery`
+--
+
+CREATE TABLE `gallery` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `gallery_img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `groups`
+--
+
+CREATE TABLE `groups` (
+  `id` mediumint(8) UNSIGNED NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `groups`
+--
+
+INSERT INTO `groups` (`id`, `name`, `description`) VALUES
+(1, 'admin', 'Administrator'),
+(2, 'Lecturer', 'For making and checking Questions. And also conducting examinations'),
+(3, 'Student', 'Exam Participants');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `home_slider`
+--
+
+CREATE TABLE `home_slider` (
+  `id` int(11) NOT NULL,
+  `banner` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `home_slider`
+--
+
+INSERT INTO `home_slider` (`id`, `banner`, `title`, `created_date`) VALUES
+(5, 'bansal_slider_image.webp', '', '2024-01-16 13:14:13'),
+(6, 'NSEs-2023-24-1291x322.webp', '', '2024-01-16 13:16:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hostel_category`
+--
+
+CREATE TABLE `hostel_category` (
+  `hostel_category_id` int(11) NOT NULL,
+  `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hostel_category`
+--
+
+INSERT INTO `hostel_category` (`hostel_category_id`, `name`, `description`) VALUES
+(2, 'Female', 'This is for female only.'),
+(3, 'Male', 'This is for male only. Female are not allowed.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hostel_room`
+--
+
+CREATE TABLE `hostel_room` (
+  `hostel_room_id` int(11) NOT NULL,
+  `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `room_type` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `num_bed` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `cost_bed` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hostel_room`
+--
+
+INSERT INTO `hostel_room` (`hostel_room_id`, `name`, `room_type`, `num_bed`, `cost_bed`, `description`) VALUES
+(2, 'Room One', 'Single', '2', '5000', 'This is for the big guys among us.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `house`
+--
+
+CREATE TABLE `house` (
+  `house_id` int(11) NOT NULL,
+  `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `house`
+--
+
+INSERT INTO `house` (`house_id`, `name`, `description`) VALUES
+(1, 'Purple House', 'This is for students in purple house');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `h_ujian`
+--
+
+CREATE TABLE `h_ujian` (
+  `id` int(11) NOT NULL,
+  `ujian_id` int(11) NOT NULL,
+  `mahasiswa_id` int(11) NOT NULL,
+  `list_soal` longtext NOT NULL,
+  `list_jawaban` longtext NOT NULL,
+  `jml_benar` int(11) NOT NULL,
+  `nilai` decimal(10,2) NOT NULL,
+  `nilai_bobot` decimal(10,2) NOT NULL,
+  `tgl_mulai` datetime NOT NULL,
+  `tgl_selesai` datetime NOT NULL,
+  `status` enum('Y','N') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `h_ujian`
+--
+
+INSERT INTO `h_ujian` (`id`, `ujian_id`, `mahasiswa_id`, `list_soal`, `list_jawaban`, `jml_benar`, `nilai`, `nilai_bobot`, `tgl_mulai`, `tgl_selesai`, `status`) VALUES
+(6, 8, 4, '21', '21::N', 0, 0.00, 0.00, '2022-06-16 13:02:02', '2022-06-16 13:04:02', 'Y'),
+(7, 9, 4, '21', '21:A:N', 1, 100.00, 1.00, '2022-06-16 14:24:56', '2022-06-16 14:25:56', 'N');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `invoice`
+--
+
+CREATE TABLE `invoice` (
+  `invoice_id` int(11) NOT NULL,
+  `invoice_number` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `title` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `amount` int(11) NOT NULL,
+  `discount` int(11) NOT NULL,
+  `amount_paid` int(11) NOT NULL,
+  `due` int(11) NOT NULL,
+  `creation_timestamp` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `payment_method` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL,
+  `year` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `invoice`
+--
+
+INSERT INTO `invoice` (`invoice_id`, `invoice_number`, `student_id`, `title`, `description`, `amount`, `discount`, `amount_paid`, `due`, `creation_timestamp`, `payment_method`, `status`, `year`) VALUES
+(2, '742593INV2019', 45, 'Another Part payment for eLibrary', 'Another Part payment for eLibrary.', 7000, 0, 6200, 800, '2019-11-12', '1', 2, '2019-2020');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jurusan`
+--
+
+CREATE TABLE `jurusan` (
+  `id_jurusan` int(11) NOT NULL,
+  `nama_jurusan` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `jurusan`
+--
+
+INSERT INTO `jurusan` (`id_jurusan`, `nama_jurusan`) VALUES
+(5, 'Sample 101'),
+(6, 'Sample 102');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jurusan_matkul`
+--
+
+CREATE TABLE `jurusan_matkul` (
+  `id` int(11) NOT NULL,
+  `matkul_id` int(11) NOT NULL,
+  `jurusan_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `jurusan_matkul`
+--
+
+INSERT INTO `jurusan_matkul` (`id`, `matkul_id`, `jurusan_id`) VALUES
+(10, 8, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kelas`
+--
+
+CREATE TABLE `kelas` (
+  `id_kelas` int(11) NOT NULL,
+  `nama_kelas` varchar(30) NOT NULL,
+  `jurusan_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `kelas`
+--
+
+INSERT INTO `kelas` (`id_kelas`, `nama_kelas`, `jurusan_id`) VALUES
+(12, 'Class 101', 5),
+(13, 'Class 102', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kelas_dosen`
+--
+
+CREATE TABLE `kelas_dosen` (
+  `id` int(11) NOT NULL,
+  `kelas_id` int(11) NOT NULL,
+  `dosen_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `kelas_dosen`
+--
+
+INSERT INTO `kelas_dosen` (`id`, `kelas_id`, `dosen_id`) VALUES
+(14, 12, 7),
+(15, 13, 7);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `language`
+--
+
+CREATE TABLE `language` (
+  `phrase_id` int(11) NOT NULL,
+  `phrase` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `english` longtext COLLATE utf8_unicode_ci,
+  `arabic` longtext COLLATE utf8_unicode_ci,
+  `french` longtext COLLATE utf8_unicode_ci,
+  `korea` longtext COLLATE utf8_unicode_ci
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `language`
+--
+
+INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `arabic`, `french`, `korea`) VALUES
+(1, 'Manage Language', 'Manage Language', 'إدارة اللغة', NULL, NULL),
+(2, 'active language', 'Active Language', 'اللغة النشطة', NULL, NULL),
+(40557, 'add', NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `language_list`
+--
+
+CREATE TABLE `language_list` (
+  `language_list_id` int(11) NOT NULL,
+  `name` varchar(500) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `db_field` varchar(300) DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `leave`
+--
+
+CREATE TABLE `leave` (
+  `leave_id` int(11) NOT NULL,
+  `leave_code` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `teacher_id` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `start_date` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `end_date` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `reason` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `status` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login_attempts`
+--
+
+CREATE TABLE `login_attempts` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `login` varchar(100) NOT NULL,
+  `time` int(10) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `login_attempts`
+--
+
+INSERT INTO `login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
+(8, '::1', '62314152', 1655358257),
+(9, '::1', '62314152', 1655358260),
+(10, '::1', '62314152', 1655358263),
+(11, '::1', 'admin@admin.com', 1655358303),
+(13, '::1', 'sam23@mail.coom', 1655359119),
+(15, '::1', 'admin', 1655360998);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mahasiswa`
+--
+
+CREATE TABLE `mahasiswa` (
+  `id_mahasiswa` int(11) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `nim` char(20) NOT NULL,
+  `email` varchar(254) NOT NULL,
+  `jenis_kelamin` enum('L','P') NOT NULL,
+  `kelas_id` int(11) NOT NULL COMMENT 'kelas&jurusan'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`id_mahasiswa`, `nama`, `nim`, `email`, `jenis_kelamin`, `kelas_id`) VALUES
+(1, 'Liam Moore', '12183018', 'liamoore@mail.com', '', 1),
+(2, 'Demo Student', '01112004', 'demostd@mail.com', '', 9),
+(4, 'Samantha Jane Miller', '62314152', 'sam23@mail.com', '', 12);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mark`
+--
+
+CREATE TABLE `mark` (
+  `mark_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `subject_id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `class_score1` int(11) NOT NULL,
+  `class_score2` int(11) NOT NULL,
+  `class_score3` int(11) NOT NULL,
+  `exam_score` int(11) NOT NULL,
+  `comment` longtext NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `mark`
+--
+
+INSERT INTO `mark` (`mark_id`, `student_id`, `subject_id`, `exam_id`, `class_id`, `class_score1`, `class_score2`, `class_score3`, `exam_score`, `comment`) VALUES
+(1, 45, 5, 1, 2, 10, 9, 8, 70, 'Good performance.'),
+(2, 45, 4, 1, 2, 10, 7, 9, 69, 'Excellent performance.'),
+(3, 45, 6, 1, 2, 8, 5, 8, 21, ''),
+(4, 0, 5, 1, 2, 0, 0, 0, 0, ''),
+(5, 0, 4, 1, 2, 0, 0, 0, 0, ''),
+(6, 0, 6, 1, 2, 0, 0, 0, 0, ''),
+(7, 45, 0, 1, 2, 0, 0, 0, 0, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `material`
+--
+
+CREATE TABLE `material` (
+  `material_id` int(11) NOT NULL,
+  `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `subject_id` int(11) NOT NULL,
+  `teacher_id` int(11) NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `file_name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `file_type` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `timestamp` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `material`
+--
+
+INSERT INTO `material` (`material_id`, `name`, `class_id`, `subject_id`, `teacher_id`, `description`, `file_name`, `file_type`, `timestamp`) VALUES
+(1, 'Study material for Nursery One', 2, 5, 1, 'This is for class only.', 'profile.png', 'docx', '2018-08-19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `matkul`
+--
+
+CREATE TABLE `matkul` (
+  `id_matkul` int(11) NOT NULL,
+  `nama_matkul` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `matkul`
+--
+
+INSERT INTO `matkul` (`id_matkul`, `nama_matkul`) VALUES
+(8, 'Course 101'),
+(9, 'Course 102');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `meeting_link`
+--
+
+CREATE TABLE `meeting_link` (
+  `id` int(11) NOT NULL,
+  `title` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `meeting_code` longtext NOT NULL,
+  `meeting_type` varchar(255) NOT NULL,
+  `link` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `uploader_type` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `uploader_id` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `session` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `timestamp` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `meeting_link`
+--
+
+INSERT INTO `meeting_link` (`id`, `title`, `meeting_code`, `meeting_type`, `link`, `uploader_type`, `uploader_id`, `session`, `timestamp`) VALUES
+(15, 'aaaa', '3223fed', 'Google Meeting', 'https://meet.google.com/mtc-drnf-mip', 'admin', '1', '2023-2024', 1705563079);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `m_ujian`
+--
+
+CREATE TABLE `m_ujian` (
+  `id_ujian` int(11) NOT NULL,
+  `dosen_id` int(11) NOT NULL,
+  `matkul_id` int(11) NOT NULL,
+  `nama_ujian` varchar(200) NOT NULL,
+  `jumlah_soal` int(11) NOT NULL,
+  `waktu` int(11) NOT NULL,
+  `jenis` enum('Random','Sort') NOT NULL,
+  `tgl_mulai` datetime NOT NULL,
+  `terlambat` datetime NOT NULL,
+  `token` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `m_ujian`
+--
+
+INSERT INTO `m_ujian` (`id_ujian`, `dosen_id`, `matkul_id`, `nama_ujian`, `jumlah_soal`, `waktu`, `jenis`, `tgl_mulai`, `terlambat`, `token`) VALUES
+(8, 7, 8, 'Exam 101', 1, 2, 'Sort', '2022-06-16 12:57:15', '2022-06-20 14:02:28', 'FABZD'),
+(9, 7, 8, 'Exam 102', 1, 1, 'Random', '2022-06-16 14:18:22', '2022-06-17 14:07:25', 'IOLEN');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `noticeboard`
+--
+
+CREATE TABLE `noticeboard` (
+  `noticeboard_id` int(11) NOT NULL,
+  `title` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `location` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `timestamp` int(11) NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `noticeboard`
+--
+
+INSERT INTO `noticeboard` (`noticeboard_id`, `title`, `location`, `timestamp`, `description`) VALUES
+(3, 'Second meeting coming up soon', 'Udemy Forum', 1575136800, 'The meeting is coming up soon. Ensure you are fully prepared.'),
+(4, 'Parent Teacher Association Meeting.', 'Ontario Location', 1575050400, 'This is the new updated information as regards the meeting.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `parent`
+--
+
+CREATE TABLE `parent` (
+  `parent_id` int(11) NOT NULL,
+  `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `email` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `phone` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `address` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `profession` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `login_status` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `parent`
+--
+
+INSERT INTO `parent` (`parent_id`, `name`, `email`, `password`, `phone`, `address`, `profession`, `login_status`) VALUES
+(4, 'Mr. Parent', 'parent@parent.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '+912345667', 'Udemy Address', 'Learners', '0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `payment_id` int(11) NOT NULL,
+  `expense_category_id` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `title` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `payment_type` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `invoice_id` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `student_id` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `method` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `amount` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `discount` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `timestamp` int(11) NOT NULL,
+  `year` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`payment_id`, `expense_category_id`, `title`, `payment_type`, `invoice_id`, `student_id`, `method`, `description`, `amount`, `discount`, `timestamp`, `year`) VALUES
+(2, '5', 'Purchase of school reading', 'expense', '', '', '2', 'This was purchase by the school administrator for the purpose of having reading books in the school.<br>', '5000', '', 556644564, '2019-2020'),
+(5, '5', 'Purchase of school chalks', 'expense', '', '', '1', 'Purchase of school chalks<br>', '3000', '', 556644564, '2019-2020'),
+(6, '', 'Part payment for eLibrary', '', '2', '45', '1', 'income', '5000', '0', 556644564, ''),
+(7, '', 'Another payment for eLibrary', 'income', '3', '45', '1', 'Another payment for eLibrary', '2000', '0', 445667865, ''),
+(8, '', 'Part payment for eLibrary', 'income', '2', '45', '1', 'Part payment for eLibrary', '1200', '', 556644564, ''),
+(9, '5', 'New chalk purchased', 'expense', '', '', '3', 'New chalk purchased<br>', '1000', '', 556644564, '2019-2020'),
+(10, '', 'Another Part payment for eLibrary.', 'income', '2', '45', '1', 'Another Part payment for eLibrary.', '5000', '', 1576951200, '2019-2020');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quiz_answer`
+--
+
+CREATE TABLE `quiz_answer` (
+  `id` int(11) NOT NULL,
+  `user_id` smallint(6) NOT NULL,
+  `quiz_id` smallint(6) NOT NULL,
+  `question_id` smallint(6) NOT NULL,
+  `answer` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `is_correct` bit(1) NOT NULL COMMENT '1 = correct, 0 = incorrect',
+  `entry_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `quiz_answer`
+--
+
+INSERT INTO `quiz_answer` (`id`, `user_id`, `quiz_id`, `question_id`, `answer`, `is_correct`, `entry_date`) VALUES
+(1, 45, 5, 11, 'option_1', b'1', '2024-01-30 23:50:22'),
+(2, 45, 5, 12, 'option_2', b'0', '2024-01-30 23:50:22'),
+(3, 45, 5, 13, 'option_2', b'0', '2024-01-30 23:50:22'),
+(4, 45, 5, 14, 'option_2', b'0', '2024-01-30 23:50:22'),
+(5, 45, 5, 15, 'option_2', b'0', '2024-01-30 23:50:22'),
+(6, 45, 5, 16, 'option_2', b'0', '2024-01-30 23:50:22'),
+(7, 45, 5, 17, 'option_2', b'0', '2024-01-30 23:50:22'),
+(8, 45, 5, 18, 'option_1', b'1', '2024-01-30 23:50:22'),
+(9, 45, 5, 19, 'option_1', b'1', '2024-01-30 23:50:22'),
+(10, 45, 5, 20, 'option_1', b'1', '2024-01-30 23:50:22'),
+(11, 45, 5, 21, 'option_1', b'1', '2024-01-30 23:50:22'),
+(12, 45, 5, 22, 'option_1', b'1', '2024-01-30 23:50:22'),
+(13, 45, 5, 23, 'option_1', b'1', '2024-01-30 23:50:22'),
+(14, 45, 5, 24, 'option_1', b'1', '2024-01-30 23:50:22'),
+(24, 45, 4, 1, 'option_1', b'1', '2024-01-30 23:56:54'),
+(25, 45, 4, 2, 'option_1', b'1', '2024-01-30 23:56:54'),
+(26, 45, 4, 3, 'option_1', b'1', '2024-01-30 23:56:54'),
+(27, 45, 4, 4, 'option_1', b'1', '2024-01-30 23:56:54'),
+(28, 45, 4, 5, 'option_1', b'1', '2024-01-30 23:56:54'),
+(29, 45, 4, 6, 'option_1', b'1', '2024-01-30 23:56:54'),
+(30, 45, 4, 7, 'option_1', b'1', '2024-01-30 23:56:54'),
+(31, 45, 4, 8, 'option_2', b'0', '2024-01-30 23:56:54'),
+(32, 45, 4, 9, 'option_2', b'0', '2024-01-30 23:56:54'),
+(33, 45, 6, 37, 'option_1', b'1', '2024-01-31 00:18:00'),
+(34, 45, 6, 38, 'option_1', b'0', '2024-01-31 00:18:00'),
+(35, 45, 6, 39, 'option_1', b'0', '2024-01-31 00:18:00'),
+(36, 45, 6, 40, 'option_1', b'0', '2024-01-31 00:18:00'),
+(37, 45, 6, 41, 'option_1', b'0', '2024-01-31 00:18:00'),
+(38, 45, 6, 42, 'option_1', b'0', '2024-01-31 00:18:00'),
+(39, 45, 6, 44, 'option_1', b'0', '2024-01-31 00:18:00'),
+(40, 45, 6, 45, 'option_1', b'0', '2024-01-31 00:18:00'),
+(41, 45, 6, 46, 'option_1', b'0', '2024-01-31 00:18:00'),
+(42, 45, 6, 47, 'option_1', b'0', '2024-01-31 00:18:00'),
+(43, 45, 6, 48, 'option_4', b'0', '2024-01-31 00:18:00'),
+(44, 45, 6, 49, 'option_4', b'0', '2024-01-31 00:18:00'),
+(45, 45, 6, 50, 'option_4', b'0', '2024-01-31 00:18:00'),
+(46, 45, 6, 51, 'option_4', b'0', '2024-01-31 00:18:00'),
+(47, 45, 6, 52, 'option_4', b'0', '2024-01-31 00:18:00'),
+(48, 45, 6, 53, 'option_4', b'0', '2024-01-31 00:18:00'),
+(49, 45, 7, 55, 'option_1', b'1', '2024-01-31 00:25:53'),
+(50, 45, 7, 56, 'option_1', b'1', '2024-01-31 00:25:53'),
+(51, 45, 7, 57, 'option_1', b'1', '2024-01-31 00:25:53'),
+(52, 45, 7, 58, 'option_2', b'0', '2024-01-31 00:25:53'),
+(53, 45, 8, 59, 'option_1', b'1', '2024-01-31 00:41:07'),
+(54, 45, 8, 60, 'option_1', b'1', '2024-01-31 00:41:07'),
+(55, 45, 8, 61, 'option_1', b'1', '2024-01-31 00:41:07'),
+(56, 45, 8, 62, 'option_4', b'0', '2024-01-31 00:41:07'),
+(57, 45, 8, 63, 'option_4', b'0', '2024-01-31 00:41:07'),
+(58, 45, 8, 64, 'option_4', b'0', '2024-01-31 00:41:07'),
+(59, 45, 8, 65, 'option_3', b'0', '2024-01-31 00:41:07'),
+(60, 45, 9, 66, 'option_4', b'1', '2024-01-31 22:47:36'),
+(61, 45, 9, 67, 'option_2', b'1', '2024-01-31 22:47:36'),
+(62, 45, 9, 68, 'option_3', b'1', '2024-01-31 22:47:36'),
+(63, 45, 9, 69, 'option_1', b'1', '2024-01-31 22:47:36'),
+(64, 45, 9, 70, 'option_2', b'0', '2024-01-31 22:47:36'),
+(65, 45, 14, 92, 'option_1', b'0', '2024-02-01 05:28:17'),
+(66, 45, 14, 93, 'option_1', b'0', '2024-02-01 05:28:17'),
+(67, 45, 14, 94, 'option_1', b'0', '2024-02-01 05:28:17'),
+(68, 45, 14, 95, 'option_1', b'1', '2024-02-01 05:28:17'),
+(69, 45, 14, 96, 'option_1', b'0', '2024-02-01 05:28:17'),
+(70, 45, 15, 97, 'option_1', b'0', '2024-02-01 06:21:05'),
+(71, 45, 15, 98, 'option_1', b'0', '2024-02-01 06:21:05'),
+(72, 45, 15, 99, 'option_1', b'0', '2024-02-01 06:21:05'),
+(73, 45, 15, 100, 'option_1', b'1', '2024-02-01 06:21:05'),
+(74, 45, 15, 101, 'option_1', b'0', '2024-02-01 06:21:05');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quiz_details`
+--
+
+CREATE TABLE `quiz_details` (
+  `quiz_id` int(11) NOT NULL,
+  `quiz_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `quiz_duration` varchar(255) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `is_active` tinyint(4) NOT NULL,
+  `show_it` bit(1) NOT NULL,
+  `counter` varchar(255) NOT NULL DEFAULT '10',
+  `created_date` datetime NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `last_modified_date` datetime NOT NULL,
+  `last_modified_by` int(11) NOT NULL,
+  `other_imp_instruction` text,
+  `negative_mark` text,
+  `mark_for_correct_answer` text
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `quiz_details`
+--
+
+INSERT INTO `quiz_details` (`quiz_id`, `quiz_name`, `quiz_duration`, `start_date`, `end_date`, `is_active`, `show_it`, `counter`, `created_date`, `created_by`, `last_modified_date`, `last_modified_by`, `other_imp_instruction`, `negative_mark`, `mark_for_correct_answer`) VALUES
+(15, 'Foundation01', '30 min', '2024-01-31', '2024-02-20', 1, b'1', '10', '2024-02-01 19:15:44', 0, '0000-00-00 00:00:00', 0, 'ss', '3', '3'),
+(11, 'Foundation', '30 min', '2024-01-31', '2024-02-08', 1, b'1', '10', '2024-02-01 15:25:21', 0, '0000-00-00 00:00:00', 0, '', '', ''),
+(12, 'Mathematic', '30 min', '2024-01-31', '2024-02-02', 1, b'1', '10', '2024-02-01 17:52:27', 0, '0000-00-00 00:00:00', 0, '', '', ''),
+(13, 'Advance', '30 min', '2024-01-31', '2024-02-07', 1, b'1', '10', '2024-02-01 18:08:56', 0, '0000-00-00 00:00:00', 0, '', '', ''),
+(14, 'Test', '30 min', '2024-01-31', '2024-02-14', 1, b'1', '10', '2024-02-01 18:25:57', 0, '0000-00-00 00:00:00', 0, '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quiz_enquiry`
+--
+
+CREATE TABLE `quiz_enquiry` (
+  `user_id` int(11) NOT NULL,
+  `fullName` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `gender` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `mobileNumber` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `class` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `user_role` tinyint(4) NOT NULL,
+  `is_active` tinyint(4) NOT NULL DEFAULT '1' COMMENT '1=Active, 0=Inactive',
+  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `quiz_enquiry`
+--
+
+INSERT INTO `quiz_enquiry` (`user_id`, `fullName`, `gender`, `email`, `mobileNumber`, `class`, `user_role`, `is_active`, `created_date`) VALUES
+(1, 'Rahul Manwtakar', 'male', 'R@GMAIL.COM', '09834006423', 'JEE', 2, 1, '2024-02-01 04:41:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quiz_questions`
+--
+
+CREATE TABLE `quiz_questions` (
+  `id` int(11) NOT NULL,
+  `quiz_id` int(11) DEFAULT NULL,
+  `question` text NOT NULL,
+  `option1` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `option2` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `option3` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `option4` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `file` text,
+  `file_a` text,
+  `file_b` text,
+  `file_c` text,
+  `file_d` text,
+  `tipe_file` text,
+  `add_by_import` varchar(255) DEFAULT NULL,
+  `answer` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `exam_type` enum('0','1') NOT NULL DEFAULT '0',
+  `is_active` tinyint(4) NOT NULL,
+  `created_date` datetime NOT NULL,
+  `created_by` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `quiz_questions`
+--
+
+INSERT INTO `quiz_questions` (`id`, `quiz_id`, `question`, `option1`, `option2`, `option3`, `option4`, `file`, `file_a`, `file_b`, `file_c`, `file_d`, `tipe_file`, `add_by_import`, `answer`, `exam_type`, `is_active`, `created_date`, `created_by`) VALUES
+(76, 11, 'How many types of foundations are there based on depth?', '3', '4', '5', '2', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_4', '0', 1, '0000-00-00 00:00:00', 0),
+(77, 11, 'The figure below represents', 'Isolated footing', 'Wall footing', 'Strap footing', 'Mat foundation', 'https://www.sanfoundry.com/wp-content/uploads/2017/09/basic-civil-engineering-questions-answers-foundation-q2.png', NULL, NULL, NULL, NULL, NULL, '1', 'option_2', '0', 1, '0000-00-00 00:00:00', 0),
+(78, 11, '___________ footing is used in load bearing masonry construction.', 'Isolated', 'Strap', 'Strip', 'Pile', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_3', '0', 1, '0000-00-00 00:00:00', 0),
+(79, 11, 'How many types of combined footing are possible?', '2', '3', '5', '4', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_1', '0', 1, '0000-00-00 00:00:00', 0),
+(80, 11, 'CPRF stands for:', 'Combined Plain Round Foundation', 'Connected Pile Round Foundation', 'Combined Pile Raft Foundation', 'Corrosion Proof Raft Foundation', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_3', '0', 1, '0000-00-00 00:00:00', 0),
+(81, 12, '4+4', '6', '4', '8', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_3', '1', 1, '0000-00-00 00:00:00', 0),
+(82, 12, '4+4', '6', '4', '8', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', '8', '1', 1, '0000-00-00 00:00:00', 0),
+(83, 12, '4+4', '6', '4', '8', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', '8', '1', 1, '0000-00-00 00:00:00', 0),
+(84, 12, '4+4', '6', '4', '8', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', '8', '1', 1, '0000-00-00 00:00:00', 0),
+(85, 12, '4+4', '6', '4', '8', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', '8', '1', 1, '0000-00-00 00:00:00', 0),
+(86, 12, '4+4', '6', '4', '8', '3', NULL, NULL, NULL, NULL, NULL, NULL, '1', '8', '1', 1, '0000-00-00 00:00:00', 0),
+(87, 13, 'How many types of foundations are there based on depth?', '3', '4', '5', '2', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_4', '1', 1, '0000-00-00 00:00:00', 0),
+(88, 13, 'The figure below represents', 'Isolated footing', 'Wall footing', 'Strap footing', 'Mat foundation', 'https://www.sanfoundry.com/wp-content/uploads/2017/09/basic-civil-engineering-questions-answers-foundation-q2.png', NULL, NULL, NULL, NULL, NULL, '1', 'option_2', '1', 1, '0000-00-00 00:00:00', 0),
+(89, 13, '___________ footing is used in load bearing masonry construction.', 'Isolated', 'Strap', 'Strip', 'Pile', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_3', '1', 1, '0000-00-00 00:00:00', 0),
+(90, 13, 'How many types of combined footing are possible?', '2', '3', '5', '4', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_1', '1', 1, '0000-00-00 00:00:00', 0),
+(91, 13, 'CPRF stands for:', 'Combined Plain Round Foundation', 'Connected Pile Round Foundation', 'Combined Pile Raft Foundation', 'Corrosion Proof Raft Foundation', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_3', '1', 1, '0000-00-00 00:00:00', 0),
+(92, 14, 'How many types of foundations are there based on depth?', '3', '4', '5', '2', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_4', '1', 1, '0000-00-00 00:00:00', 0),
+(93, 14, 'The figure below represents', 'Isolated footing', 'Wall footing', 'Strap footing', 'Mat foundation', 'https://www.sanfoundry.com/wp-content/uploads/2017/09/basic-civil-engineering-questions-answers-foundation-q2.png', NULL, NULL, NULL, NULL, NULL, '1', 'option_2', '1', 1, '0000-00-00 00:00:00', 0),
+(94, 14, '___________ footing is used in load bearing masonry construction.', 'Isolated', 'Strap', 'Strip', 'Pile', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_3', '1', 1, '0000-00-00 00:00:00', 0),
+(95, 14, 'How many types of combined footing are possible?', '2', '3', '5', '4', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_1', '1', 1, '0000-00-00 00:00:00', 0),
+(96, 14, 'CPRF stands for:', 'Combined Plain Round Foundation', 'Connected Pile Round Foundation', 'Combined Pile Raft Foundation', 'Corrosion Proof Raft Foundation', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_3', '1', 1, '0000-00-00 00:00:00', 0),
+(97, 15, 'How many types of foundations are there based on depth?', '3', '4', '5', '2', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_4', '1', 1, '0000-00-00 00:00:00', 0),
+(98, 15, 'The figure below represents', 'Isolated footing', 'Wall footing', 'Strap footing', 'Mat foundation', 'https://www.sanfoundry.com/wp-content/uploads/2017/09/basic-civil-engineering-questions-answers-foundation-q2.png', NULL, NULL, NULL, NULL, NULL, '1', 'option_2', '1', 1, '0000-00-00 00:00:00', 0),
+(99, 15, '___________ footing is used in load bearing masonry construction.', 'Isolated', 'Strap', 'Strip', 'Pile', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_3', '1', 1, '0000-00-00 00:00:00', 0),
+(100, 15, 'How many types of combined footing are possible?', '2', '3', '5', '4', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_1', '1', 1, '0000-00-00 00:00:00', 0),
+(101, 15, 'CPRF stands for:', 'Combined Plain Round Foundation', 'Connected Pile Round Foundation', 'Combined Pile Raft Foundation', 'Corrosion Proof Raft Foundation', NULL, NULL, NULL, NULL, NULL, NULL, '1', 'option_3', '1', 1, '0000-00-00 00:00:00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `recorded_lecture`
+--
+
+CREATE TABLE `recorded_lecture` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `youtube_link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `recorded_lecture`
+--
+
+INSERT INTO `recorded_lecture` (`id`, `title`, `youtube_link`, `description`, `created_date`) VALUES
+(3, 'Bansal Pathashala', 'https://www.youtube.com/@bansalpathshala7363', '', '2024-02-01 04:57:41');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `results`
+--
+
+CREATE TABLE `results` (
+  `id` int(11) NOT NULL,
+  `result_banner` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `results`
+--
+
+INSERT INTO `results` (`id`, `result_banner`, `title`, `created_date`) VALUES
+(6, 'jee-adv-results-Image.jpg', '', '2024-01-02 23:42:55'),
+(7, 'Slider_Aug.jpg', '', '2024-01-16 14:12:59'),
+(8, 'result-3.jpg', '', '2024-01-16 14:13:08'),
+(9, 'jee-adv-results-Image1.jpg', '', '2024-01-16 14:13:30'),
+(10, 'JEE-Advanced-Result-2016.jpg', '', '2024-01-16 14:14:01'),
+(11, 'JEE-Advanced-Result-2015.jpg', '', '2024-01-16 14:15:40');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `section`
+--
+
+CREATE TABLE `section` (
+  `section_id` int(11) NOT NULL,
+  `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `nick_name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `teacher_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `section`
+--
+
+INSERT INTO `section` (`section_id`, `name`, `nick_name`, `class_id`, `teacher_id`) VALUES
+(3, 'First Term', 'Term 1', 2, 1),
+(4, 'Second Term', '2nd', 2, 1),
+(5, 'aaa', 'asdfgh', 3, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `settings_id` int(11) NOT NULL,
+  `type` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`settings_id`, `type`, `description`) VALUES
+(1, 'system_name', 'Bansal Pathshala'),
+(2, 'system_title', 'Bansal Pathshala'),
+(3, 'address', ' 2nd floor morey sadan, opp. Bajaj KTM showroom, Nagpur, Maharashtra 440001'),
+(4, 'phone', '+1564783934'),
+(6, 'currency', 'INR'),
+(7, 'system_email', 'payment@optimumlinkup.com'),
+(11, 'language', 'english'),
+(12, 'text_align', 'left-to-right'),
+(16, 'skin_colour', 'blue'),
+(21, 'session', '2023-2024'),
+(22, 'footer', 'Bringing to you by Bansal Pathshala'),
+(116, 'paypal_email', 'info@bansalpathshala.com'),
+(119, 'stripe_setting', '[{\"stripe_active\":\"1\",\"testmode\":\"off\",\"secret_key\":\"test secret key\",\"public_key\":\"test public key\",\"secret_live_key\":\"live secret key\",\"public_live_key\":\"live public key\"}]'),
+(122, 'paypal_setting', '[{\"paypal_active\":\"1\",\"paypal_mode\":\"sandbox\",\"sandbox_client_id\":\"client id sandbox\",\"production_client_id\":\"client - production\"}]'),
+(123, 'img', 'dfg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sms_settings`
+--
+
+CREATE TABLE `sms_settings` (
+  `sms_setting_id` int(11) NOT NULL,
+  `type` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `info` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sms_settings`
+--
+
+INSERT INTO `sms_settings` (`sms_setting_id`, `type`, `info`) VALUES
+(12, 'msg91_sender_id', 'sender id'),
+(11, 'msg91_authentication_key', 'msg91 auth key'),
+(10, 'clickatell_apikey', 'clickattel api'),
+(9, 'clickatell_password', 'clickattel paasword'),
+(8, 'clickatell_username', 'clickattel username'),
+(13, 'msg91_route', 'route'),
+(14, 'msg91_country_code', 'country code'),
+(15, 'active_sms_gateway', 'msg91');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `social_category`
+--
+
+CREATE TABLE `social_category` (
+  `social_category_id` int(11) NOT NULL,
+  `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `colour` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `icon` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `social_category`
+--
+
+INSERT INTO `social_category` (`social_category_id`, `name`, `colour`, `icon`, `description`) VALUES
+(2, 'Romance', 'danger', 'fa-male', 'This is for romance chat room'),
+(3, 'Event', 'primary', 'fa-book', 'This is for event chat room');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student`
+--
+
+CREATE TABLE `student` (
+  `student_id` int(11) NOT NULL,
+  `name` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `birthday` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `age` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `place_birth` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `sex` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `m_tongue` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `religion` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `blood_group` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `address` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `city` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `state` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `nationality` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `phone` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `email` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `ps_attended` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `ps_address` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `ps_purpose` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `class_study` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `date_of_leaving` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `am_date` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `tran_cert` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `dob_cert` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `mark_join` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `physical_h` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `password` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `father_name` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `mother_name` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `class_id` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `section_id` int(11) NOT NULL,
+  `parent_id` int(11) NOT NULL,
+  `roll` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `transport_id` int(11) NOT NULL,
+  `dormitory_id` int(11) NOT NULL,
+  `house_id` int(11) NOT NULL,
+  `student_category_id` int(11) NOT NULL,
+  `club_id` int(11) NOT NULL,
+  `session` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `card_number` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `issue_date` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `expire_date` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `dormitory_room_number` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `more_entries` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `login_status` longtext COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`student_id`, `name`, `birthday`, `age`, `place_birth`, `sex`, `m_tongue`, `religion`, `blood_group`, `address`, `city`, `state`, `nationality`, `phone`, `email`, `ps_attended`, `ps_address`, `ps_purpose`, `class_study`, `date_of_leaving`, `am_date`, `tran_cert`, `dob_cert`, `mark_join`, `physical_h`, `password`, `father_name`, `mother_name`, `class_id`, `section_id`, `parent_id`, `roll`, `transport_id`, `dormitory_id`, `house_id`, `student_category_id`, `club_id`, `session`, `card_number`, `issue_date`, `expire_date`, `dormitory_room_number`, `more_entries`, `login_status`) VALUES
+(45, 'Testing Student', '09/30/2003', '16', 'Lagos', 'female', 'Mother Tongue', 'Muslim', 'B+', 'Address', 'City', 'Lagos', 'Canadian', '+912345667', 'ankita@student.com', 'Previous school attended', 'Previous school address', 'Purpose Of Leaving', 'Class In Which Was Studying', '2011-08-10', '2011-08-19', 'Yes', 'Yes', 'Yes', 'No', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '', '', '2', 0, 4, '5bf8161', 0, 2, 1, 2, 1, '2019-2020', '', '', '', '', '', '1'),
+(46, 'Sudipa Swarup Maity', '01/18/2022', '2', 'Nagpur', 'female', 'marathi', 'hindu', 'A', 'Nagpur\r\nMaharashtra\r\n440002', 'Nagpur', 'Maharashtra', 'rfvgf', '9359044818', 'msudi8@gmail.com', 'aaa', 'Nagpur', 'aaa', 'aaa', '2011-08-19', '2011-08-19', 'No', 'No', 'No', 'No', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', '', '', '3', 5, 4, '0b9a282', 0, 2, 1, 2, 1, '2023-2024', '', '', '', '', '', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_category`
+--
+
+CREATE TABLE `student_category` (
+  `student_category_id` int(11) NOT NULL,
+  `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student_category`
+--
+
+INSERT INTO `student_category` (`student_category_id`, `name`, `description`) VALUES
+(2, 'Boarding Student', 'This is for the boarding student.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subject`
+--
+
+CREATE TABLE `subject` (
+  `subject_id` int(11) NOT NULL,
+  `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `class_id` int(11) NOT NULL,
+  `teacher_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subject`
+--
+
+INSERT INTO `subject` (`subject_id`, `name`, `class_id`, `teacher_id`) VALUES
+(5, 'Economics', 2, 1),
+(4, 'Mathematics', 2, 1),
+(6, 'English', 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_soal`
+--
+
+CREATE TABLE `tb_soal` (
+  `id_soal` int(11) NOT NULL,
+  `dosen_id` int(11) DEFAULT NULL,
+  `matkul_id` int(11) DEFAULT NULL,
+  `bobot` int(11) DEFAULT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `tipe_file` varchar(50) DEFAULT NULL,
+  `soal` longtext,
+  `opsi_a` longtext,
+  `opsi_b` longtext,
+  `opsi_c` longtext,
+  `opsi_d` longtext,
+  `opsi_e` longtext,
+  `file_a` varchar(255) DEFAULT NULL,
+  `file_b` varchar(255) DEFAULT NULL,
+  `file_c` varchar(255) DEFAULT NULL,
+  `file_d` varchar(255) DEFAULT NULL,
+  `file_e` varchar(255) DEFAULT NULL,
+  `jawaban` varchar(5) DEFAULT NULL,
+  `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_on` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tb_soal`
+--
+
+INSERT INTO `tb_soal` (`id_soal`, `dosen_id`, `matkul_id`, `bobot`, `file`, `tipe_file`, `soal`, `opsi_a`, `opsi_b`, `opsi_c`, `opsi_d`, `opsi_e`, `file_a`, `file_b`, `file_c`, `file_d`, `file_e`, `jawaban`, `created_on`, `updated_on`) VALUES
+(21, 7, 8, 10, '4bf27efcf12574cccb52c6ec3e6a391c.jpg', 'image/jpeg', '<p>Sample Question</p>', '<p>Right</p>', '<p>Wrong</p>', '<p>Wrong<br></p>', '<p>Wrong<br></p>', '<p>Wrong<br></p>', '66ba609b0fdb5be6a0f4b401eb156176.jpg', '', '', '', '', 'A', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(29, NULL, NULL, NULL, NULL, NULL, '2 + 2', '1', '2', '3', '4', '5', NULL, NULL, NULL, NULL, NULL, 'D', '2024-01-27 10:27:19', '2024-01-27 10:27:19'),
+(30, 7, 8, 1, '2e72df13e03a444457d7654ec40bc486.png', 'image/png', 'test', 'test', 'tset', 'tset', 'tset', 'tsetste', NULL, NULL, NULL, NULL, NULL, 'A', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teacher`
+--
+
+CREATE TABLE `teacher` (
+  `teacher_id` int(11) NOT NULL,
+  `name` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `role` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `teacher_number` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `birthday` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `sex` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `religion` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `blood_group` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `address` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `phone` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `email` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `facebook` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `twitter` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `googleplus` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `linkedin` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `qualification` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `marital_status` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `file_name` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `password` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `department_id` int(11) NOT NULL,
+  `designation_id` int(11) NOT NULL,
+  `date_of_joining` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `joining_salary` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL,
+  `date_of_leaving` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `bank_id` int(11) NOT NULL,
+  `login_status` longtext COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `teacher`
+--
+
+INSERT INTO `teacher` (`teacher_id`, `name`, `role`, `teacher_number`, `birthday`, `sex`, `religion`, `blood_group`, `address`, `phone`, `email`, `facebook`, `twitter`, `googleplus`, `linkedin`, `qualification`, `marital_status`, `file_name`, `password`, `department_id`, `designation_id`, `date_of_joining`, `joining_salary`, `status`, `date_of_leaving`, `bank_id`, `login_status`) VALUES
+(1, 'Testing Teacher', '1', 'f82e5cc', '2018-08-19', 'male', 'Christianity', 'B+', '546787, Kertz shopping complext, Silicon Valley, United State of America, New York city.', '+912345667', 'teacher@teacher.com', 'facebook', 'twitter', 'googleplus', 'linkedin', 'PhD', 'Married', 'profile.png', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', 2, 4, '2019-09-15', '5000', 1, '2019-09-18', 3, '1'),
+(2, 'ankita rokde', '2', 'fabb241', '1995-08-19', 'female', 'hindu', 'B+', 'dighori', '8765432123', 'ankita@gmail.com', '', '', '', '', 'sdas', 'Single', 'Ankita CV.pdf', 'da54e6c92368d10baaca171faf8dad325c3542d3', 5, 14, '2024-01-01', '20000', 1, '2024-01-01', 5, ''),
+(3, 'Amit', '1', '92117e1', '2018-08-19', 'male', 'ghj', 'df', 'dxfgh', '09359044818', 'amit@gmail.com', 'wsda', 'sdf', 'sdf', 'sdxf', 'sd', 'Single', 'Background-image2.jpeg', 'c8babb64262c6076e821e1ea0afc7d306ede96cb', 5, 14, '2024-11-01', '23456', 1, '2024-01-11', 6, '0');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `testimonial`
+--
+
+CREATE TABLE `testimonial` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `scholarship_image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `testimonial`
+--
+
+INSERT INTO `testimonial` (`id`, `name`, `description`, `scholarship_image`, `created_date`) VALUES
+(3, 'demo', 'Et nec tantas accusamus salutatus, sit commodo veritus te, erat fabulas has ut.\r\n                                        Rebum\r\n                                        cum laudem cum ea, accusamus salutatus, sit commodo veritus te,erat legere\r\n           ', 'team-2.jpg', '2024-01-16 14:08:16'),
+(4, 'Nathan Joe', 'Et nec tantas accusamus salutatus, sit commodo veritus te, erat fabulas has ut.\r\n                                        Rebum\r\n                                        cum laudem cum ea, accusamus salutatus, sit commodo veritus te,erat legere\r\n           ', 'team-1.jpg', '2024-01-16 14:08:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transport`
+--
+
+CREATE TABLE `transport` (
+  `transport_id` int(11) NOT NULL,
+  `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `transport_route_id` int(11) NOT NULL,
+  `vehicle_id` int(11) NOT NULL,
+  `route_fare` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transport_route`
+--
+
+CREATE TABLE `transport_route` (
+  `transport_route_id` int(11) NOT NULL,
+  `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transport_route`
+--
+
+INSERT INTO `transport_route` (`transport_route_id`, `name`, `description`) VALUES
+(2, 'Toronto to Usa', 'This is vehicle is going from Canada to Usa'),
+(3, 'Lagos to Canada', 'This is going to Canada');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `user_password` varchar(100) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `user_role` int(11) NOT NULL,
+  `is_active` tinyint(4) NOT NULL,
+  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ip_address` varchar(45) NOT NULL,
+  `email` varchar(254) DEFAULT NULL,
+  `activation_selector` varchar(255) DEFAULT NULL,
+  `activation_code` varchar(255) DEFAULT NULL,
+  `forgotten_password_selector` varchar(255) DEFAULT NULL,
+  `forgotten_password_code` varchar(255) DEFAULT NULL,
+  `forgotten_password_time` int(10) UNSIGNED DEFAULT NULL,
+  `remember_selector` varchar(255) DEFAULT NULL,
+  `remember_code` varchar(255) DEFAULT NULL,
+  `last_login` int(10) UNSIGNED DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_name`, `user_password`, `first_name`, `last_name`, `gender`, `user_role`, `is_active`, `created_date`, `ip_address`, `email`, `activation_selector`, `activation_code`, `forgotten_password_selector`, `forgotten_password_code`, `forgotten_password_time`, `remember_selector`, `remember_code`, `last_login`, `phone`) VALUES
+(1, 'admin', '202cb962ac59075b964b07152d234b70', '', '', '', 1, 1, '2018-09-25 17:31:00', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, 'akshu', '50f20ea242c189f7dd46242e8411dc9f', 'akshu', 'm', 'female', 2, 1, '2023-11-30 10:00:06', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, 'ankita', '1138dd6fdda5d617dfe218898ee02077', 'ankita', 'rokde', 'female', 2, 1, '2023-12-19 11:21:57', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(8, 'sudipa', 'a7b24d715c42b8d2606c35d88b5a2954', 'sudipa', 'maity', 'female', 2, 1, '2023-12-19 13:10:07', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vehicle`
+--
+
+CREATE TABLE `vehicle` (
+  `vehicle_id` int(11) NOT NULL,
+  `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `vehicle_number` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `vehicle_model` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `vehicle_quantity` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `year_made` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `driver_name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `driver_license` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `driver_contact` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `status` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `vehicle`
+--
+
+INSERT INTO `vehicle` (`vehicle_id`, `name`, `vehicle_number`, `vehicle_model`, `vehicle_quantity`, `year_made`, `driver_name`, `driver_license`, `driver_contact`, `description`, `status`) VALUES
+(2, 'Toyota', '423', 'Camry', '2', '2019', 'Udemy Sheg', 'License', 'Contact address here', 'description here', 'available');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `winners`
+--
+
+CREATE TABLE `winners` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `winners_img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `winners`
+--
+
+INSERT INTO `winners` (`id`, `title`, `winners_img`, `created_date`) VALUES
+(8, 'JEE ADVANCED', '1.jpg', '2024-01-16 13:19:57'),
+(9, 'JEE MAIN', '2.jpg', '2024-01-16 13:20:51');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `academic_syllabus`
+--
+ALTER TABLE `academic_syllabus`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `activity`
+--
+ALTER TABLE `activity`
+  ADD PRIMARY KEY (`activity_id`);
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`admin_id`);
+
+--
+-- Indexes for table `admin_role`
+--
+ALTER TABLE `admin_role`
+  ADD PRIMARY KEY (`admin_role_id`);
+
+--
+-- Indexes for table `announcement`
+--
+ALTER TABLE `announcement`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `assignment`
+--
+ALTER TABLE `assignment`
+  ADD PRIMARY KEY (`assignment_id`);
+
+--
+-- Indexes for table `attendance`
+--
+ALTER TABLE `attendance`
+  ADD PRIMARY KEY (`attendance_id`);
+
+--
+-- Indexes for table `bank`
+--
+ALTER TABLE `bank`
+  ADD PRIMARY KEY (`bank_id`);
+
+--
+-- Indexes for table `book`
+--
+ALTER TABLE `book`
+  ADD PRIMARY KEY (`book_id`);
+
+--
+-- Indexes for table `book_category`
+--
+ALTER TABLE `book_category`
+  ADD PRIMARY KEY (`book_category_id`);
+
+--
+-- Indexes for table `circular`
+--
+ALTER TABLE `circular`
+  ADD PRIMARY KEY (`circular_id`);
+
+--
+-- Indexes for table `ci_sessions`
+--
+ALTER TABLE `ci_sessions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ci_sessions_timestamp` (`timestamp`);
+
+--
+-- Indexes for table `class`
+--
+ALTER TABLE `class`
+  ADD PRIMARY KEY (`class_id`);
+
+--
+-- Indexes for table `classroom`
+--
+ALTER TABLE `classroom`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `club`
+--
+ALTER TABLE `club`
+  ADD PRIMARY KEY (`club_id`);
+
+--
+-- Indexes for table `courses`
+--
+ALTER TABLE `courses`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `department`
+--
+ALTER TABLE `department`
+  ADD PRIMARY KEY (`department_id`);
+
+--
+-- Indexes for table `designation`
+--
+ALTER TABLE `designation`
+  ADD PRIMARY KEY (`designation_id`);
+
+--
+-- Indexes for table `dormitory`
+--
+ALTER TABLE `dormitory`
+  ADD PRIMARY KEY (`dormitory_id`);
+
+--
+-- Indexes for table `dosen`
+--
+ALTER TABLE `dosen`
+  ADD PRIMARY KEY (`id_dosen`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `nip` (`nip`),
+  ADD KEY `matkul_id` (`matkul_id`);
+
+--
+-- Indexes for table `enquiry`
+--
+ALTER TABLE `enquiry`
+  ADD PRIMARY KEY (`enquiry_id`);
+
+--
+-- Indexes for table `enquiry_category`
+--
+ALTER TABLE `enquiry_category`
+  ADD PRIMARY KEY (`enquiry_category_id`);
+
+--
+-- Indexes for table `exam`
+--
+ALTER TABLE `exam`
+  ADD PRIMARY KEY (`exam_id`);
+
+--
+-- Indexes for table `exam_question`
+--
+ALTER TABLE `exam_question`
+  ADD PRIMARY KEY (`exam_question_id`);
+
+--
+-- Indexes for table `expense_category`
+--
+ALTER TABLE `expense_category`
+  ADD PRIMARY KEY (`expense_category_id`);
+
+--
+-- Indexes for table `gallery`
+--
+ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `groups`
+--
+ALTER TABLE `groups`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `home_slider`
+--
+ALTER TABLE `home_slider`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hostel_category`
+--
+ALTER TABLE `hostel_category`
+  ADD PRIMARY KEY (`hostel_category_id`);
+
+--
+-- Indexes for table `hostel_room`
+--
+ALTER TABLE `hostel_room`
+  ADD PRIMARY KEY (`hostel_room_id`);
+
+--
+-- Indexes for table `house`
+--
+ALTER TABLE `house`
+  ADD PRIMARY KEY (`house_id`);
+
+--
+-- Indexes for table `h_ujian`
+--
+ALTER TABLE `h_ujian`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ujian_id` (`ujian_id`),
+  ADD KEY `mahasiswa_id` (`mahasiswa_id`);
+
+--
+-- Indexes for table `invoice`
+--
+ALTER TABLE `invoice`
+  ADD PRIMARY KEY (`invoice_id`);
+
+--
+-- Indexes for table `jurusan`
+--
+ALTER TABLE `jurusan`
+  ADD PRIMARY KEY (`id_jurusan`);
+
+--
+-- Indexes for table `jurusan_matkul`
+--
+ALTER TABLE `jurusan_matkul`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `jurusan_id` (`jurusan_id`),
+  ADD KEY `matkul_id` (`matkul_id`);
+
+--
+-- Indexes for table `kelas`
+--
+ALTER TABLE `kelas`
+  ADD PRIMARY KEY (`id_kelas`),
+  ADD KEY `jurusan_id` (`jurusan_id`);
+
+--
+-- Indexes for table `kelas_dosen`
+--
+ALTER TABLE `kelas_dosen`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `kelas_id` (`kelas_id`),
+  ADD KEY `dosen_id` (`dosen_id`);
+
+--
+-- Indexes for table `language`
+--
+ALTER TABLE `language`
+  ADD PRIMARY KEY (`phrase_id`);
+
+--
+-- Indexes for table `language_list`
+--
+ALTER TABLE `language_list`
+  ADD PRIMARY KEY (`language_list_id`);
+
+--
+-- Indexes for table `leave`
+--
+ALTER TABLE `leave`
+  ADD PRIMARY KEY (`leave_id`);
+
+--
+-- Indexes for table `login_attempts`
+--
+ALTER TABLE `login_attempts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+  ADD PRIMARY KEY (`id_mahasiswa`),
+  ADD UNIQUE KEY `nim` (`nim`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `kelas_id` (`kelas_id`);
+
+--
+-- Indexes for table `mark`
+--
+ALTER TABLE `mark`
+  ADD PRIMARY KEY (`mark_id`);
+
+--
+-- Indexes for table `material`
+--
+ALTER TABLE `material`
+  ADD PRIMARY KEY (`material_id`);
+
+--
+-- Indexes for table `matkul`
+--
+ALTER TABLE `matkul`
+  ADD PRIMARY KEY (`id_matkul`);
+
+--
+-- Indexes for table `meeting_link`
+--
+ALTER TABLE `meeting_link`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `m_ujian`
+--
+ALTER TABLE `m_ujian`
+  ADD PRIMARY KEY (`id_ujian`),
+  ADD KEY `matkul_id` (`matkul_id`),
+  ADD KEY `dosen_id` (`dosen_id`);
+
+--
+-- Indexes for table `noticeboard`
+--
+ALTER TABLE `noticeboard`
+  ADD PRIMARY KEY (`noticeboard_id`);
+
+--
+-- Indexes for table `parent`
+--
+ALTER TABLE `parent`
+  ADD PRIMARY KEY (`parent_id`);
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`payment_id`);
+
+--
+-- Indexes for table `quiz_answer`
+--
+ALTER TABLE `quiz_answer`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `quiz_details`
+--
+ALTER TABLE `quiz_details`
+  ADD PRIMARY KEY (`quiz_id`);
+
+--
+-- Indexes for table `quiz_enquiry`
+--
+ALTER TABLE `quiz_enquiry`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `quiz_questions`
+--
+ALTER TABLE `quiz_questions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `recorded_lecture`
+--
+ALTER TABLE `recorded_lecture`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `results`
+--
+ALTER TABLE `results`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `section`
+--
+ALTER TABLE `section`
+  ADD PRIMARY KEY (`section_id`);
+
+--
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`settings_id`);
+
+--
+-- Indexes for table `sms_settings`
+--
+ALTER TABLE `sms_settings`
+  ADD PRIMARY KEY (`sms_setting_id`);
+
+--
+-- Indexes for table `social_category`
+--
+ALTER TABLE `social_category`
+  ADD PRIMARY KEY (`social_category_id`);
+
+--
+-- Indexes for table `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`student_id`);
+
+--
+-- Indexes for table `student_category`
+--
+ALTER TABLE `student_category`
+  ADD PRIMARY KEY (`student_category_id`);
+
+--
+-- Indexes for table `subject`
+--
+ALTER TABLE `subject`
+  ADD PRIMARY KEY (`subject_id`);
+
+--
+-- Indexes for table `tb_soal`
+--
+ALTER TABLE `tb_soal`
+  ADD PRIMARY KEY (`id_soal`),
+  ADD KEY `matkul_id` (`matkul_id`),
+  ADD KEY `dosen_id` (`dosen_id`);
+
+--
+-- Indexes for table `teacher`
+--
+ALTER TABLE `teacher`
+  ADD PRIMARY KEY (`teacher_id`);
+
+--
+-- Indexes for table `testimonial`
+--
+ALTER TABLE `testimonial`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `transport`
+--
+ALTER TABLE `transport`
+  ADD PRIMARY KEY (`transport_id`);
+
+--
+-- Indexes for table `transport_route`
+--
+ALTER TABLE `transport_route`
+  ADD PRIMARY KEY (`transport_route_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `user_name` (`user_name`);
+
+--
+-- Indexes for table `vehicle`
+--
+ALTER TABLE `vehicle`
+  ADD PRIMARY KEY (`vehicle_id`);
+
+--
+-- Indexes for table `winners`
+--
+ALTER TABLE `winners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `academic_syllabus`
+--
+ALTER TABLE `academic_syllabus`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `activity`
+--
+ALTER TABLE `activity`
+  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `admin_role`
+--
+ALTER TABLE `admin_role`
+  MODIFY `admin_role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `announcement`
+--
+ALTER TABLE `announcement`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `assignment`
+--
+ALTER TABLE `assignment`
+  MODIFY `assignment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `attendance`
+--
+ALTER TABLE `attendance`
+  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT for table `bank`
+--
+ALTER TABLE `bank`
+  MODIFY `bank_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `book`
+--
+ALTER TABLE `book`
+  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `book_category`
+--
+ALTER TABLE `book_category`
+  MODIFY `book_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `circular`
+--
+ALTER TABLE `circular`
+  MODIFY `circular_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `class`
+--
+ALTER TABLE `class`
+  MODIFY `class_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `classroom`
+--
+ALTER TABLE `classroom`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `club`
+--
+ALTER TABLE `club`
+  MODIFY `club_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `courses`
+--
+ALTER TABLE `courses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT for table `department`
+--
+ALTER TABLE `department`
+  MODIFY `department_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `designation`
+--
+ALTER TABLE `designation`
+  MODIFY `designation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `dormitory`
+--
+ALTER TABLE `dormitory`
+  MODIFY `dormitory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `dosen`
+--
+ALTER TABLE `dosen`
+  MODIFY `id_dosen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `enquiry`
+--
+ALTER TABLE `enquiry`
+  MODIFY `enquiry_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `enquiry_category`
+--
+ALTER TABLE `enquiry_category`
+  MODIFY `enquiry_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `exam`
+--
+ALTER TABLE `exam`
+  MODIFY `exam_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `exam_question`
+--
+ALTER TABLE `exam_question`
+  MODIFY `exam_question_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `expense_category`
+--
+ALTER TABLE `expense_category`
+  MODIFY `expense_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `gallery`
+--
+ALTER TABLE `gallery`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `groups`
+--
+ALTER TABLE `groups`
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `home_slider`
+--
+ALTER TABLE `home_slider`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `hostel_category`
+--
+ALTER TABLE `hostel_category`
+  MODIFY `hostel_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `hostel_room`
+--
+ALTER TABLE `hostel_room`
+  MODIFY `hostel_room_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `house`
+--
+ALTER TABLE `house`
+  MODIFY `house_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `h_ujian`
+--
+ALTER TABLE `h_ujian`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `invoice`
+--
+ALTER TABLE `invoice`
+  MODIFY `invoice_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `jurusan`
+--
+ALTER TABLE `jurusan`
+  MODIFY `id_jurusan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `jurusan_matkul`
+--
+ALTER TABLE `jurusan_matkul`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `kelas`
+--
+ALTER TABLE `kelas`
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `kelas_dosen`
+--
+ALTER TABLE `kelas_dosen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `language`
+--
+ALTER TABLE `language`
+  MODIFY `phrase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40558;
+
+--
+-- AUTO_INCREMENT for table `language_list`
+--
+ALTER TABLE `language_list`
+  MODIFY `language_list_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `leave`
+--
+ALTER TABLE `leave`
+  MODIFY `leave_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `login_attempts`
+--
+ALTER TABLE `login_attempts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `mahasiswa`
+--
+ALTER TABLE `mahasiswa`
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `mark`
+--
+ALTER TABLE `mark`
+  MODIFY `mark_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `material`
+--
+ALTER TABLE `material`
+  MODIFY `material_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `matkul`
+--
+ALTER TABLE `matkul`
+  MODIFY `id_matkul` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `meeting_link`
+--
+ALTER TABLE `meeting_link`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `m_ujian`
+--
+ALTER TABLE `m_ujian`
+  MODIFY `id_ujian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `noticeboard`
+--
+ALTER TABLE `noticeboard`
+  MODIFY `noticeboard_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `parent`
+--
+ALTER TABLE `parent`
+  MODIFY `parent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `payment`
+--
+ALTER TABLE `payment`
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `quiz_answer`
+--
+ALTER TABLE `quiz_answer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+
+--
+-- AUTO_INCREMENT for table `quiz_details`
+--
+ALTER TABLE `quiz_details`
+  MODIFY `quiz_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `quiz_enquiry`
+--
+ALTER TABLE `quiz_enquiry`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `quiz_questions`
+--
+ALTER TABLE `quiz_questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+
+--
+-- AUTO_INCREMENT for table `recorded_lecture`
+--
+ALTER TABLE `recorded_lecture`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `results`
+--
+ALTER TABLE `results`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `section`
+--
+ALTER TABLE `section`
+  MODIFY `section_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `settings_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
+
+--
+-- AUTO_INCREMENT for table `sms_settings`
+--
+ALTER TABLE `sms_settings`
+  MODIFY `sms_setting_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `social_category`
+--
+ALTER TABLE `social_category`
+  MODIFY `social_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `student`
+--
+ALTER TABLE `student`
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- AUTO_INCREMENT for table `student_category`
+--
+ALTER TABLE `student_category`
+  MODIFY `student_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `subject`
+--
+ALTER TABLE `subject`
+  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tb_soal`
+--
+ALTER TABLE `tb_soal`
+  MODIFY `id_soal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `teacher`
+--
+ALTER TABLE `teacher`
+  MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `testimonial`
+--
+ALTER TABLE `testimonial`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `transport`
+--
+ALTER TABLE `transport`
+  MODIFY `transport_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `transport_route`
+--
+ALTER TABLE `transport_route`
+  MODIFY `transport_route_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `vehicle`
+--
+ALTER TABLE `vehicle`
+  MODIFY `vehicle_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `winners`
+--
+ALTER TABLE `winners`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
