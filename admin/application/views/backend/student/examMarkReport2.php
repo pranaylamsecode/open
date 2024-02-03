@@ -26,6 +26,43 @@
 
 
 
+                                            <div class="form-group">
+                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Student');?></label>
+                                                <div class="col-sm-12">
+
+
+                                                <?php
+
+                $this->db->select('MAX(s.name) as name, s.student_id');
+                $this->db->from('student s');
+
+                $this->db->join('quiz_answer q', 's.student_id = q.user_id', 'right');
+               /*  $this->db->where('q.quiz_id', $exam_id); */
+                $this->db->group_by('s.student_id');
+
+
+                // Executing the query and fetching the result as an array.
+                $student_data = $this->db->get()->result_array();
+
+?>
+
+
+
+
+                                    <select name="student_id"  class="form-control">
+                                        <option value="">Student Select</option>
+                                        <?php
+                                        foreach ($student_data as $key => $student): ?>
+                                        <option value="<?php echo $student['student_id'];?>"<?php if(isset($student_id) && $student_id == $student['student_id']) echo 'selected="selected"';?>><?php echo $student['name'];?></option>
+                                        <?php endforeach;?>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
+
                             <input class="" type="hidden" value="selection" name="operation">
                         <div class="form-group">
                             <button type="submit" class="btn btn-info btn-block btn-rounded btn-sm"><i class="fa fa-search"></i>&nbsp;<?php echo get_phrase('Get Details');?></button>
@@ -38,158 +75,156 @@
 </div>
 
 
-<?php if(/* $student_id > 0 && $exam_id > 0 */false):?>
-
-
-
-
-
-    <div class="row">
-	<div class="col-sm-12">
-		<div class="panel panel-info">
-            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('enter_student_score'); ?></div>
-                <div class="panel-body table-responsive">
-
-    					<table cellpadding="0" cellspacing="0" border="0" class="table">
-								<thead>
-									<tr>
-										<td><?php echo get_phrase('Quiz Name');?></td>
-										<td><?php echo get_phrase('attempt');?></td>
-										<td><?php echo get_phrase('correct');?></td>
-										<td><?php echo get_phrase('score');?></td>
-
-									</tr>
-								</thead>
-                    				<tbody>
-
-        <?php
-
-                $verify_data = array('quiz_id' => $exam_id,'user_id' => $student_id,);
-                $query = $this->db->get_where('quiz_answer', $verify_data);
-                $update_subject_marks = $query->result_array();
-
-
-
-
-           ?>
-
-
-						<tr>
-							<td>
-								<?php echo $class_subject_exam_student['name'];?>
-							</td>
-							<td>
-								<?php echo $general_select['class_score1'];?>
-							</td>
-							<td>
-								<?php echo $general_select['class_score2'];?>
-							</td>
-
-
-                    </tbody>
-               </table>
-
-               <h3 align="center"> Student Score (Over 100)</h3>
-                <div id="bar_chartdiv"></div>
-
-			</div>
-        </div>
-	</div>
- </div>
-
-<?php endif;?>
-<script type="text/javascript">
-    function show_students(class_id){
-            for(i=0;i<=50;i++){
-                try{
-                    document.getElementById('student_id_'+i).style.display = 'none' ;
-                    document.getElementById('student_id_'+i).setAttribute("name" , "temp");
-                }
-                catch(err){}
-            }
-            if (class_id == "") {
-                class_id = "0";
-        }
-        document.getElementById('student_id_'+class_id).style.display = 'block' ;
-        document.getElementById('student_id_'+class_id).setAttribute("name" , "student_id");
-        var student_id = $(".student_id");
-        for(var i = 0; i < student_id.length; i++)
-            student_id[i].selected = "";
-    }
-</script>
 
 <style>
-    #bar_chartdiv {
-        width		: 100%;
-        height		: 397px;
-        font-size	: 11px;
-    }
-	.amcharts-chart-div a{
-    display:none !important;
-    }
+    body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
 </style>
 
+
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Responsive.js"></script>
+<?php if(!empty($exam_id)):?>
+
+
+<div id="chartdiv"></div>
+
+<?php endif; ?>
+
 <script>
-        var chart = AmCharts.makeChart("bar_chartdiv", {
-            "theme": "light",
-            "type": "serial",
-            "startDuration": 2,
-            "dataProvider": [
+    /**
+ * ---------------------------------------
+ * This demo was created using amCharts 5.
+ *
+ * For more information visit:
+ * https://www.amcharts.com/
+ *
+ * Documentation is available at:
+ * https://www.amcharts.com/docs/v5/
+ * ---------------------------------------
+ */
+
+// Create root element
+// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+var root = am5.Root.new("chartdiv");
+
+const myTheme = am5.Theme.new(root);
+
+myTheme.rule("AxisLabel", ["minor"]).setAll({
+  dy:1
+});
+
+// Set themes
+// https://www.amcharts.com/docs/v5/concepts/themes/
+root.setThemes([
+  am5themes_Animated.new(root),
+  myTheme,
+  am5themes_Responsive.new(root)
+]);
 
 
+// Create chart
+// https://www.amcharts.com/docs/v5/charts/xy-chart/
+var chart = root.container.children.push(am5xy.XYChart.new(root, {
+  panX: false,
+  panY: false,
+  wheelX: "panX",
+  wheelY: "zoomX",
+  paddingLeft:0
+}));
 
-                  /*   {
-                        "country": "<?php // echo // $class_subject_exam_student['name'];?>",
-                        "visits": "<?php //  echo  //$sum_Class_score_and_exam_score;?>",
-                        "color": "#99BDF9"
-                    }, */
+
+// Add cursor
+// https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+  behavior: "zoomX"
+}));
+cursor.lineY.set("visible", false);
+
+var date = new Date();
+date.setHours(0, 0, 0, 0);
+var value = 100;
+
+function generateData() {
+  value = Math.round((Math.random() * 10 - 5) + value);
+  am5.time.add(date, "day", 1);
+  return {
+    date: date.getTime(),
+    value: value
+  };
+}
+
+function generateDatas(count) {
+  var data = [];
+  for (var i = 0; i < count; ++i) {
+    data.push(generateData());
+  }
+  return data;
+}
 
 
-            ],
-            "valueAxes": [{
-                    "position": "left",
-                    "title": "Student Score in Subject"
-                }],
-            "graphs": [{
-                    "balloonText": "[[category]]: <b>[[value]]</b>",
-                    "fillColorsField": "color",
-                    "fillAlphas": 1,
-                    "lineAlpha": 0.1,
-                    "type": "column",
-                    "valueField": "visits"
-                }],
-            "depth3D": 20,
-            "angle": 30,
-            "chartCursor": {
-                "categoryBalloonEnabled": true,
-                "cursorAlpha": 0,
-                "zoomable": false
-            },
-            "categoryField": "country",
-            "categoryAxis": {
-                "gridPosition": "start",
-                "labelRotation": 90,
-                "position": "bottom",
-                "title": "All Subjects",
-            },
-            "export": {
-                "enabled": true
-            }
+// Create axes
+// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+var xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
+  maxDeviation: 0,
+  baseInterval: {
+    timeUnit: "day",
+    count: 1
+  },
+  renderer: am5xy.AxisRendererX.new(root, {
+    minorGridEnabled:true,
+    minorLabelsEnabled:true
+  }),
+  tooltip: am5.Tooltip.new(root, {})
+}));
 
-        });
-        jQuery('.chart-input').off().on('input change', function () {
-            var property = jQuery(this).data('property');
-            var target = chart;
-            chart.startDuration = 0;
+xAxis.set("minorDateFormats", {
+  "day":"dd",
+  "month":"MM"
+});
 
-            if (property == 'topRadius') {
-                target = chart.graphs[0];
-                if (this.value == 0) {
-                    this.value = undefined;
-                }
-            }
 
-            target[property] = this.value;
-            chart.validateNow();
-        });
-    </script>
+var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+  renderer: am5xy.AxisRendererY.new(root, {})
+}));
+
+
+// Add series
+// https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+  name: "Series",
+  xAxis: xAxis,
+  yAxis: yAxis,
+  valueYField: "value",
+  valueXField: "date",
+  tooltip: am5.Tooltip.new(root, {
+    labelText: "{valueY}"
+  })
+}));
+
+series.columns.template.setAll({ strokeOpacity: 0 })
+
+
+// Add scrollbar
+// https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
+chart.set("scrollbarX", am5.Scrollbar.new(root, {
+  orientation: "horizontal"
+}));
+
+var data = generateDatas(30);
+series.data.setAll(data);
+
+
+// Make stuff animate on load
+// https://www.amcharts.com/docs/v5/concepts/animations/
+series.appear(1000);
+chart.appear(1000, 100);
+</script>
