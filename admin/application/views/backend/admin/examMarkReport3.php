@@ -7,7 +7,7 @@
 
                     <!----CREATION FORM STARTS---->
 
-                	<?php echo form_open(base_url() . 'report/examMarkReport3' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top', 'enctype' => 'multipart/form-data'));?>
+                	<?php echo form_open(base_url() . 'report/examMarkReport4' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top', 'enctype' => 'multipart/form-data'));?>
 
                             <div class="form-group">
                                     <label class="col-md-12" for="example-text"><?php echo get_phrase('Quiz');?></label>
