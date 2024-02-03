@@ -83,7 +83,7 @@ $result = $query->result_array();
 $formatted_result = array_map(function($row) {
     return [
         'date' => $row['date'] * 1000, // Multiply by 1000 to convert seconds to milliseconds
-        'value' => $row['value']
+        'value' => (int)$row['value']
     ];
 }, $result);
 
@@ -249,5 +249,5 @@ series.data.setAll(dataset);
 // Make stuff animate on load
 // https://www.amcharts.com/docs/v5/concepts/animations/
 series.appear(1000);
-chart.appear(1000, 3);
+chart.appear(1000, dataset.length);
 </script>
