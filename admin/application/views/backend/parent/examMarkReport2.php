@@ -73,7 +73,24 @@
 		</div>
 	</div>
 </div>
+<?php
 
+$query = $this->db->query('SELECT UNIX_TIMESTAMP(created_at) as date, score as value FROM quiz_report');
+
+$result = $query->result_array();
+
+// Convert the result into the desired format
+$formatted_result = array_map(function($row) {
+    return [
+        'date' => $row['date'] * 1000, // Multiply by 1000 to convert seconds to milliseconds
+        'value' => $row['value']
+    ];
+}, $result);
+
+// Now $formatted_result contains the data in the desired format
+$json_data = json_encode($formatted_result);
+
+?>
 
 
 <style>
@@ -220,11 +237,17 @@ chart.set("scrollbarX", am5.Scrollbar.new(root, {
 }));
 
 var data = generateDatas(30);
-series.data.setAll(data);
+var dataset = <?php echo $json_data; ?>;
+    console.log(dataset);
+series.data.setAll(dataset);
+
+
+
+
 
 
 // Make stuff animate on load
 // https://www.amcharts.com/docs/v5/concepts/animations/
 series.appear(1000);
-chart.appear(1000, 100);
+chart.appear(1000, 3);
 </script>

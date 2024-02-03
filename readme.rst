@@ -32,3 +32,13 @@ ALTER TABLE `quiz_details` ADD `other_imp_instruction` TEXT NOT NULL AFTER `last
 //null
 
 ALTER TABLE `quiz_details` CHANGE `other_imp_instruction` `other_imp_instruction` TEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL, CHANGE `negative_mark` `negative_mark` TEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL, CHANGE `mark_for_correct_answer` `mark_for_correct_answer` TEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL;
+
+
+//
+CREATE TABLE quiz_report (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT,
+    quiz_id INT,
+    score INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

@@ -111,7 +111,7 @@ class Common extends Base_Controller {
             $quizid = $this->input->post('quiz', true);
              $level_type = $this->input->post('level_type', true);
 
-             
+
 			if(empty($quizid) && empty($level_type))
 			{
 				redirect('student/quizlist');
@@ -156,7 +156,7 @@ class Common extends Base_Controller {
             $this->db->where('quiz_id', $quizid);
             $data['quiz_name'] =   $this->db->get()->result();
 
-            
+
 
             $this->load->view('scholarship/question-paper-instruction-0', $data);
            }elseif($step_instruction == 1)
@@ -186,13 +186,13 @@ class Common extends Base_Controller {
                      $negative_mark = $quiz_name->negative_mark;
                      $more_desc = $quiz_name->other_imp_instruction;
              }
- 
+
               $data['mark_for_correct_answer'] =  $mark_correct_answer;
               $data['negative_mark'] =  $negative_mark;
               $data['more_desc'] =  $more_desc;
 
-             
-             
+
+
 
             $this->load->view('scholarship/question-paper-instruction-1', $data);
            }elseif($step_instruction == 2){
@@ -274,12 +274,26 @@ class Common extends Base_Controller {
             {
                     $mark_correct_answer = $quiz_name->mark_for_correct_answer;
                     $negative_mark = $quiz_name->negative_mark;
-                    
+
             }
 
              $data['mark_for_correct_answer'] =  $mark_correct_answer;
              $data['negative_mark'] =  $negative_mark;
-         
+
+             $correct =count($data['correct']);
+                $number_of_minus_from_total_mark =(int)count($data['result']) - (int)$correct;
+                $total_minus_mark =$number_of_minus_from_total_mark * (int)$negative_mark;
+                $total_correct_mark =(int)$correct * (int)$data['mark_for_correct_answer'];
+                $final_marks =(int)$total_correct_mark - (int)$total_minus_mark;
+
+                $data = array(
+                    'student_id' => $user_id,
+                    'quiz_id' => $quiz_id,
+                    'score' => $final_marks,
+                );
+
+                $this->db->insert('quiz_report', $data);
+
             $this->load->view('scholarship/quiz-complete', $data);
            // $this->load->view('footer_view');
         }
@@ -342,7 +356,7 @@ class Common extends Base_Controller {
         $query = "select quiz_id from quiz_answer";
 	    $data['question'] = $this->User_model->selectRecord($query);
 	    // $this->load->view('quiz-complete', $data);
-       
+
      //   $this->load->view('header_vi  ew');
         $this->load->view('scholarship/quiz-complete', $data);
        // $this->load->view('footer_view');

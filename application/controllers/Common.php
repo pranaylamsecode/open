@@ -295,6 +295,22 @@ class Common extends Base_Controller {
              $data['negative_mark'] =  $negative_mark;
 
 
+              $correct =count($data['correct']);
+                $number_of_minus_from_total_mark =(int)count($data['result']) - (int)$correct;
+                $total_minus_mark =$number_of_minus_from_total_mark * (int)$negative_mark;
+                $total_correct_mark =(int)$correct * (int)$data['mark_for_correct_answer'];
+                $final_marks =(int)$total_correct_mark - (int)$total_minus_mark;
+
+                $data = array(
+                    'student_id' => $user_id,
+                    'quiz_id' => $quiz_id,
+                    'score' => $final_marks,
+                );
+
+                $this->db->insert('quiz_report', $data);
+
+
+
 
             // $this->load->view('quiz-complete', $data);
             $this->load->view('header_view');
