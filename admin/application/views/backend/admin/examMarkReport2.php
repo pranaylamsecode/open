@@ -12,7 +12,7 @@
                             <div class="form-group">
                                     <label class="col-md-12" for="example-text"><?php echo get_phrase('Quiz');?></label>
                                 <div class="col-sm-12">
-                                    <select name="exam_id" class="form-control select2">
+                                    <select  name="exam_id" class="form-control select2">
                                         <option value=""><?php echo get_phrase('select_class');?></option>
 
                                         <?php $exams =  $this->db->get('quiz_details')->result_array();
@@ -24,6 +24,27 @@
                                 </div>
                             </div>
 
+                                            <?php if(!empty($exam_id)){
+                                                ?>
+ <?php
+
+$this->db->select('s.name as name, s.student_id, q.quiz_id as quiz_id');
+$this->db->from('student s');
+
+$this->db->join('quiz_answer q', 's.student_id = q.user_id', 'right');
+$this->db->where('q.quiz_id', $exam_id);
+$this->db->group_by('s.student_id');
+
+
+// Executing the query and fetching the result as an array.
+$student_data = $this->db->get()->result_array();
+
+
+?>
+<?php if(!empty($student_data))
+{?>
+
+
 
 
                                             <div class="form-group">
@@ -31,25 +52,12 @@
                                                 <div class="col-sm-12">
 
 
-                                                <?php
-
-                $this->db->select('MAX(s.name) as name, s.student_id');
-                $this->db->from('student s');
-
-                $this->db->join('quiz_answer q', 's.student_id = q.user_id', 'right');
-               /*  $this->db->where('q.quiz_id', $exam_id); */
-                $this->db->group_by('s.student_id');
-
-
-                // Executing the query and fetching the result as an array.
-                $student_data = $this->db->get()->result_array();
-
-?>
 
 
 
 
-                                    <select name="student_id"  class="form-control">
+
+                                    <select  name="student_id"  class="form-control">
                                         <option value="">Student Select</option>
                                         <?php
                                         foreach ($student_data as $key => $student): ?>
@@ -58,6 +66,10 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <?php
+                                            }?>
+                                            <?php }?>
 
 
 
@@ -75,7 +87,11 @@
 </div>
 <?php
 
-$query = $this->db->query('SELECT UNIX_TIMESTAMP(created_at) as date, score as value FROM quiz_report');
+// Replace 123 with the actual student_id you want to filter
+
+
+
+$query = $this->db->query("SELECT UNIX_TIMESTAMP(created_at) as date, quiz_id, score as value FROM quiz_report WHERE student_id = $student_id AND quiz_id = $exam_id");
 
 $result = $query->result_array();
 
@@ -109,7 +125,7 @@ $json_data = json_encode($formatted_result);
 <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/themes/Responsive.js"></script>
-<?php if(!empty($exam_id)):?>
+<?php if(!empty($exam_id) && !empty($student_id) && !empty($result)):?>
 
 
 <div id="chartdiv"></div>
@@ -251,3 +267,19 @@ series.data.setAll(dataset);
 series.appear(1000);
 chart.appear(1000, dataset.length);
 </script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+ <script>
+      $("#exam_id").select2({
+          placeholder: "Select exam",
+          allowClear: true
+      });
+
+      $("#student_id").select2({
+          placeholder: "Select Student",
+          allowClear: true
+      });
+
+
+      </script>

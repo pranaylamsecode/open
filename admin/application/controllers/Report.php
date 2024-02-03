@@ -105,23 +105,25 @@ $this->load->view('backend/index', $page_data);
 }
 
 
-function examMarkReport3($exam_id = null, $class_id = null, $student_id = null){
+function examMarkReport3($exam_id = null, $student_id = null){
 
     if($this->input->post('operation') == 'selection'){
 
         $page_data['exam_id']       =  $this->input->post('exam_id');
-        $page_data['class_id']      =  $this->input->post('class_id');
         $page_data['student_id']    =  $this->input->post('student_id');
 
         if(!empty($page_data['exam_id'])){
 
-            redirect(base_url(). 'report/examMarkReport3/'. $page_data['exam_id'] .$page_data['exam_id'] , 'refresh');
+            redirect(base_url(). 'report/examMarkReport3/'. $page_data['exam_id'] .'/'.$page_data['student_id'] , 'refresh');
         }
         else{
             $this->session->set_flashdata('error_message', get_phrase('Pleasen select something'));
             redirect(base_url(). 'report/examMarkReport3', 'refresh');
         }
     }
+
+
+
         $page_data['exam_id']       =   $exam_id;
         $page_data['student_id']       =   $student_id;
         $page_data['page_name']     =   'examMarkReport2';
