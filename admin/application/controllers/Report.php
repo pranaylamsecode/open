@@ -113,9 +113,13 @@ function examMarkReport3($exam_id = null, $student_id = null, $student_id2 = nul
         $page_data['student_id']    =  $this->input->post('student_id');
         $page_data['student_id2']    =  $this->input->post('student_id2');
 
-        if(!empty($page_data['exam_id'])){
+        if(!empty($page_data['student_id2']) && !empty($page_data['student_id'])){
+
+            redirect(base_url(). 'report/examMarkReport4/'. $page_data['exam_id'] .'/'.$page_data['student_id'] .'/'.$page_data['student_id2'] , 'refresh');
+        }elseif(!empty($page_data['exam_id'])){
 
             redirect(base_url(). 'report/examMarkReport3/'. $page_data['exam_id'] .'/'.$page_data['student_id'] .'/'.$page_data['student_id2'] , 'refresh');
+
         }
         else{
             $this->session->set_flashdata('error_message', get_phrase('Pleasen select something'));
@@ -129,6 +133,38 @@ function examMarkReport3($exam_id = null, $student_id = null, $student_id2 = nul
         $page_data['student_id']       =   $student_id;
         $page_data['student_id2']       =   $student_id2;
         $page_data['page_name']     =   'examMarkReport2';
+        $page_data['page_title']    = get_phrase('Quiz Marks');
+        $this->load->view('backend/index', $page_data);
+}
+
+function examMarkReport4($exam_id = null, $student_id = null, $student_id2 = null){
+
+    if($this->input->post('operation') == 'selection'){
+
+        $page_data['exam_id']       =  $this->input->post('exam_id');
+        $page_data['student_id']    =  $this->input->post('student_id');
+        $page_data['student_id2']    =  $this->input->post('student_id2');
+
+        if(!empty($page_data['student_id2']) && !empty($page_data['student_id'])){
+
+            redirect(base_url(). 'report/examMarkReport4/'. $page_data['exam_id'] .'/'.$page_data['student_id'] .'/'.$page_data['student_id2'] , 'refresh');
+        }elseif(!empty($page_data['exam_id'])){
+
+            redirect(base_url(). 'report/examMarkReport3/'. $page_data['exam_id'] .'/'.$page_data['student_id'] .'/'.$page_data['student_id2'] , 'refresh');
+
+        }
+        else{
+            $this->session->set_flashdata('error_message', get_phrase('Pleasen select something'));
+            redirect(base_url(). 'report/examMarkReport3', 'refresh');
+        }
+    }
+
+
+
+        $page_data['exam_id']       =   $exam_id;
+        $page_data['student_id']       =   $student_id;
+        $page_data['student_id2']       =   $student_id2;
+        $page_data['page_name']     =   'examMarkReport3';
         $page_data['page_title']    = get_phrase('Quiz Marks');
         $this->load->view('backend/index', $page_data);
 }

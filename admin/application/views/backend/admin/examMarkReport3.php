@@ -159,6 +159,21 @@ $json_data = json_encode($formatted_result);
 
 
 
+$query2 = $this->db->query("SELECT UNIX_TIMESTAMP(created_at) as date, quiz_id, score as value FROM quiz_report WHERE student_id = $student_id2 AND quiz_id = $exam_id");
+
+$result2 = $query2->result_array();
+
+// Convert the result into the desired format
+$formatted_result2 = array_map(function($row) {
+    return [
+        'date' => $row['date'] * 1000, // Multiply by 1000 to convert seconds to milliseconds
+        'value' => (int)$row['value']
+    ];
+}, $result2);
+
+// Now $formatted_result contains the data in the desired format
+$json_data2 = json_encode($formatted_result2);
+
 ?>
 
 
@@ -185,6 +200,8 @@ $json_data = json_encode($formatted_result);
 
 <?php endif; ?>
 
+
+<?php if(!empty($student_id2)){ ?>
 <script>
     /**
      * ---------------------------------------
@@ -278,13 +295,25 @@ $json_data = json_encode($formatted_result);
         renderer: am5xy.AxisRendererY.new(root, {})
     }));
 
-    // Add series
+    // Add series for main data
     // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
     var series = chart.series.push(am5xy.LineSeries.new(root, {
         name: "Series",
         xAxis: xAxis,
         yAxis: yAxis,
         valueYField: "value",
+        valueXField: "date",
+        tooltip: am5.Tooltip.new(root, {
+            labelText: "{valueY}"
+        })
+    }));
+
+    // Add series for batch comparison
+    var comparisonSeries = chart.series.push(am5xy.LineSeries.new(root, {
+        name: "Comparison",
+        xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "comparisonValue",
         valueXField: "date",
         tooltip: am5.Tooltip.new(root, {
             labelText: "{valueY}"
@@ -302,14 +331,28 @@ $json_data = json_encode($formatted_result);
     console.log(dataset);
     series.data.setAll(dataset);
 
+    var dataset2 = <?php echo $json_data2; ?>;
+    console.log(dataset2);
+
+
+    // Generate comparison data with a slight shift
+    var comparisonData = dataset2.map(function (item) {
+        return {
+            date: item.date,
+            comparisonValue: item.value // Adjust as needed
+        };
+    });
+
+    comparisonSeries.data.setAll(comparisonData);
+
     // Make stuff animate on load
     // https://www.amcharts.com/docs/v5/concepts/animations/
     series.appear(1000);
+    comparisonSeries.appear(1000);
     chart.appear(1000, dataset.length);
 </script>
-<!-- normal js end  -->
 
-
+<?php } ?>
 
 <!-- campaire js end  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
