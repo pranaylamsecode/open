@@ -114,7 +114,7 @@ function examMarkReport3($exam_id = null, $student_id = null, $student_id2 = nul
         $page_data['student_id2']    =  $this->input->post('student_id2');
         $page_data['batch']    =  $this->input->post('batch');
 
-        if(!empty($page_data['batch']) && !empty($page_data['student_id']))
+        if(!empty($page_data['student_id2']) && $page_data['student_id2'] == 'All')
         {
             redirect(base_url(). 'report/examMarkReportBatch/'. $page_data['exam_id'] .'/'.$page_data['student_id'] .'/'.$page_data['student_id2'] , 'refresh');
 
