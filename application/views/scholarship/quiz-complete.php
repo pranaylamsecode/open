@@ -1,4 +1,6 @@
-<?php $name =$this->session->userdata('first_name');
+<?php
+
+$name =$this->session->userdata('first_name');
 $title =$this->session->userdata('name_title');
 
 ?><style>section.quiz {
