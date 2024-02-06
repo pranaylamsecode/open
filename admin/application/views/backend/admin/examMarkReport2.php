@@ -111,7 +111,8 @@ $student_data2 = $this->db->get()->result_array();
 
 
                                     <select  name="student_id2"  class="form-control">
-                                        <option value="">Ohter Student Select</option>
+                                        <option value="">Other Student Select</option>
+                                        <option value="All">All</option>
                                         <?php
                                         foreach ($student_data2 as $key => $student): ?>
                                         <option value="<?php echo $student['student_id'];?>"<?php if(isset($student_id2) && $student_id2 == $student['student_id']) echo 'selected="selected"';?>><?php echo $student['name'];?></option>

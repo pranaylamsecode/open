@@ -110,7 +110,7 @@ $student_data2 = $this->db->get()->result_array();
 
 
                                     <select  name="student_id2"  class="form-control">
-                                        <option value="">Ohter Student Select</option>
+                                        <option value="">Other Student Select</option>
                                         <option value="All">All</option>
 
                                         <?php
@@ -331,25 +331,25 @@ $json_data2 = json_encode($formatted_result2);
 
     var data = generateDatas(30);
     var dataset = <?php echo $json_data; ?>;
-    console.log(dataset);
+
     series.data.setAll(dataset);
 
-    var dataset2 = <?php echo $json_data2; ?>;
-    console.log(dataset2);
+
+
+    var allBranchStudentsData = <?php echo $json_data2; ?>;
 
 
     // Generate comparison data with a slight shift
-    var comparisonData = dataset2.map(function (item) {
+    var comparisonData = allBranchStudentsData.map(function (item) {
         return {
             date: item.date,
-            comparisonValue: item.value // Adjust as needed
+            value: item.value // Adjust as needed
         };
     });
 
     comparisonSeries.data.setAll(comparisonData);
 
-    // Make stuff animate on load
-    // https://www.amcharts.com/docs/v5/concepts/animations/
+
     series.appear(1000);
     comparisonSeries.appear(1000);
     chart.appear(1000, dataset.length);

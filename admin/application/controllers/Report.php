@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-
+ini_set('display_errors', 1);
 class Report extends CI_Controller {
 
     function __construct() {
@@ -118,9 +118,7 @@ function examMarkReport3($exam_id = null, $student_id = null, $student_id2 = nul
         {
             redirect(base_url(). 'report/examMarkReportBatch/'. $page_data['exam_id'] .'/'.$page_data['student_id'] .'/'.$page_data['student_id2'] , 'refresh');
 
-        }else
-
-        if(!empty($page_data['student_id2']) && !empty($page_data['student_id'])){
+        }elseif(!empty($page_data['student_id2']) && !empty($page_data['student_id'])){
 
             redirect(base_url(). 'report/examMarkReport4/'. $page_data['exam_id'] .'/'.$page_data['student_id'] .'/'.$page_data['student_id2'] , 'refresh');
         }elseif(!empty($page_data['exam_id'])){
@@ -190,7 +188,7 @@ function examMarkReportBatch($exam_id = null, $student_id = null, $student_id2 =
         $page_data['student_id2']    =  $this->input->post('student_id2');
         $page_data['batch']    =  $this->input->post('batch');
 
-        if(!empty($page_data['batch']) && !empty($page_data['student_id']))
+        if(!empty($page_data['student_id2']) && $page_data['student_id2'] == 'All')
         {
             redirect(base_url(). 'report/examMarkReportBatch/'. $page_data['exam_id'] .'/'.$page_data['student_id'] .'/'.$page_data['student_id2'] , 'refresh');
 
@@ -201,9 +199,8 @@ function examMarkReportBatch($exam_id = null, $student_id = null, $student_id2 =
 
             redirect(base_url(). 'report/examMarkReport3/'. $page_data['exam_id'] .'/'.$page_data['student_id'] .'/'.$page_data['student_id2'] , 'refresh');
 
-        }
-        else{
-            $this->session->set_flashdata('error_message', get_phrase('Pleasen select something'));
+        }else{
+            $this->session->set_flashdata('error_message', get_phrase('Please select something'));
             redirect(base_url(). 'report/examMarkReport3', 'refresh');
         }
     }
