@@ -320,7 +320,7 @@ class Common extends Base_Controller {
                   $this->db->from('quiz_report');
                   $this->db->where('quiz_id', $quiz_id);
                   $this->db->where('score <', $current_score_value); // Select scores less than the current score value
-                  $NumberofValuesBelow = $this->db->get()->num_rows();
+                  $NumberofValuesBelow = $this->db->get()->result_array();
 
 
 

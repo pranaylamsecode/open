@@ -53,3 +53,5 @@ ALTER TABLE `student` CHANGE `name` `name` LONGTEXT CHARACTER SET utf8mb3 COLLAT
 //
 
 ALTER TABLE `quiz_report` ADD `precentage` VARCHAR(255) NULL AFTER `created_at`;
+
+//ALTER TABLE `quiz_report` CHANGE `precentage` `percentage` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
