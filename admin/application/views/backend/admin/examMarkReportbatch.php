@@ -123,7 +123,7 @@ $student_data2 = $this->db->get()->result_array();
                                     <select  name="percentage_id"  class="form-control">
                                     <option value="">Select Percentage</option>
                                         <option value="Score">Score</option>
-                                        <option value="Percentail">Percentail</option>
+                                        <option value="percentile">Percentile</option>
                                     </select>
                                 </div>
                             </div>
@@ -337,6 +337,7 @@ $json_data_dates = json_encode($formatted_result_date);
           fill: false,
         })),
       },
+      
       options: {
         scales: {
           y: {
