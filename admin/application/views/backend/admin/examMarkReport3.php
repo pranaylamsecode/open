@@ -122,19 +122,16 @@ $student_data2 = $this->db->get()->result_array();
                             </div>
 
 
-                            
+
                             <div class="form-group">
-                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Student Percentage');?></label>
+                                <label class="col-md-12" for="example-text"><?php echo get_phrase('Student Percentage');?></label>
                                                 <div class="col-sm-12">
 
-
-
                                     <select  name="percentage_id"  class="form-control">
-                                    <option value="">Select Percentage</option>
+                                        <option value="">Select Percentage</option>
                                         <option value="Score">Score</option>
                                         <option value="Percentail">Percentail</option>
 
-                                    
                                     </select>
                                 </div>
                             </div>
