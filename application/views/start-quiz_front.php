@@ -6,7 +6,7 @@ $title = $this->session->userdata('name_title');
 
 ?>
 
-<form name="quiz" method="post" action="<?php echo base_url(); ?>question-paper">
+<form name="quiz" method="post" action="<?php echo base_url(); ?>question-paper-front">
 	<div id="myModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content quiz">

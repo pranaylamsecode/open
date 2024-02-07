@@ -67,9 +67,12 @@ $route['scholarship_registration'] = 'scholarship_registration';
 $route['result'] = 'result';
 
 $route['question-paper'] = 'common/questionPaper';
+$route['question-paper-front'] = 'common/questionPaper';
 $route['question'] = 'common/question';
+
 $route['save-answer'] = 'common/saveAnswer';
 $route['quiz'] = 'common/startQuiz';
+$route['quiz2'] = 'common/startQuiz2';
 $route['quiz-complete'] = 'common/quizComplete';
 $route['login'] = 'common';
 

@@ -60,7 +60,7 @@ class Common extends Base_Controller {
 
 //////////////////////////////////////////////////////////////////////private function
     private function isUserLogin() {
-    	$user_id = $this->session->userdata('student_id');
+    	$user_id = $this->session->userdata('user_id');
     	/* if(!empty($user_id)) {
     		//ok
         } else {
@@ -72,7 +72,7 @@ class Common extends Base_Controller {
     {
 
         // echo "hello";
-        $user_id  = $this->session->userdata('student_id');
+        $user_id  = $this->session->userdata('user_id');
 
 
         if(empty($user_id))
@@ -404,6 +404,35 @@ class Common extends Base_Controller {
 
         $this->load->view('header_view');
         $this->load->view('scholarship/start-quiz', $data);
+        $this->load->view('footer_view');
+    }
+
+    public function startQuiz2()
+    {
+        /* $this->isUserLogin();
+
+        $data = array(); */
+
+
+
+        $query = "SELECT quiz_name, quiz_id
+                  FROM quiz_details
+                  WHERE CURRENT_DATE() BETWEEN start_date AND end_date
+                  AND is_active = 1
+                  AND show_it = 1
+
+                  ORDER BY quiz_id DESC";
+
+
+
+        $data['quiz_name'] = $this->User_model->selectRecord($query);
+
+        // Uncomment the lines below for testing purposes
+        // print_r($data['quiz_name']);
+        // exit;
+
+        $this->load->view('header_view');
+        $this->load->view('start-quiz_front', $data);
         $this->load->view('footer_view');
     }
     public function quizComplete()

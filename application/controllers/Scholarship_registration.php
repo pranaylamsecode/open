@@ -37,16 +37,16 @@ class Scholarship_registration extends CI_Controller {
 		$this->load->view('scholarship/scholarship_registration_view',$data);
 		$this->load->view('footer_view');
 	}
-	
+
 
 	public function store()
     {
-        $data = $imgData = $imgDatap = array(); 
-        $error = $id = $prevImage = ''; 
+        $data = $imgData = $imgDatap = array();
+        $error = $id = $prevImage = '';
 		$data['classes'] = $this->home_model->list1('class');
-        // If add request is submitted 
-        if($this->input->post()){ 
-            // Form field validation rules 
+        // If add request is submitted
+        if($this->input->post()){
+            // Form field validation rules
             $this->form_validation->set_error_delimiters('<span class=error>','</span>');
             $this->form_validation->set_rules('fullName', 'fullName', 'required');
 			$this->form_validation->set_rules('gender', 'gender', 'required');
@@ -59,8 +59,8 @@ class Scholarship_registration extends CI_Controller {
 			$email = $this->input->post('email');
 			$mobileNumber = $this->input->post('mobileNumber');
 			$class = $this->input->post('class');
-            
-            $imgData = array( 
+
+            $imgData = array(
 				'fullName' => $fullName,
 				'gender' => $gender,
 				'email' => $email,
@@ -70,32 +70,32 @@ class Scholarship_registration extends CI_Controller {
             );
 			// print_r($imgData);
 			// exit;
-			if($this->form_validation->run() == true){ 
-				if(empty($error)){ 
-					// Insert image data 
-					$insert = $this->home_model->insert($imgData,'quiz_enquiry'); 
-						
-					if($insert){ 
+			if($this->form_validation->run() == true){
+				if(empty($error)){
+					// Insert image data
+					$insert = $this->home_model->insert($imgData,'quiz_enquiry');
+
+					if($insert){
 						$this->session->set_userdata(array(
 							'user_id' => $insert, // Assuming user_id is returned after insertion
 							'first_name' => $fullName,
 							'user_name' => $email,
 							'user_role' => 2,
 						));
-						redirect('quiz');
+						redirect('quiz2');
 						// echo '<script>alert("Thank You...! Successfully Data Submitted.");window.location = "'.base_url().'StartQuiz";</script>';
-					}else{ 
-						$error = 'Some problems occurred, please try again.'; 
+					}else{
+						$error = 'Some problems occurred, please try again.';
 					}
 				}
-				$data['error_msg'] = $error; 
+				$data['error_msg'] = $error;
 			}
-		
+
         }
-        $data['image'] = $imgData; 
-        $data['title'] = 'Upload Image'; 
+        $data['image'] = $imgData;
+        $data['title'] = 'Upload Image';
         $data['action'] = 'Upload';
-        
+
         $this->load->view('header_view');
 		$this->load->view('scholarship/scholarship_registration_view',$data);
 		$this->load->view('footer_view');
