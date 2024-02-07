@@ -129,9 +129,10 @@ $student_data2 = $this->db->get()->result_array();
 
 
 
-                                    <select  name="student_id2"  class="form-control">
-                                        <option value="">Select Percentage</option>
-                                        <option value="All">Score</option>
+                                    <select  name="percentage_id"  class="form-control">
+                                    <option value="">Select Percentage</option>
+                                        <option value="Score">Score</option>
+                                        <option value="Percentail">Percentail</option>
 
                                     
                                     </select>
