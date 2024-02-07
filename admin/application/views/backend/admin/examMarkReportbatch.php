@@ -68,7 +68,7 @@ $student_data = $this->db->get()->result_array();
                             </div>
 
 
-                            
+
 
                             <?php
                                             }?>
@@ -222,13 +222,71 @@ foreach($student_data2 as $student_data2)
 <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/themes/Responsive.js"></script>
-<?php if(!empty($exam_id) && !empty($student_id) && !empty($result)):?>
+
+<?php
+$exam_id = 20;
+$student_id2 = 45;
+/* $query2 = $this->db->query("SELECT UNIX_TIMESTAMP(created_at) as date, quiz_id, score as value FROM quiz_report WHERE student_id = $student_id2 AND quiz_id = $exam_id");
+
+$result2 = $query2->result_array(); */
+
+$this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.quiz_id, qr.score as value, s.name as student_name');
+$this->db->from('quiz_report qr');
+$this->db->join('student s', 'qr.student_id = s.student_id');
+$this->db->where('qr.student_id', $student_id2);
+$this->db->where('qr.quiz_id', $exam_id);
+
+$query2 = $this->db->get();
+$result2 = $query2->result_array();
 
 
 
 
-<?php endif; ?>
+// Convert the result into the desired format
+$formatted_result2 = array_map(function($row) {
+$counter = 1;
+return [
+'name' => $row['student_name'],
+/* 'date' => $row['date'] * 1000, */ // Multiply by 1000 to convert seconds to milliseconds
+'value' => (int)$row['value'],
+'color' => 'hsl(' . mt_rand(0, 360) . ', 100%, 50%)'
+];
+$counter++;
+}, $result2);
 
+// Now $formatted_result contains the data in the desired format
+$json_data2 = json_encode($formatted_result2);
+
+/* date  */
+
+$this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.quiz_id, qr.score as value, s.name as student_name');
+$this->db->from('quiz_report qr');
+$this->db->join('student s', 'qr.student_id = s.student_id');
+$this->db->where('qr.student_id', $student_id2);
+$this->db->where('qr.quiz_id', $exam_id);
+
+$query2 = $this->db->get();
+$result2 = $query2->result_array();
+
+
+
+
+// Convert the result into the desired format
+$formatted_result_date = array_map(function($row) {
+$counter = 1;
+return [
+'labels' => $row['date'] * 1000,
+];
+$counter++;
+}, $result2);
+
+// Now $formatted_result contains the data in the desired format
+$json_data3 = json_encode($formatted_result2);
+$json_data_dates = json_encode($formatted_result_date);
+
+/* date end  */
+
+?>
 <canvas id="marksChart" width="400" height="200"></canvas>
 
 <script src="your_script.js"></script>
@@ -236,13 +294,17 @@ foreach($student_data2 as $student_data2)
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     // Sample data for multiple students
+
+    var json_data_dates = <?php echo $json_data_dates; ?>;
+    var json_data3 = <?php echo $json_data3; ?>;
+    console.log(json_data3);
     const studentData = {
-      labels: [],
-      students: [], // Add data for each student
+      labels: json_data_dates,
+      students: json_data3, // Add data for each student
     };
 
     // Generate random data for 1000 students
-    for (let i = 1; i <= 10; i++) {
+    /* for (let i = 1; i <= 10; i++) {
       const student = {
         name: `Student ${i}`,
         data: Array.from(
@@ -252,12 +314,12 @@ foreach($student_data2 as $student_data2)
         color: `hsl(${(i * 360) / 50}, 100%, 50%)`, // Assign unique HSL color
       };
       studentData.students.push(student);
-    }
+    } */
 
-    for (let i = 1; i <= 10; i++) {
+    /* for (let i = 1; i <= 10; i++) {
       const labels = i;
       studentData.labels.push(labels);
-    }
+    } */
 
     // Get the canvas element
     const canvas = document.getElementById("marksChart");
