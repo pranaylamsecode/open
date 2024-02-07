@@ -106,3 +106,47 @@ CREATE TABLE IF NOT EXISTS `exam_quiz_report` (
   `percentage` varchar(255) COLLATE utf8mb3_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+
+
+//
+
+
+CREATE TABLE IF NOT EXISTS `exam_quiz_details` (
+  `exam_quiz_id` int NOT NULL AUTO_INCREMENT,
+  `quiz_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `quiz_duration` varchar(255) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `is_active` tinyint NOT NULL,
+  `show_it` bit(1) NOT NULL,
+  `counter` varchar(255) NOT NULL DEFAULT '10',
+  `created_date` datetime NOT NULL,
+  `created_by` int NOT NULL,
+  `last_modified_date` datetime NOT NULL,
+  `last_modified_by` int NOT NULL,
+  `other_imp_instruction` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
+  `negative_mark` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
+  `mark_for_correct_answer` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
+  PRIMARY KEY (`exam_quiz_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE IF NOT EXISTS `exam_quiz_details` (
+  `exam_quiz_id` int NOT NULL AUTO_INCREMENT,
+  `quiz_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `quiz_duration` varchar(255) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `is_active` tinyint NOT NULL,
+  `show_it` bit(1) NOT NULL,
+  `counter` varchar(255) NOT NULL DEFAULT '10',
+  `created_date` datetime NOT NULL,
+  `created_by` int NOT NULL,
+  `last_modified_date` datetime NOT NULL,
+  `last_modified_by` int NOT NULL,
+  `other_imp_instruction` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
+  `negative_mark` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
+  `mark_for_correct_answer` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
+  PRIMARY KEY (`exam_quiz_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
