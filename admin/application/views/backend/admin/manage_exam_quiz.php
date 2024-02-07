@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="panel panel-info">
-            <div class="panel-heading"> <?php echo get_phrase('All Categories');?>
+            <div class="panel-heading"> <?php echo get_phrase('All Exams');?>
                 <a href="<?php echo base_url(); ?>examquiz/add_exam_quiz" class="btn btn-warning btn-xs pull-right p-2">
                     <i class="fa fa-plus"></i><?php echo get_phrase('add_exam'); ?>
                 </a>
@@ -47,15 +47,15 @@
                                 <?php } ?>
                             </td>
 
-                            <td> <a href="<?php echo base_url(); ?>exam_quiz/edit_exam_quiz/<?php echo $quiz_obj['quiz_id']; ?>"
+                            <td> <a href="<?php echo base_url(); ?>examquiz/edit_exam_quiz/<?php echo $quiz_obj['exam_quiz_id']; ?>"
                                     class="btn btn-info btn-circle btn-xs" style="color:white">
                                     <i class="fa fa-edit"></i>
                                 </a>
                                 <a href="#"
-                                    onclick="confirm_modal('<?php echo base_url();?>examquiz/add_exam_quiz/delete/<?php echo $quiz_obj['quiz_id']; ?>');"><button
+                                    onclick="confirm_modal('<?php echo base_url();?>examquiz/add_exam_quiz/delete/<?php echo $quiz_obj['exam_quiz_id']; ?>');"><button
                                         type="button" class="btn btn-danger btn-circle btn-xs" style="color:white"><i
                                             class="fa fa-times"></i></button></a>
-                                <!-- <a href="javascript:void(0);" rel="<?php echo $quiz_obj['quiz_id']; ?>"
+                                <!-- <a href="javascript:void(0);" rel="<?php echo $quiz_obj['exam_quiz_id']; ?>"
                                     onClick="delConfirm(this);" class="btn btn-danger btn-circle btn-xs"
                                     style="color:white">
                                     <i class="fa fa-times"></i>

@@ -9,13 +9,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="example-text"><?php echo get_phrase('Select Exam Name');?></label>
-                            <select name="quiz_id" class="form-control select2" style="width:100%" required>
+                            <select name="add_exam_quiz" class="form-control select2" style="width:100%" required>
                                 <option value=""><?php echo get_phrase('Exam Name');?></option>
                                 <?php
                                 $quiz = $this->db->get('exam_quiz_details')->result_array();
                                 foreach($quiz as $quiz_details):
                                     ?>
-                                    <option value="<?php echo $quiz_details['quiz_id'];?>">
+                                    <option value="<?php echo $quiz_details['exam_quiz_id'];?>">
                                         <?php echo $quiz_details['quiz_name'];?>
                                     </option>
                                 <?php
@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-block btn-info btn-rounded btn-sm "><i
+                        <button type="submit" class=" btn-block btn-info btn-rounded btn-sm "><i
                                 class="fa fa-plus"></i>&nbsp;<?php echo get_phrase('add_exam_question');?></button>
                     </div>
                 </div>

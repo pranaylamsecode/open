@@ -207,17 +207,17 @@
                         $page_name == 'manage_exam_quiz_question') echo 'opened active';
                     ?> ">
 
-                        <li class="<?php if ($page_name == 'manage_quiz') echo 'active'; ?> ">
-                            <a href="<?php echo base_url(); ?>quiz/manage_quiz">
+                        <li class="<?php if ($page_name == 'manage_exam_quiz') echo 'active'; ?> ">
+                            <a href="<?php echo base_url(); ?>examquiz/manage_exam_quiz">
                                 <i class="fa fa-angle-double-right p-r-10"></i>
-                                <span class="hide-menu"><?php echo get_phrase('Manage Quiz'); ?></span>
+                                <span class="hide-menu"><?php echo get_phrase('Manage Exam'); ?></span>
                             </a>
                         </li>
 
                         <li class="<?php if ($page_name == 'manage_quiz_question') echo 'active'; ?> ">
-                            <a href="<?php echo base_url(); ?>quiz/manage_quiz_question">
+                            <a href="<?php echo base_url(); ?>examquiz/manage_exam_quiz_question">
                                 <i class="fa fa-angle-double-right p-r-10"></i>
-                                <span class="hide-menu"> <?php echo get_phrase('Manage Quiz Question'); ?></span>
+                                <span class="hide-menu"> <?php echo get_phrase('Manage Exam Question'); ?></span>
                             </a>
                         </li>
                     </ul>

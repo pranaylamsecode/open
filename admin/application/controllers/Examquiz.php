@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-ini_set('display_errors', 1);
+/* ini_set('display_errors', 1); */
 
-class ExamQuiz extends CI_Controller {
+class Examquiz extends CI_Controller {
 
     function __construct() {
         parent::__construct();
@@ -17,7 +17,17 @@ class ExamQuiz extends CI_Controller {
                 $this->load->model('admin_model');                      // Load Apllication Model Here
                 $this->load->model('quiz_model');
                 $this->load->model('quiz_question_model');
+				$this->load->model('Exam_quize_model', 'exam_quize_model');
+				$this->load->model('Exam_quiz_question_model', 'exam_quiz_question_model');
+
             }
+
+
+
+		function index()
+		{
+			print_r('ere');die;
+		}
 
 
 
@@ -30,27 +40,27 @@ class ExamQuiz extends CI_Controller {
                 // exit;
 
 
-                $this->quiz_model->createQuiz();
-                $this->session->set_flashdata('flash_message', get_phrase('Quiz added successfully'));
-                redirect(base_url(). 'quiz/manage_exam_quiz', 'refresh');
+                $this->exam_quize_model->createQuiz();
+                $this->session->set_flashdata('flash_message', get_phrase('exam added successfully'));
+                redirect(base_url(). 'Examquiz/manage_exam_quiz', 'refresh');
             }
 
             if($param1 == 'update'){
-                $this->quiz_model->updateQuiz($param2);
+                $this->exam_quize_model->updateQuiz($param2);
                 $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
-                redirect(base_url(). 'quiz/manage_exam_quiz', 'refresh');
+                redirect(base_url(). 'Examquiz/manage_exam_quiz', 'refresh');
             }
 
             if($param1 == 'delete'){
                 // print_r($param2);
                 // exit;
-                $this->quiz_model->deleteQuiz($param2);
+                $this->exam_quize_model->deleteQuiz($param2);
                 $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
-                redirect(base_url(). 'quiz/manage_exam_quiz', 'refresh');
+                redirect(base_url(). 'Examquiz/manage_exam_quiz', 'refresh');
             }
 
             $page_data['page_name']     = 'add_exam_quiz';
-            $page_data['page_title']    = get_phrase('Add Quiz');
+            $page_data['page_title']    = get_phrase('Add Exam');
             $page_data['quiz_details']  = $this->db->get('quiz_details')->result_array();
             $this->load->view('backend/index', $page_data);
 
@@ -60,7 +70,7 @@ class ExamQuiz extends CI_Controller {
 
             $page_data['quiz_id']      = $quiz_id;
             $page_data['page_name']     = 'edit_exam_quiz';
-            $page_data['page_title']    = get_phrase('Edit Quiz');
+            $page_data['page_title']    = get_phrase('Edit Exam');
 
             // print_r($page_data);
             // exit;
@@ -70,8 +80,8 @@ class ExamQuiz extends CI_Controller {
         function manage_exam_quiz ($param1 = null, $param2 = null, $param3 = null){
 
             $page_data['page_name']     = 'manage_exam_quiz';
-            $page_data['page_title']    = get_phrase('Manage Quiz');
-            $page_data['quiz_details']  = $this->db->get('quiz_details')->result_array();
+            $page_data['page_title']    = get_phrase('Manage Exam');
+            $page_data['quiz_details']  = $this->db->get('exam_quiz_details')->result_array();
             // print_r($page_data);
             // exit;
             $this->load->view('backend/index', $page_data);
@@ -92,7 +102,7 @@ class ExamQuiz extends CI_Controller {
 				 $option_d = $_FILES['option_d'];
 
 				 $this->load->library('upload');
-				 $config['upload_path'] = 'uploads/question_image/';
+				 $config['upload_path'] = 'uploads/exam_question_image/';
 				 $config['allowed_types'] = '*';
 
 				 $_FILES['question_image']['name'] = $files['name'];
@@ -125,7 +135,7 @@ class ExamQuiz extends CI_Controller {
 
 
 				 $this->upload->initialize($config);
-				 $this->upload->do_upload('question_image');
+				 $this->upload->do_upload('exam_question_image');
 				 $this->upload->do_upload('option_a');
 				 $this->upload->do_upload('option_b');
 				 $this->upload->do_upload('option_c');
@@ -143,17 +153,17 @@ class ExamQuiz extends CI_Controller {
 
                 $this->quiz_question_model->createQuestion();
                 $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
-                redirect(base_url(). 'quiz/manage_exam_quiz_question', 'refresh');
+                redirect(base_url(). 'Examquiz/manage_exam_quiz_question', 'refresh');
             }
 
             if($param1 == 'update'){
                 $this->quiz_question_model->updateQuestion($param2);
                 $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
-                redirect(base_url(). 'quiz/manage_exam_quiz_question', 'refresh');
+                redirect(base_url(). 'Examquiz/manage_exam_quiz_question', 'refresh');
             }
 
             $page_data['page_name']     = 'add_exam_quiz_question';
-            $page_data['page_title']    = get_phrase('Quiz Question');
+            $page_data['page_title']    = get_phrase('Exam Question');
             $this->load->view('backend/index', $page_data);
         }
 
@@ -161,7 +171,7 @@ class ExamQuiz extends CI_Controller {
 
             $page_data['id']      = $id;
             $page_data['page_name']     = 'edit_exam_quiz_question';
-            $page_data['page_title']    = get_phrase('Edit Quiz Question');
+            $page_data['page_title']    = get_phrase('Edit Exam Question');
 
             // print_r($page_data);
             // exit;
@@ -175,8 +185,8 @@ class ExamQuiz extends CI_Controller {
                 // print_r($param3);
                 // exit;
                 $this->quiz_question_model->createQuestion();
-                $this->session->set_flashdata('flash_message', get_phrase('Quiz added successfully'));
-                redirect(base_url(). 'quiz/manage_exam_quiz_question', 'refresh');
+                $this->session->set_flashdata('flash_message', get_phrase('Exam added successfully'));
+                redirect(base_url(). 'Examquiz/manage_exam_quiz_question', 'refresh');
             }
 
 
@@ -185,16 +195,16 @@ class ExamQuiz extends CI_Controller {
                 // exit;
                 $this->quiz_question_model->deleteQuizQuestion($param2);
                 $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
-                redirect(base_url(). 'quiz/manage_exam_quiz_question', 'refresh');
+                redirect(base_url(). 'Examquiz/manage_exam_quiz_question', 'refresh');
             }
 
             $page_data['page_name'] = 'manage_exam_quiz_question';
-            $page_data['page_title'] = get_phrase('Manage Quiz Question');
+            $page_data['page_title'] = get_phrase('Manage Exam Question');
 
             // Perform an inner join operation on quiz_questions and quiz_details using their common column
             $this->db->select('*');
-            $this->db->from('quiz_questions');
-            $this->db->join('quiz_details', 'quiz_questions.quiz_id = quiz_details.quiz_id');
+            $this->db->from('exam_quiz_questions');
+            $this->db->join('exam_quiz_details', 'exam_quiz_questions.exam_quiz_id = exam_quiz_details.exam_quiz_id');
             $page_data['details'] = $this->db->get()->result_array();
 
             // print_r($page_data);
