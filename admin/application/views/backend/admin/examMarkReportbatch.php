@@ -232,7 +232,7 @@ foreach($student_data2 as $student_data2)
     };
 
     // Generate random data for 1000 students
-    for (let i = 1; i <= 50; i++) {
+    for (let i = 1; i <= 10; i++) {
       const student = {
         name: `Student ${i}`,
         data: Array.from(
@@ -244,7 +244,7 @@ foreach($student_data2 as $student_data2)
       studentData.students.push(student);
     }
 
-    for (let i = 1; i <= 50; i++) {
+    for (let i = 1; i <= 10; i++) {
       const labels = i;
       studentData.labels.push(labels);
     }
