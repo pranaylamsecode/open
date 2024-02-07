@@ -153,7 +153,11 @@ class Report extends CI_Controller
             $page_data['student_id2'] = $this->input->post('student_id2');
             $page_data['batch'] = $this->input->post('batch');
 
-            if (!empty($page_data['batch']) && !empty($page_data['student_id'])) {
+
+            if ($page_data['student_id2'] == 'All') {
+                redirect(base_url() . 'report/examMarkReportBatch/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
+
+            }elseif(!empty($page_data['batch']) && !empty($page_data['student_id'])) {
                 redirect(base_url() . 'report/examMarkReportBatch/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
 
             } elseif (!empty($page_data['student_id2']) && !empty($page_data['student_id'])) {
