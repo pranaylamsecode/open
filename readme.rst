@@ -55,3 +55,54 @@ ALTER TABLE `student` CHANGE `name` `name` LONGTEXT CHARACTER SET utf8mb3 COLLAT
 ALTER TABLE `quiz_report` ADD `precentage` VARCHAR(255) NULL AFTER `created_at`;
 
 //ALTER TABLE `quiz_report` CHANGE `precentage` `percentage` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+
+
+//
+
+CREATE TABLE IF NOT EXISTS `exam_quiz_answer` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` smallint NOT NULL,
+  `exam_quiz_id` smallint NOT NULL,
+  `exam_question_id` smallint NOT NULL,
+  `answer` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `is_correct` bit(1) NOT NULL COMMENT '1 = correct, 0 = incorrect',
+  `entry_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+
+
+
+CREATE TABLE IF NOT EXISTS `exam_quiz_questions` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `exam_quiz_id` int DEFAULT NULL,
+  `question` text NOT NULL,
+  `option1` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `option2` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `option3` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `option4` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `file` text,
+  `file_a` text,
+  `file_b` text,
+  `file_c` text,
+  `file_d` text,
+  `tipe_file` text,
+  `answer` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `is_active` tinyint NOT NULL,
+  `add_by_import` varchar(255) DEFAULT NULL,
+  `exam_type` enum('0','1') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '0',
+  `created_date` datetime NOT NULL,
+  `created_by` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE IF NOT EXISTS `exam_quiz_report` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `student_id` int DEFAULT NULL,
+  `exam_quiz_id` int DEFAULT NULL,
+  `score` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `percentage` varchar(255) COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
