@@ -67,6 +67,9 @@ $student_data = $this->db->get()->result_array();
                                 </div>
                             </div>
 
+
+                            
+
                             <?php
                                             }?>
                                             <?php }?>
@@ -101,13 +104,6 @@ $student_data2 = $this->db->get()->result_array();
                                             <div class="form-group">
                                                     <label class="col-md-12" for="example-text"><?php echo get_phrase('Other Student');?></label>
                                                 <div class="col-sm-12">
-
-
-
-
-
-
-
                                     <select  name="student_id2"  class="form-control">
                                         <option value="">Other Student Select</option>
                                         <option  value="All" selected="selected">All</option>
@@ -118,6 +114,18 @@ $student_data2 = $this->db->get()->result_array();
                                     </select>
                                 </div>
                             </div>
+
+
+                            <div class="form-group">
+                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Student Percentage');?></label>
+                                                <div class="col-sm-12">
+                                    <select  name="student_id2"  class="form-control">
+                                        <option value="">Select Percentage</option>
+                                        <option  value="All" selected="selected">Score</option>
+                                    </select>
+                                </div>
+                            </div>
+
 
                             <?php
                                             }?>

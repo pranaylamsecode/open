@@ -121,6 +121,23 @@ $student_data2 = $this->db->get()->result_array();
                                 </div>
                             </div>
 
+
+                            
+                            <div class="form-group">
+                                                    <label class="col-md-12" for="example-text"><?php echo get_phrase('Student Percentage');?></label>
+                                                <div class="col-sm-12">
+
+
+
+                                    <select  name="student_id2"  class="form-control">
+                                        <option value="">Select Percentage</option>
+                                        <option value="All">Score</option>
+
+                                    
+                                    </select>
+                                </div>
+                            </div>
+
                             <?php
                                             }?>
                                             <?php }?>
