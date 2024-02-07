@@ -215,62 +215,67 @@ foreach($student_data2 as $student_data2)
 <?php if(!empty($exam_id) && !empty($student_id) && !empty($result)):?>
 
 
-<div id="chartdiv"></div>
+
 
 <?php endif; ?>
 
+<canvas id="marksChart" width="400" height="200"></canvas>
 
-<?php if(!empty($student_id2)){ ?>
-    <script>
-    // ... (existing code)
+<script src="your_script.js"></script>
 
-    // Add series for batch comparison
-    var comparisonSeries = chart.series.push(am5xy.LineSeries.new(root, {
-        name: "Comparison",
-        xAxis: xAxis,
-        yAxis: yAxis,
-        valueYField: "comparisonValue",
-        valueXField: "date",
-        tooltip: am5.Tooltip.new(root, {
-            labelText: "{valueY}"
-        })
-    }));
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Sample data for multiple students
+    const studentData = {
+      labels: [],
+      students: [], // Add data for each student
+    };
 
-    // Add scrollbar
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
-    chart.set("scrollbarX", am5.Scrollbar.new(root, {
-        orientation: "horizontal"
-    }));
+    // Generate random data for 1000 students
+    for (let i = 1; i <= 50; i++) {
+      const student = {
+        name: `Student ${i}`,
+        data: Array.from(
+          { length: 5 },
+          () => Math.floor(Math.random() * 100) + 1
+        ),
+        color: `hsl(${(i * 360) / 50}, 100%, 50%)`, // Assign unique HSL color
+      };
+      studentData.students.push(student);
+    }
 
-    // Fetch and set data for the main series (current batch)
-    var currentBatchData = <?php echo $json_data; ?>;
-    series.data.setAll(currentBatchData);
+    for (let i = 1; i <= 50; i++) {
+      const labels = i;
+      studentData.labels.push(labels);
+    }
 
-    // Fetch and set data for comparison series (other batches)
-    var comparisonDatasets = [
-        <?php echo $json_data2; ?>,
-        // Add more datasets as needed
-        // ...
-    ];
+    // Get the canvas element
+    const canvas = document.getElementById("marksChart");
+    const ctx = canvas.getContext("2d");
 
-    // Merge all comparison datasets into a single array
-    var comparisonData = [];
-    comparisonDatasets.forEach(function (dataset) {
-        comparisonData = comparisonData.concat(dataset);
+    // Create a line chart
+    const marksChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: studentData.labels,
+        datasets: studentData.students.map((student) => ({
+          label: student.name,
+          data: student.data,
+          borderColor: student.color,
+          fill: false,
+        })),
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+          },
+        },
+      },
     });
-
-    // Set the comparison series data
-    comparisonSeries.data.setAll(comparisonData);
-
-    // Make stuff animate on load
-    // https://www.amcharts.com/docs/v5/concepts/animations/
-    series.appear(1000);
-    comparisonSeries.appear(1000);
-    chart.appear(1000, currentBatchData.length);
+  });
 </script>
-
-
-<?php } ?>
 
 <!-- campaire js end  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
