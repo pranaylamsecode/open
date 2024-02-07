@@ -309,6 +309,33 @@ class Common extends Base_Controller {
 
                 $this->db->insert('quiz_report', $data2);
 
+                $current_score_value = $final_marks;
+
+                  $this->db->select('score');
+                  $this->db->from('quiz_report');
+                  $this->db->where('quiz_id', $quiz_id);
+                  $report_asc_orders =   $this->db->get()->result_array();
+
+                  $this->db->select('score');
+                  $this->db->from('quiz_report');
+                  $this->db->where('quiz_id', $quiz_id);
+                  $this->db->where('score <', $current_score_value); // Select scores less than the current score value
+                  $NumberofValuesBelow = $this->db->get()->num_rows();
+
+
+
+                $NumberofValuesBelow = count($NumberofValuesBelow);
+                $TotalNumberofValues = count($report_asc_orders);
+                $precentage = ( (int) $NumberofValuesBelow / (int) $TotalNumberofValues) * 100;
+
+                $data3 = array(
+                    'precentage'      => $precentage
+                );
+
+                $this->db->where('quiz_id', $quiz_id);
+
+                $this->db->update('quiz_report', $data3);
+
 
 
 
