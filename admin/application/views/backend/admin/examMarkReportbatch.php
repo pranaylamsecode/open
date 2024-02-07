@@ -109,9 +109,10 @@ $student_data2 = $this->db->get()->result_array();
 
 
                                     <select  name="student_id2"  class="form-control">
-                                        <option value="">Ohter Student Select</option>
+                                        <option value="">Other Student Select</option>
+                                        <option  value="All" selected="selected">All</option>
                                         <?php
-                                        foreach ($student_data2 as $key => $student): ?>
+                                        foreach($student_data2 as $key => $student): ?>
                                         <option value="<?php echo $student['student_id'];?>"<?php if(isset($student_id2) && $student_id2 == $student['student_id']) echo 'selected="selected"';?>><?php echo $student['name'];?></option>
                                         <?php endforeach;?>
                                     </select>
@@ -158,21 +159,39 @@ $formatted_result = array_map(function($row) {
 $json_data = json_encode($formatted_result);
 
 
+$this->db->select('s.name as name, s.student_id, q.quiz_id as quiz_id');
+$this->db->from('student s');
 
-$query2 = $this->db->query("SELECT UNIX_TIMESTAMP(created_at) as date, quiz_id, score as value FROM quiz_report WHERE student_id = $student_id2 AND quiz_id = $exam_id");
+$this->db->join('quiz_answer q', 's.student_id = q.user_id', 'right');
+$this->db->where('q.quiz_id', $exam_id);
 
-$result2 = $query2->result_array();
+$this->db->where('s.student_id <>', $student_id);
+$this->db->group_by('s.student_id');
 
-// Convert the result into the desired format
-$formatted_result2 = array_map(function($row) {
-    return [
-        'date' => $row['date'] * 1000, // Multiply by 1000 to convert seconds to milliseconds
-        'value' => (int)$row['value']
-    ];
-}, $result2);
 
-// Now $formatted_result contains the data in the desired format
-$json_data2 = json_encode($formatted_result2);
+// Executing the query and fetching the result as an array.
+$student_data2 = $this->db->get()->result_array();
+
+foreach($student_data2 as $student_data2)
+{
+    $student_id22 = $student_data2['student_id'];
+
+    $query2 = $this->db->query("SELECT UNIX_TIMESTAMP(created_at) as date, quiz_id, score as value FROM quiz_report WHERE student_id = $student_id22 AND quiz_id = $exam_id");
+
+    $result2 = $query2->result_array();
+
+    // Convert the result into the desired format
+    $formatted_result2 = array_map(function($row) {
+        return [
+            'date' => $row['date'] * 1000, // Multiply by 1000 to convert seconds to milliseconds
+            'value' => (int)$row['value']
+        ];
+    }, $result2);
+
+    // Now $formatted_result contains the data in the desired format
+    $json_data2 = json_encode($formatted_result2);
+
+}
 
 ?>
 
@@ -230,7 +249,7 @@ $json_data2 = json_encode($formatted_result2);
     // Fetch and set data for comparison series (other batches)
     var comparisonDatasets = [
         <?php echo $json_data2; ?>,
-        <?php echo $json_data3; ?>, // Add more datasets as needed
+        // Add more datasets as needed
         // ...
     ];
 
