@@ -295,32 +295,40 @@ class Common extends Base_Controller {
                 $this->db->insert('quiz_report', $data2);
 
                 /* logic for prentail  */
+                $last_insert_id = $this->db->insert_id();
+
+
                 $current_score_value = $final_marks;
 
-                  $this->db->select('score');
-                  $this->db->from('quiz_report');
-                  $this->db->where('quiz_id', $quiz_id);
-                  $report_asc_orders =   $this->db->get()->result_array();
-
-                  $this->db->select('score');
-                  $this->db->from('quiz_report');
-                  $this->db->where('quiz_id', $quiz_id);
-                  $this->db->where('score <', $current_score_value); // Select scores less than the current score value
-                  $NumberofValuesBelow = $this->db->get()->result_array();
-
-
-
-                $NumberofValuesBelow = count($NumberofValuesBelow);
-                $TotalNumberofValues = count($report_asc_orders);
-                $precentage = ( (int) $NumberofValuesBelow / (int) $TotalNumberofValues) * 100;
-
-                $data3 = array(
-                    'precentage'      => $precentage
-                );
-
+                $this->db->select('score');
+                $this->db->from('quiz_report');
                 $this->db->where('quiz_id', $quiz_id);
+                $report_asc_orders =   $this->db->get()->result_array();
 
-                $this->db->update('quiz_report', $data3);
+                $this->db->select('score');
+                $this->db->from('quiz_report');
+                $this->db->where('quiz_id', $quiz_id);
+                $this->db->where('score <', $current_score_value); // Select scores less than the current score value
+                $NumberofValuesBelow = $this->db->get()->result_array();
+
+
+
+              $NumberofValuesBelow = count($NumberofValuesBelow);
+
+
+              $TotalNumberofValues = count($report_asc_orders);
+
+              $percentage = ( (int) $NumberofValuesBelow / (int) $TotalNumberofValues) * 100;
+
+              $data3 = array(
+                  'percentage'      => $percentage
+              );
+
+
+
+              $this->db->where('id', $last_insert_id);
+
+              $this->db->update('quiz_report', $data3);
 
 
                 /* logic for prentail end  */
