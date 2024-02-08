@@ -1,5 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-/* ini_set('display_errors', 1); */
+ini_set('display_errors', 1);
 
 class Examquiz extends CI_Controller {
 
@@ -89,7 +89,7 @@ class Examquiz extends CI_Controller {
         }
 
          /***********  The function below add, update and delete exam question table ***********************/
-        function quizQuestion ($param1 = null, $param2 = null, $param3 = null){
+        function quizQuestion($param1 = null, $param2 = null, $param3 = null){
 
             if($param1 == 'create'){
 
@@ -151,13 +151,13 @@ class Examquiz extends CI_Controller {
 				 $page_data['option_d'] = $_FILES['option_d']['name'];
 				 /* $this->db->insert('results', $page_data); */
 
-                $this->quiz_question_model->createQuestion();
+                $this->exam_quiz_question_model->createQuestion();
                 $this->session->set_flashdata('flash_message', get_phrase('Data saved successfully'));
                 redirect(base_url(). 'Examquiz/manage_exam_quiz_question', 'refresh');
             }
 
             if($param1 == 'update'){
-                $this->quiz_question_model->updateQuestion($param2);
+                $this->exam_quiz_question_model->updateQuestion($param2);
                 $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
                 redirect(base_url(). 'Examquiz/manage_exam_quiz_question', 'refresh');
             }
@@ -184,7 +184,7 @@ class Examquiz extends CI_Controller {
                 // echo 'hello';
                 // print_r($param3);
                 // exit;
-                $this->quiz_question_model->createQuestion();
+                $this->exam_quiz_question_model->createQuestion();
                 $this->session->set_flashdata('flash_message', get_phrase('Exam added successfully'));
                 redirect(base_url(). 'Examquiz/manage_exam_quiz_question', 'refresh');
             }
@@ -193,7 +193,7 @@ class Examquiz extends CI_Controller {
             if($param1 == 'delete'){
                 // print_r($param2);
                 // exit;
-                $this->quiz_question_model->deleteQuizQuestion($param2);
+                $this->exam_quiz_question_model->deleteQuizQuestion($param2);
                 $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
                 redirect(base_url(). 'Examquiz/manage_exam_quiz_question', 'refresh');
             }
