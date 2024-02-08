@@ -26,7 +26,7 @@
                                     // print_r($quiz_name);
                                     // exit;
 	                            ?>
-                                    <option value="<?php echo $quiz->quiz_id; ?>"><?php echo $quiz->quiz_name; ?>
+                                    <option value="<?php echo $quiz->exam_quiz_id; ?>"><?php echo $quiz->quiz_name; ?>
                                     </option>
 
                                     <?php }

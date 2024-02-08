@@ -185,20 +185,15 @@ class Student extends CI_Controller {
         function quizlist($param1 = null, $param2 = null, $param3 = null){
 
 
-
-
-
-
-
             $user_id = $this->session->userdata('student_id');
 
             $student_profile = $this->db->get_where('student', array('student_id' => $this->session->userdata('student_id')))->row();
             $student_profile = $student_profile->student_id;
 
-            $query = "SELECT quiz_name, quiz_id
-            FROM quiz_details
+            $query = "SELECT quiz_name, exam_quiz_id
+            FROM exam_quiz_details
 
-            ORDER BY quiz_id DESC";
+            ORDER BY exam_quiz_id DESC";
 
 
 

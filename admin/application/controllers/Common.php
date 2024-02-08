@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 require('Base_Controller.php');
+ini_set('display_errors', 1);
+
 class Common extends Base_Controller {
 	//constructor
 	function __construct() {
@@ -116,13 +118,13 @@ class Common extends Base_Controller {
 			{
 				redirect('student/quizlist');
 			}
-            /* $query = "SELECT * FROM `quiz_questions` WHERE `is_active` = 1 AND `quiz_id` = '$quizid' AND `exam_type` = '$level_type'";
+            /* $query = "SELECT * FROM `exam_quiz_questions` WHERE `is_active` = 1 AND `exam_quiz_id` = '$quizid' AND `exam_type` = '$level_type'";
             $data['question'] = $this->User_model->selectRecord($query); */
 
             $this->db->select('*');
-            $this->db->from('quiz_questions');
+            $this->db->from('exam_quiz_questions');
             $this->db->where('is_active', 1);
-            $this->db->where('quiz_id', $quizid);
+            $this->db->where('exam_quiz_id', $quizid);
             $this->db->where('exam_type', $level_type);
 
             $data['question'] = $this->db->get()->result();
@@ -134,7 +136,7 @@ class Common extends Base_Controller {
                 redirect('student/quizlist');
             }
 
-            $time = "SELECT quiz_duration FROM quiz_details WHERE quiz_id = $quizid";
+            $time = "SELECT quiz_duration FROM exam_quiz_details WHERE exam_quiz_id = $quizid";
             $data['time'] = $this->User_model->selectRecord($time);
 
             // $this->load->view('question-paper', $data);
@@ -152,8 +154,8 @@ class Common extends Base_Controller {
             $data['level_type'] = $level_type;
 
             $this->db->select('*');
-            $this->db->from('quiz_details');
-            $this->db->where('quiz_id', $quizid);
+            $this->db->from('exam_quiz_details');
+            $this->db->where('exam_quiz_id', $quizid);
             $data['quiz_name'] =   $this->db->get()->result();
 
 
@@ -165,13 +167,13 @@ class Common extends Base_Controller {
             $data['level_type'] = $level_type;
 
             $this->db->select('*');
-            $this->db->from('quiz_details');
-            $this->db->where('quiz_id', $quizid);
+            $this->db->from('exam_quiz_details');
+            $this->db->where('exam_quiz_id', $quizid);
             $data['quiz_name'] =   $this->db->get()->result();
 
             $this->db->select('*');
-            $this->db->from('quiz_details');
-            $this->db->where('quiz_id', $quizid);
+            $this->db->from('exam_quiz_details');
+            $this->db->where('exam_quiz_id', $quizid);
             $get_duration =   $this->db->get()->result();
             foreach($get_duration as $get_duration)
             {
@@ -198,8 +200,8 @@ class Common extends Base_Controller {
            }elseif($step_instruction == 2){
 
             $this->db->select('*');
-            $this->db->from('quiz_details');
-            $this->db->where('quiz_id', $quizid);
+            $this->db->from('exam_quiz_details');
+            $this->db->where('exam_quiz_id', $quizid);
             $data['quiz_name'] =   $this->db->get()->result();
 
             foreach($data['quiz_name'] as $quiz_name)
@@ -233,20 +235,25 @@ class Common extends Base_Controller {
 
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
             $user_id = $this->session->userdata('student_id');
-            $quiz_id = $this->input->post('quizid');
+            $exam_quiz_id = $this->input->post('quizid');
 
-            $select_query = "SELECT * FROM quiz_questions WHERE quiz_id = $quiz_id";
-            $quiz_questions = $this->User_model->selectRecord($select_query);
+            print_r($user_id);
+            print_r('<br>');
+            print_r($exam_quiz_id);
+            die;
+
+            $select_query = "SELECT * FROM exam_quiz_questions WHERE exam_quiz_id = $exam_quiz_id";
+            $exam_quiz_questions = $this->User_model->selectRecord($select_query);
 
             foreach ($this->input->post() as $key => $answer) {
                 if (strpos($key, 'question_') !== false) {
                     $question_id = explode('_', $key)[1];
 
-                    $is_correct = $this->checkAnswer($quiz_questions, $question_id, $answer);
+                    $is_correct = $this->checkAnswer($exam_quiz_questions, $question_id, $answer);
 
-                    $this->User_model->insertRecord('quiz_answer', array(
+                    $this->User_model->insertRecord('exam_quiz_answer', array(
                         'user_id' => $user_id,
-                        'quiz_id' => $quiz_id,
+                        'exam_quiz_id' => $exam_quiz_id,
                         'question_id' => $question_id,
                         'answer' => $answer,
                         'is_correct' => $is_correct
@@ -254,20 +261,20 @@ class Common extends Base_Controller {
                 }
             }
 
-            $questionQuery = "SELECT quiz_questions.question, quiz_answer.answer FROM quiz_questions
-                INNER JOIN quiz_answer ON quiz_answer.question_id = quiz_questions.id
-                WHERE quiz_answer.user_id = $user_id AND quiz_answer.quiz_id = $quiz_id";
+            $questionQuery = "SELECT exam_quiz_questions.question, exam_quiz_answer.answer FROM exam_quiz_questions
+                INNER JOIN exam_quiz_answer ON exam_quiz_answer.question_id = exam_quiz_questions.id
+                WHERE exam_quiz_answer.user_id = $user_id AND exam_quiz_answer.exam_quiz_id = $exam_quiz_id";
             $data['result'] = $this->User_model->selectRecord($questionQuery);
 
-            $correctQuery = "SELECT * FROM quiz_answer WHERE quiz_id = $quiz_id AND user_id = $user_id AND is_correct = 1";
+            $correctQuery = "SELECT * FROM exam_quiz_answer WHERE exam_quiz_id = $exam_quiz_id AND user_id = $user_id AND is_correct = 1";
             $data['correct'] = $this->User_model->selectRecord($correctQuery);
 
             // $this->load->view('quiz-complete', $data);
            // $this->load->view('header_view');
 
            $this->db->select('*');
-            $this->db->from('quiz_details');
-            $this->db->where('quiz_id', $quiz_id);
+            $this->db->from('exam_quiz_details');
+            $this->db->where('exam_quiz_id', $exam_quiz_id);
             $data['quiz_name'] =   $this->db->get()->result();
 
             foreach($data['quiz_name'] as $quiz_name)
@@ -288,11 +295,11 @@ class Common extends Base_Controller {
 
                 $data2 = array(
                     'student_id' => $user_id,
-                    'quiz_id' => $quiz_id,
+                    'exam_quiz_id' => $exam_quiz_id,
                     'score' => $final_marks,
                 );
 
-                $this->db->insert('quiz_report', $data2);
+                $this->db->insert('exam_quiz_report', $data2);
 
                 /* logic for prentail  */
                 $last_insert_id = $this->db->insert_id();
@@ -301,13 +308,13 @@ class Common extends Base_Controller {
                 $current_score_value = $final_marks;
 
                 $this->db->select('score');
-                $this->db->from('quiz_report');
-                $this->db->where('quiz_id', $quiz_id);
+                $this->db->from('exam_quiz_report');
+                $this->db->where('exam_quiz_id', $exam_quiz_id);
                 $report_asc_orders =   $this->db->get()->result_array();
 
                 $this->db->select('score');
-                $this->db->from('quiz_report');
-                $this->db->where('quiz_id', $quiz_id);
+                $this->db->from('exam_quiz_report');
+                $this->db->where('exam_quiz_id', $exam_quiz_id);
                 $this->db->where('score <', $current_score_value); // Select scores less than the current score value
                 $NumberofValuesBelow = $this->db->get()->result_array();
 
@@ -328,7 +335,7 @@ class Common extends Base_Controller {
 
               $this->db->where('id', $last_insert_id);
 
-              $this->db->update('quiz_report', $data3);
+              $this->db->update('exam_quiz_report', $data3);
 
 
                 /* logic for prentail end  */
@@ -338,11 +345,11 @@ class Common extends Base_Controller {
         }
     }
 
-    private function checkAnswer($quiz_questions, $question_id, $user_answer)
+    private function checkAnswer($exam_quiz_questions, $question_id, $user_answer)
     {
-        foreach ($quiz_questions as $quiz_details) {
-            if ($quiz_details->id == $question_id) {
-                return ($quiz_details->answer == $user_answer) ? 1 : 0;
+        foreach ($exam_quiz_questions as $exam_quiz_details) {
+            if ($exam_quiz_details->id == $question_id) {
+                return ($exam_quiz_details->answer == $user_answer) ? 1 : 0;
             }
         }
         return 0; // Default to incorrect if question not found
@@ -363,19 +370,19 @@ class Common extends Base_Controller {
 
         }
 
-        $query = "SELECT quiz_name, quiz_id
-                  FROM quiz_details
+        $query = "SELECT quiz_name, exam_quiz_id
+                  FROM exam_quiz_details
                   WHERE CURRENT_DATE() BETWEEN start_date AND end_date
                   AND is_active = 1
                   AND show_it = 1
                   AND counter > 0
-                  AND quiz_id NOT IN (
-                      SELECT quiz_id
-                      FROM quiz_answer
+                  AND exam_quiz_id NOT IN (
+                      SELECT exam_quiz_id
+                      FROM exam_quiz_answer
                       WHERE user_id = $user_id
-                      GROUP BY quiz_id
+                      GROUP BY exam_quiz_id
                   )
-                  ORDER BY quiz_id DESC";
+                  ORDER BY exam_quiz_id DESC";
 
 
 
@@ -392,7 +399,7 @@ class Common extends Base_Controller {
     public function quizComplete()
     {
         $this->isUserLogin();
-        $query = "select quiz_id from quiz_answer";
+        $query = "select exam_quiz_id from exam_quiz_answer";
 	    $data['question'] = $this->User_model->selectRecord($query);
 	    // $this->load->view('quiz-complete', $data);
 
