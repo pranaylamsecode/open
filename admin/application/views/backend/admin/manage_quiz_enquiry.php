@@ -25,6 +25,7 @@
                             <th>Class</th>
                             <th>Exam Name</th>
                             <th>Score</th>
+                            <th>Exam Date</th>
                             <th>Action</th>
 
                         </tr>
@@ -39,6 +40,10 @@
                         //  print_r($quiz_details);
                         //  exit;
 
+
+                        $dateTime = new DateTime($quiz_obj['created_at']);
+                        $formattedDate = $dateTime->format("d F Y");
+
                         ?>
                         <tr>
                             <td><?php echo ucfirst($quiz_obj['fullName']); ?></td>
@@ -48,16 +53,14 @@
                             <td><?php echo $quiz_obj['class']; ?></td>
                             <td><?php echo $quiz_obj['quiz_name']; ?></td>
                             <td><?php echo $quiz_obj['score']; ?></td>
+                            <td><?php echo $formattedDate; ?></td>
 
 
 
 
-                            <td> <!-- <a href="<?php echo base_url(); ?>quiz/edit_quiz_question/<?php echo $quiz_obj['id']; ?>"
-                                    class="btn btn-info btn-circle btn-xs" style="color:white">
-                                    <i class="fa fa-edit"></i>
-                                </a> -->
+                            <td>
                                 <a href="#"
-                                    onclick="confirm_modal('<?php echo base_url();?>quiz/manage_quiz_enquiry_delete/delete/<?php echo $quiz_obj['id']; ?>');"><button
+                                    onclick="confirm_modal('<?php echo base_url();?>quiz/manage_quiz_enquiry_delete/delete/<?php echo $quiz_obj['student_id']; ?>');"><button
                                         type="button" class="btn btn-danger btn-circle btn-xs" style="color:white"><i
                                             class="fa fa-times"></i></button></a>
 

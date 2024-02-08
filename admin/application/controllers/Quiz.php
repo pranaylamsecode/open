@@ -85,7 +85,7 @@ class Quiz extends CI_Controller {
 
             //$page_data['quiz_enquiry']  = $this->db->get('quiz_enquiry')->result_array();
 
-            $this->db->select('e.*, r.score as score, d.quiz_name as quiz_name');
+            $this->db->select('e.*, r.score as score, d.quiz_name as quiz_name , r.created_at as created_at');
             $this->db->from('quiz_enquiry e');
             $this->db->join('quiz_report r', 'r.student_id = e.student_id');
             $this->db->join('quiz_details d', 'd.quiz_id = r.quiz_id');
@@ -233,7 +233,10 @@ class Quiz extends CI_Controller {
             if($param1 == 'delete'){
                 // print_r($param2);
                 // exit;
-                $this->quiz_question_model->deleteQuizQuestion($param2);
+               /*  $this->quiz_question_model->deleteQuizQuestion($param1); */
+
+               $this->db->where('student_id', $param2);
+               $this->db->delete('quiz_enquiry');
                 $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
                 redirect(base_url(). 'quiz/manage_quiz_enquiry', 'refresh');
             }
