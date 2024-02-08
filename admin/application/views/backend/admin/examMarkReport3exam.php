@@ -7,7 +7,7 @@
 
                     <!----CREATION FORM STARTS---->
 
-                	<?php echo form_open(base_url() . 'report/examMarkReport4' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top', 'enctype' => 'multipart/form-data'));?>
+                	<?php echo form_open(base_url() . 'report/examMarkReportBatchQuiz' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top', 'enctype' => 'multipart/form-data'));?>
 
                             <div class="form-group">
                                     <label class="col-md-12" for="example-text"><?php echo get_phrase('Quiz');?></label>
@@ -15,9 +15,9 @@
                                     <select  name="exam_id" class="form-control select2">
                                         <option value=""><?php echo get_phrase('select_class');?></option>
 
-                                        <?php $exams =  $this->db->get('quiz_details')->result_array();
+                                        <?php $exams =  $this->db->get('exam_quiz_details')->result_array();
                                         foreach($exams as $key => $exam):?>
-                                        <option value="<?php echo $exam['quiz_id'];?>"<?php if($exam_id == $exam['quiz_id']) echo 'selected="selected"' ;?>><?php echo $exam['quiz_name'];?></option>
+                                        <option value="<?php echo $exam['exam_quiz_id'];?>"<?php if($exam_id == $exam['exam_quiz_id']) echo 'selected="selected"' ;?>><?php echo $exam['quiz_name'];?></option>
                                         <?php endforeach;?>
                                 </select>
 
@@ -28,8 +28,8 @@
                                                 ?>
  <?php
 
-$this->db->select('s.fullName as name, s.student_id, q.quiz_id as quiz_id');
-$this->db->from('quiz_enquiry s');
+$this->db->select('s.name as name, s.student_id, q.quiz_id as quiz_id');
+$this->db->from('student s');
 
 $this->db->join('quiz_answer q', 's.student_id = q.user_id');
 $this->db->where('q.quiz_id', $exam_id);
@@ -60,7 +60,7 @@ $student_data = $this->db->get()->result_array();
 
 
                                     <select  name="student_id"  class="form-control">
-                                        <option value="">Student Select</option>
+                                        <option value="">Select</option>
 
                                         <?php
                                         foreach ($student_data as $key => $student): ?>
@@ -80,17 +80,17 @@ $student_data = $this->db->get()->result_array();
                                                 ?>
  <?php
 
-$this->db->select('s.fullName as name, s.student_id, q.quiz_id as quiz_id');
-$this->db->from('quiz_enquiry s');
+
+
+$this->db->select('s.name as name, s.student_id, q.quiz_id as quiz_id');
+$this->db->from('student s');
 
 $this->db->join('quiz_answer q', 's.student_id = q.user_id');
 $this->db->where('q.quiz_id', $exam_id);
-
 $this->db->where('s.student_id <>', $student_id);
+
 $this->db->group_by('s.student_id');
 
-
-// Executing the query and fetching the result as an array.
 $student_data2 = $this->db->get()->result_array();
 
 
@@ -112,7 +112,7 @@ $student_data2 = $this->db->get()->result_array();
 
 
                                     <select  name="student_id2"  class="form-control">
-                                        <option value="">Other Student Select</option>
+                                        <option value="">Select</option>
                                         <option value="All">All</option>
 
                                         <?php

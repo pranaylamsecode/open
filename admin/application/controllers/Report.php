@@ -232,18 +232,18 @@ class Report extends CI_Controller
              $page_data['batch'] = $this->input->post('batch'); */
 
              if ($page_data['student_id2'] == 'All') {
-                 redirect(base_url() . 'report/examMarkReportBatch/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
+                 redirect(base_url() . 'report/examMarkReportBatchQuiz/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
 
              } elseif (!empty($page_data['student_id2']) && !empty($page_data['student_id'])) {
 
-                 redirect(base_url() . 'report/examMarkReport4/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
+                 redirect(base_url() . 'report/examMarkReportExamQuiz4/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
              } elseif (!empty($page_data['exam_id'])) {
 
-                 redirect(base_url() . 'report/examMarkReport3/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
+                 redirect(base_url() . 'report/examMarkReportExamQuiz4/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
 
              } else {
                  $this->session->set_flashdata('error_message', get_phrase('Pleasen select something'));
-                 redirect(base_url() . 'report/examMarkReport3', 'refresh');
+                 redirect(base_url() . 'report/examMarkReportExamQuiz', 'refresh');
              }
          }
 
@@ -251,7 +251,7 @@ class Report extends CI_Controller
          $page_data['student_id'] = $student_id;
          $page_data['student_id2'] = $student_id2;
          $page_data['page_name'] = 'examMarkReport2exam';
-         $page_data['page_title'] = get_phrase('Quiz Marks');
+         $page_data['page_title'] = get_phrase('Exam Quiz');
          $this->load->view('backend/index', $page_data);
      }
 
@@ -267,29 +267,26 @@ class Report extends CI_Controller
 
 
              if ($page_data['student_id2'] == 'All') {
-                 redirect(base_url() . 'report/examMarkReportBatch/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
+                redirect(base_url() . 'report/examMarkReportBatchQuiz/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
 
-             }elseif(!empty($page_data['batch']) && !empty($page_data['student_id'])) {
-                 redirect(base_url() . 'report/examMarkReportBatch/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
+            } elseif (!empty($page_data['student_id2']) && !empty($page_data['student_id'])) {
 
-             } elseif (!empty($page_data['student_id2']) && !empty($page_data['student_id'])) {
+                redirect(base_url() . 'report/examMarkReportExamQuiz4/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
+            } elseif (!empty($page_data['exam_id'])) {
 
-                 redirect(base_url() . 'report/examMarkReport4/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
-             } elseif (!empty($page_data['exam_id'])) {
+                redirect(base_url() . 'report/examMarkReportExamQuiz4/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
 
-                 redirect(base_url() . 'report/examMarkReport3/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
-
-             } else {
-                 $this->session->set_flashdata('error_message', get_phrase('Pleasen select something'));
-                 redirect(base_url() . 'report/examMarkReport3', 'refresh');
-             }
+            } else {
+                $this->session->set_flashdata('error_message', get_phrase('Pleasen select something'));
+                redirect(base_url() . 'report/examMarkReportExamQuiz', 'refresh');
+            }
          }
 
          $page_data['exam_id'] = $exam_id;
          $page_data['student_id'] = $student_id;
          $page_data['student_id2'] = $student_id2;
          $page_data['page_name'] = 'examMarkReport3exam';
-         $page_data['page_title'] = get_phrase('Quiz Marks');
+         $page_data['page_title'] = get_phrase('Exam Quiz');
          $this->load->view('backend/index', $page_data);
      }
 
@@ -303,19 +300,19 @@ class Report extends CI_Controller
             $page_data['student_id2'] = $this->input->post('student_id2');
             $page_data['batch'] = $this->input->post('batch');
 
-            if (!empty($page_data['student_id2']) && $page_data['student_id2'] == 'All') {
-                redirect(base_url() . 'report/examMarkReportBatch/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
+            if ($page_data['student_id2'] == 'All') {
+                redirect(base_url() . 'report/examMarkReportBatchQuiz/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
 
             } elseif (!empty($page_data['student_id2']) && !empty($page_data['student_id'])) {
 
-                redirect(base_url() . 'report/examMarkReport4/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
+                redirect(base_url() . 'report/examMarkReportExamQuiz4/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
             } elseif (!empty($page_data['exam_id'])) {
 
-                redirect(base_url() . 'report/examMarkReport3/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
+                redirect(base_url() . 'report/examMarkReportExamQuiz4/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2'], 'refresh');
 
             } else {
                 $this->session->set_flashdata('error_message', get_phrase('Please select something'));
-                redirect(base_url() . 'report/examMarkReport3', 'refresh');
+                redirect(base_url() . 'report/examMarkReportExamQuiz', 'refresh');
             }
         }
 
@@ -323,7 +320,7 @@ class Report extends CI_Controller
         $page_data['student_id'] = $student_id;
         $page_data['student_id2'] = $student_id2;
         $page_data['page_name'] = 'examMarkReportbatchexam';
-        $page_data['page_title'] = get_phrase('Quiz Marks');
+        $page_data['page_title'] = get_phrase('Exam Quiz');
         $this->load->view('backend/index', $page_data);
     }
 
