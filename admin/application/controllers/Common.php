@@ -237,10 +237,6 @@ class Common extends Base_Controller {
             $user_id = $this->session->userdata('student_id');
             $exam_quiz_id = $this->input->post('quizid');
 
-            print_r($user_id);
-            print_r('<br>');
-            print_r($exam_quiz_id);
-            die;
 
             $select_query = "SELECT * FROM exam_quiz_questions WHERE exam_quiz_id = $exam_quiz_id";
             $exam_quiz_questions = $this->User_model->selectRecord($select_query);
@@ -254,7 +250,7 @@ class Common extends Base_Controller {
                     $this->User_model->insertRecord('exam_quiz_answer', array(
                         'user_id' => $user_id,
                         'exam_quiz_id' => $exam_quiz_id,
-                        'question_id' => $question_id,
+                        'exam_question_id' => $question_id,
                         'answer' => $answer,
                         'is_correct' => $is_correct
                     ));
@@ -262,7 +258,7 @@ class Common extends Base_Controller {
             }
 
             $questionQuery = "SELECT exam_quiz_questions.question, exam_quiz_answer.answer FROM exam_quiz_questions
-                INNER JOIN exam_quiz_answer ON exam_quiz_answer.question_id = exam_quiz_questions.id
+                INNER JOIN exam_quiz_answer ON exam_quiz_answer.exam_question_id = exam_quiz_questions.id
                 WHERE exam_quiz_answer.user_id = $user_id AND exam_quiz_answer.exam_quiz_id = $exam_quiz_id";
             $data['result'] = $this->User_model->selectRecord($questionQuery);
 

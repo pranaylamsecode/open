@@ -1535,7 +1535,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <input type="hidden" name="quizid" value="<?php echo $question[0]->quiz_id; ?>">
+                                                    <input type="hidden" name="quizid" value="<?php echo $question[0]->exam_quiz_id; ?>">
                                                 </div>
 
                                         <?php $counter++;
