@@ -129,12 +129,21 @@ $student_data2 = $this->db->get()->result_array();
 
 
 
-                            <div class="form-group">
+
+
+                            <?php
+                                            }?>
+                                            <?php }?>
+
+
+                                            <!-- if other student check end  -->
+
+											<div class="form-group">
                                 <label class="col-md-12" for="example-text"><?php echo get_phrase('Student Percentage');?></label>
                                                 <div class="col-sm-12">
 
 												<select  name="percentage_type"  class="form-control">
-                                    <option value="">Select Percentage By</option>
+
                                         <option
 																				<?php if(isset($percentage_type) && $percentage_type == 'score') echo 'selected="selected"';?>
 																				<?php if(empty($percentage_type)) echo 'selected="selected"';?>
@@ -148,13 +157,6 @@ $student_data2 = $this->db->get()->result_array();
                                     </select>
                                 </div>
                             </div>
-
-                            <?php
-                                            }?>
-                                            <?php }?>
-
-
-                                            <!-- if other student check end  -->
 
 
                             <input class="" type="hidden" value="selection" name="operation">

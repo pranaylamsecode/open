@@ -120,7 +120,7 @@ $student_data2 = $this->db->get()->result_array();
                                                 <div class="col-sm-12">
 
 												<select  name="percentage_type"  class="form-control">
-                                    <option value="">Select Percentage By</option>
+                                    
                                         <option
 																				<?php if(isset($percentage_type) && $percentage_type == 'score') echo 'selected="selected"';?>
 																				<?php if(empty($percentage_type)) echo 'selected="selected"';?>
