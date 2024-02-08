@@ -31,7 +31,7 @@
 $this->db->select('s.fullName as name, s.student_id, q.quiz_id as quiz_id');
 $this->db->from('quiz_enquiry s');
 
-$this->db->join('quiz_answer q', 's.student_id = q.user_id', 'right');
+$this->db->join('quiz_answer q', 's.student_id = q.user_id');
 $this->db->where('q.quiz_id', $exam_id);
 $this->db->group_by('s.student_id');
 
@@ -53,15 +53,12 @@ $student_data = $this->db->get()->result_array();
 
 
 
-
-
-
-
                                     <select  name="student_id"  class="form-control">
                                         <option value="">Student Select</option>
                                         <?php
-                                        foreach ($student_data as $key => $student): ?>
-                                        <option value="<?php echo $student['student_id'];?>"<?php if(isset($student_id) && $student_id == $student['student_id']) echo 'selected="selected"';?>><?php echo $student['name'];?></option>
+                                        foreach($student_data as $key => $student): ?>
+                                        <option value="<?php echo $student['student_id'];?>" <?php if(isset($student_id) && $student_id == $student['student_id']) echo 'selected="selected"';?> >
+                                        <?php echo $student['name'];?></option>
                                         <?php endforeach;?>
                                     </select>
                                 </div>
@@ -79,10 +76,12 @@ $student_data = $this->db->get()->result_array();
                                                 ?>
  <?php
 
-$this->db->select('s.name as name, s.student_id, q.quiz_id as quiz_id');
-$this->db->from('student s');
 
-$this->db->join('quiz_answer q', 's.student_id = q.user_id', 'right');
+
+$this->db->select('s.fullName as name, s.student_id, q.quiz_id as quiz_id');
+$this->db->from('quiz_enquiry s');
+
+$this->db->join('quiz_answer q', 's.student_id = q.user_id');
 $this->db->where('q.quiz_id', $exam_id);
 
 $this->db->where('s.student_id <>', $student_id);
@@ -104,20 +103,14 @@ $student_data2 = $this->db->get()->result_array();
                                                     <label class="col-md-12" for="example-text"><?php echo get_phrase('Other Student');?></label>
                                                 <div class="col-sm-12">
 
-
-
-
-
-
-
-                                    <select  name="student_id2"  class="form-control">
-                                        <option value="">Other Student Select</option>
-                                        <option value="All">All</option>
-                                        <?php
-                                        foreach ($student_data2 as $key => $student): ?>
-                                        <option value="<?php echo $student['student_id'];?>"<?php if(isset($student_id2) && $student_id2 == $student['student_id']) echo 'selected="selected"';?>><?php echo $student['name'];?></option>
-                                        <?php endforeach;?>
-                                    </select>
+                                        <select  name="student_id2"  class="form-control">
+                                            <option value="">Select</option>
+                                            <option value="All">All</option>
+                                            <?php
+                                            foreach ($student_data2 as $key => $student): ?>
+                                            <option value="<?php echo $student['student_id'];?>"<?php if(isset($student_id2) && $student_id2 == $student['student_id']) echo 'selected="selected"';?>><?php echo $student['name'];?></option>
+                                            <?php endforeach;?>
+                                        </select>
                                 </div>
                             </div>
 

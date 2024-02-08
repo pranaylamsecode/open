@@ -28,15 +28,14 @@
                                                 ?>
  <?php
 
-$this->db->select('s.name as name, s.student_id, q.quiz_id as quiz_id');
-$this->db->from('student s');
+$this->db->select('s.fullName as name, s.student_id, q.quiz_id as quiz_id');
+$this->db->from('quiz_enquiry s');
 
-$this->db->join('quiz_answer q', 's.student_id = q.user_id', 'right');
+$this->db->join('quiz_answer q', 's.student_id = q.user_id');
 $this->db->where('q.quiz_id', $exam_id);
+
 $this->db->group_by('s.student_id');
 
-
-// Executing the query and fetching the result as an array.
 $student_data = $this->db->get()->result_array();
 
 
@@ -79,11 +78,10 @@ $student_data = $this->db->get()->result_array();
                                             <?php if(!empty($exam_id)){
                                                 ?>
  <?php
+$this->db->select('s.fullName as name, s.student_id, q.quiz_id as quiz_id');
+$this->db->from('quiz_enquiry s');
 
-$this->db->select('s.name as name, s.student_id, q.quiz_id as quiz_id');
-$this->db->from('student s');
-
-$this->db->join('quiz_answer q', 's.student_id = q.user_id', 'right');
+$this->db->join('quiz_answer q', 's.student_id = q.user_id');
 $this->db->where('q.quiz_id', $exam_id);
 
 $this->db->where('s.student_id <>', $student_id);
@@ -337,7 +335,7 @@ $json_data_dates = json_encode($formatted_result_date);
           fill: false,
         })),
       },
-      
+
       options: {
         scales: {
           y: {

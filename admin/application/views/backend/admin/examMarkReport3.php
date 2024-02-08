@@ -31,8 +31,10 @@
 $this->db->select('s.fullName as name, s.student_id, q.quiz_id as quiz_id');
 $this->db->from('quiz_enquiry s');
 
-$this->db->join('quiz_answer q', 's.student_id = q.student_id', 'right');
+$this->db->join('quiz_answer q', 's.student_id = q.user_id');
 $this->db->where('q.quiz_id', $exam_id);
+
+
 $this->db->group_by('s.student_id');
 
 
@@ -78,10 +80,10 @@ $student_data = $this->db->get()->result_array();
                                                 ?>
  <?php
 
-$this->db->select('s.name as name, s.student_id, q.quiz_id as quiz_id');
+$this->db->select('s.fullName as name, s.student_id, q.quiz_id as quiz_id');
 $this->db->from('quiz_enquiry s');
 
-$this->db->join('quiz_answer q', 's.student_id = q.user_id', 'right');
+$this->db->join('quiz_answer q', 's.student_id = q.user_id');
 $this->db->where('q.quiz_id', $exam_id);
 
 $this->db->where('s.student_id <>', $student_id);
