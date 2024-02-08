@@ -247,7 +247,7 @@ class Common extends Base_Controller {
         $this->isUserLogin();
 
         if ($this->input->server('REQUEST_METHOD') == 'POST') {
-            $user_id = $this->session->userdata('student_id');
+            $user_id = $this->session->userdata('user_id');
             $quiz_id = $this->input->post('quizid');
 
             $select_query = "SELECT * FROM quiz_questions WHERE quiz_id = $quiz_id";
@@ -372,7 +372,7 @@ class Common extends Base_Controller {
 
         $data = array(); */
 
-        $user_id  = $this->session->userdata('student_id');
+        $user_id  = $this->session->userdata('user_id');
         if(empty($user_id))
         {
 

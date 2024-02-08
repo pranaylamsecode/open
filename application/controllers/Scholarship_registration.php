@@ -82,7 +82,7 @@ class Scholarship_registration extends CI_Controller {
 							'user_name' => $email,
 							'user_role' => 2,
 						));
-						redirect('quiz2');
+						redirect('quiz');
 						// echo '<script>alert("Thank You...! Successfully Data Submitted.");window.location = "'.base_url().'StartQuiz";</script>';
 					}else{
 						$error = 'Some problems occurred, please try again.';

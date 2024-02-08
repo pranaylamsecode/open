@@ -1,4 +1,4 @@
-<?php $this->load->view('include/header'); ?>
+
 <img class="brand-logo" src="<?php echo base_url(); ?>assets-frontend/img/quiz.jpg" alt="quiz">
 <?php
 $name = $this->session->userdata('first_name');
