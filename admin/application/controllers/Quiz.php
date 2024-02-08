@@ -78,6 +78,17 @@ class Quiz extends CI_Controller {
 
         }
 
+        function manage_quiz_enquiry($param1 = null, $param2 = null, $param3 = null){
+
+            $page_data['page_name']     = 'manage_quiz_enquiry';
+            $page_data['page_title']    = get_phrase('Manage Quiz Enquiry');
+            $page_data['quiz_enquiry']  = $this->db->get('quiz_enquiry')->result_array();
+            // print_r($page_data);
+            // exit;
+            $this->load->view('backend/index', $page_data);
+
+        }
+
          /***********  The function below add, update and delete exam question table ***********************/
         function quizQuestion ($param1 = null, $param2 = null, $param3 = null){
 

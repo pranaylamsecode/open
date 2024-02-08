@@ -181,6 +181,8 @@ class Report extends CI_Controller
         $this->load->view('backend/index', $page_data);
     }
 
+
+
     public function examMarkReportBatch($exam_id = null, $student_id = null, $student_id2 = null)
     {
 

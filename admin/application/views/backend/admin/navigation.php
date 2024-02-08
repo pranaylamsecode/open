@@ -166,7 +166,7 @@
                 <?php $check_admin_permission = $this->db->get_where('admin_role', array('admin_id' => $this->session->userdata('login_user_id')))->row()->manage_quiz;?>
                 <?php if($check_admin_permission == '1'):?>
                 <li> <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-mortar-board" data-icon="7"></i>
-                        <span class="hide-menu"> <?php echo get_phrase('Quiz Management');?> <span
+                        <span class="hide-menu"> <?php echo get_phrase('Scholarship Quiz ');?> <span
                                 class="fa arrow"></span></span></a>
                     <ul class=" nav nav-second-level<?php
                         if ($page_name == 'add_quiz'||
@@ -178,14 +178,22 @@
                         <li class="<?php if ($page_name == 'manage_quiz') echo 'active'; ?> ">
                             <a href="<?php echo base_url(); ?>quiz/manage_quiz">
                                 <i class="fa fa-angle-double-right p-r-10"></i>
-                                <span class="hide-menu"><?php echo get_phrase('Manage Quiz'); ?></span>
+                                <span class="hide-menu"><?php echo get_phrase('Scholarship Quiz'); ?></span>
                             </a>
                         </li>
 
                         <li class="<?php if ($page_name == 'manage_quiz_question') echo 'active'; ?> ">
                             <a href="<?php echo base_url(); ?>quiz/manage_quiz_question">
                                 <i class="fa fa-angle-double-right p-r-10"></i>
-                                <span class="hide-menu"> <?php echo get_phrase('Manage Quiz Question'); ?></span>
+                                <span class="hide-menu"> <?php echo get_phrase('Scholarship Quiz Question'); ?></span>
+                            </a>
+                        </li>
+
+
+                        <li class="<?php if ($page_name == 'manage_quiz_question') echo 'active'; ?> ">
+                            <a href="<?php echo base_url(); ?>quiz/manage_quiz_enquiry">
+                                <i class="fa fa-angle-double-right p-r-10"></i>
+                                <span class="hide-menu"> <?php echo get_phrase(' Scholarship Quiz Enquiry'); ?></span>
                             </a>
                         </li>
                     </ul>
