@@ -82,7 +82,18 @@ class Quiz extends CI_Controller {
 
             $page_data['page_name']     = 'manage_quiz_enquiry';
             $page_data['page_title']    = get_phrase('Manage Quiz Enquiry');
-            $page_data['quiz_enquiry']  = $this->db->get('quiz_enquiry')->result_array();
+
+            //$page_data['quiz_enquiry']  = $this->db->get('quiz_enquiry')->result_array();
+
+            $this->db->select('e.*, r.score as score, d.quiz_name as quiz_name');
+            $this->db->from('quiz_enquiry e');
+            $this->db->join('quiz_report r', 'r.student_id = e.student_id');
+            $this->db->join('quiz_details d', 'd.quiz_id = r.quiz_id');
+            $page_data['quiz_enquiry'] = $this->db->get()->result_array();
+
+
+
+
             // print_r($page_data);
             // exit;
             $this->load->view('backend/index', $page_data);
@@ -214,5 +225,33 @@ class Quiz extends CI_Controller {
             $this->load->view('backend/index', $page_data);
 
         }
+
+        function manage_quiz_enquiry_delete($param1 = null, $param2 = null, $param3 = null){
+
+
+
+            if($param1 == 'delete'){
+                // print_r($param2);
+                // exit;
+                $this->quiz_question_model->deleteQuizQuestion($param2);
+                $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+                redirect(base_url(). 'quiz/manage_quiz_enquiry', 'refresh');
+            }
+
+            $page_data['page_name']     = 'manage_quiz_enquiry';
+            $page_data['page_title']    = get_phrase('Manage Quiz Enquiry');
+            $page_data['quiz_enquiry']  = $this->db->get('quiz_enquiry')->result_array();
+            // print_r($page_data);
+            // exit;
+            $this->load->view('backend/index', $page_data);
+
+            // print_r($page_data);
+            // exit;
+
+            $this->load->view('backend/index', $page_data);
+
+        }
+
+
 
 }

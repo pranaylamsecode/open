@@ -23,6 +23,8 @@
                             <th>Email</th>
                             <th>Mobile Number</th>
                             <th>Class</th>
+                            <th>Exam Name</th>
+                            <th>Score</th>
                             <th>Action</th>
 
                         </tr>
@@ -44,16 +46,18 @@
                             <td><?php echo $quiz_obj['email']; ?></td>
                             <td><?php echo $quiz_obj['mobileNumber']; ?></td>
                             <td><?php echo $quiz_obj['class']; ?></td>
+                            <td><?php echo $quiz_obj['quiz_name']; ?></td>
+                            <td><?php echo $quiz_obj['score']; ?></td>
 
 
 
 
-                            <td> <a href="<?php echo base_url(); ?>quiz/edit_quiz_question/<?php echo $quiz_obj['id']; ?>"
+                            <td> <!-- <a href="<?php echo base_url(); ?>quiz/edit_quiz_question/<?php echo $quiz_obj['id']; ?>"
                                     class="btn btn-info btn-circle btn-xs" style="color:white">
                                     <i class="fa fa-edit"></i>
-                                </a>
+                                </a> -->
                                 <a href="#"
-                                    onclick="confirm_modal('<?php echo base_url();?>quiz/manage_quiz_question/delete/<?php echo $quiz_obj['id']; ?>');"><button
+                                    onclick="confirm_modal('<?php echo base_url();?>quiz/manage_quiz_enquiry_delete/delete/<?php echo $quiz_obj['id']; ?>');"><button
                                         type="button" class="btn btn-danger btn-circle btn-xs" style="color:white"><i
                                             class="fa fa-times"></i></button></a>
 
