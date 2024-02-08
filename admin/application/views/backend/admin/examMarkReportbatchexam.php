@@ -108,7 +108,12 @@ $student_data2 = $this->db->get()->result_array();
                                         <option  value="All" selected="selected">All</option>
                                         <?php
                                         foreach($student_data2 as $key => $student): ?>
-                                        <option value="<?php echo $student['student_id'];?>"<?php if(isset($student_id2) && $student_id2 == $student['student_id']) echo 'selected="selected"';?>><?php echo $student['name'];?></option>
+                                        <option value="<?php echo $student['student_id'];?>"
+
+																				<?php if(isset($student_id2) && $student_id2 == $student['student_id']) echo 'selected="selected"';?>
+
+
+																				><?php echo $student['name'];?></option>
                                         <?php endforeach;?>
                                     </select>
                                 </div>
@@ -119,10 +124,18 @@ $student_data2 = $this->db->get()->result_array();
                                <label class="col-md-12" for="example-text">
                                 <?php echo get_phrase('Student Percentage');?></label>
                                      <div class="col-sm-12">
-                                    <select  name="percentage_id"  class="form-control">
-                                    <option value="">Select Percentage</option>
-                                        <option value="Score">Score</option>
-                                        <option value="percentile">Percentile</option>
+                                    <select  name="percentage_type"  class="form-control">
+                                    <option value="">Select Percentage By</option>
+                                        <option
+																				<?php if(isset($percentage_type) && $percentage_type == 'score') echo 'selected="selected"';?>
+																				<?php if(empty($percentage_type)) echo 'selected="selected"';?>
+
+																				value="score">Score</option>
+                                        <option
+
+																				<?php if(isset($percentage_type) && $percentage_type == 'percentile') echo 'selected="selected"';?>
+
+																				value="percentile">Percentile</option>
                                     </select>
                                 </div>
                             </div>
