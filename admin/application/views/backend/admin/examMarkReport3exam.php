@@ -28,11 +28,11 @@
                                                 ?>
  <?php
 
-$this->db->select('s.name as name, s.student_id, q.quiz_id as quiz_id');
+$this->db->select('s.name as name, s.student_id, q.exam_quiz_id as exam_quiz_id');
 $this->db->from('student s');
 
-$this->db->join('quiz_answer q', 's.student_id = q.user_id');
-$this->db->where('q.quiz_id', $exam_id);
+$this->db->join('exam_quiz_answer q', 'q.user_id = s.student_id');
+$this->db->where('q.exam_quiz_id', $exam_id);
 
 
 $this->db->group_by('s.student_id');
@@ -40,6 +40,8 @@ $this->db->group_by('s.student_id');
 
 // Executing the query and fetching the result as an array.
 $student_data = $this->db->get()->result_array();
+
+
 
 
 ?>
@@ -82,15 +84,17 @@ $student_data = $this->db->get()->result_array();
 
 
 
-$this->db->select('s.name as name, s.student_id, q.quiz_id as quiz_id');
+$this->db->select('s.name as name, s.student_id, q.exam_quiz_id as exam_quiz_id');
 $this->db->from('student s');
 
-$this->db->join('quiz_answer q', 's.student_id = q.user_id');
-$this->db->where('q.quiz_id', $exam_id);
+$this->db->join('exam_quiz_answer q', 'q.user_id = s.student_id');
+$this->db->where('q.exam_quiz_id', $exam_id);
 $this->db->where('s.student_id <>', $student_id);
 
 $this->db->group_by('s.student_id');
 
+
+// Executing the query and fetching the result as an array.
 $student_data2 = $this->db->get()->result_array();
 
 

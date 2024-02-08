@@ -2,7 +2,7 @@
     exit('No direct script access allowed');
 }
 
-/* ini_set('display_errors', 1); */
+ini_set('display_errors', 1);
 class Report extends CI_Controller
 {
 
@@ -251,12 +251,14 @@ class Report extends CI_Controller
          $page_data['student_id'] = $student_id;
          $page_data['student_id2'] = $student_id2;
          $page_data['page_name'] = 'examMarkReport2exam';
-         $page_data['page_title'] = get_phrase('Exam Quiz');
+         $page_data['page_title'] = get_phrase('Exam Quiz Report');
          $this->load->view('backend/index', $page_data);
      }
 
      public function examMarkReportExamQuiz4($exam_id = null, $student_id = null, $student_id2 = null)
      {
+
+
 
          if ($this->input->post('operation') == 'selection') {
 
