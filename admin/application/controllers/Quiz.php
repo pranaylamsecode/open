@@ -244,14 +244,9 @@ class Quiz extends CI_Controller {
             $page_data['page_name']     = 'manage_quiz_enquiry';
             $page_data['page_title']    = get_phrase('Manage Quiz Enquiry');
             $page_data['quiz_enquiry']  = $this->db->get('quiz_enquiry')->result_array();
-            // print_r($page_data);
-            // exit;
-            $this->load->view('backend/index', $page_data);
-
-            // print_r($page_data);
-            // exit;
 
             $this->load->view('backend/index', $page_data);
+
 
         }
 
