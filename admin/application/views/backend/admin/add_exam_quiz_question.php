@@ -9,7 +9,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="example-text"><?php echo get_phrase('Select Exam Name');?></label>
-                            <select name="add_exam_quiz" class="form-control select2" style="width:100%" required>
+                            <select name="exam_quiz_id" class="form-control select2" style="width:100%" required>
                                 <option value=""><?php echo get_phrase('Exam Name');?></option>
                                 <?php
                                 $quiz = $this->db->get('exam_quiz_details')->result_array();

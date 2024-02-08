@@ -41,7 +41,16 @@ class Mahasiswa extends CI_Controller
 		$page_data['page_name']     = 'manage_quiz_question_import';
 
 		$this->load->view('backend/index', $page_data);
-		}
+	}
+
+	public function importexam($import_data = null)
+	{
+
+		if ($import_data != null) $page_data['import'] = $import_data;
+		$page_data['page_name']     = 'manage_exam_quiz_question_import';
+
+		$this->load->view('backend/index', $page_data);
+	}
 
 	public function import2($import_data = null){
 
@@ -112,6 +121,73 @@ class Mahasiswa extends CI_Controller
 			unlink($file);
 
 			$this->import($data);
+		}
+	}
+
+
+
+	public function previewexam()
+	{
+
+		 $quiz_id = $this->input->post('quiz_id', true);
+
+		 $exam_type = $this->input->post('exam_type', true);
+		$config['upload_path']		= './uploads/import/';
+		$config['allowed_types']	= 'xls|xlsx|csv';
+		$config['max_size']			= 2048;
+		$config['encrypt_name']		= true;
+
+		$this->load->library('upload', $config);
+		$this->upload->initialize($config);
+
+		if (!$this->upload->do_upload('upload_file')) {
+			$error = $this->upload->display_errors();
+			echo $error;
+			die;
+		} else {
+			$file = $this->upload->data('full_path');
+			$ext = $this->upload->data('file_ext');
+
+			switch ($ext) {
+				case '.xlsx':
+					$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+					break;
+				case '.xls':
+					$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+					break;
+				case '.csv':
+					$reader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
+					break;
+				default:
+					echo "unknown file ext";
+					die;
+			}
+
+			$spreadsheet = $reader->load($file);
+			$sheetData = $spreadsheet->getActiveSheet()->toArray();
+			$data = [];
+			for ($i = 1; $i < count($sheetData); $i++) {
+				$data[] = [
+					'question' => $sheetData[$i][0],
+					'quiz_id' => $quiz_id,
+					'option1' => $sheetData[$i][1],
+					'option2' => $sheetData[$i][2],
+					'option3' => $sheetData[$i][3],
+					'option4' => $sheetData[$i][4],
+					'answer' => $sheetData[$i][5],
+					'file' => $sheetData[$i][6],
+					'file_a' => $sheetData[$i][7],
+					'file_b' => $sheetData[$i][8],
+					'file_c' => $sheetData[$i][9],
+					'file_d' => $sheetData[$i][10],
+
+					'exam_type' => $exam_type,
+				];
+			}
+
+			unlink($file);
+
+			$this->importexam($data);
 		}
 	}
 
@@ -208,6 +284,40 @@ class Mahasiswa extends CI_Controller
 		//$this->User_model->insertRecord('quiz_questions', $data);
 		$save = $this->master->create('quiz_questions', $data, true);
 		redirect('mahasiswa/import');
+		/* if ($save) {
+			redirect('mahasiswa');
+		} else {
+
+		} */
+	}
+
+	public function do_import_exam()
+	{
+		$input = json_decode($this->input->post('data', true));
+		$data = [];
+		foreach ($input as $d) {
+			$data[] = [
+				'question' => $d->question,
+				'exam_quiz_id' => $d->quiz_id,
+				'option1' => $d->option1,
+				'option2' => $d->option2,
+				'option3' => $d->option3,
+				'option4' => $d->option4,
+				'answer' => $d->answer,
+				'exam_type' => $d->exam_type,
+				'is_active' => '1',
+				'file' => $d->file,
+				'file_a' => $d->file_a,
+				'file_b' => $d->file_b,
+				'file_c' => $d->file_c,
+				'file_d' => $d->file_d,
+				'add_by_import' => '1'
+			];
+		}
+		//$this->db->insert('quiz_questions' , $data);
+		//$this->User_model->insertRecord('quiz_questions', $data);
+		$save = $this->master->create('exam_quiz_questions', $data, true);
+		redirect('mahasiswa/importexam');
 		/* if ($save) {
 			redirect('mahasiswa');
 		} else {

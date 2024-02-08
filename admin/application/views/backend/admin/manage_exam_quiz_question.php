@@ -7,12 +7,12 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="panel panel-info">
-            <div class="panel-heading"> <?php echo get_phrase('All Categories');?>
+            <div class="panel-heading"> <?php echo get_phrase('All Exams');?>
                 <a href="<?php echo base_url(); ?>examquiz/quizQuestion" class="btn btn-warning btn-xs pull-right p-2">
                     <i class="fa fa-plus"></i><?php echo get_phrase('add_exam_question'); ?>
                 </a>
-				<a href="<?php echo base_url(); ?>Mahasiswa/import" class="btn btn-warning btn-xs pull-right p-2 m-2">
-                    <i class="fa fa-plus"></i>Import Question
+				<a href="<?php echo base_url(); ?>Mahasiswa/importexam" class="btn btn-warning btn-xs pull-right p-2 m-2">
+                    <i class="fa fa-plus"></i>Import Exam Question
                 </a>
             </div>
             <div class="panel-body table-responsive">
