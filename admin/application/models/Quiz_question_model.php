@@ -25,8 +25,8 @@ class Quiz_question_model extends CI_Model {
             'is_active' => '1',
         );
 
-        // print_r($page_data);
-        // exit;
+        print_r($page_data);
+        exit;
 
         $this->db->insert('exam_quiz_questions', $page_data);
          // Increment the 'counter' field in quiz_details table

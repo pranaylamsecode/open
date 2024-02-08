@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 07, 2024 at 06:21 AM
+-- Generation Time: Feb 08, 2024 at 04:46 AM
 -- Server version: 8.0.31
--- PHP Version: 8.2.0
+-- PHP Version: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -15,7 +15,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb3 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `open`
@@ -144,8 +144,8 @@ INSERT INTO `admin_role` (`admin_role_id`, `admin_id`, `dashboard`, `manage_acad
 DROP TABLE IF EXISTS `announcement`;
 CREATE TABLE IF NOT EXISTS `announcement` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `announcement_img` varchar(255) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `announcement_img` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
@@ -337,9 +337,27 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 --
 
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
+('01v4m93bmt4c8r71ktf3i82c77sdmour', '::1', 1707318135, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373331383133353b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a31383a225375636365737366756c6c79204c6f67696e223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
 ('18056l3ggtl2jfqij6tja2mn50j7or9p', '::1', 1707286263, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373238363236333b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a31383a225375636365737366756c6c79204c6f67696e223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('270ouf4kokao4666fk3t9ksl5m3u1m3r', '::1', 1707326987, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332363938373b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a32333a2244617461205361766564205375636365737366756c6c79223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('9gms8d8re9ig9fldum6u752o5pk8a843', '::1', 1707327095, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332363938373b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a32333a2244617461205361766564205375636365737366756c6c79223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('av81dl1sltvelbqe9kho51vdapci7mif', '::1', 1707325948, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332353934383b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a32333a224578616d204164646564205375636365737366756c6c79223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('b3krurfbsfsus5eb22l4bn9c52ft8mmu', '::1', 1707326356, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332363335363b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a32333a2244617461205361766564205375636365737366756c6c79223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('ck2datdr6fp7m40c2c4gdtharnnrtf2i', '::1', 1707317433, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373331373433333b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a31383a225375636365737366756c6c79204c6f67696e223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
 ('eu5m71k4qfdmgd4521up7rtrt1t1v8qf', '::1', 1707286386, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373238363236333b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a31383a225375636365737366756c6c79204c6f67696e223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
-('ta74f749kl1cp0tq7f086b3hpumtdkie', '::1', 1707285776, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373238353737363b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a31383a225375636365737366756c6c79204c6f67696e223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d);
+('fpe5vcgsdaahp66g5q4m9h9il8rklsur', '::1', 1707321321, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332313332313b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a32333a225175697a204164646564205375636365737366756c6c79223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('htrsgqmgs3o1qk92ngbfg2n1etgng729', '::1', 1707321815, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332313831353b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a32333a225175697a204164646564205375636365737366756c6c79223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('i29opt4htot4814mcaj79po2sk6pejm9', '::1', 1707324859, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332343835393b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a32353a22446174612044656c65746564205375636365737366756c6c79223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('k2iaq1ace3c9eml3g2uqs41emtfsddko', '::1', 1707325229, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332353232393b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a32333a224578616d204164646564205375636365737366756c6c79223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('kd8p6cq1l91objmt63r503nt2eo8vemr', '::1', 1707320726, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332303732363b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a31383a225375636365737366756c6c79204c6f67696e223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('mni95bikmcblgbv2s3hptoi88b4002a6', '::1', 1707326683, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332363638333b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a32333a2244617461205361766564205375636365737366756c6c79223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('mq2pi27ldpmreh318b4ijd879hse0dg4', '::1', 1707320291, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332303239313b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a31383a225375636365737366756c6c79204c6f67696e223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('rsotamrhcn804dptrj7q2596c1chkg61', '::1', 1707325567, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332353536373b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a32333a224578616d204164646564205375636365737366756c6c79223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('s2ilaa9vq4n3n0pfpul45df580l0gcj6', '::1', 1707324533, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332343533333b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a32353a22446174612055706461746564205375636365737366756c6c79223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('s5nkf4fo76v9ici7coag22qjc61cgata', '::1', 1707324189, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332343138393b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a32333a224578616d204164646564205375636365737366756c6c79223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('ta74f749kl1cp0tq7f086b3hpumtdkie', '::1', 1707285776, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373238353737363b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a31383a225375636365737366756c6c79204c6f67696e223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d),
+('v1prs0v37ansfj3pap4va9mq4qovfrnd', '::1', 1707317041, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373331373034313b),
+('vg4v7536rqh6jrf0ip5e9t0ov0ndphoa', '::1', 1707322153, 0x5f5f63695f6c6173745f726567656e65726174657c693a313730373332323135333b6c6f67696e5f747970657c733a353a2261646d696e223b61646d696e5f6c6f67696e7c733a313a2231223b61646d696e5f69647c733a313a2231223b6c6f67696e5f757365725f69647c733a313a2231223b6e616d657c733a31333a2241646d696e6973747261746f72223b666c6173685f6d6573736167657c733a32333a224578616d204164646564205375636365737366756c6c79223b5f5f63695f766172737c613a313a7b733a31333a22666c6173685f6d657373616765223b733a333a226f6c64223b7d);
 
 -- --------------------------------------------------------
 
@@ -373,10 +391,10 @@ INSERT INTO `class` (`class_id`, `name`, `name_numeric`, `teacher_id`) VALUES
 DROP TABLE IF EXISTS `classroom`;
 CREATE TABLE IF NOT EXISTS `classroom` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `classroom` varchar(255) NOT NULL,
-  `subclass` varchar(255) NOT NULL,
-  `date` varchar(255) NOT NULL,
-  `document` varchar(255) NOT NULL,
+  `classroom` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `subclass` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `date` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `document` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
@@ -413,12 +431,12 @@ INSERT INTO `club` (`club_id`, `club_name`, `desc`, `date`) VALUES
 DROP TABLE IF EXISTS `courses`;
 CREATE TABLE IF NOT EXISTS `courses` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `section` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `class_id` varchar(255) NOT NULL,
-  `batch` varchar(255) NOT NULL,
-  `target_year` varchar(255) NOT NULL,
-  `course_img` varchar(255) NOT NULL,
+  `section` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `class_id` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `batch` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `target_year` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `course_img` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
@@ -592,6 +610,112 @@ CREATE TABLE IF NOT EXISTS `exam_question` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `exam_quiz_answer`
+--
+
+DROP TABLE IF EXISTS `exam_quiz_answer`;
+CREATE TABLE IF NOT EXISTS `exam_quiz_answer` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` smallint NOT NULL,
+  `exam_quiz_id` smallint NOT NULL,
+  `exam_question_id` smallint NOT NULL,
+  `answer` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `is_correct` bit(1) NOT NULL COMMENT '1 = correct, 0 = incorrect',
+  `entry_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exam_quiz_details`
+--
+
+DROP TABLE IF EXISTS `exam_quiz_details`;
+CREATE TABLE IF NOT EXISTS `exam_quiz_details` (
+  `exam_quiz_id` int NOT NULL AUTO_INCREMENT,
+  `quiz_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `quiz_duration` varchar(255) NOT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `is_active` tinyint NOT NULL,
+  `show_it` bit(1) NOT NULL,
+  `counter` varchar(255) NOT NULL DEFAULT '10',
+  `created_date` datetime NOT NULL,
+  `created_by` int NOT NULL,
+  `last_modified_date` datetime NOT NULL,
+  `last_modified_by` int NOT NULL,
+  `other_imp_instruction` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
+  `negative_mark` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
+  `mark_for_correct_answer` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
+  PRIMARY KEY (`exam_quiz_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `exam_quiz_details`
+--
+
+INSERT INTO `exam_quiz_details` (`exam_quiz_id`, `quiz_name`, `quiz_duration`, `start_date`, `end_date`, `is_active`, `show_it`, `counter`, `created_date`, `created_by`, `last_modified_date`, `last_modified_by`, `other_imp_instruction`, `negative_mark`, `mark_for_correct_answer`) VALUES
+(22, 'First sem 1', '1 hours', '2024-02-08', '2024-02-15', 1, b'1', '10', '2024-02-07 22:07:11', 0, '0000-00-00 00:00:00', 0, 'first sem exam', '2', '2'),
+(24, 'second sem', '1 hours', '2024-02-06', '2024-02-17', 1, b'1', '10', '2024-02-07 22:54:19', 0, '0000-00-00 00:00:00', 0, 'second sem', '2', '2');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exam_quiz_questions`
+--
+
+DROP TABLE IF EXISTS `exam_quiz_questions`;
+CREATE TABLE IF NOT EXISTS `exam_quiz_questions` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `exam_quiz_id` int DEFAULT NULL,
+  `question` text NOT NULL,
+  `option1` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `option2` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `option3` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `option4` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `file` text,
+  `file_a` text,
+  `file_b` text,
+  `file_c` text,
+  `file_d` text,
+  `tipe_file` text,
+  `answer` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `is_active` tinyint NOT NULL,
+  `add_by_import` varchar(255) DEFAULT NULL,
+  `exam_type` enum('0','1') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT '0',
+  `created_date` datetime NOT NULL,
+  `created_by` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `exam_quiz_questions`
+--
+
+INSERT INTO `exam_quiz_questions` (`id`, `exam_quiz_id`, `question`, `option1`, `option2`, `option3`, `option4`, `file`, `file_a`, `file_b`, `file_c`, `file_d`, `tipe_file`, `answer`, `is_active`, `add_by_import`, `exam_type`, `created_date`, `created_by`) VALUES
+(14, NULL, 'first sem', 'a', 'b', 'c', 'd', 'carrot-vegitable-seeds-pack-of-50-kadiyam-nursery-1_grande.jpg', 'carrot-vegitable-seeds-pack-of-50-kadiyam-nursery-1_grande.jpg', 'carrot-vegitable-seeds-pack-of-50-kadiyam-nursery-1_grande.jpg', 'carrot-vegitable-seeds-pack-of-50-kadiyam-nursery-1_grande.jpg', 'carrot-vegitable-seeds-pack-of-50-kadiyam-nursery-1_grande.jpg', NULL, '', 1, NULL, '0', '0000-00-00 00:00:00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exam_quiz_report`
+--
+
+DROP TABLE IF EXISTS `exam_quiz_report`;
+CREATE TABLE IF NOT EXISTS `exam_quiz_report` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `student_id` int DEFAULT NULL,
+  `exam_quiz_id` int DEFAULT NULL,
+  `score` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `percentage` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `expense_category`
 --
 
@@ -618,8 +742,8 @@ INSERT INTO `expense_category` (`expense_category_id`, `name`) VALUES
 DROP TABLE IF EXISTS `gallery`;
 CREATE TABLE IF NOT EXISTS `gallery` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `gallery_img` varchar(255) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `gallery_img` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
@@ -633,8 +757,8 @@ CREATE TABLE IF NOT EXISTS `gallery` (
 DROP TABLE IF EXISTS `home_slider`;
 CREATE TABLE IF NOT EXISTS `home_slider` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `banner` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
+  `banner` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
@@ -1044,7 +1168,7 @@ CREATE TABLE IF NOT EXISTS `quiz_details` (
   `negative_mark` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   `mark_for_correct_answer` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   PRIMARY KEY (`quiz_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `quiz_details`
@@ -1054,7 +1178,8 @@ INSERT INTO `quiz_details` (`quiz_id`, `quiz_name`, `quiz_duration`, `start_date
 (18, 'maths', '30 min', '2024-01-09', '2024-01-30', 1, b'1', '11', '2024-01-09 16:46:20', 0, '0000-00-00 00:00:00', 0, 'sdfsd', '1', '2'),
 (19, 'science', '2 hours', '2024-01-18', '2024-02-04', 1, b'1', '2', '2024-01-18 13:26:58', 0, '0000-00-00 00:00:00', 0, '', '1', '2'),
 (20, 'NEET ', '30 min', '2024-01-11', '2024-03-21', 1, b'1', '10', '2024-01-30 16:36:44', 0, '0000-00-00 00:00:00', 0, '', '1', '2'),
-(21, 'Nagpur', '30 min', '2024-02-09', '2024-02-24', 1, b'1', '10', '2024-02-01 20:47:31', 0, '0000-00-00 00:00:00', 0, 'dsfsdfsd', '1', '2');
+(21, 'Nagpur', '30 min', '2024-02-09', '2024-02-24', 1, b'1', '10', '2024-02-01 20:47:31', 0, '0000-00-00 00:00:00', 0, 'dsfsdfsd', '1', '2'),
+(22, 'First sem', '1 hours', '2024-02-08', '2024-02-15', 1, b'1', '11', '2024-02-07 21:46:14', 0, '0000-00-00 00:00:00', 0, 'first sem exam', '1', '2');
 
 -- --------------------------------------------------------
 
@@ -1065,11 +1190,11 @@ INSERT INTO `quiz_details` (`quiz_id`, `quiz_name`, `quiz_duration`, `start_date
 DROP TABLE IF EXISTS `quiz_enquiry`;
 CREATE TABLE IF NOT EXISTS `quiz_enquiry` (
   `user_id` int NOT NULL AUTO_INCREMENT,
-  `fullName` varchar(255) NOT NULL,
-  `gender` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `mobileNumber` varchar(255) NOT NULL,
-  `class` varchar(255) NOT NULL,
+  `fullName` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `gender` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `mobileNumber` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `class` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   `user_role` tinyint NOT NULL,
   `is_active` tinyint NOT NULL DEFAULT '1' COMMENT '1=Active, 0=Inactive',
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -1104,7 +1229,7 @@ CREATE TABLE IF NOT EXISTS `quiz_questions` (
   `created_date` datetime NOT NULL,
   `created_by` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `quiz_questions`
@@ -1122,7 +1247,8 @@ INSERT INTO `quiz_questions` (`id`, `quiz_id`, `question`, `option1`, `option2`,
 (9, 20, '7', 'a', 'b', 'd', 'd', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', NULL, 'option_1', 1, '1', '1', '0000-00-00 00:00:00', 0),
 (10, 20, '8', 'a', 'b', 'd', 'd', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', NULL, 'option_1', 1, '1', '1', '0000-00-00 00:00:00', 0),
 (11, 20, '9', 'a', 'b', 'd', 'd', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', NULL, 'option_1', 1, '1', '1', '0000-00-00 00:00:00', 0),
-(12, 20, '10', 'a', 'b', 'd', 'd', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', NULL, 'option_1', 1, '1', '1', '0000-00-00 00:00:00', 0);
+(12, 20, '10', 'a', 'b', 'd', 'd', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', 'https://akm-img-a-in.tosshub.com/businesstoday/images/story/202310/untitled_design_93-sixteen_nine.jpg?size=948:533', NULL, 'option_1', 1, '1', '1', '0000-00-00 00:00:00', 0),
+(13, 22, 'first sem', 'a', 'b', 'c', 'd', 'carrot-vegitable-seeds-pack-of-50-kadiyam-nursery-1_grande.jpg', 'carrot-vegitable-seeds-pack-of-50-kadiyam-nursery-1_grande.jpg', 'carrot-vegitable-seeds-pack-of-50-kadiyam-nursery-1_grande.jpg', 'carrot-vegitable-seeds-pack-of-50-kadiyam-nursery-1_grande.jpg', 'carrot-vegitable-seeds-pack-of-50-kadiyam-nursery-1_grande.jpg', NULL, '', 1, NULL, '0', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -1137,15 +1263,15 @@ CREATE TABLE IF NOT EXISTS `quiz_report` (
   `quiz_id` int DEFAULT NULL,
   `score` int DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `precentage` varchar(255) COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `percentage` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `quiz_report`
 --
 
-INSERT INTO `quiz_report` (`id`, `student_id`, `quiz_id`, `score`, `created_at`, `precentage`) VALUES
+INSERT INTO `quiz_report` (`id`, `student_id`, `quiz_id`, `score`, `created_at`, `percentage`) VALUES
 (1, 45, 20, 3, '2024-02-07 07:00:40', NULL),
 (2, 45, 20, 6, '2024-02-08 18:30:00', NULL),
 (3, 45, 20, 6, '2024-02-09 18:30:00', NULL),
@@ -1166,9 +1292,9 @@ INSERT INTO `quiz_report` (`id`, `student_id`, `quiz_id`, `score`, `created_at`,
 DROP TABLE IF EXISTS `recorded_lecture`;
 CREATE TABLE IF NOT EXISTS `recorded_lecture` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `youtube_link` varchar(255) NOT NULL,
-  `description` text NOT NULL,
+  `title` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `youtube_link` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
@@ -1189,8 +1315,8 @@ INSERT INTO `recorded_lecture` (`id`, `title`, `youtube_link`, `description`, `c
 DROP TABLE IF EXISTS `results`;
 CREATE TABLE IF NOT EXISTS `results` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `result_banner` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
+  `result_banner` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
@@ -1485,9 +1611,9 @@ INSERT INTO `teacher` (`teacher_id`, `name`, `role`, `teacher_number`, `birthday
 DROP TABLE IF EXISTS `testimonial`;
 CREATE TABLE IF NOT EXISTS `testimonial` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `scholarship_image` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `scholarship_image` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
@@ -1608,8 +1734,8 @@ INSERT INTO `vehicle` (`vehicle_id`, `name`, `vehicle_number`, `vehicle_model`, 
 DROP TABLE IF EXISTS `winners`;
 CREATE TABLE IF NOT EXISTS `winners` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `winners_img` varchar(255) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `winners_img` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
