@@ -35,7 +35,7 @@
                             <li><a href="#"> Case stories</a></li>
                             <li><a href="#"> Latest news</a></li>
                             <li><a href="#"> Contact</a></li>
-                            <li><a href="<?php echo base_url() ?>quiz"> Quiz</a></li>
+                           <!--  <li><a href="<?php echo base_url() ?>quiz"> Quiz</a></li> -->
                         </ul>
                     </div>
                 </div>

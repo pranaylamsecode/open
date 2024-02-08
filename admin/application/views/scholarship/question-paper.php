@@ -1508,12 +1508,13 @@
                                                                                             <p style="color:#000"><?php echo $quest->option4; ?></p>
                                                                                         <?php } ?>
 
-                                                                                    <?php   } else if (isset($quest->file_d)) { ?>
+                                                                                    <?php   } elseif (isset($quest->file_d)  && !empty($quest->file_d)) { ?>
 
 
 
 
                                                                                         <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
+
                                                                                         <?php if (!empty($quest->option4)) { ?>
                                                                                             <p style="color:#000"><?php echo $quest->option4; ?></p>
                                                                                         <?php } ?>
