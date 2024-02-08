@@ -150,3 +150,6 @@ CREATE TABLE IF NOT EXISTS `exam_quiz_details` (
   `mark_for_correct_answer` text CHARACTER SET latin1 COLLATE latin1_swedish_ci,
   PRIMARY KEY (`exam_quiz_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+
+
+ALTER TABLE `quiz_enquiry` CHANGE `user_id` `student_id` INT NOT NULL AUTO_INCREMENT;
