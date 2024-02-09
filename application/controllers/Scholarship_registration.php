@@ -50,9 +50,10 @@ class Scholarship_registration extends CI_Controller {
             $this->form_validation->set_error_delimiters('<span class=error>','</span>');
             $this->form_validation->set_rules('fullName', 'fullName', 'required');
 			$this->form_validation->set_rules('gender', 'gender', 'required');
-            $this->form_validation->set_rules('email', 'email', 'required');
+            $this->form_validation->set_rules('email', 'email','required|valid_email|callback_check_unique_email');
 			$this->form_validation->set_rules('mobileNumber', 'mobileNumber', 'required');
 			$this->form_validation->set_rules('class', 'class', 'required');
+
 
 			$fullName = $this->input->post('fullName');
 			$gender = $this->input->post('gender');
@@ -70,26 +71,40 @@ class Scholarship_registration extends CI_Controller {
             );
 			// print_r($imgData);
 			// exit;
-			if($this->form_validation->run() == true){
-				if(empty($error)){
-					// Insert image data
-					$insert = $this->home_model->insert($imgData,'quiz_enquiry');
 
-					if($insert){
-						$this->session->set_userdata(array(
-							'user_id' => $insert, // Assuming user_id is returned after insertion
-							'first_name' => $fullName,
-							'user_name' => $email,
-							'user_role' => 2,
-						));
-						redirect('quiz');
-						// echo '<script>alert("Thank You...! Successfully Data Submitted.");window.location = "'.base_url().'StartQuiz";</script>';
-					}else{
-						$error = 'Some problems occurred, please try again.';
+			if ($this->form_validation->run() == FALSE) {
+				// Form validation failed, load your view again with validation errors
+				$data = array();
+				$data['classes'] = $this->home_model->list1('class');
+
+				$this->load->view('header_view');
+				$this->load->view('scholarship/scholarship_registration_view',$data);
+				$this->load->view('footer_view');
+			} else {
+				if($this->form_validation->run() == true){
+					if(empty($error)){
+						// Insert image data
+						$insert = $this->home_model->insert($imgData,'quiz_enquiry');
+
+						if($insert){
+							$this->session->set_userdata(array(
+								'user_id' => $insert, // Assuming user_id is returned after insertion
+								'first_name' => $fullName,
+								'user_name' => $email,
+								'user_role' => 2,
+							));
+							redirect('quiz');
+							// echo '<script>alert("Thank You...! Successfully Data Submitted.");window.location = "'.base_url().'StartQuiz";</script>';
+						}else{
+							$error = 'Some problems occurred, please try again.';
+						}
 					}
+					$data['error_msg'] = $error;
 				}
-				$data['error_msg'] = $error;
 			}
+
+
+
 
         }
         $data['image'] = $imgData;
@@ -101,6 +116,19 @@ class Scholarship_registration extends CI_Controller {
 		$this->load->view('footer_view');
 
     }
+
+	public function check_unique_email($email) {
+		// Load your model
+
+
+		// Check if email already exists in the database
+		if ($this->home_model->is_email_unique($email)) {
+			return TRUE; // Email is unique
+		} else {
+			$this->form_validation->set_message('check_unique_email', 'The email address is already registered.');
+			return FALSE; // Email already exists
+		}
+	}
 
 
 }

@@ -82,7 +82,7 @@ class Common extends Base_Controller {
 
         }
         $quizid = $this->input->post('quiz', true);
-        $level_type = $this->input->post('level_type', true);
+        $level_type = 0;//$this->input->post('level_type', true);
 
         $step_instruction = $this->input->post('step_instruction', true);
 
@@ -109,8 +109,10 @@ class Common extends Base_Controller {
         } else {
 
             $quizid = $this->input->post('quiz', true);
-             $level_type = $this->input->post('level_type', true);
-			if(empty($quizid) && empty($level_type))
+             $level_type = 0;//$this->input->post('level_type', true);
+
+
+			if(empty($quizid) )
 			{
 				redirect('quiz');
 			}
@@ -121,9 +123,11 @@ class Common extends Base_Controller {
             $this->db->from('quiz_questions');
             $this->db->where('is_active', 1);
             $this->db->where('quiz_id', $quizid);
-            $this->db->where('exam_type', $level_type);
+            //$this->db->where('exam_type', 0);
 
             $data['question'] = $this->db->get()->result();
+
+
 
             if(empty($data['question'])){
 

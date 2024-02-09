@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home_model extends CI_Model{
-    
+
     public function insert($data = array(),$tableName="") {
         // $data['created'] = date("Y-m-d H:i:s");
         // $data['modified'] = date("Y-m-d H:i:s");
@@ -13,7 +13,7 @@ class Home_model extends CI_Model{
             return false;
         }
     }
-    
+
     function getRowKey_members($id){
 		$this->db->where('id',$id);
 		$row = $this->db->get('web_testimonial')->row_array();
@@ -35,8 +35,8 @@ class Home_model extends CI_Model{
             return $query->result_array();
         }
     }
-    
-    
+
+
     function getRows2($tableName="", $limit=''){
         $this->db->select('*');
         $this->db->from($tableName);
@@ -50,7 +50,7 @@ class Home_model extends CI_Model{
             // $query = $this->db->get($tableName);
             // $query = $this->db->get_where($tableName, array('id' => $id));
             return $query->result_array();
-    
+
     }
 
     function getServiceRows($service = "",$tableName=""){
@@ -76,7 +76,7 @@ class Home_model extends CI_Model{
             return $query->result_array();
         }
     }
-    
+
     function getDirectorRows($service = "",$tableName=""){
         if(!empty($service)){
             $query = $this->db->get_where($tableName, array('title' => $service));
@@ -115,55 +115,55 @@ class Home_model extends CI_Model{
             return $query->result_array();
         }
     }
-    
+
     function getRows1($title = "",$tableName=""){
         if(!empty($title)){
-            $query = $this->db->get_where($tableName, array('title' => $title));  
+            $query = $this->db->get_where($tableName, array('title' => $title));
             return $query->row_array();
         }
     }
-    
+
     public function list($tableName=""){
         // $query = $this->db->order_by('id', 'DESC')->get_where($tableName, array('status' => 1));
-       
+
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get($tableName);
        return $query->result();
     }
-    
+
     // public function list($tableName=""){
     //     $query = $this->db->get_where($tableName, array('status' => 1));
     //     // $query = $this->db->order_by('created', 'DESC');
     //     return $query->result();
     // }
-    
+
     public function list1($tableName=""){
         //  $this->db->where('status', 1);
          $this->db->order_by('class_id', 'DESC');
          $query = $this->db->get($tableName);
         return $query->result();
     }
-   
+
     public function list2($tableName=""){
         //  $this->db->where('status', 1);
          $this->db->order_by('id', 'DESC');
          $query = $this->db->get($tableName);
         return $query->result();
     }
-    
+
     public function homelist($tableName=""){
         $query = $this->db->order_by('id', 'DESC')->get_where($tableName, array('home_status' => 1));
         return $query->result();
     }
-    
-    
+
+
     public function listByTitle($title ="",$tableName=""){
-        
+
         $query = $this->db->get_where($tableName, array('status' => 1,'title' => $title));
-    
+
         return $query->result();
     }
-    
+
     public function update($data=array(), $id="", $tableName="") {
         $data['modified'] = date("Y-m-d H:i:s");
         if(!empty($data) && !empty($id)){
@@ -173,7 +173,7 @@ class Home_model extends CI_Model{
             return false;
         }
     }
-    
+
     function getBlogRows($service = "",$tableName=""){
         if(!empty($service)){
             $query = $this->db->get_where($tableName, array('title' => $service));
@@ -206,6 +206,11 @@ class Home_model extends CI_Model{
         return $query->result_array();
     }
 
-    
-}
+    public function is_email_unique($email) {
+        $this->db->where('email', $email);
+        $query = $this->db->get('quiz_enquiry');
+        return $query->num_rows() == 0;
+    }
 
+
+}
