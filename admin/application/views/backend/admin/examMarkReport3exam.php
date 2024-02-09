@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-sm-12">
 		<div class="panel panel-info">
-            <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Quiz Score');?></div>
+            <div class="panel-heading"> <a href="<?php echo base_url().'/report/examMarkReportExamQuiz'; ?>" style="margin-right: 0px !important;">Reset</a>&nbsp;&nbsp;</div>
                 <div class="panel-body table-responsive">
 
                     <!----CREATION FORM STARTS---->
@@ -28,11 +28,11 @@
                                                 ?>
  <?php
 
-$this->db->select('s.name as name, s.student_id, q.quiz_id as quiz_id');
+$this->db->select('s.name as name, s.student_id, q.exam_quiz_id as exam_quiz_id');
 $this->db->from('student s');
 
-$this->db->join('quiz_answer q', 's.student_id = q.user_id');
-$this->db->where('q.quiz_id', $exam_id);
+$this->db->join('exam_quiz_answer q', 'q.user_id = s.student_id');
+$this->db->where('q.exam_quiz_id', $exam_id);
 
 
 $this->db->group_by('s.student_id');
@@ -40,6 +40,8 @@ $this->db->group_by('s.student_id');
 
 // Executing the query and fetching the result as an array.
 $student_data = $this->db->get()->result_array();
+
+
 
 
 ?>
@@ -82,15 +84,17 @@ $student_data = $this->db->get()->result_array();
 
 
 
-$this->db->select('s.name as name, s.student_id, q.quiz_id as quiz_id');
+$this->db->select('s.name as name, s.student_id, q.exam_quiz_id as exam_quiz_id');
 $this->db->from('student s');
 
-$this->db->join('quiz_answer q', 's.student_id = q.user_id');
-$this->db->where('q.quiz_id', $exam_id);
+$this->db->join('exam_quiz_answer q', 'q.user_id = s.student_id');
+$this->db->where('q.exam_quiz_id', $exam_id);
 $this->db->where('s.student_id <>', $student_id);
 
 $this->db->group_by('s.student_id');
 
+
+// Executing the query and fetching the result as an array.
 $student_data2 = $this->db->get()->result_array();
 
 
@@ -125,18 +129,7 @@ $student_data2 = $this->db->get()->result_array();
 
 
 
-                            <div class="form-group">
-                                <label class="col-md-12" for="example-text"><?php echo get_phrase('Student Percentage');?></label>
-                                                <div class="col-sm-12">
 
-                                    <select  name="percentage_id"  class="form-control">
-                                        <option value="">Select Percentage</option>
-                                        <option value="Score">Score</option>
-                                        <option value="Percentile">Percentile</option>
-
-                                    </select>
-                                </div>
-                            </div>
 
                             <?php
                                             }?>
@@ -144,6 +137,26 @@ $student_data2 = $this->db->get()->result_array();
 
 
                                             <!-- if other student check end  -->
+
+											<div class="form-group">
+                                <label class="col-md-12" for="example-text"><?php echo get_phrase('Student Percentage');?></label>
+                                                <div class="col-sm-12">
+
+												<select  name="percentage_type"  class="form-control">
+
+                                        <option
+																				<?php if(isset($percentage_type) && $percentage_type == 'score') echo 'selected="selected"';?>
+																				<?php if(empty($percentage_type)) echo 'selected="selected"';?>
+
+																				value="score">Score</option>
+                                        <option
+
+																				<?php if(isset($percentage_type) && $percentage_type == 'percentile') echo 'selected="selected"';?>
+
+																				value="percentile">Percentile</option>
+                                    </select>
+                                </div>
+                            </div>
 
 
                             <input class="" type="hidden" value="selection" name="operation">
@@ -156,223 +169,133 @@ $student_data2 = $this->db->get()->result_array();
 		</div>
 	</div>
 </div>
-<?php
-
-// Replace 123 with the actual student_id you want to filter
-
-
-
-$query = $this->db->query("SELECT UNIX_TIMESTAMP(created_at) as date, quiz_id, score as value FROM quiz_report WHERE student_id = $student_id AND quiz_id = $exam_id");
-
-$result = $query->result_array();
-
-// Convert the result into the desired format
-$formatted_result = array_map(function($row) {
-    return [
-        'date' => $row['date'] * 1000, // Multiply by 1000 to convert seconds to milliseconds
-        'value' => (int)$row['value']
-    ];
-}, $result);
-
-// Now $formatted_result contains the data in the desired format
-$json_data = json_encode($formatted_result);
-
-
-
-$query2 = $this->db->query("SELECT UNIX_TIMESTAMP(created_at) as date, quiz_id, score as value FROM quiz_report WHERE student_id = $student_id2 AND quiz_id = $exam_id");
-
-$result2 = $query2->result_array();
-
-// Convert the result into the desired format
-$formatted_result2 = array_map(function($row) {
-    return [
-        'date' => $row['date'] * 1000, // Multiply by 1000 to convert seconds to milliseconds
-        'value' => (int)$row['value']
-    ];
-}, $result2);
-
-// Now $formatted_result contains the data in the desired format
-$json_data2 = json_encode($formatted_result2);
-
-?>
-
-
-<style>
-    body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-#chartdiv {
-  width: 100%;
-  height: 500px;
-}
-</style>
-
 
 <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/themes/Responsive.js"></script>
-<?php if(!empty($exam_id) && !empty($student_id) && !empty($result)):?>
+
+<?php
 
 
-<div id="chartdiv"></div>
 
-<?php endif; ?>
+$this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.quiz_id, qr.score as value, s.name as student_name');
+$this->db->from('quiz_report qr');
+$this->db->join('student s', 'qr.student_id = s.student_id');
+$this->db->where('qr.student_id', $student_id2);
+$this->db->where('qr.quiz_id', $exam_id);
+
+$query2 = $this->db->get();
+$result2 = $query2->result_array();
 
 
-<?php if(!empty($student_id2)){ ?>
+$json_data = array();
+// Loop through each row of the query result
+foreach ($result2 as $row) {
+	// Construct an array for each student with 'name', 'data', and 'labels' keys
+
+	$random_hue = mt_rand(0, 360);
+
+	$student_data = array(
+			'name' => $row['student_name'], // Student name
+			'data' => array($row['value']), // Student's score data
+			'labels' => array(date('Y-m-d', $row['date'])) ,// Date converted to 'YYYY-MM-DD' format
+			'color' => "hsl($random_hue, 100%, 50%)" // Random
+	);
+
+	// Check if the student name already exists in $json_data
+	if (array_key_exists($row['student_name'], $json_data)) {
+			// Append data and labels to existing student entry
+			$json_data[$row['student_name']]['data'][] = $row['value'];
+			$json_data[$row['student_name']]['labels'][] = date('Y-m-d', $row['date']);
+	} else {
+			// Add new student entry to $json_data
+			$json_data[$row['student_name']] = $student_data;
+	}
+}
+
+// Convert associative array to indexed array
+$json_data = array_values($json_data);
+
+// Encode the array to JSON
+$json_string = json_encode($json_data, JSON_PRETTY_PRINT);
+
+?>
+
+<?php if(!empty($result2))
+{
+	?>
+
+<canvas id="marksChart" width="400" height="200"></canvas>
+
+	<?php
+} ?>
+<script src="your_script.js"></script>
+
 <script>
-    /**
-     * ---------------------------------------
-     * This demo was created using amCharts 5.
-     *
-     * For more information visit:
-     * https://www.amcharts.com/
-     *
-     * Documentation is available at:
-     * https://www.amcharts.com/docs/v5/
-     * ---------------------------------------
-     */
+document.addEventListener("DOMContentLoaded", function () {
+    // Sample data for multiple students
+		var json_data3 =<?php echo $json_string; ?>;
+		console.log(json_data3);
 
-    // Create root element
-    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-    var root = am5.Root.new("chartdiv");
 
-    const myTheme = am5.Theme.new(root);
-
-    myTheme.rule("AxisLabel", ["minor"]).setAll({
-        dy: 1
-    });
-
-    // Set themes
-    // https://www.amcharts.com/docs/v5/concepts/themes/
-    root.setThemes([
-        am5themes_Animated.new(root),
-        myTheme,
-        am5themes_Responsive.new(root)
-    ]);
-
-    // Create chart
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/
-    var chart = root.container.children.push(am5xy.XYChart.new(root, {
-        panX: false,
-        panY: false,
-        wheelX: "panX",
-        wheelY: "zoomX",
-        paddingLeft: 0
-    }));
-
-    // Add cursor
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
-    var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
-        behavior: "zoomX"
-    }));
-    cursor.lineY.set("visible", false);
-
-    var date = new Date();
-    date.setHours(0, 0, 0, 0);
-    var value = 100;
-
-    function generateData() {
-        value = Math.round((Math.random() * 10 - 5) + value);
-        am5.time.add(date, "day", 1);
-        return {
-            date: date.getTime(),
-            value: value
-        };
-    }
-
-    function generateDatas(count) {
-        var data = [];
-        for (var i = 0; i < count; ++i) {
-            data.push(generateData());
-        }
-        return data;
-    }
-
-    // Create axes
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-    var xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
-        maxDeviation: 0,
-        baseInterval: {
-            timeUnit: "day",
-            count: 1
+   /*  var json_data3 = [
+        {
+            "name": "Testing Student",
+            "data": [3, 6, 6, 6],
+            "labels": ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04"],
+            "color": "hsl(73, 100%, 50%)"
         },
-        renderer: am5xy.AxisRendererX.new(root, {
-            minorGridEnabled: true,
-            minorLabelsEnabled: true
-        }),
-        tooltip: am5.Tooltip.new(root, {})
-    }));
+        {
+            "name": "Testing Student",
+            "data": [6, 9, 12, 15],
+            "labels": ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04"],
+            "color": "hsl(123, 100%, 50%)"
+        },
+        {
+            "name": "Testing Student",
+            "data": [9, 12, 15, 18],
+            "labels": ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04"],
+            "color": "hsl(350, 100%, 50%)"
+        },
+        {
+            "name": "Testing Student",
+            "data": [12, 15, 18, 21],
+            "labels": ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04"],
+            "color": "hsl(317, 100%, 50%)"
+        }
+    ]; */
 
-    xAxis.set("minorDateFormats", {
-        "day": "dd",
-        "month": "MM"
+    // Get the canvas element
+    const canvas = document.getElementById("marksChart");
+    const ctx = canvas.getContext("2d");
+
+    // Create a line chart
+    const marksChart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: json_data3[0].labels, // Assuming all students have the same labels
+            datasets: json_data3.map((student) => ({
+                label: student.name,
+                data: student.data,
+                borderColor: student.color,
+                fill: false,
+            })),
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                },
+            },
+        },
     });
-
-    var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-        renderer: am5xy.AxisRendererY.new(root, {})
-    }));
-
-    // Add series for main data
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-    var series = chart.series.push(am5xy.LineSeries.new(root, {
-        name: "Series",
-        xAxis: xAxis,
-        yAxis: yAxis,
-        valueYField: "value",
-        valueXField: "date",
-        tooltip: am5.Tooltip.new(root, {
-            labelText: "{valueY}"
-        })
-    }));
-
-    // Add series for batch comparison
-    var comparisonSeries = chart.series.push(am5xy.LineSeries.new(root, {
-        name: "Comparison",
-        xAxis: xAxis,
-        yAxis: yAxis,
-        valueYField: "comparisonValue",
-        valueXField: "date",
-        tooltip: am5.Tooltip.new(root, {
-            labelText: "{valueY}"
-        })
-    }));
-
-    // Add scrollbar
-    // https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
-    chart.set("scrollbarX", am5.Scrollbar.new(root, {
-        orientation: "horizontal"
-    }));
-
-    var data = generateDatas(30);
-    var dataset = <?php echo $json_data; ?>;
-
-    series.data.setAll(dataset);
+});
 
 
 
-    var allBranchStudentsData = <?php echo $json_data2; ?>;
-
-
-    // Generate comparison data with a slight shift
-    var comparisonData = allBranchStudentsData.map(function (item) {
-        return {
-            date: item.date,
-            value: item.value // Adjust as needed
-        };
-    });
-
-    comparisonSeries.data.setAll(comparisonData);
-
-
-    series.appear(1000);
-    comparisonSeries.appear(1000);
-    chart.appear(1000, dataset.length);
 </script>
-
-<?php } ?>
 
 <!-- campaire js end  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
