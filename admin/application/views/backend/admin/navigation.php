@@ -668,7 +668,7 @@
 
 
 
-                <li> <a href="#" class="waves-effect d-none"><i data-icon="&#xe006;" class="fa fa-fax p-r-10"></i> <span
+               <!--  <li> <a href="#" class="waves-effect d-none"><i data-icon="&#xe006;" class="fa fa-fax p-r-10"></i> <span
                             class="hide-menu"><?php echo get_phrase('expenses');?><span
                                 class="fa arrow"></span></span></a>
 
@@ -695,7 +695,7 @@
                         </li>
 
                     </ul>
-                </li>
+                </li> -->
 
 
 
@@ -820,12 +820,12 @@
                         </li>
 
 
-                        <li class="<?php if ($page_name == 'paymentSetting') echo 'active'; ?> ">
+                       <!--  <li class="<?php if ($page_name == 'paymentSetting') echo 'active'; ?> ">
                             <a href="<?php echo base_url(); ?>payment/paymentSetting">
                                 <i class="fa fa-angle-double-right p-r-10"></i>
                                 <span class="hide-menu"><?php echo get_phrase('Payment Settings'); ?></span>
                             </a>
-                        </li>
+                        </li> -->
 
                     </ul>
                 </li>
@@ -837,12 +837,12 @@
 
                     <ul class=" nav nav-second-level">
 
-                        <li class="<?php if ($page_name == 'studentPaymentReport') echo 'active'; ?>">
+                       <!--  <li class="<?php if ($page_name == 'studentPaymentReport') echo 'active'; ?>">
                             <a href="<?php echo base_url(); ?>report/studentPaymentReport">
                                 <i class="fa fa-angle-double-right p-r-10"></i>
                                 <span class="hide-menu"><?php echo get_phrase('Student Payments'); ?></span>
                             </a>
-                        </li>
+                        </li> -->
 
 
                         <li class="<?php if ($page_name == 'classAttendanceReport') echo 'active'; ?> ">

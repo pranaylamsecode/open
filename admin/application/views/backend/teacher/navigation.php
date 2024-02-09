@@ -112,10 +112,17 @@
 
 
 
-                        <li class="<?php if ($page_name == 'examMarkReport3') echo 'active'; ?> ">
+                        <!-- <li class="<?php if ($page_name == 'examMarkReport3') echo 'active'; ?> ">
                             <a href="<?php echo base_url(); ?>report/examMarkReport3">
                                 <i class="fa fa-angle-double-right p-r-10"></i>
-                                <span class="hide-menu"><?php echo get_phrase('Quiz Report'); ?></span>
+                                <span class="hide-menu"><?php echo get_phrase('Exam Quiz Report'); ?></span>
+                            </a>
+                        </li> -->
+
+                        <li class="<?php if ($page_name == 'examMarkReportExamQuiz') echo 'active'; ?> ">
+                            <a href="<?php echo base_url(); ?>report/examMarkReportExamQuiz">
+                                <i class="fa fa-angle-double-right p-r-10"></i>
+                                <span class="hide-menu"><?php echo get_phrase('Exam Quiz Report'); ?></span>
                             </a>
                         </li>
 
