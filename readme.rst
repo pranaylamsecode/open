@@ -153,3 +153,5 @@ CREATE TABLE IF NOT EXISTS `exam_quiz_details` (
 
 
 ALTER TABLE `quiz_enquiry` CHANGE `user_id` `student_id` INT NOT NULL AUTO_INCREMENT;
+
+//

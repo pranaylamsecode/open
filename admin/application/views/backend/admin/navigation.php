@@ -131,6 +131,20 @@
                             </a>
                         </li>
 
+                        <li class="<?php if ($page_name == 'news') echo 'active'; ?> ">
+                            <a href="<?php echo base_url(); ?>admin/news">
+                                <i class="fa fa-angle-double-right p-r-10"></i>
+                                <span class="hide-menu"><?php echo get_phrase('Add News'); ?></span>
+                            </a>
+                        </li>
+
+                        <li class="<?php if ($page_name == 'notice') echo 'active'; ?> ">
+                            <a href="<?php echo base_url(); ?>admin/notice">
+                                <i class="fa fa-angle-double-right p-r-10"></i>
+                                <span class="hide-menu"><?php echo get_phrase('Add Notice'); ?></span>
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
 

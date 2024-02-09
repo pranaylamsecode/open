@@ -1,14 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-class Home_model extends CI_Model { 
-	
+class Home_model extends CI_Model {
+
 	function __construct()
     {
         parent::__construct();
     }
-	
-    function system_logo(){      
+
+    function system_logo(){
 
         //uploading file using codeigniter upload library
         $files = $_FILES['banner'];
@@ -42,7 +42,7 @@ class Home_model extends CI_Model {
         }
     }
 
-    function result_image(){      
+    function result_image(){
 
         //uploading file using codeigniter upload library
         $files = $_FILES['result_banner'];
@@ -101,7 +101,7 @@ class Home_model extends CI_Model {
         $this->upload->do_upload('course_img');
 
         $page_data['course_img'] = $_FILES['course_img']['name'];
-    
+
         $this->db->insert('courses', $page_data);
     }
 
@@ -142,7 +142,7 @@ class Home_model extends CI_Model {
        $this->upload->do_upload('announcement_img');
 
        $page_data['announcement_img'] = $_FILES['announcement_img']['name'];
-   
+
        $this->db->insert('announcement', $page_data);
    }
 
@@ -186,6 +186,89 @@ class Home_model extends CI_Model {
 
    $this->db->insert('winners', $page_data);
 }
+
+function createnotice() {
+
+    // Insert data into the "courses" table
+    $page_data = array(
+       'title' => $this->input->post('title'),
+   );
+   // print_r($page_data);
+   // exit;
+   // Uploading file using CodeIgniter upload library
+   /* $files = $_FILES['winners_img'];
+   $this->load->library('upload');
+   $config['upload_path'] = 'uploads/winners/';
+   $config['allowed_types'] = '*';
+   $_FILES['winners_img']['name'] = $files['name'];
+   $_FILES['winners_img']['type'] = $files['type'];
+   $_FILES['winners_img']['tmp_name'] = $files['tmp_name'];
+   $_FILES['winners_img']['size'] = $files['size'];
+   $this->upload->initialize($config);
+   $this->upload->do_upload('winners_img');
+
+   $page_data['winners_img'] = $_FILES['winners_img']['name']; */
+
+   $this->db->insert('notice', $page_data);
+}
+
+function deletenotice($param2) {
+    // Get the image file name before deleting the record
+    //$image_info = $this->db->get_where('gallery', array('id' => $param2))->row_array();
+   // $image_file = $image_info['gallery_img'];
+
+    // Delete the record from the database
+    $this->db->where('id', $param2);
+    $this->db->delete('notice');
+
+    // Unlink or delete the associated image file
+   /*  $image_path = FCPATH . 'uploads/gallery/' . $image_file; // Assuming FCPATH is your base path
+    if (file_exists($image_path)) {
+        unlink($image_path);
+    } */
+ }
+
+
+function createnews() {
+
+    // Insert data into the "courses" table
+    $page_data = array(
+       'title' => $this->input->post('title'),
+   );
+   // print_r($page_data);
+   // exit;
+   // Uploading file using CodeIgniter upload library
+   /* $files = $_FILES['winners_img'];
+   $this->load->library('upload');
+   $config['upload_path'] = 'uploads/winners/';
+   $config['allowed_types'] = '*';
+   $_FILES['winners_img']['name'] = $files['name'];
+   $_FILES['winners_img']['type'] = $files['type'];
+   $_FILES['winners_img']['tmp_name'] = $files['tmp_name'];
+   $_FILES['winners_img']['size'] = $files['size'];
+   $this->upload->initialize($config);
+   $this->upload->do_upload('winners_img');
+
+   $page_data['winners_img'] = $_FILES['winners_img']['name']; */
+
+   $this->db->insert('news', $page_data);
+}
+
+function deletenews($param2) {
+    // Get the image file name before deleting the record
+    //$image_info = $this->db->get_where('gallery', array('id' => $param2))->row_array();
+   // $image_file = $image_info['gallery_img'];
+
+    // Delete the record from the database
+    $this->db->where('id', $param2);
+    $this->db->delete('news');
+
+    // Unlink or delete the associated image file
+   /*  $image_path = FCPATH . 'uploads/gallery/' . $image_file; // Assuming FCPATH is your base path
+    if (file_exists($image_path)) {
+        unlink($image_path);
+    } */
+ }
 
 function deleteWinners($param2) {
    // Get the image file name before deleting the record
@@ -243,6 +326,8 @@ function deleteGallery($param2) {
        unlink($image_path);
    }
 }
+
+
 
 function createClassroom() {
 
@@ -328,5 +413,5 @@ function deleteTestimonial($param2) {
        unlink($image_path);
    }
 }
-    
+
 }

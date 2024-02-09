@@ -654,6 +654,56 @@ class Admin extends CI_Controller {
 
         }
 
+        function news($param1 = null, $param2 = null, $param3 = null){
+
+            if ($param1 == 'create_news')
+            {
+                // print_r($param1);
+                // exit;
+               $this->home_model->createnews();
+               $this->session->set_flashdata('flash_message', get_phrase('Data Added'));
+               redirect(base_url() . 'admin/news', 'refresh');
+            }
+
+            if($param1 == 'delete_news'){
+                // print_r($param2);
+                // exit;
+                $this->home_model->deletenews($param2);
+                $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+                redirect(base_url(). 'admin/news', 'refresh');
+            }
+
+            $page_data['page_name']     = 'news';
+            $page_data['page_title']    = get_phrase('Manage News');
+            $this->load->view('backend/index', $page_data);
+
+        }
+
+         function notice ($param1 = null, $param2 = null, $param3 = null){
+
+            if ($param1 == 'create_notice')
+            {
+                // print_r($param1);
+                // exit;
+               $this->home_model->createnotice();
+               $this->session->set_flashdata('flash_message', get_phrase('Data Added'));
+               redirect(base_url() . 'admin/notice', 'refresh');
+            }
+
+            if($param1 == 'delete_notice'){
+                // print_r($param2);
+                // exit;
+                $this->home_model->deletenotice($param2);
+                $this->session->set_flashdata('flash_message', get_phrase('Data deleted successfully'));
+                redirect(base_url(). 'admin/notice', 'refresh');
+            }
+
+            $page_data['page_name']     = 'notice';
+            $page_data['page_title']    = get_phrase('Manage N
+                otice');
+            $this->load->view('backend/index', $page_data);
+
+        }
 
         function meet_our_winners ($param1 = null, $param2 = null, $param3 = null){
 

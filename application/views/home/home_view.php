@@ -1,33 +1,190 @@
 <!--==================================================-->
 <!-- Start custom carousal -->
 <!--==================================================-->
+
 <style>
     .column .content img {
         height: 250px;
         object-fit: contain;
     }
+     .comp-1 .float-text {
+    padding: 10px 0;
+    background-image: linear-gradient(to bottom right, #150051, #1C7CE0);
+}
+ .comp-1 .float-text marquee a {
+    color: #5EA9F4;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.head-underline {
+    position: relative;
+    width: 100%;
+    max-width: -moz-max-content;
+    max-width: max-content;
+    margin: auto;
+    background-image: linear-gradient(170deg, #525fe1, #150051, #1C7CE0, #50e3c2, #237db6, #2336b6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    animation: bg-anim 6s linear infinite;
+    color: transparent;
+    word-spacing: 2px;
+}
+ .comp-1 .news-outer-container .newsborder h3 {
+    width: 100%;
+    max-width: -moz-max-content;
+    max-width: max-content;
+    margin: auto;
+}
+ .comp-1 .news-outer-container .newsborder {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+ .comp-1 .news-outer-container .news-inner-container ul li::before {
+    content: "";
+    width: 20px;
+    height: 28px;
+    position: absolute;
+    background-image: url("https://www.momentumnagpur.com/assets/images/right-arrow.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 0%;
+    left: -25px;
+}
+ .comp-1 .news-outer-container .news-inner-container {
+    max-height: 435px;
+        overflow-y: auto;
+}
+.head-underline::after {
+    content: "";
+    position: absolute;
+    border: none;
+    height: 4px;
+    background: linear-gradient(to right, #237db6, rgba(31, 38, 103, 0.9));
+    width: 90%;
+    top: 110%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+section.comp-1 .row {
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+section.comp-1 img {
+    height: 450px;
+    object-fit: contain!important;
+}
+.comp-1 .news-outer-container .news-inner-container ul li {
+    cursor: pointer;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 25px;
+    color: #0275bb;
+    font-weight: 500;
+    line-height: 1.9em;
+    font-size: 15px;
+}
+.carousel.slide button {
+    border: unset !IMPORTANT;
+}
+@keyframes bg-anim {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 400%;
+    }
+}
+@media (max-width:767px){
+    section.comp-1 img {
+    height: auto;
+    object-fit: contain!important;
+    min-height: 200px;
+}
+section.comp-1 .slide {
+    margin-bottom: 40px;
+}
+}
 </style>
-<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <?php foreach ($slider as $row) :  ?>
-            <div class="carousel-item active">
-                <img src="<?php echo base_url('admin/uploads/slider/') . $row->banner; ?>" class="d-block w-100" alt="...">
-            </div>
-        <?php endforeach ?>
-        <!-- <div class="carousel-item">
-            <img src="<?= base_url('public/') ?>assets\images\slider\bansal_slider_image.webp
-            " class="d-block w-100" alt="...">
-        </div> -->
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
+
+
+<section class="comp-1">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <?php foreach ($slider as $row) :  ?>
+                                        <div class="carousel-item active">
+                                            <img src="<?php echo base_url('admin/uploads/slider/') . $row->banner; ?>" class="d-block w-100" alt="...">
+                                        </div>
+                                    <?php endforeach ?>
+                                    <!-- <div class="carousel-item">
+                                        <img src="<?= base_url('public/') ?>assets\images\slider\bansal_slider_image.webp
+                                        " class="d-block w-100" alt="...">
+                                    </div> -->
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="news-outer-container">
+                                <div class="newsborder">
+                                    <h3 class="grad-text-4 text-center head-underline">News</h3>
+                                </div>
+                                <div class="news-inner-container">
+
+
+
+                                    <ul>
+
+                                 <?php    $newss = $this->db->get('news')->result_array(); ?>
+
+                                 <?php foreach($newss as $news){ ?>
+                                           <li>
+                                            <?php echo $news['title']; ?>
+                                        </li>
+
+                                        <?php } ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid bg-news float-text">
+                    <div class="text-center d-flex" style="color: rgb(255, 255, 255);">
+                    <?php    $notics = $this->db->get('notice')->result_array(); ?>
+
+<?php foreach($notics as $notic){ ?>
+
+    <marquee behavior="scroll" direction="left">
+                        <?php echo $notic['title']; ?>
+                        </marquee>
+
+
+       <?php } ?>
+
+
+
+                    </div>
+                </div>
+            </section>
 
 <div class="mt-5 mb-5">
     <div class="container">
