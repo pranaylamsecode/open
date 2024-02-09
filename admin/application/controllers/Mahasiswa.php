@@ -64,7 +64,7 @@ class Mahasiswa extends CI_Controller
 
 		 $quiz_id = $this->input->post('quiz_id', true);
 
-		 $exam_type = $this->input->post('exam_type', true);
+		// $exam_type = $this->input->post('exam_type', true);
 		$config['upload_path']		= './uploads/import/';
 		$config['allowed_types']	= 'xls|xlsx|csv';
 		$config['max_size']			= 2048;
@@ -114,7 +114,7 @@ class Mahasiswa extends CI_Controller
 					'file_c' => $sheetData[$i][9],
 					'file_d' => $sheetData[$i][10],
 
-					'exam_type' => $exam_type,
+					/* 'exam_type' => $exam_type, */
 				];
 			}
 

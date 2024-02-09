@@ -56,7 +56,7 @@
                         </div>
             </div>
 
-            <div class="col">
+           <!--  <div class="col">
                         <div class="form-group">
                             <label for="example-text"><?php echo get_phrase('Exam Type');?></label>
                             <select class="form-control" name="exam_type" required>
@@ -66,7 +66,7 @@
 
                             </select>
                         </div>
-            </div>
+            </div> -->
 
             <label for="file" class="col-sm-offset-1 col-sm-3 text-right">Choose File</label>
             <div class="col-sm-4">
