@@ -699,8 +699,7 @@ class Admin extends CI_Controller {
             }
 
             $page_data['page_name']     = 'notice';
-            $page_data['page_title']    = get_phrase('Manage N
-                otice');
+            $page_data['page_title']    = get_phrase('Manage Notice');
             $this->load->view('backend/index', $page_data);
 
         }

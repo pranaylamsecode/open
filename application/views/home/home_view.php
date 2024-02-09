@@ -170,15 +170,17 @@ section.comp-1 .slide {
                 <div class="container-fluid bg-news float-text">
                     <div class="text-center d-flex" style="color: rgb(255, 255, 255);">
                     <?php    $notics = $this->db->get('notice')->result_array(); ?>
-
+                    <marquee behavior="scroll" direction="left">
 <?php foreach($notics as $notic){ ?>
 
-    <marquee behavior="scroll" direction="left">
+   
                         <?php echo $notic['title']; ?>
-                        </marquee>
+                        &nbsp;
+                       
 
 
        <?php } ?>
+       </marquee>
 
 
 
