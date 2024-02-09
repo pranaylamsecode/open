@@ -203,7 +203,7 @@ $json_data = array_values($json_data);
 $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
 
 ?>
-<?php if(!empty($result2))
+<?php if(true)
 {
 	?>
 
@@ -216,11 +216,11 @@ $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     // Sample data for multiple students
-		var json_data3 =<?php echo $json_string; ?>;
-		console.log(json_data3);
+		/* var json_data3 =<?php // echo $json_string; ?>;
+		console.log(json_data3); */
 
 
-   /*  var json_data3 = [
+    var json_data3 = [
         {
             "name": "Testing Student",
             "data": [3, 6, 6, 6],
@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "labels": ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04"],
             "color": "hsl(317, 100%, 50%)"
         }
-    ]; */
+    ];
 
     // Get the canvas element
     const canvas = document.getElementById("marksChart");

@@ -9,12 +9,12 @@
         <div class="panel panel-info">
             <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Edit Quiz Question'); ?>
             </div>
-  
+
             <?php echo form_open(base_url() . 'quiz/quizQuestion/update/' .$id, array('class' => 'form-horizontal form-goups-bordered validate'));?>            <div class="panel-body table-responsive">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <?php 
+                            <?php
                             $quiz_details_list = $this->db->get('quiz_details')->result_array();
                             foreach($quiz_details_list as $quiz_details):
                             ?>

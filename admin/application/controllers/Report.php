@@ -1,8 +1,8 @@
 <?php if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
-
-ini_set('display_errors', 1);
+/*
+ini_set('display_errors', 1); */
 class Report extends CI_Controller
 {
 
@@ -297,7 +297,7 @@ class Report extends CI_Controller
 				redirect(base_url() . 'report/examMarkReportExamQuiz4/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2']. '/' . $page_data['percentage_type'], 'refresh');
 
 			} else {
-				$this->session->set_flashdata('error_message', get_phrase('Pleasen select something'));
+				$this->session->set_flashdata('error_message', get_phrase('Please select something'));
 				redirect(base_url() . 'report/examMarkReportExamQuiz', 'refresh');
 			}
 		  }
