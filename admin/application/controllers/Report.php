@@ -2,7 +2,7 @@
     exit('No direct script access allowed');
 }
 
-ini_set('display_errors', 1);
+/* ini_set('display_errors', 1); */
 class Report extends CI_Controller
 {
 

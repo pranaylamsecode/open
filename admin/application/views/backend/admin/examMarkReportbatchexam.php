@@ -179,6 +179,38 @@ $student_data2 = $this->db->get()->result_array();
 
 <?php
 
+if(!empty($percentage_type) && $percentage_type == 'percentile')
+{
+
+
+if(!empty($student_id))
+{
+    $this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.exam_quiz_id, qr.percentage as value, s.name as student_name');
+    $this->db->from('exam_quiz_report qr');
+    $this->db->join('student s', 'qr.student_id = s.student_id');
+    $this->db->where('qr.student_id', $student_id);
+    $this->db->where('qr.exam_quiz_id', $exam_id);
+
+    $query2 = $this->db->get();
+    $result2 = $query2->result_array();
+}
+
+
+if(!empty($student_id) && !empty($student_id2))
+{
+    $this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.exam_quiz_id, qr.percentage as value, s.name as student_name');
+        $this->db->from('exam_quiz_report qr');
+        $this->db->join('student s', 'qr.student_id = s.student_id');
+        $this->db->where('(qr.student_id = ' . $student_id . ' OR qr.student_id = ' . $student_id2 . ')');
+        $this->db->where('qr.exam_quiz_id', $exam_id);
+
+        $query2 = $this->db->get();
+        $result2 = $query2->result_array();
+}
+
+}else{
+
+
 if(!empty($student_id))
 {
     $this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.exam_quiz_id, qr.score as value, s.name as student_name');
@@ -192,7 +224,7 @@ if(!empty($student_id))
 }
 
 
-if(!empty($student_id) && !empty($student_id2) && $student_id2 !='All')
+if(!empty($student_id) && !empty($student_id2))
 {
     $this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.exam_quiz_id, qr.score as value, s.name as student_name');
         $this->db->from('exam_quiz_report qr');
@@ -204,16 +236,6 @@ if(!empty($student_id) && !empty($student_id2) && $student_id2 !='All')
         $result2 = $query2->result_array();
 }
 
-if(!empty($student_id) && !empty($student_id2) && $student_id2 =='All')
-{
-    $this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.exam_quiz_id, qr.score as value, s.name as student_name');
-        $this->db->from('exam_quiz_report qr');
-        $this->db->join('student s', 'qr.student_id = s.student_id');
-
-        $this->db->where('qr.exam_quiz_id', $exam_id);
-
-        $query2 = $this->db->get();
-        $result2 = $query2->result_array();
 }
 
 
