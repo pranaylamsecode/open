@@ -1,8 +1,8 @@
 <?php if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
-/*
-ini_set('display_errors', 1); */
+
+ini_set('display_errors', 1);
 class Report extends CI_Controller
 {
 
@@ -240,7 +240,7 @@ class Report extends CI_Controller
 				$page_data['percentage_type'] = null;
 			 }
 
-             if ($page_data['student_id2'] == 'All') {
+             if ($page_data['student_id2'] == 'All' && !empty($page_data['student_id'])  && !empty($page_data['student_id'])) {
                  redirect(base_url() . 'report/examMarkReportBatchQuiz/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2']. '/' . $page_data['percentage_type'], 'refresh');
 
              } elseif (!empty($page_data['student_id2']) && !empty($page_data['student_id'])) {
@@ -268,8 +268,6 @@ class Report extends CI_Controller
      public function examMarkReportExamQuiz4($exam_id = null, $student_id = null, $student_id2 = null,$percentage_type = null)
      {
 
-
-
          if ($this->input->post('operation') == 'selection') {
 
 			$page_data['exam_id'] = $this->input->post('exam_id');
@@ -286,7 +284,7 @@ class Report extends CI_Controller
 			   $page_data['percentage_type'] = null;
 			}
 
-			if ($page_data['student_id2'] == 'All') {
+			if ($page_data['student_id2'] == 'All' && !empty($page_data['student_id'])  && !empty($page_data['student_id'])) {
 				redirect(base_url() . 'report/examMarkReportBatchQuiz/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2']. '/' . $page_data['percentage_type'], 'refresh');
 
 			} elseif (!empty($page_data['student_id2']) && !empty($page_data['student_id'])) {
@@ -330,7 +328,7 @@ class Report extends CI_Controller
 			   $page_data['percentage_type'] = null;
 			}
 
-             if ($page_data['student_id2'] == 'All') {
+             if ($page_data['student_id2'] == 'All' && !empty($page_data['student_id'])  && !empty($page_data['student_id'])) {
                  redirect(base_url() . 'report/examMarkReportBatchQuiz/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2']. '/' . $page_data['percentage_type'], 'refresh');
 
              } elseif (!empty($page_data['student_id2']) && !empty($page_data['student_id'])) {
