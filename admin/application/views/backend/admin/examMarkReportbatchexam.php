@@ -182,7 +182,7 @@ $student_data2 = $this->db->get()->result_array();
 $this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.quiz_id, qr.score as value, s.name as student_name');
 $this->db->from('quiz_report qr');
 $this->db->join('student s', 'qr.student_id = s.student_id');
-$this->db->where('qr.student_id', $student_id2);
+$this->db->where('qr.student_id', $student_id);
 $this->db->where('qr.quiz_id', $exam_id);
 
 $query2 = $this->db->get();
@@ -221,8 +221,7 @@ $json_data = array_values($json_data);
 $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
 
 ?>
-
-<?php if(!empty($result2))
+<?php if(true)
 {
 	?>
 
@@ -235,11 +234,11 @@ $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     // Sample data for multiple students
-		var json_data3 =<?php echo $json_string; ?>;
-		console.log(json_data3);
+		/* var json_data3 =<?php // echo $json_string; ?>;
+		console.log(json_data3); */
 
 
-   /*  var json_data3 = [
+    var json_data3 = [
         {
             "name": "Testing Student",
             "data": [3, 6, 6, 6],
@@ -264,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "labels": ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04"],
             "color": "hsl(317, 100%, 50%)"
         }
-    ]; */
+    ];
 
     // Get the canvas element
     const canvas = document.getElementById("marksChart");
@@ -296,6 +295,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 </script>
+
+<!-- campaire js end  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+ <script>
+      $("#exam_id").select2({
+          placeholder: "Select exam",
+          allowClear: true
+      });
+
+      $("#student_id").select2({
+          placeholder: "Select Student",
+          allowClear: true
+      });
+
+
+      </script>
 
 <!-- campaire js end  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
