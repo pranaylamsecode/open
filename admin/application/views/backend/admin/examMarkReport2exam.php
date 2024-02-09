@@ -160,14 +160,11 @@ $student_data2 = $this->db->get()->result_array();
 <script src="https://cdn.amcharts.com/lib/5/themes/Responsive.js"></script>
 
 <?php
-$exam_id = 20;
-$student_id2 = 45;
-
 
 $this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.quiz_id, qr.score as value, s.name as student_name');
 $this->db->from('quiz_report qr');
 $this->db->join('student s', 'qr.student_id = s.student_id');
-$this->db->where('qr.student_id', $student_id2);
+$this->db->where('qr.student_id', $student_id);
 $this->db->where('qr.quiz_id', $exam_id);
 
 $query2 = $this->db->get();
@@ -206,8 +203,14 @@ $json_data = array_values($json_data);
 $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
 
 ?>
+<?php if(!empty($result2))
+{
+	?>
+
 <canvas id="marksChart" width="400" height="200"></canvas>
 
+	<?php
+} ?>
 <script src="your_script.js"></script>
 
 <script>
