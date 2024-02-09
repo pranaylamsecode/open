@@ -240,7 +240,7 @@ class Report extends CI_Controller
 				$page_data['percentage_type'] = null;
 			 }
 
-             if ($page_data['student_id2'] == 'All' && !empty($page_data['student_id'])  && !empty($page_data['student_id'])) {
+             if ($page_data['student_id2'] == 'All' && !empty($page_data['student_id'])  && !empty($page_data['student_id2'])) {
                  redirect(base_url() . 'report/examMarkReportBatchQuiz/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2']. '/' . $page_data['percentage_type'], 'refresh');
 
              } elseif (!empty($page_data['student_id2']) && !empty($page_data['student_id'])) {
@@ -284,7 +284,7 @@ class Report extends CI_Controller
 			   $page_data['percentage_type'] = null;
 			}
 
-			if ($page_data['student_id2'] == 'All' && !empty($page_data['student_id'])  && !empty($page_data['student_id'])) {
+            if ($page_data['student_id2'] == 'All' && !empty($page_data['student_id'])  && !empty($page_data['student_id2'])) {
 				redirect(base_url() . 'report/examMarkReportBatchQuiz/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2']. '/' . $page_data['percentage_type'], 'refresh');
 
 			} elseif (!empty($page_data['student_id2']) && !empty($page_data['student_id'])) {
@@ -328,7 +328,7 @@ class Report extends CI_Controller
 			   $page_data['percentage_type'] = null;
 			}
 
-             if ($page_data['student_id2'] == 'All' && !empty($page_data['student_id'])  && !empty($page_data['student_id'])) {
+             if ($page_data['student_id2'] == 'All' && !empty($page_data['student_id'])  && !empty($page_data['student_id2'])) {
                  redirect(base_url() . 'report/examMarkReportBatchQuiz/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2']. '/' . $page_data['percentage_type'], 'refresh');
 
              } elseif (!empty($page_data['student_id2']) && !empty($page_data['student_id'])) {
