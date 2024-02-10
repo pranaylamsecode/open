@@ -139,7 +139,7 @@ $student_data2 = $this->db->get()->result_array();
                                             <!-- if other student check end  -->
 
 											<div class="form-group">
-                                <label class="col-md-12" for="example-text"><?php echo get_phrase('Student Percentage');?></label>
+                                <label class="col-md-12" for="example-text"><?php echo get_phrase('Percentage By');?></label>
                                                 <div class="col-sm-12">
 
 												<select  name="percentage_type"  class="form-control">
@@ -181,8 +181,9 @@ if(!empty($percentage_type) && $percentage_type == 'percentile')
 {
 
 
-if(!empty($student_id))
-{
+
+    if(!empty($student_id))
+    {
     $this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.exam_quiz_id, qr.percentage as value, s.name as student_name');
     $this->db->from('exam_quiz_report qr');
     $this->db->join('student s', 'qr.student_id = s.student_id');
@@ -191,11 +192,11 @@ if(!empty($student_id))
 
     $query2 = $this->db->get();
     $result2 = $query2->result_array();
-}
+    }
 
 
-if(!empty($student_id) && !empty($student_id2))
-{
+    if(!empty($student_id) && !empty($student_id2))
+    {
     $this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.exam_quiz_id, qr.percentage as value, s.name as student_name');
         $this->db->from('exam_quiz_report qr');
         $this->db->join('student s', 'qr.student_id = s.student_id');
@@ -204,7 +205,7 @@ if(!empty($student_id) && !empty($student_id2))
 
         $query2 = $this->db->get();
         $result2 = $query2->result_array();
-}
+    }
 
 }else{
 
