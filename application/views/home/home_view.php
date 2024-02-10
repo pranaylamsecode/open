@@ -7,13 +7,13 @@
         height: 250px;
         object-fit: contain;
     }
-     .comp-1 .float-text {
+.comp-1 .float-text {
     padding: 10px 0;
-    background-image: linear-gradient(to bottom right, #150051, #1C7CE0);
+    background: #268ecd;
 }
- .comp-1 .float-text marquee a {
-    color: #5EA9F4;
-    font-size: 0.9rem;
+.comp-1 .float-text marquee a {
+    color: #fff;
+    font-size: 18px;
     font-weight: 600;
 }
 .head-underline {
@@ -22,7 +22,7 @@
     max-width: -moz-max-content;
     max-width: max-content;
     margin: auto;
-    background-image: linear-gradient(170deg, #525fe1, #150051, #1C7CE0, #50e3c2, #237db6, #2336b6);
+    background: #0275bb;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -38,22 +38,10 @@
     margin: auto;
 }
  .comp-1 .news-outer-container .newsborder {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     position: relative;
 }
 
- .comp-1 .news-outer-container .news-inner-container ul li::before {
-    content: "";
-    width: 20px;
-    height: 28px;
-    position: absolute;
-    background-image: url("https://www.momentumnagpur.com/assets/images/right-arrow.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    top: 0%;
-    left: -25px;
-}
  .comp-1 .news-outer-container .news-inner-container {
     max-height: 435px;
         overflow-y: auto;
@@ -62,8 +50,8 @@
     content: "";
     position: absolute;
     border: none;
-    height: 4px;
-    background: linear-gradient(to right, #237db6, rgba(31, 38, 103, 0.9));
+    height: 2px;
+    background: #268ecd;
     width: 90%;
     top: 110%;
     text-align: center;
@@ -81,15 +69,19 @@ section.comp-1 img {
     object-fit: contain!important;
 }
 .comp-1 .news-outer-container .news-inner-container ul li {
+    margin-bottom: 25px;
+    color: #0275bb;
+}
+.comp-1 .news-outer-container .news-inner-container ul li a {
     cursor: pointer;
     position: relative;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 25px;
     color: #0275bb;
     font-weight: 500;
     line-height: 1.9em;
     font-size: 15px;
+}
+.comp-1 .news-outer-container .news-inner-container ul li a:hover {
+    color: #0a659d;
 }
 .carousel.slide button {
     border: unset !IMPORTANT;
@@ -102,6 +94,9 @@ section.comp-1 img {
     100% {
         background-position: 400%;
     }
+}
+marquee span {
+    margin: 0px 50px;
 }
 @media (max-width:767px){
     section.comp-1 img {
@@ -173,10 +168,10 @@ section.comp-1 .slide {
                     <marquee behavior="scroll" direction="left">
 <?php foreach($notics as $notic){ ?>
 
-   
+
                         <?php echo $notic['title']; ?>
                         &nbsp;
-                       
+
 
 
        <?php } ?>

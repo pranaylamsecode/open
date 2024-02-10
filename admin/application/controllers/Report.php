@@ -268,6 +268,37 @@ class Report extends CI_Controller
      public function examMarkReportExamQuiz4($exam_id = null, $student_id = null, $student_id2 = null,$percentage_type = null)
      {
 
+        /* $student_id = 47;
+        $student_id2 = 45;
+        $exam_id = 22;
+
+if(!empty($student_id))
+{
+    $this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.exam_quiz_id, qr.percentage as value, s.name as student_name');
+    $this->db->from('exam_quiz_report qr');
+    $this->db->join('student s', 'qr.student_id = s.student_id');
+    $this->db->where('qr.student_id', $student_id);
+    $this->db->where('qr.exam_quiz_id', $exam_id);
+
+    $query2 = $this->db->get();
+    $result2 = $query2->result_array();
+}
+
+
+if(!empty($student_id) && !empty($student_id2))
+{
+    $this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.exam_quiz_id, qr.percentage as value, s.name as student_name');
+        $this->db->from('exam_quiz_report qr');
+        $this->db->join('student s', 'qr.student_id = s.student_id');
+        $this->db->where('(qr.student_id = ' . $student_id . ' OR qr.student_id = ' . $student_id2 . ')');
+        $this->db->where('qr.exam_quiz_id', $exam_id);
+
+        $query2 = $this->db->get();
+        $result2 = $query2->result_array();
+}
+
+print_r($result2);die; */
+
          if ($this->input->post('operation') == 'selection') {
 
 			$page_data['exam_id'] = $this->input->post('exam_id');
