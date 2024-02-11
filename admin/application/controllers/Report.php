@@ -221,7 +221,7 @@ class Report extends CI_Controller
 
 
      /* report for exam report start  */
-     public function examMarkReportExamQuiz($exam_id = null, $student_id = null, $student_id2 = null, $percentage_type = null)
+     public function examMarkReportExamQuiz($exam_id = 0, $student_id = 0, $student_id2 = 0, $percentage_type = 0)
      {
 
          if ($this->input->post('operation') == 'selection') {
@@ -229,18 +229,18 @@ class Report extends CI_Controller
              $page_data['exam_id'] = $this->input->post('exam_id');
              $page_data['student_id'] = $this->input->post('student_id');
 			 if(empty($page_data['student_id'])){
-				$page_data['student_id'] = null;
+				$page_data['student_id'] = 0;
 			 }
 			 $page_data['student_id2'] = $this->input->post('student_id2');
 			 if(empty($page_data['student_id2'])){
-				$page_data['student_id2'] = null;
+				$page_data['student_id2'] = 0;
 			 }
              $page_data['percentage_type'] = $this->input->post('percentage_type');
 			 if(empty($page_data['percentage_type'])){
-				$page_data['percentage_type'] = null;
+				$page_data['percentage_type'] = 0;
 			 }
 
-             if ($page_data['student_id2'] == 'All' && !empty($page_data['student_id'])  && !empty($page_data['student_id2'])) {
+             if ($page_data['student_id2'] == 'All' && !empty($page_data['student_id'])  && !empty($page_data['student_id2'])  ) {
                  redirect(base_url() . 'report/examMarkReportBatchQuiz/' . $page_data['exam_id'] . '/' . $page_data['student_id'] . '/' . $page_data['student_id2']. '/' . $page_data['percentage_type'], 'refresh');
 
              } elseif (!empty($page_data['student_id2']) && !empty($page_data['student_id'])) {
@@ -259,13 +259,13 @@ class Report extends CI_Controller
          $page_data['exam_id'] = $exam_id;
          $page_data['student_id'] = $student_id;
          $page_data['student_id2'] = $student_id2;
-         $page_data['percentage_type'] = $this->input->post('percentage_type');
+         $page_data['percentage_type'] = $percentage_type;
          $page_data['page_name'] = 'examMarkReport2exam';
          $page_data['page_title'] = get_phrase('Exam Quiz Report');
          $this->load->view('backend/index', $page_data);
      }
 
-     public function examMarkReportExamQuiz4($exam_id = null, $student_id = null, $student_id2 = null,$percentage_type = null)
+     public function examMarkReportExamQuiz4($exam_id = 0, $student_id = 0, $student_id2 = 0,$percentage_type = 0)
      {
 
 
@@ -275,15 +275,15 @@ class Report extends CI_Controller
 			$page_data['exam_id'] = $this->input->post('exam_id');
 			$page_data['student_id'] = $this->input->post('student_id');
 			if(empty($page_data['student_id'])){
-			   $page_data['student_id'] = null;
+			   $page_data['student_id'] = 0;
 			}
 			$page_data['student_id2'] = $this->input->post('student_id2');
 			if(empty($page_data['student_id2'])){
-			   $page_data['student_id2'] = null;
+			   $page_data['student_id2'] = 0;
 			}
 			$page_data['percentage_type'] = $this->input->post('percentage_type');
 			if(empty($page_data['percentage_type'])){
-			   $page_data['percentage_type'] = null;
+			   $page_data['percentage_type'] = 0;
 			}
 
             if ($page_data['student_id2'] == 'All' && !empty($page_data['student_id'])  && !empty($page_data['student_id2'])) {
@@ -311,7 +311,7 @@ class Report extends CI_Controller
          $this->load->view('backend/index', $page_data);
      }
 
-     public function examMarkReportBatchQuiz($exam_id = null, $student_id = null, $student_id2 = null,$percentage_type = null)
+     public function examMarkReportBatchQuiz($exam_id = 0, $student_id = 0, $student_id2 = 0,$percentage_type = 0)
     {
 
         if ($this->input->post('operation') == 'selection') {
@@ -319,15 +319,15 @@ class Report extends CI_Controller
 			$page_data['exam_id'] = $this->input->post('exam_id');
 			$page_data['student_id'] = $this->input->post('student_id');
 			if(empty($page_data['student_id'])){
-			   $page_data['student_id'] = null;
+			   $page_data['student_id'] = 0;
 			}
 			$page_data['student_id2'] = $this->input->post('student_id2');
 			if(empty($page_data['student_id2'])){
-			   $page_data['student_id2'] = null;
+			   $page_data['student_id2'] = 0;
 			}
 			$page_data['percentage_type'] = $this->input->post('percentage_type');
 			if(empty($page_data['percentage_type'])){
-			   $page_data['percentage_type'] = null;
+			   $page_data['percentage_type'] = 0;
 			}
 
              if ($page_data['student_id2'] == 'All' && !empty($page_data['student_id'])  && !empty($page_data['student_id2'])) {
@@ -349,7 +349,7 @@ class Report extends CI_Controller
          $page_data['exam_id'] = $exam_id;
          $page_data['student_id'] = $student_id;
          $page_data['student_id2'] = $student_id2;
-         $page_data['percentage_type'] = $this->input->post('percentage_type');
+		 $page_data['percentage_type'] = $percentage_type;
         $page_data['page_name'] = 'examMarkReportbatchexam';
         $page_data['page_title'] = get_phrase('Exam Quiz');
         $this->load->view('backend/index', $page_data);
