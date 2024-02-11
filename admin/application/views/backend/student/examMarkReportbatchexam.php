@@ -7,7 +7,7 @@
 
                     <!----CREATION FORM STARTS---->
 
-                	<?php echo form_open(base_url() . 'report/examMarkReport4' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top', 'enctype' => 'multipart/form-data'));?>
+                	<?php echo form_open(base_url() . 'report/examMarkReportBatchQuiz' , array('class' => 'form-horizontal form-groups-bordered validate','target'=>'_top', 'enctype' => 'multipart/form-data'));?>
 
                             <div class="form-group">
                                     <label class="col-md-12" for="example-text"><?php echo get_phrase('Quiz');?></label>
@@ -122,10 +122,10 @@ $student_data2 = $this->db->get()->result_array();
 
                             <div class="form-group">
                                <label class="col-md-12" for="example-text">
-                                <?php echo get_phrase('Student Percentage');?></label>
+                                <?php echo get_phrase('Percentage By');?></label>
                                      <div class="col-sm-12">
                                     <select  name="percentage_type"  class="form-control">
-                                    <option value="">Select Percentage By</option>
+
                                         <option
 																				<?php if(isset($percentage_type) && $percentage_type == 'score') echo 'selected="selected"';?>
 																				<?php if(empty($percentage_type)) echo 'selected="selected"';?>
@@ -179,14 +179,44 @@ $student_data2 = $this->db->get()->result_array();
 
 <?php
 
-$this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.quiz_id, qr.score as value, s.name as student_name');
-$this->db->from('quiz_report qr');
-$this->db->join('student s', 'qr.student_id = s.student_id');
-$this->db->where('qr.student_id', $student_id);
-$this->db->where('qr.quiz_id', $exam_id);
 
-$query2 = $this->db->get();
-$result2 = $query2->result_array();
+
+if(!empty($percentage_type) && $percentage_type == 'percentile')
+{
+
+
+
+if(!empty($student_id) && !empty($student_id2))
+{
+$this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.exam_quiz_id, qr.percentage as value, s.name as student_name');
+    $this->db->from('exam_quiz_report qr');
+    $this->db->join('student s', 'qr.student_id = s.student_id');
+
+    $this->db->where('qr.exam_quiz_id', $exam_id);
+
+    $query2 = $this->db->get();
+    $result2 = $query2->result_array();
+}
+
+
+
+}else{
+
+
+if(!empty($student_id) && !empty($student_id2) && $student_id2 = 'All')
+{
+    $this->db->select('UNIX_TIMESTAMP(qr.created_at) as date, qr.exam_quiz_id, qr.score as value, s.name as student_name');
+        $this->db->from('exam_quiz_report qr');
+        $this->db->join('student s', 'qr.student_id = s.student_id');
+       /*  $this->db->where('(qr.student_id = ' . $student_id . ' OR qr.student_id = ' . $student_id2 . ')'); */
+        $this->db->where('qr.exam_quiz_id', $exam_id);
+
+        $query2 = $this->db->get();
+        $result2 = $query2->result_array();
+}
+
+}
+
 
 
 $json_data = array();
@@ -221,7 +251,7 @@ $json_data = array_values($json_data);
 $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
 
 ?>
-<?php if(true)
+<?php if(!empty($result2))
 {
 	?>
 
@@ -234,36 +264,10 @@ $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     // Sample data for multiple students
-		/* var json_data3 =<?php // echo $json_string; ?>;
-		console.log(json_data3); */
+		var json_data3 =<?php echo $json_string; ?>;
+        var json_data3 =  json_data3.sort((a, b) => b.data.length - a.data.length);
 
 
-    var json_data3 = [
-        {
-            "name": "Testing Student",
-            "data": [3, 6, 6, 6],
-            "labels": ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04"],
-            "color": "hsl(73, 100%, 50%)"
-        },
-        {
-            "name": "Testing Student",
-            "data": [6, 9, 12, 15],
-            "labels": ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04"],
-            "color": "hsl(123, 100%, 50%)"
-        },
-        {
-            "name": "Testing Student",
-            "data": [9, 12, 15, 18],
-            "labels": ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04"],
-            "color": "hsl(350, 100%, 50%)"
-        },
-        {
-            "name": "Testing Student",
-            "data": [12, 15, 18, 21],
-            "labels": ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-04"],
-            "color": "hsl(317, 100%, 50%)"
-        }
-    ];
 
     // Get the canvas element
     const canvas = document.getElementById("marksChart");
