@@ -47,6 +47,12 @@ class Quiz_question_model extends CI_Model {
             'option3' => $this->input->post('option3'),
             'option4' => $this->input->post('option4'),
             'answer' => $this->input->post('answer'),
+
+            'file' => $_FILES['question_image']['name'],
+            'file_a' => $_FILES['option_a']['name'],
+            'file_b' => $_FILES['option_b']['name'],
+            'file_c' => $_FILES['option_c']['name'],
+            'file_d' => $_FILES['option_d']['name'],
         );
 
         // print_r($page_data);

@@ -12,7 +12,7 @@
             <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Edit Quiz Question'); ?>
             </div>
 
-            <?php echo form_open(base_url() . 'quiz/quizQuestion/update/' .$id, array('class' => 'form-horizontal form-goups-bordered validate'));?>            <div class="panel-body table-responsive">
+            <?php echo form_open(base_url() . 'quiz/quizQuestion/update/' .$id, array('class' => 'form-horizontal form-goups-bordered validate', 'enctype' => 'multipart/form-data'));?>            <div class="panel-body table-responsive">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -35,7 +35,9 @@
                         <div class="form-group">
 
                         
-                             <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quiz_questions['file']; ?>" alt="bansal-pathshala">
+
+                        
+                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file']; ?>" alt="bansal-pathshala">
 
                             <input type="file" class="form-control" name="question_image" onchange="readURL(this);" >
 
@@ -47,7 +49,7 @@
                     <!-- <div class="col-md-6"></div> -->
                     <div class="col-md-6">
                         <div class="form-group">
-                             <img width="250px ; height:250px;" src="<?php echo $quest->file_a; ?>" alt="bansal-pathshala">
+                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file_a']; ?>" alt="bansal-pathshala">
 
                             <input type="file" class="form-control" name="option_a" onchange="readURL(this);" >
 
@@ -58,7 +60,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                             <img width="250px ; height:250px;" src="<?php echo $quest->file_b; ?>" alt="bansal-pathshala">
+                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file_b']; ?>" alt="bansal-pathshala">
 
                             <input type="file" class="form-control" name="option_b" onchange="readURL(this);" >
 
@@ -69,7 +71,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                             <img width="250px ; height:250px;" src="<?php echo $quest->file_c; ?>" alt="bansal-pathshala">
+                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file_c']; ?>" alt="bansal-pathshala">
 
                             <input type="file" class="form-control" name="option_c" onchange="readURL(this);" >
 
@@ -80,7 +82,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                             <img width="250px ; height:250px;" src="<?php echo $quest->file_d; ?>" alt="bansal-pathshala">
+                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file_d']; ?>" alt="bansal-pathshala">
 
                             <input type="file" class="form-control" name="option_d" onchange="readURL(this);" >
 

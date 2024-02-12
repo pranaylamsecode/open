@@ -1,9 +1,5 @@
 <?php $questions = $this->db->get_where('exam_quiz_questions', array('id' => $id))->result_array();
-print_r('<pre>');
-print_r($questions);
-print_r('</pre>');
 
-die;
 
         foreach($questions as $key => $quiz_questions):
 		// print_r($students);
