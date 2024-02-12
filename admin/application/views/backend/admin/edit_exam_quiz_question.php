@@ -1,4 +1,10 @@
 <?php $questions = $this->db->get_where('exam_quiz_questions', array('id' => $id))->result_array();
+print_r('<pre>');
+print_r($questions);
+print_r('</pre>');
+
+die;
+
         foreach($questions as $key => $quiz_questions):
 		// print_r($students);
 		// exit;
@@ -32,6 +38,8 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="example-text"><?php echo get_phrase('Question');?></label>
+                             <img width="250px ; height:250px;" src="<?= base_url() ?>admin/uploads/question_image/<?php echo $quiz_questions['file']; ?>" alt="bansal-pathshala">
+
                             <input name="question" type="text" value="<?php echo $quiz_questions['question'];?>" class="form-control" required>
                         </div>
                     </div>
@@ -39,6 +47,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="example-text"><?php echo get_phrase('Option 1');?></label>
+                             <img width="250px ; height:250px;" src="<?php echo $quiz_questions['file_a']; ?>" alt="bansal-pathshala">
+
                             <input name="option1" type="text" value="<?php echo $quiz_questions['option1'];?>" class="form-control" required>
                         </div>
                     </div>
@@ -46,6 +56,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="example-text"><?php echo get_phrase('Option 2');?></label>
+                             <img width="250px ; height:250px;" src="<?php echo $quiz_questions['file_b']; ?>" alt="bansal-pathshala">
+
                             <input name="option2" type="text" value="<?php echo $quiz_questions['option2'];?>" class="form-control" required>
                         </div>
                     </div>
@@ -53,6 +65,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="example-text"><?php echo get_phrase('Option 3');?></label>
+                             <img width="250px ; height:250px;" src="<?php echo $quiz_questions['file_c']; ?>" alt="bansal-pathshala">
+
                             <input name="option3" type="text" value="<?php echo $quiz_questions['option3'];?>" class="form-control" required>
                         </div>
                     </div>
@@ -60,6 +74,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="example-text"><?php echo get_phrase('Option 4');?></label>
+                             <img width="250px ; height:250px;" src="<?php echo $quiz_questions['file_d']; ?>" alt="bansal-pathshala">
+
                             <input name="option4" type="text" value="<?php echo $quiz_questions['option4'];?>" class="form-control" required>
                         </div>
                     </div>
