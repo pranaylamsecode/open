@@ -211,11 +211,28 @@ class Quiz extends CI_Controller {
 
 
 				 $this->upload->initialize($config);
-				 $this->upload->do_upload('question_image');
-				 $this->upload->do_upload('option_a');
-				 $this->upload->do_upload('option_b');
-				 $this->upload->do_upload('option_c');
-				 $this->upload->do_upload('option_d');
+
+                 if(!empty($_FILES['question_image']['name']))
+                 {
+                    $this->upload->do_upload('question_image');
+                 }
+
+                 if(!empty($_FILES['option_a']['name']))
+                 {
+                    $this->upload->do_upload('option_a');
+                 }
+                 if(!empty($_FILES['option_b']['name']))
+                 {
+                    $this->upload->do_upload('option_b');
+                 }
+                 if(!empty($_FILES['option_c']['name']))
+                 {
+                    $this->upload->do_upload('option_c');
+                 }
+                 if(!empty($_FILES['option_d']['name']))
+                 {
+                    $this->upload->do_upload('option_d');
+                 }
 
 
 
@@ -228,7 +245,7 @@ class Quiz extends CI_Controller {
 				 /* $this->db->insert('results', $page_data); */
 
 
-                 
+
 
                 $this->quiz_question_model->updateQuestion($param2);
                 $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));

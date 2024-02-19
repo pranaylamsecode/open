@@ -39,6 +39,13 @@ class Quiz_question_model extends CI_Model {
    // The function below inserts into academic syllabus table //
     function updateQuestion($param2){
 
+        $question_image = $_FILES['question_image']['name']  ? $_FILES['question_image']['name']  :  $_FILES['question_image_original']['name'];
+        $option_a = $_FILES['option_a']['name']  ? $_FILES['option_a']['name']  :  $_FILES['option_a_original']['name'];
+        $option_b = $_FILES['option_b']['name']  ? $_FILES['option_b']['name']  :  $_FILES['option_b_original']['name'];
+        $option_c = $_FILES['option_c']['name']  ? $_FILES['option_c']['name']  :  $_FILES['option_c_original']['name'];
+        $option_d = $_FILES['option_d']['name']  ? $_FILES['option_d']['name']  :  $_FILES['option_d_original']['name'];
+
+
         $page_data = array(
             // 'quiz_id' => $this->input->post('quiz_id'),
             'question' => $this->input->post('question'),
@@ -48,11 +55,11 @@ class Quiz_question_model extends CI_Model {
             'option4' => $this->input->post('option4'),
             'answer' => $this->input->post('answer'),
 
-            'file' => $_FILES['question_image']['name'],
-            'file_a' => $_FILES['option_a']['name'],
-            'file_b' => $_FILES['option_b']['name'],
-            'file_c' => $_FILES['option_c']['name'],
-            'file_d' => $_FILES['option_d']['name'],
+            'file' => $question_image,
+            'file_a' => $option_a,
+            'file_b' => $option_b,
+            'file_c' => $option_c,
+            'file_d' => $option_d,
         );
 
         // print_r($page_data);
