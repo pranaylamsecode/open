@@ -9,6 +9,13 @@ class Quiz_question_model extends CI_Model {
     }
 
     function createQuestion(){
+
+        $question_image = time().str_replace(' ', '_', $_FILES['question_image']['name']);
+        $option_a = time().str_replace(' ', '_', $_FILES['option_a']['name']);
+        $option_b = time().str_replace(' ', '_', $_FILES['option_b']['name']);
+        $option_c = time().str_replace(' ', '_', $_FILES['option_c']['name']);
+        $option_d = time().str_replace(' ', '_', $_FILES['option_d']['name']);
+
         $page_data = array(
             'quiz_id' => $this->input->post('quiz_id'),
             'question' => $this->input->post('question'),
@@ -17,11 +24,11 @@ class Quiz_question_model extends CI_Model {
             'option3' => $this->input->post('option3'),
             'option4' => $this->input->post('option4'),
 
-            'file' => $_FILES['question_image']['name'],
-            'file_a' => $_FILES['option_a']['name'],
-            'file_b' => $_FILES['option_b']['name'],
-            'file_c' => $_FILES['option_c']['name'],
-            'file_d' => $_FILES['option_d']['name'],
+            'file' => $question_image,
+            'file_a' => $option_a,
+            'file_b' => $option_b,
+            'file_c' => $option_c,
+            'file_d' => $option_d,
             'is_active' => '1',
         );
 
@@ -39,12 +46,11 @@ class Quiz_question_model extends CI_Model {
    // The function below inserts into academic syllabus table //
     function updateQuestion($param2){
 
-        $question_image = $_FILES['question_image']['name']  ? $_FILES['question_image']['name']  : $this->input->post('question_image_original');
-        $option_a = $_FILES['option_a']['name']  ? $_FILES['option_a']['name']  : $this->input->post('option_a_original');
-        $option_b = $_FILES['option_b']['name']  ? $_FILES['option_b']['name']  : $this->input->post('option_b_original');
-        $option_c = $_FILES['option_c']['name']  ? $_FILES['option_c']['name']  : $this->input->post('option_c_original');
-        $option_d = $_FILES['option_d']['name']  ? $_FILES['option_d']['name']  : $this->input->post('option_d_original');
-
+        $question_image = time().str_replace(' ', '_', $_FILES['question_image']['name'])  ? time().str_replace(' ', '_', $_FILES['question_image']['name'])  : $this->input->post('question_image_original');
+        $option_a = time().str_replace(' ', '_', $_FILES['option_a']['name'])  ? time().str_replace(' ', '_', $_FILES['option_a']['name'])  : $this->input->post('option_a_original');
+        $option_b = time().str_replace(' ', '_', $_FILES['option_b']['name'])  ? time().str_replace(' ', '_', $_FILES['option_b']['name'])  : $this->input->post('option_b_original');
+        $option_c = time().str_replace(' ', '_', $_FILES['option_c']['name'])  ? time().str_replace(' ', '_', $_FILES['option_c']['name'])  : $this->input->post('option_c_original');
+        $option_d = time().str_replace(' ', '_', $_FILES['option_d']['name'])  ? time().str_replace(' ', '_', $_FILES['option_d']['name'])  : $this->input->post('option_d_original');
 
 
         $page_data = array(
