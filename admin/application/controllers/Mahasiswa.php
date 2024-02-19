@@ -421,7 +421,8 @@ class Mahasiswa extends CI_Controller
 				write_file($filePath, $binaryData);
 				$new_file_name = $fileName;
 			}else{
-				/* $new_file_name = */
+
+				$new_file_name = $d->file;
 			}
             // Write the file to the disk
 
@@ -453,6 +454,7 @@ class Mahasiswa extends CI_Controller
 				write_file($filePath_a, $binaryData_a);
 				$new_file_name_file_a = $fileName_a;
 			}else{
+				$new_file_name_file_a = $d->file_a;
 
 
 			}
@@ -482,7 +484,7 @@ class Mahasiswa extends CI_Controller
 				$new_file_name_file_b = $fileName_b;
 			}else{
 
-
+				$new_file_name_file_b = $d->file_b;
 			}
 			/* file_a upload end  */
 
@@ -510,6 +512,7 @@ class Mahasiswa extends CI_Controller
 				$new_file_name_file_c = $fileName_c;
 
 			}else{
+				$new_file_name_file_c = $d->file_c;
 
 			}
 			/* file_c upload end  */
@@ -540,7 +543,7 @@ class Mahasiswa extends CI_Controller
 
 
 
-				$new_file_name_file_d = $fileName_d;
+				$new_file_name_file_d = $d->file_d;
 
 			}
 			/* file_a upload end  */
