@@ -23,7 +23,7 @@
                                 <?php if ($quiz_details['quiz_id'] == $quiz_questions['quiz_id']): ?>
                                     <label for="example-text"><?php echo get_phrase('Quiz Name');?></label> : <?php echo $quiz_details['quiz_name']; ?>
                                     <!-- Hidden input to send the quiz_id along with the form -->
-                                    <!-- <input type="hidden" name="quiz_id" value="<?php echo $quiz_details['quiz_id']; ?>"> -->
+                                    
                                 <?php endif; ?>
                             <?php
                             endforeach;

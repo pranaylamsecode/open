@@ -39,6 +39,12 @@ class Exam_quiz_question_model extends CI_Model {
    // The function below inserts into academic syllabus table //
     function updateQuestion($param2){
 
+        $question_image = $_FILES['question_image']['name']  ? $_FILES['question_image']['name']  : $this->input->post('question_image_original');
+        $option_a = $_FILES['option_a']['name']  ? $_FILES['option_a']['name']  : $this->input->post('option_a_original');
+        $option_b = $_FILES['option_b']['name']  ? $_FILES['option_b']['name']  : $this->input->post('option_b_original');
+        $option_c = $_FILES['option_c']['name']  ? $_FILES['option_c']['name']  : $this->input->post('option_c_original');
+        $option_d = $_FILES['option_d']['name']  ? $_FILES['option_d']['name']  : $this->input->post('option_d_original');
+
         $page_data = array(
             // 'quiz_id' => $this->input->post('quiz_id'),
             'question' => $this->input->post('question'),
@@ -47,6 +53,12 @@ class Exam_quiz_question_model extends CI_Model {
             'option3' => $this->input->post('option3'),
             'option4' => $this->input->post('option4'),
             'answer' => $this->input->post('answer'),
+
+            'file' => $question_image,
+            'file_a' => $option_a,
+            'file_b' => $option_b,
+            'file_c' => $option_c,
+            'file_d' => $option_d,
         );
 
         // print_r($page_data);

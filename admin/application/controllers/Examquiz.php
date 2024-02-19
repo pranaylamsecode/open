@@ -157,6 +157,86 @@ class Examquiz extends CI_Controller {
             }
 
             if($param1 == 'update'){
+
+
+                 //uploading file using codeigniter upload library
+				 $files = $_FILES['question_image'];
+				 $option_a = $_FILES['option_a'];
+				 $option_b = $_FILES['option_b'];
+				 $option_c = $_FILES['option_c'];
+				 $option_d = $_FILES['option_d'];
+
+				 $this->load->library('upload');
+				 $config['upload_path'] = 'uploads/exam_question_image/';
+				 $config['allowed_types'] = '*';
+
+				 $_FILES['question_image']['name'] = $files['name'];
+				 $_FILES['question_image']['type'] = $files['type'];
+				 $_FILES['question_image']['tmp_name'] = $files['tmp_name'];
+				 $_FILES['question_image']['size'] = $files['size'];
+
+
+				 $_FILES['option_a']['name'] = $option_a['name'];
+				 $_FILES['option_a']['type'] = $option_a['type'];
+				 $_FILES['option_a']['tmp_name'] = $option_a['tmp_name'];
+				 $_FILES['option_a']['size'] = $option_a['size'];
+
+				 $_FILES['option_b']['name'] = $option_b['name'];
+				 $_FILES['option_b']['type'] = $option_b['type'];
+				 $_FILES['option_b']['tmp_name'] = $option_b['tmp_name'];
+				 $_FILES['option_b']['size'] = $option_b['size'];
+
+
+				 $_FILES['option_c']['name'] = $option_c['name'];
+				 $_FILES['option_c']['type'] = $option_c['type'];
+				 $_FILES['option_c']['tmp_name'] = $option_c['tmp_name'];
+				 $_FILES['option_c']['size'] = $option_c['size'];
+
+
+
+
+				 $_FILES['option_d']['name'] = $option_d['name'];
+				 $_FILES['option_d']['type'] = $option_d['type'];
+				 $_FILES['option_d']['tmp_name'] = $option_d['tmp_name'];
+				 $_FILES['option_d']['size'] = $option_d['size'];
+
+
+				 $this->upload->initialize($config);
+
+                 if(!empty($_FILES['question_image']['name']))
+                 {
+                    $this->upload->do_upload('question_image');
+                 }
+
+                 if(!empty($_FILES['option_a']['name']))
+                 {
+                    $this->upload->do_upload('option_a');
+                 }
+                 if(!empty($_FILES['option_b']['name']))
+                 {
+                    $this->upload->do_upload('option_b');
+                 }
+                 if(!empty($_FILES['option_c']['name']))
+                 {
+                    $this->upload->do_upload('option_c');
+                 }
+                 if(!empty($_FILES['option_d']['name']))
+                 {
+                    $this->upload->do_upload('option_d');
+                 }
+
+
+
+
+				 $page_data['question_image'] = $_FILES['question_image']['name'];
+				 $page_data['option_a'] = $_FILES['option_a']['name'];
+				 $page_data['option_b'] = $_FILES['option_b']['name'];
+				 $page_data['option_c'] = $_FILES['option_c']['name'];
+				 $page_data['option_d'] = $_FILES['option_d']['name'];
+				 /* $this->db->insert('results', $page_data); */
+
+
+
                 $this->exam_quiz_question_model->updateQuestion($param2);
                 $this->session->set_flashdata('flash_message', get_phrase('Data updated successfully'));
                 redirect(base_url(). 'Examquiz/manage_exam_quiz_question', 'refresh');
