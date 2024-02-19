@@ -37,7 +37,10 @@
 
 
 
-                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file']; ?>" name="question_image_original" alt="bansal-pathshala">
+                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file']; ?>"  alt="bansal-pathshala">
+
+                             <input type="hidden" name="question_image_original" value="<?php echo $quiz_questions['file']; ?>">
+
 
                             <input type="file" class="form-control" name="question_image" onchange="readURL(this);" >
 
@@ -49,9 +52,11 @@
                     <!-- <div class="col-md-6"></div> -->
                     <div class="col-md-6">
                         <div class="form-group">
-                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file_a']; ?>"  name="option_a_original" alt="bansal-pathshala">
+                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file_a']; ?>"   alt="bansal-pathshala">
 
                             <input type="file" class="form-control" name="option_a" onchange="readURL(this);" >
+
+                            <input type="hidden" name="option_a_original" value="<?php echo $quiz_questions['file_a']; ?>">
 
                             <label for="example-text"><?php echo get_phrase('Option 1');?></label>
                             <input name="option1" type="text" value="<?php echo $quiz_questions['option1'];?>" class="form-control" required>
@@ -60,20 +65,24 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file_b']; ?>" name="option_b_original" alt="bansal-pathshala">
+                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file_b']; ?>"  alt="bansal-pathshala">
 
                             <input type="file" class="form-control" name="option_b" onchange="readURL(this);" >
 
                             <label for="example-text"><?php echo get_phrase('Option 2');?></label>
                             <input name="option2" type="text" value="<?php echo $quiz_questions['option2'];?>" class="form-control" required>
+
+                            <input type="hidden" name="option_b_original" value="<?php echo $quiz_questions['file_b']; ?>">
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="form-group">
-                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file_c']; ?>"  name="option_c_original" alt="bansal-pathshala">
+                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file_c']; ?>"   alt="bansal-pathshala">
 
                             <input type="file" class="form-control" name="option_c" onchange="readURL(this);" >
+
+                            <input type="hidden" name="option_c_original" value="<?php echo $quiz_questions['file_c']; ?>">
 
                             <label for="example-text"><?php echo get_phrase('Option 3');?></label>
                             <input name="option3" type="text" value="<?php echo $quiz_questions['option3'];?>" class="form-control" required>
@@ -82,9 +91,11 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file_d']; ?>"  name="option_d_original" alt="bansal-pathshala">
+                             <img width="250px ; height:250px;" src="<?= base_url() ?>uploads/question_image/<?php echo $quiz_questions['file_d']; ?>"   alt="bansal-pathshala">
 
                             <input type="file" class="form-control" name="option_d" onchange="readURL(this);" >
+
+                            <input type="hidden" name="option_d_original" value="<?php echo $quiz_questions['file_d']; ?>">
 
                             <label for="example-text"><?php echo get_phrase('Option 4');?></label>
                             <input name="option4" type="text" value="<?php echo $quiz_questions['option4'];?>" class="form-control" required>
