@@ -117,29 +117,30 @@ class Quiz extends CI_Controller {
 				 $config['upload_path'] = 'uploads/question_image/';
 				 $config['allowed_types'] = '*';
 
-                 $_FILES['question_image']['name'] = time().str_replace(' ', '_', $files['name']);
+				 $_FILES['question_image']['name'] = $files['name'];
 				 $_FILES['question_image']['type'] = $files['type'];
 				 $_FILES['question_image']['tmp_name'] = $files['tmp_name'];
 				 $_FILES['question_image']['size'] = $files['size'];
 
-				 $_FILES['option_a']['name'] = time().str_replace(' ', '_', $option_a['name']);
+
+				 $_FILES['option_a']['name'] = $option_a['name'];
 				 $_FILES['option_a']['type'] = $option_a['type'];
 				 $_FILES['option_a']['tmp_name'] = $option_a['tmp_name'];
 				 $_FILES['option_a']['size'] = $option_a['size'];
 
-				 $_FILES['option_b']['name'] = time().str_replace(' ', '_', $option_b['name']);
+				 $_FILES['option_b']['name'] = $option_b['name'];
 				 $_FILES['option_b']['type'] = $option_b['type'];
 				 $_FILES['option_b']['tmp_name'] = $option_b['tmp_name'];
 				 $_FILES['option_b']['size'] = $option_b['size'];
 
 
-				 $_FILES['option_c']['name'] = time().str_replace(' ', '_', $option_c['name']);
+				 $_FILES['option_c']['name'] = $option_c['name'];
 				 $_FILES['option_c']['type'] = $option_c['type'];
 				 $_FILES['option_c']['tmp_name'] = $option_c['tmp_name'];
 				 $_FILES['option_c']['size'] = $option_c['size'];
 
 
-				 $_FILES['option_d']['name'] = time().str_replace(' ', '_', $option_d['name']);
+				 $_FILES['option_d']['name'] = $option_d['name'];
 				 $_FILES['option_d']['type'] = $option_d['type'];
 				 $_FILES['option_d']['tmp_name'] = $option_d['tmp_name'];
 				 $_FILES['option_d']['size'] = $option_d['size'];
@@ -180,31 +181,32 @@ class Quiz extends CI_Controller {
 				 $config['upload_path'] = 'uploads/question_image/';
 				 $config['allowed_types'] = '*';
 
-				 $_FILES['question_image']['name'] = time().str_replace(' ', '_', $files['name']);
+				 $_FILES['question_image']['name'] = $files['name'];
 				 $_FILES['question_image']['type'] = $files['type'];
 				 $_FILES['question_image']['tmp_name'] = $files['tmp_name'];
 				 $_FILES['question_image']['size'] = $files['size'];
 
-				 $_FILES['option_a']['name'] = time().str_replace(' ', '_', $option_a['name']);
+
+				 $_FILES['option_a']['name'] = $option_a['name'];
 				 $_FILES['option_a']['type'] = $option_a['type'];
 				 $_FILES['option_a']['tmp_name'] = $option_a['tmp_name'];
 				 $_FILES['option_a']['size'] = $option_a['size'];
 
-				 $_FILES['option_b']['name'] = time().str_replace(' ', '_', $option_b['name']);
+				 $_FILES['option_b']['name'] = $option_b['name'];
 				 $_FILES['option_b']['type'] = $option_b['type'];
 				 $_FILES['option_b']['tmp_name'] = $option_b['tmp_name'];
 				 $_FILES['option_b']['size'] = $option_b['size'];
 
 
-				 $_FILES['option_c']['name'] = time().str_replace(' ', '_', $option_c['name']);
+				 $_FILES['option_c']['name'] = $option_c['name'];
 				 $_FILES['option_c']['type'] = $option_c['type'];
 				 $_FILES['option_c']['tmp_name'] = $option_c['tmp_name'];
 				 $_FILES['option_c']['size'] = $option_c['size'];
 
-                 
 
 
-				 $_FILES['option_d']['name'] = time().str_replace(' ', '_', $option_d['name']);
+
+				 $_FILES['option_d']['name'] = $option_d['name'];
 				 $_FILES['option_d']['type'] = $option_d['type'];
 				 $_FILES['option_d']['tmp_name'] = $option_d['tmp_name'];
 				 $_FILES['option_d']['size'] = $option_d['size'];
