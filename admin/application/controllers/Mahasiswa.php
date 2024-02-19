@@ -118,6 +118,8 @@ class Mahasiswa extends CI_Controller
 				];
 			}
 
+			print_r($data);die;
+
 			unlink($file);
 
 			$this->import($data);
@@ -183,7 +185,11 @@ class Mahasiswa extends CI_Controller
 
 					'exam_type' => $exam_type,
 				];
+
+
+
 			}
+
 
 			unlink($file);
 
@@ -261,6 +267,79 @@ class Mahasiswa extends CI_Controller
 	{
 		$input = json_decode($this->input->post('data', true));
 		$data = [];
+
+
+
+		/* added export by image start  */
+		foreach ($input as $d) {
+			// Assume $d->file contains the file paths or base64 encoded data for the images
+			// Modify this part according to your data structure
+			$file_path = $d->file; // Change this to the appropriate property containing the file path or base64 encoded data
+			$file_path_file_a = $d->file_a;
+			$file_path_file_b = $d->file_b;
+			$file_path_file_c = $d->file_c;
+			$file_path_file_d = $d->file_d;
+
+			// Upload the image file
+			if (file_exists($file_path)) {
+				$file_data = file_get_contents($file_path); // If $d->file contains base64 encoded data, you can directly use it here instead of file_get_contents
+
+				// Save the file to a directory in your server
+				$new_file_name = uniqid() . '_' . basename($file_path);
+				$new_file_path = 'uploads/question_image/' . $new_file_name;
+				file_put_contents($new_file_path, $file_data);
+
+				// Update $data array with the new file path
+				$d->file = $new_file_path; // Update the 'file' field with the new file path
+			}
+			if (file_exists($file_path_file_a)) {
+				$file_data = file_get_contents($file_path_file_a); // If $d->file contains base64 encoded data, you can directly use it here instead of file_get_contents
+
+				// Save the file to a directory in your server
+				$new_file_name = uniqid() . '_' . basename($file_path_file_a);
+				$new_file_path = 'uploads/question_image/' . $new_file_name;
+				file_put_contents($new_file_path, $file_data);
+
+				// Update $data array with the new file path
+				$d->file_path_file_a = $new_file_path; // Update the 'file' field with the new file path
+			}
+			if (file_exists($file_path_file_b)) {
+				$file_data = file_get_contents($file_path_file_b); // If $d->file contains base64 encoded data, you can directly use it here instead of file_get_contents
+
+				// Save the file to a directory in your server
+				$new_file_name = uniqid() . '_' . basename($file_path_file_b);
+				$new_file_path = 'uploads/question_image/' . $new_file_name;
+				file_put_contents($new_file_path, $file_data);
+
+				// Update $data array with the new file path
+				$d->file_path_file_b = $new_file_path; // Update the 'file' field with the new file path
+			}
+			if (file_exists($file_path_file_c)) {
+				$file_data = file_get_contents($file_path_file_c); // If $d->file contains base64 encoded data, you can directly use it here instead of file_get_contents
+
+				// Save the file to a directory in your server
+				$new_file_name = uniqid() . '_' . basename($file_path_file_c);
+				$new_file_path = 'uploads/question_image/' . $new_file_name;
+				file_put_contents($new_file_path, $file_data);
+
+				// Update $data array with the new file path
+				$d->file_path_file_c = $new_file_path; // Update the 'file' field with the new file path
+			}
+			if (file_exists($file_path_file_d)) {
+				$file_data = file_get_contents($file_path_file_d); // If $d->file contains base64 encoded data, you can directly use it here instead of file_get_contents
+
+				// Save the file to a directory in your server
+				$new_file_name = uniqid() . '_' . basename($file_path_file_d);
+				$new_file_path = 'uploads/question_image/' . $new_file_name;
+				file_put_contents($new_file_path, $file_data);
+
+				// Update $data array with the new file path
+				$d->file_path_file_d = $new_file_path; // Update the 'file' field with the new file path
+			}
+		}
+
+		/* added export by image end  */
+
 		foreach ($input as $d) {
 			$data[] = [
 				'question' => $d->question,

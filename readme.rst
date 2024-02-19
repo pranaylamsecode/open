@@ -155,3 +155,9 @@ CREATE TABLE IF NOT EXISTS `exam_quiz_details` (
 ALTER TABLE `quiz_enquiry` CHANGE `user_id` `student_id` INT NOT NULL AUTO_INCREMENT;
 
 //
+
+
+ALTER TABLE `quiz_questions` CHANGE `exam_type` `exam_type` ENUM('0','1') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '0';
+
+
+ALTER TABLE `exam_quiz_questions` CHANGE `exam_type` `exam_type` ENUM('0','1') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '0';
