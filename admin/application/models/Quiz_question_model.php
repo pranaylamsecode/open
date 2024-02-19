@@ -45,7 +45,6 @@ class Quiz_question_model extends CI_Model {
         $option_c = $_FILES['option_c']['name']  ? $_FILES['option_c']['name']  :  $_FILES['option_c_original']['name'];
         $option_d = $_FILES['option_d']['name']  ? $_FILES['option_d']['name']  :  $_FILES['option_d_original']['name'];
 
-        print_r($question_image);die;
 
 
         $page_data = array(
