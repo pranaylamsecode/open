@@ -39,11 +39,11 @@ class Quiz_question_model extends CI_Model {
    // The function below inserts into academic syllabus table //
     function updateQuestion($param2){
 
-        $question_image = $_FILES['question_image']['name']  ? $_FILES['question_image']['name']  :  $_FILES['question_image_original']['name'];
-        $option_a = $_FILES['option_a']['name']  ? $_FILES['option_a']['name']  :  $_FILES['option_a_original']['name'];
-        $option_b = $_FILES['option_b']['name']  ? $_FILES['option_b']['name']  :  $_FILES['option_b_original']['name'];
-        $option_c = $_FILES['option_c']['name']  ? $_FILES['option_c']['name']  :  $_FILES['option_c_original']['name'];
-        $option_d = $_FILES['option_d']['name']  ? $_FILES['option_d']['name']  :  $_FILES['option_d_original']['name'];
+        $question_image = $_FILES['question_image']['name']  ? $_FILES['question_image']['name']  : $this->input->post('question_image_original');
+        $option_a = $_FILES['option_a']['name']  ? $_FILES['option_a']['name']  : $this->input->post('option_a_original');
+        $option_b = $_FILES['option_b']['name']  ? $_FILES['option_b']['name']  : $this->input->post('option_b_original');
+        $option_c = $_FILES['option_c']['name']  ? $_FILES['option_c']['name']  : $this->input->post('option_c_original');
+        $option_d = $_FILES['option_d']['name']  ? $_FILES['option_d']['name']  : $this->input->post('option_d_original');
 
 
 
