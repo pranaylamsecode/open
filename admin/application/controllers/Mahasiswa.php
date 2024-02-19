@@ -100,6 +100,116 @@ class Mahasiswa extends CI_Controller
 			$sheetData = $spreadsheet->getActiveSheet()->toArray();
 			$data = [];
 			for ($i = 1; $i < count($sheetData); $i++) {
+				$file = '';
+				$file_a = '';
+				$file_b = '';
+				$file_c = '';
+				$file_d = '';
+
+				// Check if there's an image in the 'file' cell
+				if ($spreadsheet->getActiveSheet()->getDrawingCollection()[$i - 1] ?? null) {
+					// Extract the image data
+					$drawing = $spreadsheet->getActiveSheet()->getDrawingCollection()[$i - 1];
+					if ($drawing instanceof \PhpOffice\PhpSpreadsheet\Worksheet\MemoryDrawing) {
+						ob_start();
+						call_user_func($drawing->getRenderingFunction(), $drawing->getImageResource());
+						$imageData = base64_encode(ob_get_clean());
+						$file = $imageData; // Add image data to the row data
+					} elseif ($drawing instanceof \PhpOffice\PhpSpreadsheet\Worksheet\Drawing) {
+						$imagePath = $drawing->getPath();
+						$imageData = base64_encode(file_get_contents($imagePath));
+						$file = $imageData; // Add image data to the row data
+					}
+				}else{
+
+					$file = $sheetData[$i][6];
+
+
+				}
+
+
+				// Check if there's an image in the 'file_a' cell
+				if ($spreadsheet->getActiveSheet()->getDrawingCollection()[$i - 1] ?? null) {
+					// Extract the image data
+					$drawing = $spreadsheet->getActiveSheet()->getDrawingCollection()[$i - 1];
+					if ($drawing instanceof \PhpOffice\PhpSpreadsheet\Worksheet\MemoryDrawing) {
+						ob_start();
+						call_user_func($drawing->getRenderingFunction(), $drawing->getImageResource());
+						$imageData = base64_encode(ob_get_clean());
+						$file_a = $imageData; // Add image data to the row data
+					} elseif ($drawing instanceof \PhpOffice\PhpSpreadsheet\Worksheet\Drawing) {
+						$imagePath = $drawing->getPath();
+						$imageData = base64_encode(file_get_contents($imagePath));
+						$file_a = $imageData; // Add image data to the row data
+					}
+				}else{
+
+					$file_a = $sheetData[$i][7];
+
+
+				}
+				// Check if there's an image in the 'file_b' cell
+				if ($spreadsheet->getActiveSheet()->getDrawingCollection()[$i - 1] ?? null) {
+					// Extract the image data
+					$drawing = $spreadsheet->getActiveSheet()->getDrawingCollection()[$i - 1];
+					if ($drawing instanceof \PhpOffice\PhpSpreadsheet\Worksheet\MemoryDrawing) {
+						ob_start();
+						call_user_func($drawing->getRenderingFunction(), $drawing->getImageResource());
+						$imageData = base64_encode(ob_get_clean());
+						$file_b = $imageData; // Add image data to the row data
+					} elseif ($drawing instanceof \PhpOffice\PhpSpreadsheet\Worksheet\Drawing) {
+						$imagePath = $drawing->getPath();
+						$imageData = base64_encode(file_get_contents($imagePath));
+						$file_b = $imageData; // Add image data to the row data
+					}
+				}else{
+
+					$file_b = $sheetData[$i][8];
+
+
+				}
+
+				// Check if there's an image in the 'file_c' cell
+				if ($spreadsheet->getActiveSheet()->getDrawingCollection()[$i - 1] ?? null) {
+					// Extract the image data
+					$drawing = $spreadsheet->getActiveSheet()->getDrawingCollection()[$i - 1];
+					if ($drawing instanceof \PhpOffice\PhpSpreadsheet\Worksheet\MemoryDrawing) {
+						ob_start();
+						call_user_func($drawing->getRenderingFunction(), $drawing->getImageResource());
+						$imageData = base64_encode(ob_get_clean());
+						$file_c = $imageData; // Add image data to the row data
+					} elseif ($drawing instanceof \PhpOffice\PhpSpreadsheet\Worksheet\Drawing) {
+						$imagePath = $drawing->getPath();
+						$imageData = base64_encode(file_get_contents($imagePath));
+						$file_c = $imageData; // Add image data to the row data
+					}
+				}else{
+
+					$file_c = $sheetData[$i][9];
+
+
+				}
+
+				// Check if there's an image in the 'file_d' cell
+				if ($spreadsheet->getActiveSheet()->getDrawingCollection()[$i - 1] ?? null) {
+					// Extract the image data
+					$drawing = $spreadsheet->getActiveSheet()->getDrawingCollection()[$i - 1];
+					if ($drawing instanceof \PhpOffice\PhpSpreadsheet\Worksheet\MemoryDrawing) {
+						ob_start();
+						call_user_func($drawing->getRenderingFunction(), $drawing->getImageResource());
+						$imageData = base64_encode(ob_get_clean());
+						$file_d = $imageData; // Add image data to the row data
+					} elseif ($drawing instanceof \PhpOffice\PhpSpreadsheet\Worksheet\Drawing) {
+						$imagePath = $drawing->getPath();
+						$imageData = base64_encode(file_get_contents($imagePath));
+						$file_d = $imageData; // Add image data to the row data
+					}
+				}else{
+
+					$file_d = $sheetData[$i][10];
+
+
+				}
 				$data[] = [
 					'question' => $sheetData[$i][0],
 					'quiz_id' => $quiz_id,
@@ -108,15 +218,21 @@ class Mahasiswa extends CI_Controller
 					'option3' => $sheetData[$i][3],
 					'option4' => $sheetData[$i][4],
 					'answer' => $sheetData[$i][5],
-					'file' => $sheetData[$i][6],
-					'file_a' => $sheetData[$i][7],
-					'file_b' => $sheetData[$i][8],
-					'file_c' => $sheetData[$i][9],
-					'file_d' => $sheetData[$i][10],
+					'file' => $file,
+					'file_a' => $file_a,
+					'file_b' => $file_b,
+					'file_c' => $file_c,
+					'file_d' => $file_d,
 
 					/* 'exam_type' => $exam_type, */
 				];
+
+
+
+
 			}
+
+			print_r($data);die;
 
 
 
