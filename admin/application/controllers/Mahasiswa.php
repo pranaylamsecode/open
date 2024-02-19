@@ -416,7 +416,11 @@ class Mahasiswa extends CI_Controller
 
             // Save the image to the server
             $filePath = $uploadDirectory . $fileName;
-			if(!empty($binaryData))
+			// Check if the binary data is an image
+            $imageInfo = getimagesizefromstring($binaryData);
+
+
+			if(!empty($binaryData) &&  $imageInfo !== false)
 			{
 				write_file($filePath, $binaryData);
 				$new_file_name = $fileName;
@@ -451,8 +455,11 @@ class Mahasiswa extends CI_Controller
             // Save the image to the server
             $filePath_a = $uploadDirectory . $fileName_a;
 
+			$imageInfo_a = getimagesizefromstring($binaryData_a);
+
+
             // Write the file to the disk
-            if(!empty($binaryData_a))
+            if(!empty($binaryData_a) &&  $imageInfo_a !== false)
 			{
 				write_file($filePath_a, $binaryData_a);
 				$new_file_name_file_a = $fileName_a;
@@ -484,8 +491,11 @@ class Mahasiswa extends CI_Controller
             // Save the image to the server
             $filePath_b = $uploadDirectory . $fileName_b;
 
+			$imageInfo_b = getimagesizefromstring($binaryData_b);
+
+
             // Write the file to the disk
-            if(!empty($binaryData_b))
+            if(!empty($binaryData_b) &&  $imageInfo_b !== false)
 			{
 				write_file($filePath_b, $binaryData_b);
 				$new_file_name_file_b = $fileName_b;
@@ -516,8 +526,11 @@ class Mahasiswa extends CI_Controller
             // Save the image to the server
             $filePath_c = $uploadDirectory . $fileName_c;
 
+			$imageInfo_c = getimagesizefromstring($binaryData_c);
+
+
             // Write the file to the disk
-            if(!empty($binaryData_c))
+            if(!empty($binaryData_c) &&  $imageInfo_c !== false)
 			{
 				write_file($filePath_c, $binaryData_c);
 				$new_file_name_file_c = $fileName_c;
@@ -549,8 +562,11 @@ class Mahasiswa extends CI_Controller
             // Save the image to the server
             $filePath_d = $uploadDirectory . $fileName_d;
 
+			$imageInfo_d = getimagesizefromstring($binaryData_d);
+
+
             // Write the file to the disk
-            if(!empty($binaryData_d))
+            if(!empty($binaryData_d) &&  $imageInfo_d !== false)
 			{
 				write_file($filePath_d, $binaryData_d);
 				$new_file_name_file_d = $fileName_d;
