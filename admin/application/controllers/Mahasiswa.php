@@ -397,77 +397,156 @@ class Mahasiswa extends CI_Controller
 			$file_path_file_c = $d->file_c;
 			$file_path_file_d = $d->file_d;
 
-			print_r($file_path_file_a);die;
 
-			// Upload the image file
-			if (file_exists($file_path)) {
-				$file_data = file_get_contents($file_path); // If $d->file contains base64 encoded data, you can directly use it here instead of file_get_contents
+			/* file upload start  */
 
-				// Save the file to a directory in your server
-				$new_file_name = uniqid() . '_' . basename($file_path);
-				$new_file_path = 'uploads/question_image/' . $new_file_name;
-				file_put_contents($new_file_path, $file_data);
+			/* file_a upload  */
 
-				// Update $data array with the new file path
-				//$d->file = $new_file_path; // Update the 'file' field with the new file path
+			// Get the base64-encoded image data from the request
+            $fileData = $file_path; // Assuming 'file_a' contains the base64-encoded image data
+
+            // Decode the base64 data
+            $binaryData = base64_decode($fileData);
+
+            // Define the upload directory
+            $uploadDirectory = 'uploads/question_image/';
+
+            // Generate a unique filename
+            $fileName = uniqid() . '.jpg'; // Assuming the image is in JPEG format
+
+            // Save the image to the server
+            $filePath = $uploadDirectory . $fileName;
+			if(!empty($binaryData))
+			{
+				write_file($filePath, $binaryData);
+				$new_file_name = $fileName;
 			}else{
-				$new_file_name = $d->file;
+				/* $new_file_name = */
+			}
+            // Write the file to the disk
+
+			/* file_a upload end  */
+
+
+			/* file upload end  */
+
+			/* file_a upload  */
+
+			// Get the base64-encoded image data from the request
+            $fileData_a = $file_path_file_a; // Assuming 'file_a' contains the base64-encoded image data
+
+            // Decode the base64 data
+            $binaryData_a = base64_decode($fileData_a);
+
+            // Define the upload directory
+            $uploadDirectory = 'uploads/question_image/';
+
+            // Generate a unique filename
+            $fileName_a = uniqid() . '.jpg'; // Assuming the image is in JPEG format
+
+            // Save the image to the server
+            $filePath_a = $uploadDirectory . $fileName_a;
+
+            // Write the file to the disk
+            if(!empty($binaryData_a))
+			{
+				write_file($filePath_a, $binaryData_a);
+				$new_file_name_file_a = $fileName_a;
+			}else{
+
 
 			}
-			if (file_exists($file_path_file_a)) {
-				$file_data = file_get_contents($file_path_file_a); // If $d->file contains base64 encoded data, you can directly use it here instead of file_get_contents
+			/* file_a upload end  */
 
-				// Save the file to a directory in your server
-				$new_file_name_file_a = uniqid() . '_' . basename($file_path_file_a);
-				$new_file_path = 'uploads/question_image/' . $new_file_name_file_a;
-				file_put_contents($new_file_path, $file_data);
+						/* file_b upload  */
 
-				// Update $data array with the new file path
-				//$d->file_path_file_a = $new_file_name_file_a; // Update the 'file' field with the new file path
+			// Get the base64-encoded image data from the request
+            $fileData_b = $file_path_file_b; // Assuming 'file_a' contains the base64-encoded image data
+
+            // Decode the base64 data
+            $binaryData_b = base64_decode($fileData_b);
+
+            // Define the upload directory
+            $uploadDirectory = 'uploads/question_image/';
+
+            // Generate a unique filename
+            $fileName_b = uniqid() . '.jpg'; // Assuming the image is in JPEG format
+
+            // Save the image to the server
+            $filePath_b = $uploadDirectory . $fileName_b;
+
+            // Write the file to the disk
+            if(!empty($binaryData_b))
+			{
+				write_file($filePath_b, $binaryData_b);
+				$new_file_name_file_b = $fileName_b;
 			}else{
-				$new_file_name_file_a = $d->file_a;
+
+
 			}
-			if (file_exists($file_path_file_b)) {
-				$file_data = file_get_contents($file_path_file_b); // If $d->file contains base64 encoded data, you can directly use it here instead of file_get_contents
+			/* file_a upload end  */
 
-				// Save the file to a directory in your server
-				$new_file_name_file_b = uniqid() . '_' . basename($file_path_file_b);
-				$new_file_path = 'uploads/question_image/' . $new_file_name_file_b;
-				file_put_contents($new_file_path, $file_data);
+						/* file_c upload  */
 
-				// Update $data array with the new file path
-				//$d->file_path_file_b = $new_file_path; // Update the 'file' field with the new file path
+			// Get the base64-encoded image data from the request
+            $fileData_c = $file_path_file_c; // Assuming 'file_a' contains the base64-encoded image data
+
+            // Decode the base64 data
+            $binaryData_c = base64_decode($fileData_c);
+
+            // Define the upload directory
+            $uploadDirectory = 'uploads/question_image/';
+
+            // Generate a unique filename
+            $fileName_c = uniqid() . '.jpg'; // Assuming the image is in JPEG format
+
+            // Save the image to the server
+            $filePath_c = $uploadDirectory . $fileName_c;
+
+            // Write the file to the disk
+            if(!empty($binaryData_c))
+			{
+				write_file($filePath_c, $binaryData_c);
+				$new_file_name_file_c = $fileName_c;
+
 			}else{
-				$new_file_name_file_b = $d->file_b;
+
 			}
-			if (file_exists($file_path_file_c)) {
-				$file_data = file_get_contents($file_path_file_c); // If $d->file contains base64 encoded data, you can directly use it here instead of file_get_contents
+			/* file_c upload end  */
 
-				// Save the file to a directory in your server
-				$new_file_name_file_c = uniqid() . '_' . basename($file_path_file_c);
-				$new_file_path = 'uploads/question_image/' . $new_file_name_file_c;
-				file_put_contents($new_file_path, $file_data);
+						/* file_d upload  */
 
-				// Update $data array with the new file path
-				//$d->file_path_file_c = $new_file_path; // Update the 'file' field with the new file path
+			// Get the base64-encoded image data from the request
+            $fileData_d = $file_path_file_d; // Assuming 'file_a' contains the base64-encoded image data
+
+            // Decode the base64 data
+            $binaryData_d = base64_decode($fileData_d);
+
+            // Define the upload directory
+            $uploadDirectory = 'uploads/question_image/';
+
+            // Generate a unique filename
+            $fileName_d = uniqid() . '.jpg'; // Assuming the image is in JPEG format
+
+            // Save the image to the server
+            $filePath_d = $uploadDirectory . $fileName_d;
+
+            // Write the file to the disk
+            if(!empty($binaryData_d))
+			{
+				write_file($filePath_d, $binaryData_d);
+				$new_file_name_file_d = $fileName_d;
 			}else{
-				$new_file_name_file_c = $d->file_c;
+
+
+
+				$new_file_name_file_d = $fileName_d;
+
 			}
-			if (file_exists($file_path_file_d)) {
-				$file_data = file_get_contents($file_path_file_d); // If $d->file contains base64 encoded data, you can directly use it here instead of file_get_contents
+			/* file_a upload end  */
 
-				// Save the file to a directory in your server
-				$new_file_name_file_d = uniqid() . '_' . basename($file_path_file_d);
-				$new_file_path = 'uploads/question_image/' . $new_file_name_file_d;
-				file_put_contents($new_file_path, $file_data);
 
-				// Update $data array with the new file path
-				//$d->file_path_file_d = $new_file_path; // Update the 'file' field with the new file path
-			}else{
-				$new_file_name_file_d = $d->file_d;
-			}
 
-		/* added export by image end  */
 
 			$data[] = [
 				'question' => $d->question,
