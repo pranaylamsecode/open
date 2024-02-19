@@ -569,7 +569,7 @@ class Mahasiswa extends CI_Controller
 				'add_by_import' => '1'
 			];
 		}
-		print_r($data);die;
+
 		//$this->db->insert('quiz_questions' , $data);
 		//$this->User_model->insertRecord('quiz_questions', $data);
 		$save = $this->master->create('quiz_questions', $data, true);
