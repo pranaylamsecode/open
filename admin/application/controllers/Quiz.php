@@ -203,6 +203,8 @@ class Quiz extends CI_Controller {
 				 $_FILES['option_c']['tmp_name'] = $option_c['tmp_name'];
 				 $_FILES['option_c']['size'] = $option_c['size'];
 
+                 
+
 
 				 $_FILES['option_d']['name'] = $option_d['name'];
 				 $_FILES['option_d']['type'] = $option_d['type'];
