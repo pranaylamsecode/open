@@ -161,3 +161,11 @@ ALTER TABLE `quiz_questions` CHANGE `exam_type` `exam_type` ENUM('0','1') CHARAC
 
 
 ALTER TABLE `exam_quiz_questions` CHANGE `exam_type` `exam_type` ENUM('0','1') CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT '0';
+
+
+///
+
+ALTER TABLE `quiz_questions` ADD `file_status` INT NULL AFTER `file_d`, ADD `file_a_status` INT NULL AFTER `file_status`, ADD `file_b_status` INT NULL AFTER `file_a_status`, ADD `file_c_status` INT NULL AFTER `file_b_status`, ADD `file_d_status` INT NULL AFTER `file_c_status`;
+
+//
+ALTER TABLE `exam_quiz_questions` ADD `file_status` INT NULL AFTER `file_d`, ADD `file_a_status` INT NULL AFTER `file_status`, ADD `file_b_status` INT NULL AFTER `file_a_status`, ADD `file_c_status` INT NULL AFTER `file_b_status`, ADD `file_d_status` INT NULL AFTER `file_c_status`;

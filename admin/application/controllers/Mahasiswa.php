@@ -420,7 +420,10 @@ class Mahasiswa extends CI_Controller
 			{
 				write_file($filePath, $binaryData);
 				$new_file_name = $fileName;
+				$new_file_name_status = 1;
 			}else{
+
+				$new_file_name_status = 0;
 
 				$new_file_name = $d->file;
 			}
@@ -453,8 +456,12 @@ class Mahasiswa extends CI_Controller
 			{
 				write_file($filePath_a, $binaryData_a);
 				$new_file_name_file_a = $fileName_a;
+				$new_file_name_file_a_status = 1;
 			}else{
 				$new_file_name_file_a = $d->file_a;
+
+
+				$new_file_name_file_a_status = 0;
 
 
 			}
@@ -482,7 +489,11 @@ class Mahasiswa extends CI_Controller
 			{
 				write_file($filePath_b, $binaryData_b);
 				$new_file_name_file_b = $fileName_b;
+				$new_file_name_file_b_status = 1;
 			}else{
+
+
+				$new_file_name_file_b_status = 0;
 
 				$new_file_name_file_b = $d->file_b;
 			}
@@ -510,9 +521,13 @@ class Mahasiswa extends CI_Controller
 			{
 				write_file($filePath_c, $binaryData_c);
 				$new_file_name_file_c = $fileName_c;
+				$new_file_name_file_c_status = 1;
 
 			}else{
 				$new_file_name_file_c = $d->file_c;
+
+
+				$new_file_name_file_c_status = 0;
 
 			}
 			/* file_c upload end  */
@@ -539,9 +554,10 @@ class Mahasiswa extends CI_Controller
 			{
 				write_file($filePath_d, $binaryData_d);
 				$new_file_name_file_d = $fileName_d;
+				$new_file_name_file_d_status = 1;
 			}else{
 
-
+				$new_file_name_file_d_status = 0;
 
 				$new_file_name_file_d = $d->file_d;
 
@@ -566,6 +582,13 @@ class Mahasiswa extends CI_Controller
 				'file_b' => $new_file_name_file_b,
 				'file_c' => $new_file_name_file_c,
 				'file_d' => $new_file_name_file_d,
+
+				'file_status' => $new_file_name_status,
+				'file_a_status' => $new_file_name_file_a_status,
+				'file_b_status' => $new_file_name_file_b_status,
+				'file_c_status' => $new_file_name_file_c_status,
+				'file_d_status' => $new_file_name_file_d_status,
+
 				'add_by_import' => '1'
 			];
 		}
