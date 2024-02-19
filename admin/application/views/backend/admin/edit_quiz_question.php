@@ -1,3 +1,11 @@
+<style>
+.panel-images img {
+    height: 180px !important;
+    object-fit: contain !important;
+   padding: 10px 0px !important;
+   width: 100%;
+}
+</style>
 <?php $questions = $this->db->get_where('quiz_questions', array('id' => $id))->result_array();
 
 
@@ -8,7 +16,7 @@
 		?>
 <div class="row">
     <div class="col-sm-10">
-        <div class="panel panel-info">
+        <div class="panel panel-info panel-images">
             <div class="panel-heading"> <i class="fa fa-plus"></i>&nbsp;&nbsp;<?php echo get_phrase('Edit Quiz Question'); ?>
             </div>
 
