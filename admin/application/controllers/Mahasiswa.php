@@ -103,15 +103,13 @@ class Mahasiswa extends CI_Controller
 
 			/* foreach ($sheetData as $key => $value) { */
 
-				for($key = 0 ; $key < 10; $key++)
+				for($key = 1 ; $key < 6; $key++)
 				{
 
 
 
-
-
 				$worksheet = $spreadsheet->getActiveSheet();
-				$drawing = $worksheet->getDrawingCollection()[$key + 1];
+				$drawing = $worksheet->getDrawingCollection()[$key - 1];
 				/* $drawing2 = $worksheet->getDrawingCollection()[$key - 2]; */
 				/* $drawing2 = $worksheet->getDrawingCollection()[7]; */
 
@@ -152,6 +150,10 @@ class Mahasiswa extends CI_Controller
 				/* echo '<td><img  height="150px" width="150px"   src="data:image/jpeg;base64,' . base64_encode($imageContents2) . '"/></td>'; */
 				echo '</tr>';
 				echo "<br/>";
+
+
+
+
 			}
 			die;
 			for ($i = 1; $i < count($sheetData); $i++) {
