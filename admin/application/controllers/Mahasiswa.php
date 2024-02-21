@@ -99,6 +99,61 @@ class Mahasiswa extends CI_Controller
 			$spreadsheet = $reader->load($file);
 			$sheetData = $spreadsheet->getActiveSheet()->toArray();
 			$data = [];
+
+
+			/* foreach ($sheetData as $key => $value) { */
+
+				for($key = 0 ; $key < 10; $key++)
+				{
+
+
+
+
+
+				$worksheet = $spreadsheet->getActiveSheet();
+				$drawing = $worksheet->getDrawingCollection()[$key + 1];
+				/* $drawing2 = $worksheet->getDrawingCollection()[$key - 2]; */
+				/* $drawing2 = $worksheet->getDrawingCollection()[7]; */
+
+
+				if(!empty($drawing))
+				{
+					$zipReader = fopen($drawing->getPath(), 'r');
+				$file = '';
+				while (!feof($zipReader)) {
+					$file .= fread($zipReader, 1024);
+				}
+				fclose($zipReader);
+				$extension = $drawing->getExtension();
+				}else{
+					$file = '';
+				}
+
+				/* if(!empty($drawing2))
+				{
+					$zipReader = fopen($drawing2->getPath(), 'r');
+				$file_a = '';
+				while (!feof($zipReader)) {
+					$file_a .= fread($zipReader, 1024);
+				}
+				fclose($zipReader);
+				$extension = $drawing2->getExtension();
+				}else{
+					$file_a = '';
+				} */
+
+
+				echo '<tr align="center">';
+				echo '<td>' . $key . '</td>';
+				/* echo '<td>' . $value[0] . '</td>';
+				echo '<td>' . $value[6] . '</td>'; */
+				echo '<td><img  height="150px" width="150px"   src="data:image/jpeg;base64,' . base64_encode($file) . '"/></td>';
+				/* echo '<td><img  height="150px" width="150px"   src="data:image/jpeg;base64,' . base64_encode($file_a) . '"/></td>'; */
+				/* echo '<td><img  height="150px" width="150px"   src="data:image/jpeg;base64,' . base64_encode($imageContents2) . '"/></td>'; */
+				echo '</tr>';
+				echo "<br/>";
+			}
+			die;
 			for ($i = 1; $i < count($sheetData); $i++) {
 				$file = '';
 				$file_a = '';
